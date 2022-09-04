@@ -1,16 +1,82 @@
-# Vue 3 + TypeScript + Vite
+## vue3版本。。
+## 如果这个项目对您有帮助，麻烦给个star，谢谢！
+## 简介
+基于vue+ElementUI的表单设计器。让表单拖拽更加简单方便,
+![Image text](https://gitee.com/wurong19870715/formDesigner/raw/master/public/img/designer.png)
+![Image text](https://gitee.com/wurong19870715/formDesigner/raw/master/public/img/preview.png)
+![Image text](https://gitee.com/wurong19870715/formDesigner/raw/master/public/img/edit-form.png)
+![Image text](https://gitee.com/wurong19870715/formDesigner/raw/master/public/img/config-json.png)
+![Image text](https://gitee.com/wurong19870715/formDesigner/raw/master/public/img/val-json.png)
+![Image text](https://gitee.com/wurong19870715/formDesigner/raw/master/public/img/dialogList.png)
+![dunamic_table](https://gitee.com/wurong19870715/formDesigner/raw/master/public/img/dynamic_table.png)
+![table_view](https://gitee.com/wurong19870715/formDesigner/raw/master/public/img/tableview.png)
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# gitee地址
+[formDesigner2-github](https://github.com/wison-wu/formDesigner)
 
-## Recommended IDE Setup
+# 友情链接
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+May大佬作品<br/>
+[RuoYi-Vue-Plus-Activiti](https://gitee.com/sgs98/RuoYi-Vue-Plus-Activiti)
 
-## Type Support For `.vue` Imports in TS
+# 开发日志
+- 2020-12-15: 增加button组件
+- 2020-12-25: 增加分割线组件
+- 2020-12-28: 增加Alert 警告组件
+- 2021-01-01: 增加文本组件
+- 2021-01-01: 增加html组件
+- 2021-01-01: 增加编辑器
+- 2021-01-07: 增加json查看
+- 2021-01-09: 增加icon选择组件，增加button选择按钮的支持
+- 2021-01-12: 增加编辑器字数限制的校验、增加input输入框前后图标的配置
+- 2021-01-18: 增加form-builder组件，增加渲染，查看配置统一界面，查看渲染界面
+- 2021-02-01: 增加颜色选择器
+- 2021-02-08: 增加级联选择器（包含省市区联动）
+- 2021-02-14: 增加附件组件
+- 2021-03-23: 增加dialogList,支持更多信息展示的列表
+- 2021-06-28: 更新文本组件，增加字体颜色，字体大小，居中布局
+- 2021-07-11: 增加自定义验证功能,增加时间范围。
+- 2021-08-29: 增加动态表格。
+- 2020-06-01: 增加表格组件。
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+## 后期规划
+- 简单的数据联动
+- vue3.0版本筹备
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+## 文档
+[hello world](https://my.oschina.net/wison/blog/5276173)
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+[项目结构](https://my.oschina.net/wison/blog/5276165)
+
+[如何将formDesigner集成到自己的项目中](https://my.oschina.net/wison/blog/5540167)
+
+[如何扩展一个自定义组件](https://my.oschina.net/wison/blog/5276172)
+
+[关于formDesigner的那些个问题](https://my.oschina.net/wison/blog/5551474)
+
+## 交流一下
+
+QQ群：816204482
+
+## 预览地址
+[formdesigner](http://wurong19870715.gitee.io/formdesigner)
+
+
+
+
+## 捐赠
+如果你觉得项目对你有帮助，欢迎赞助作者一杯咖啡/奶茶/快乐水
+微信
+
+![Image text](https://gitee.com/wurong19870715/formDesigner/raw/master/public/img/weixin.png )
+
+支付宝
+
+![Image text](https://gitee.com/wurong19870715/formDesigner/raw/master/public/img/zhifubao.png)
+
+
+
+## 开源协议
+[MIT]
+
+
