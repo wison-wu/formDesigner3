@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import designer from '@/components/formDesigner.vue'
 
 const routerHistory = createWebHistory()
 
@@ -7,11 +8,8 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            component: () => import('@/pages/page1.vue')
-        },
-        {
-            path: '/page2',
-            component: () => import('../pages/page2.vue')
+            name: 'designer',
+            component: designer
         }
     ]
 })
