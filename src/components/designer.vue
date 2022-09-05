@@ -104,7 +104,7 @@ export default {
       })
     },
     help(){
-      window.open('https://gitee.com/wurong19870715/formDesigner')
+      window.open('https://gitee.com/wurong19870715/formDesigner3')
     },
     handlerActiveItemChange(obj){
       this.lastActiveItem = this.activeItem;
