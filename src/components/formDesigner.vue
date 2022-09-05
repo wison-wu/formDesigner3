@@ -15,5 +15,15 @@
         </div>
       </el-scrollbar>
     </div>
+    <designer ref="designer" />
   </div>
 </template>
+<script>
+import designer from "./designer.vue";
+export default {
+  name:"formDesigner",
+  components:{
+    designer
+  },
+}
+</script>

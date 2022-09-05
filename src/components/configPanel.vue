@@ -6,9 +6,9 @@
     <div class="field-box">
       <el-scrollbar class="right-scrollbar">
         <el-form size="small" label-width="100px" >
-          <div v-for="(item,index) in cmps" :key="index">
+          <!-- <div v-for="(item,index) in cmps" :key="index">
             <component v-if="item.name === activeItem.compType" :getFormId="getFormId" :props="activeItem" :is="item.content"></component>
-          </div>
+          </div> -->
         </el-form>
       </el-scrollbar>
     </div>
@@ -42,9 +42,9 @@ export default {
     }
   },
   created() {
-    this.cmps.forEach(c => {
-      c.content = require(`./custom/configs/${c.name}`).default;
-    });
+    // this.cmps.forEach(c => {
+    //   c.content = require(`./custom/configs/${c.name}`).default;
+    // });
   },
   methods:{
     getFormId(itemId){
@@ -70,7 +70,7 @@ export default {
 }
 </script>
 <style scoped>
-.field-box >>> .el-scrollbar__wrap{
-  overflow-x: hidden;
+.field-box  :deep(.el-scrollbar__wrap) {
+  margin-left:0px;
 }
 </style>
