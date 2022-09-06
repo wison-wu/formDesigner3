@@ -6,7 +6,7 @@ const formConf = {
   formRef: 'elForm',
   formModel: 'form',
   rules: 'rules',
-  size: 'medium',
+  size: 'default',
   labelPosition: 'right',
   labelWidth: 80,
   formRules: 'rules',

@@ -12,36 +12,69 @@
           <div class="components-title">
             常用组件
           </div>
-          <div
-              v-for="(element, index) in formItems" :key="index" class="components-item"
-              @click="addComponent(element)"
-            >
+          <draggable
+            class="components-draggable"
+            :list="formItems"
+            :group="{ name: 'componentsGroup', pull: 'clone', put: false }"
+            :clone="cloneComponent"
+            draggable=".components-item"
+            :sort="false"
+            item-key="index"
+            @start="onStart"
+            @end="onEnd"
+          >
+          <template #item="{ element }">
+            <div class="components-item" @click="addComponent(element)" >
               <div class="components-body" :class="{ 'dynamicTable-tips': dynamicTableExist(element)}">
                 <icon :code="element.compIcon" :text="element.compName"/>
               </div>
             </div>
-            <div class="components-title">
+          </template>
+          </draggable>
+          <div class="components-title">
             布局组件
           </div>
-            <div
-              v-for="(element, index) in layoutFormItems" :key="index" class="components-item"
-              @click="addComponent(element)"
-            >
-              <div class="components-body">
-                <icon :code="element.compIcon" :text="element.compName"/>
+          <draggable
+            class="components-draggable"
+            :list="layoutFormItems"
+            :group="{ name: 'componentsGroup', pull: 'clone', put: false }"
+            :clone="cloneComponent"
+            draggable=".components-item"
+            :sort="false"
+            item-key="index"
+            @start="onStart"
+            @end="onEnd"
+          >
+            <template #item="{ element }">
+              <div class="components-item" @click="addComponent(element)">
+                <div class="components-body">
+                  <icon :code="element.compIcon" :text="element.compName"/>
+                </div>
               </div>
-            </div>
-            <div class="components-title">
+            </template>
+          </draggable>
+          <div class="components-title">
             辅助组件
           </div>
-            <div
-              v-for="(element, index) in assistFormItems" :key="index" class="components-item"
-              @click="addComponent(element)"
-            >
+          <draggable
+            class="components-draggable"
+            :list="assistFormItems"
+            :group="{ name: 'componentsGroup', pull: 'clone', put: false }"
+            :clone="cloneComponent"
+            draggable=".components-item"
+            :sort="false"
+            item-key="index"
+            @start="onStart"
+            @end="onEnd"
+          >
+          <template #item="{ element }">
+            <div class="components-item" @click="addComponent(element)">
               <div class="components-body">
                 <icon :code="element.compIcon" :text="element.compName"/>
               </div>
             </div>
+          </template>
+          </draggable>
         </div>
       </el-scrollbar>
     </div>
@@ -49,15 +82,19 @@
   </div>
 </template>
 <script>
+import draggable from "vuedraggable";
 import designer from "./designer.vue";
 import icon from "./icon.vue";
+import {getSimpleId} from "./utils/IdGenerate";
 import {formItems,assistFormItems,layoutFormItems} from "./custom/itemList";
 import formConf from "./custom/formConf";
+let tempActiveData;
 export default {
   name:"formDesigner",
   components:{
     designer,
-    icon
+    icon,
+    draggable
   },
   data() {
     return {

@@ -23,12 +23,42 @@
     </div>
     <el-scrollbar class="center-scrollbar">
       <el-row class="center-board-row" :gutter="formConf.gutter">
+        <el-form
+          :size="formConf.size"
+          :label-position="formConf.labelPosition"
+          :disabled="formConf.disabled"
+          :label-width="formConf.labelWidth + 'px'"
+        >
+          <draggable class="drawing-board" 
+                    :list="list" 
+                    :animation="100" 
+                    group="componentsGroup" 
+                    draggable=".drawing-item"
+                    item-key="index"
+                    >
+                    <template #item="{ element }">
+                      <design-item 
+                        :model="element" 
+                        :activeItem="activeItem"
+                        @rowItemRollBack="handlerRollBack"
+                        @onActiveItemChange="handlerActiveItemChange"
+                        @copyItem="handlerItemCopy"
+                        @deleteItem="handlerItemDelete"/>
+                      </template>
+          </draggable>
+                    
+          <div v-show="infoShow" class="empty-info">
+            <el-empty description="从左侧拖拽添加控件"></el-empty>
+          </div>
+          
+        </el-form>
       </el-row>
     </el-scrollbar>
     <config-panel :activeItem="activeItem" :itemList="list"/>
   </div>
 </template>
 <script>
+import draggable from "vuedraggable";
 import configPanel from "./configPanel.vue";
 import {getSimpleId} from "./utils/IdGenerate";
 import { isLayout, isTable, inTable,jsonClone } from "./utils/index";
@@ -37,7 +67,8 @@ import formConf from "./custom/formConf";
 export default {
   name:"designer",
   components:{
-    configPanel
+    configPanel,
+    draggable
   },
   props:{
     list: { 
@@ -250,6 +281,10 @@ export default {
 }
 .el-rate{
   display:inline-block;
+}
+
+.el-form{
+  width:100%;
 }
 
 .center-scrollbar :deep(.el-scrollbar__bar.is-horizontal) {
