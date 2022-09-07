@@ -2,22 +2,22 @@
   <!--中间面板-->
   <div class="center-board" >
     <div class="action-bar">
-      <el-button icon="el-icon-view" link @click="preview">
+      <el-button :icon="View" link @click="preview">
         预览
       </el-button>
-      <el-button icon="el-icon-view" link @click="view">
+      <el-button :icon="View" link @click="view">
         查看
       </el-button>
-      <el-button icon="el-icon-tickets" link @click="viewJSON">
+      <el-button :icon="Tickets" link @click="viewJSON">
         JSON
       </el-button>
-      <el-button icon="el-icon-s-tools" link @click="setting">
+      <el-button :icon="Tools" link @click="setting">
         设置
       </el-button>
-      <el-button class="delete-btn" icon="el-icon-delete-solid" link @click="clear">
+      <el-button class="delete-btn" :icon="Delete" link @click="clear">
         清空
       </el-button>
-      <el-button icon="el-icon-question" link @click="help">
+      <el-button :icon="Help" link @click="help">
         帮助
       </el-button>
     </div>
@@ -58,6 +58,9 @@
   </div>
 </template>
 <script>
+import {
+  View,Tickets,Tools,Delete,Help
+} from '@element-plus/icons-vue';
 import draggable from "vuedraggable";
 import configPanel from "./configPanel.vue";
 import {getSimpleId} from "./utils/IdGenerate";
@@ -87,6 +90,7 @@ export default {
   },
   data() {
     return {
+      View,Tickets,Tools,Delete,Help,
       formConf:formConf,
       activeItem:{},
       lastActiveItem:{},
