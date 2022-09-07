@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import path from 'path';
 const resolve = (dir: string) => path.join(__dirname, dir)
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(),vueJsx()],
   resolve: {
     alias: {
       '@': resolve('src'),
@@ -14,7 +15,8 @@ export default defineConfig({
       utils: resolve('src/utils'),
       routes: resolve('src/routes'),
       styles: resolve('src/styles')
-    }
+    },
+    extensions: ['.vue', '.ts', '.tsx', '.js', '.jsx']
   },
   server: {
     //服务器主机名

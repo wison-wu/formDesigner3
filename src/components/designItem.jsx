@@ -1,4 +1,4 @@
-<script>
+
 import draggable from 'vuedraggable'
 import render from './custom/render'
 import {getSimpleId} from "./utils/IdGenerate";
@@ -252,4 +252,3 @@ export default {
     }
   }
 }
-</script>

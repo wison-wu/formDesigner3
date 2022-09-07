@@ -78,7 +78,7 @@
         </div>
       </el-scrollbar>
     </div>
-    <designer ref="designer" />
+    <designer ref="designer" :list="designList" :formConfig="formConfig" @clear="designList = []" @updateJSON="handlerUpdateJSON" :activeData="activeData"/>
   </div>
 </template>
 <script>

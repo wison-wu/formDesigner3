@@ -55,13 +55,7 @@
                     item-key="index"
                     >
                     <template #item="{ element }">
-                      <design-item 
-                        :model="element" 
-                        :activeItem="activeItem"
-                        @rowItemRollBack="handlerRollBack"
-                        @onActiveItemChange="handlerActiveItemChange"
-                        @copyItem="handlerItemCopy"
-                        @deleteItem="handlerItemDelete"/>
+                      <designItem/>
                       </template>
           </draggable>
                     
@@ -81,6 +75,7 @@ import {
 } from '@element-plus/icons-vue';
 import draggable from "vuedraggable";
 import configPanel from "./configPanel.vue";
+import {MyButton as designItem} from './designItem.jsx';
 import {getSimpleId} from "./utils/IdGenerate";
 import { isLayout, isTable, inTable,jsonClone } from "./utils/index";
 import formConf from "./custom/formConf";
@@ -89,6 +84,7 @@ export default {
   name:"designer",
   components:{
     configPanel,
+    designItem,
     draggable,
     View,
     Tickets,

@@ -6,6 +6,8 @@
     "moduleResolution": "Node",
     "strict": true,
     "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
     "sourceMap": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -13,6 +15,6 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/main.js"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/main.js", "src/components/designItem.jsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
