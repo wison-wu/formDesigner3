@@ -1,18 +1,14 @@
-
+import { defineComponent } from "vue";
 import draggable from 'vuedraggable'
 import render from './custom/render'
 import {getSimpleId} from "./utils/IdGenerate";
 import {dynamicTableAllowedItems,tableAllowedItems} from "./custom/formConf";
-import dynamicTable from './dynamic/dynamicTable'
-import dynamicTableItem from './dynamic/dynamicTableItem'
-import fancyTable from './table/fancyTable'
-import fancyTableItem from './table/fancyTableItem'
 /**
  * 动态表单允许增加的组件列表
  */
 const components = {
   itemBtns(h, element,parent) {
-    const {copyItem,deleteItem} = this.$listeners;
+    const {copyItem,deleteItem} = this.$attrs;
     return [
       <span class="drawing-item-copy" title="复制" onClick={event => {
         copyItem(element,parent); event.stopPropagation();
@@ -31,7 +27,7 @@ const layouts = {
   colItem(h, element,parent) {
     let className = this.activeItem.id === element.id ? 'drawing-item active-from-item' : 'drawing-item'
     let labelWidth = element.labelWidth ? `${element.labelWidth}px` : null
-    const {onActiveItemChange} = this.$listeners;
+    const {onActiveItemChange} = this.$attrs;
     return (
         <el-col class={className} span={element.span} nativeOnClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
           <span class="component-name component-id">{element.id}</span>
@@ -49,7 +45,7 @@ const layouts = {
     )
   },
   rowItem(h, element){
-    const { onActiveItemChange } = this.$listeners
+    const { onActiveItemChange } = this.$attrs;
     const className = this.activeItem.id === element.id ? 'drawing-item drawing-row-item active-from-item' : 'drawing-item drawing-row-item'    
     return (
         <el-col class={className} >
@@ -82,7 +78,7 @@ const layouts = {
   tableItem(h, element){
     let className = "";
     className = this.activeItem.id === element.id ? 'drawing-item drawing-row-item active-from-item' : 'drawing-item drawing-row-item'
-    const {onActiveItemChange} = this.$listeners;
+    const {onActiveItemChange} = this.$attrs;
     return (
       <el-col class={className} nativeOnClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
         <span class="component-name" style="margin-bottom:15px">{element.id}</span>
@@ -116,7 +112,7 @@ const layouts = {
   dynamicItem(h,element){
     let className = "";
     className = this.activeItem.id === element.id ? className+'drawing-item active-from-item' : className+'drawing-item'
-    const {onActiveItemChange} = this.$listeners;
+    const {onActiveItemChange} = this.$attrs;
     return (
         <el-col  class={className} >
           <dynamic-table conf={element} activeItem={this.activeItem} nativeOnClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
@@ -153,19 +149,14 @@ function renderChildren(h, element,parent) {
   }
   return layoutIsNotFound.call(this)
 }
-
 function layoutIsNotFound() {
   throw new Error(`没有与${this.element.layout}匹配的layout`)
 }
-export default {
-  name:"designItem",
+export default defineComponent({
+  name: "designItem",
   components: {
     render,
-    draggable,
-    dynamicTable,
-    dynamicTableItem,
-    fancyTable,
-    fancyTableItem
+    draggable
   },
   props: {
     model: { 
@@ -251,4 +242,4 @@ export default {
       element.columns.splice(index,1);
     }
   }
-}
+});

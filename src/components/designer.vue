@@ -55,7 +55,15 @@
                     item-key="index"
                     >
                     <template #item="{ element }">
-                      <designItem/>
+                      <design-item 
+                        v-for="(element,index) in list" 
+                        :key="index" 
+                        :model="element" 
+                        :activeItem="activeItem"
+                        @rowItemRollBack="handlerRollBack"
+                        @onActiveItemChange="handlerActiveItemChange"
+                        @copyItem="handlerItemCopy"
+                        @deleteItem="handlerItemDelete"/>
                       </template>
           </draggable>
                     
@@ -75,7 +83,7 @@ import {
 } from '@element-plus/icons-vue';
 import draggable from "vuedraggable";
 import configPanel from "./configPanel.vue";
-import {MyButton as designItem} from './designItem.jsx';
+import designItem from './designItem.jsx';
 import {getSimpleId} from "./utils/IdGenerate";
 import { isLayout, isTable, inTable,jsonClone } from "./utils/index";
 import formConf from "./custom/formConf";
