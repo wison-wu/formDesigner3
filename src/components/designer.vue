@@ -3,21 +3,39 @@
   <div class="center-board" >
     <div class="action-bar">
       <el-button :icon="View" link @click="preview">
+        <el-icon>
+          <View />
+        </el-icon>
         预览
       </el-button>
-      <el-button :icon="View" link @click="view">
+      <el-button icon="el-icon-view" link @click="view">
+        <el-icon>
+          <View />
+        </el-icon>
         查看
       </el-button>
-      <el-button :icon="Tickets" link @click="viewJSON">
+      <el-button icon="el-icon-tickets" link @click="viewJSON">
+        <el-icon>
+          <Tickets />
+        </el-icon>
         JSON
       </el-button>
-      <el-button :icon="Tools" link @click="setting">
+      <el-button icon="el-icon-s-tools" link @click="setting">
+        <el-icon>
+          <Tools />
+        </el-icon>
         设置
       </el-button>
-      <el-button class="delete-btn" :icon="Delete" link @click="clear">
+      <el-button class="delete-btn" icon="el-icon-delete-solid" link @click="clear">
+        <el-icon>
+          <Delete />
+        </el-icon>
         清空
       </el-button>
-      <el-button :icon="Help" link @click="help">
+      <el-button icon="el-icon-question" link @click="help">
+        <el-icon>
+          <Help />
+        </el-icon>
         帮助
       </el-button>
     </div>
@@ -71,7 +89,12 @@ export default {
   name:"designer",
   components:{
     configPanel,
-    draggable
+    draggable,
+    View,
+    Tickets,
+    Tools,
+    Delete,
+    Help
   },
   props:{
     list: { 
@@ -90,7 +113,6 @@ export default {
   },
   data() {
     return {
-      View,Tickets,Tools,Delete,Help,
       formConf:formConf,
       activeItem:{},
       lastActiveItem:{},
@@ -315,5 +337,8 @@ export default {
 
 .drawing-board  :deep(.el-checkbox.is-bordered+.el-checkbox.is-bordered) {
   margin-left:0px;
+}
+.el-button+.el-button{
+  margin-left: 0px;
 }
 </style>
