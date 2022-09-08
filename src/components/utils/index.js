@@ -136,12 +136,3 @@ export const isAttr = makeMap(
   + 'spellcheck,src,srcdoc,srclang,srcset,start,step,style,summary,tabindex,'
   + 'target,title,type,usemap,value,width,wrap'
 )
-
-
-import { ElInput } from "element-plus";
-
-export function compMap(){
-  const compMap = new Map();
-  compMap.set("el-input",ElInput);
-  return compMap;
-}

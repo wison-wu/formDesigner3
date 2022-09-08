@@ -42,10 +42,7 @@ const layouts = {
             
             <render key={element.id} conf={element} onInput={ event => {
               element.value=event;
-              console.log(element.value);
-                //this.$set(element, 'value', event)
-              }}
-            />
+            }}/>
           </el-form-item>
           {components.itemBtns.apply(this, arguments)}
         </el-col>

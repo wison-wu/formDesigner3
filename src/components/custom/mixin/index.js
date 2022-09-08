@@ -28,3 +28,40 @@ export const changeId = {
         }
     }
 }
+
+import {
+    ElInput,
+    ElInputNumber,
+    ElSelect,
+    ElCheckbox,
+    ElSwitch,
+    ElSlider,
+    ElRate,
+    ElDatePicker,
+    ElTimePicker,
+    ElColorPicker,
+    ElCascader,
+    ElUpload,
+    ElRadioGroup
+}  from "element-plus";
+export const renderComp = {
+    methods:{
+        getRenderComps(){
+            const compMap = new Map();
+            compMap.set("el-input",ElInput);
+            compMap.set("el-input-number",ElInputNumber);
+            compMap.set("el-select",ElSelect);
+            compMap.set("el-checkbox",ElCheckbox);
+            compMap.set("el-radio-group",ElRadioGroup);
+            compMap.set("el-switch",ElSwitch);
+            compMap.set("el-slider",ElSlider);
+            compMap.set("el-rate",ElRate);
+            compMap.set("el-date-picker",ElDatePicker);
+            compMap.set("el-time-picker",ElTimePicker);
+            compMap.set("el-color-picker",ElColorPicker);
+            compMap.set("el-cascader",ElCascader);
+            compMap.set("el-upload",ElUpload);
+            return compMap;
+        }
+    }
+}

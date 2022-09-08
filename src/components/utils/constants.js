@@ -3,5 +3,6 @@
  */
 export default {
     defaultTdBackgroundColor:'#FFFFFF',
-    defaultTitleTdBackgroundColor:'#F6F6F6'
+    defaultTitleTdBackgroundColor:'#F6F6F6',
+    githubLink:""
 }
