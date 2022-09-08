@@ -3,6 +3,7 @@ import draggable from 'vuedraggable'
 import render from './custom/render'
 import {getSimpleId} from "./utils/IdGenerate";
 import {dynamicTableAllowedItems,tableAllowedItems} from "./custom/formConf";
+import {CopyDocument,Delete} from '@element-plus/icons-vue';
 /**
  * 动态表单允许增加的组件列表
  */
@@ -13,12 +14,16 @@ const components = {
       <span class="drawing-item-copy" title="复制" onClick={event => {
         copyItem(element,parent); event.stopPropagation();
       }}>
-        <i class="el-icon-copy-document" />
+        <el-icon>
+          <CopyDocument />
+        </el-icon>
       </span>,
       <span class="drawing-item-delete" title="删除" onClick={event => {
         deleteItem(element,parent); event.stopPropagation();
       }}>
-        <i class="el-icon-delete" />
+        <el-icon>
+          <Delete />
+        </el-icon>
       </span>
     ]
   }
@@ -36,7 +41,9 @@ const layouts = {
                         required={element.required} >
             
             <render key={element.id} conf={element} onInput={ event => {
-                this.$set(element, 'value', event)
+              element.value=event;
+              console.log(element.value);
+                //this.$set(element, 'value', event)
               }}
             />
           </el-form-item>
@@ -156,7 +163,9 @@ export default defineComponent({
   name: "designItem",
   components: {
     render,
-    draggable
+    draggable,
+    CopyDocument,
+    Delete
   },
   props: {
     model: { 

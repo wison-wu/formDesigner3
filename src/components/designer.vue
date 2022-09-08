@@ -78,9 +78,6 @@
   </div>
 </template>
 <script>
-import {
-  View,Tickets,Tools,Delete,Help
-} from '@element-plus/icons-vue';
 import draggable from "vuedraggable";
 import configPanel from "./configPanel.vue";
 import designItem from './designItem.jsx';
@@ -93,12 +90,7 @@ export default {
   components:{
     configPanel,
     designItem,
-    draggable,
-    View,
-    Tickets,
-    Tools,
-    Delete,
-    Help
+    draggable
   },
   props:{
     list: { 
