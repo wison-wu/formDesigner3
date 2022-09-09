@@ -121,9 +121,6 @@ export default {
 </script>
 
 <style scoped>
-/* .box-card >>> .el-tabs__header{
-  margin: 0px 0px 0px 0px;
-} */
 
 .box-card{
   width:60%;

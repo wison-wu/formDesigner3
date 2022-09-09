@@ -244,7 +244,7 @@ export default {
 </script>
 <style scoped>
 /**#e6f7ff; */
-.dialog-list >>>.el-table--enable-row-hover .el-table__body tr:hover>td{
+.dialog-list :deep(.el-table--enable-row-hover .el-table__body tr:hover>td){
     background-color: #d1dfd5
 }
 .search-text{
