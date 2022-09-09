@@ -6,9 +6,9 @@
     <div class="field-box">
       <el-scrollbar class="right-scrollbar">
         <el-form size="small" label-width="100px" >
-          <!-- <div v-for="(item,index) in cmps" :key="index">
+          <div v-for="(item,index) in cmps" :key="index">
             <component v-if="item.name === activeItem.compType" :getFormId="getFormId" :props="activeItem" :is="item.content"></component>
-          </div> -->
+          </div>
         </el-form>
       </el-scrollbar>
     </div>
@@ -17,6 +17,13 @@
 
 <script>
 import reg from "./custom/register";
+import { defineAsyncComponent, ref } from 'vue'
+
+const data = ref({
+      currentTab: 'field',
+      cmps:reg,
+      formIdArray:[]
+    });
 
 export default {
   name:'configPanel',
@@ -42,11 +49,16 @@ export default {
     }
   },
   created() {
-    // this.cmps.forEach(c => {
-    //   c.content = require(`./custom/configs/${c.name}`).default;
-    // });
+    this.cmps.forEach(c => {
+      c.content = this.getCompUrl(c.name);
+    });
   },
   methods:{
+    getCompUrl(name) {
+      const url = new URL(`./custom/configs/${name}`, import.meta.url).href;
+      console.log(name);
+      return url;
+    },
     getFormId(itemId){
       this.formIdArray = [];
       Array.from(this.itemList,(item)=>{
