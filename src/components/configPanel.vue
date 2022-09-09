@@ -6,9 +6,7 @@
     <div class="field-box">
       <el-scrollbar class="right-scrollbar">
         <el-form size="small" label-width="100px" >
-          <div v-for="(item,index) in cmps" :key="index">
-            <component v-if="item.name === activeItem.compType" :getFormId="getFormId" :props="activeItem" :is="item.content"></component>
-          </div>
+          <component  :getFormId="getFormId" :props="activeItem" :is="components.get(activeItem.compType)"></component>
         </el-form>
       </el-scrollbar>
     </div>
@@ -19,19 +17,14 @@
 import reg from "./custom/register";
 import { defineAsyncComponent, ref } from 'vue'
 
-const data = ref({
-      currentTab: 'field',
-      cmps:reg,
-      formIdArray:[]
-    });
-
 export default {
   name:'configPanel',
-  data() {
+  setup(){
+    const currentTab =ref('field');
+    const formIdArray =ref([]);
+    const components = ref(new Map());
     return {
-      currentTab: 'field',
-      cmps:reg,
-      formIdArray:[]
+      currentTab,formIdArray,components
     }
   },
   props:{
@@ -49,15 +42,15 @@ export default {
     }
   },
   created() {
-    this.cmps.forEach(c => {
-      c.content = this.getCompUrl(c.name);
-    });
+    this.registComp();
+    
   },
   methods:{
-    getCompUrl(name) {
-      const url = new URL(`./custom/configs/${name}`, import.meta.url).href;
-      console.log(name);
-      return url;
+    registComp(){
+      reg.forEach(c => {
+        const componentName = c.name;
+        this.components.set(componentName,defineAsyncComponent(() => import(`./custom/configs/${componentName}.vue`)));
+      });
     },
     getFormId(itemId){
       this.formIdArray = [];
