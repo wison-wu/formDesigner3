@@ -162,11 +162,11 @@ export default {
 }
 </script>
 <style scoped>
-.dialogList >>> .el-collapse-item__header{
+.dialogList :deep(.el-collapse-item__header){
   background-color: #f4f6fc;
   padding-left:10px;
 }
-.dialogList >>> .el-collapse-item__header{
+.dialogList :deep(.el-collapse-item__header){
   height:35px;
 }
 </style>

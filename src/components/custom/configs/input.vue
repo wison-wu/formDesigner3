@@ -168,7 +168,7 @@ export default {
 .close-icon:hover{
   cursor: pointer;
 }
-.close-btn >>> .el-icon-remove-outline{
+.close-btn :deep(.el-icon-remove-outline){
   color:"red"
 }
 </style>

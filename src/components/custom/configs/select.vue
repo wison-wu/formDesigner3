@@ -60,21 +60,22 @@
     <div v-show='props.dataType ==="static"'>
     <el-divider>选项</el-divider>
       <draggable :list="props.options" handle=".option-drag">
-      <div v-for="(item, index) in props.options" :key="index" class="select-item">
-        <div class="select-line-icon option-drag">
-          <i class="el-icon-s-operation" />
-        </div>
-        <el-input v-model="item.label" placeholder="选项名" size="small" />
-        <el-input
-          placeholder="选项值"
-          size="small"
-          :value="item.value"
-          @input="setOptionValue(item, $event)"
-        />
-        <div class="close-btn select-line-icon" @click="props.options.splice(index, 1)">
-          <i class="el-icon-remove-outline" />
-        </div>
-      </div>
+        <template #item="{ element }"></template>
+          <div v-for="(item, index) in element" :key="index" class="select-item">
+            <div class="select-line-icon option-drag">
+              <i class="el-icon-s-operation" />
+            </div>
+            <el-input v-model="item.label" placeholder="选项名" size="small" />
+            <el-input
+              placeholder="选项值"
+              size="small"
+              :value="item.value"
+              @input="setOptionValue(item, $event)"
+            />
+            <div class="close-btn select-line-icon" @click="element.splice(index, 1)">
+              <i class="el-icon-remove-outline" />
+            </div>
+          </div>
       </draggable>
     <div style="margin-left: 20px;">
       <el-button
@@ -172,7 +173,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .input{
   width:75%
 }
