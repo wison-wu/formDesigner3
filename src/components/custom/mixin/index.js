@@ -42,17 +42,17 @@ import {
     ElColorPicker,
     ElCascader,
     ElUpload,
-    ElRadioGroup
+    ElRadio
 }  from "element-plus";
 export const renderComp = {
     methods:{
         getRenderComps(){
             const compMap = new Map();
             compMap.set("el-input",ElInput);
-            compMap.set("el-input-number",ElInputNumber);
+            compMap.set("el-inputNumber",ElInputNumber);
             compMap.set("el-select",ElSelect);
             compMap.set("el-checkbox",ElCheckbox);
-            compMap.set("el-radio-group",ElRadioGroup);
+            compMap.set("el-radio",ElRadio);
             compMap.set("el-switch",ElSwitch);
             compMap.set("el-slider",ElSlider);
             compMap.set("el-rate",ElRate);

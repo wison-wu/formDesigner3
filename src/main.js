@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import plugins from './components/index';
 
 import './assets/iconfont/iconfont.js'
 // 导入element-plus
