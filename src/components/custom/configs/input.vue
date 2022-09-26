@@ -88,7 +88,7 @@
       <el-button
         style="padding-bottom: 0"
         icon="el-icon-circle-plus-outline"
-        type="text"
+        type="link"
         @click="addRuleItem"
       >
         添加选项
@@ -100,7 +100,7 @@
 </template>
 <script>
 import {changeId} from '../mixin'
-import iconDialog from '../../iconDialog';
+import iconDialog from '../../iconDialog.vue';
 const defaultRules={
   'phone':{'rule':'0?(13|14|15|17|18|19)[0-9]{9}','msg':'您输入的电话号码不符合规则'},
   'email':{'rule':'\\w[-\\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\\.)+[A-Za-z]{2,14}','msg':'您输入的邮件地址不符合规则'},

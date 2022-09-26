@@ -6,7 +6,7 @@
     <div class="field-box">
       <el-scrollbar class="right-scrollbar">
         <el-form size="small" label-width="100px" >
-          <component  :getFormId="getFormId" :props="activeItem" :is="components.get(activeItem.compType)"></component>
+          <component  :getFormId="getFormId" :props="activeItem" :is="comp.value"></component>
         </el-form>
       </el-scrollbar>
     </div>
@@ -15,16 +15,33 @@
 
 <script>
 import reg from "./custom/register";
-import { defineAsyncComponent, ref } from 'vue'
+import { defineAsyncComponent, ref,shallowRef,toRefs,computed } from 'vue'
 
 export default {
   name:'configPanel',
-  setup(){
+  setup(props){
     const currentTab =ref('field');
     const formIdArray =ref([]);
-    const components = ref(new Map());
+    const components = new Map();
+    
+    const registComp = () => {
+      console.log("registComp执行...");
+      reg.forEach(c => {
+        const componentName = c.name;
+        components.set(componentName,defineAsyncComponent(() => import(`./custom/configs/${componentName}.vue`)));
+      });
+    }
+    registComp();
+    const comp = computed(() => {
+      let c = null;
+      if(props.activeItem){
+        console.log(props.activeItem);
+        c = components.get(props.activeItem.compType);
+      }
+      return shallowRef(c);
+    });
     return {
-      currentTab,formIdArray,components
+      currentTab,formIdArray,comp
     }
   },
   props:{
@@ -41,17 +58,7 @@ export default {
       }
     }
   },
-  created() {
-    this.registComp();
-    
-  },
   methods:{
-    registComp(){
-      reg.forEach(c => {
-        const componentName = c.name;
-        this.components.set(componentName,defineAsyncComponent(() => import(`./custom/configs/${componentName}.vue`)));
-      });
-    },
     getFormId(itemId){
       this.formIdArray = [];
       Array.from(this.itemList,(item)=>{
