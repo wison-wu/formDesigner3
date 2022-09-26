@@ -113,7 +113,7 @@ export default {
   },
   methods:{
     handlerChangeLabel(val){
-      this.props.labelWidth = val?'80':'1'
+      this.props.labelWidth = val?80:1;
     },
     setValue(val) {
       if (Array.isArray(val)) {

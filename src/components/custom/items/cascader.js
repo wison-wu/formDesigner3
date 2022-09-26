@@ -18,7 +18,7 @@ export let cascader = {
     // 控件左侧label内容
     showLabel:true,
     label: '级联选择',
-    labelWidth: '80',
+    labelWidth: 80,
     placeholder: '请选择',
     //栅格间隔
     gutter:15,

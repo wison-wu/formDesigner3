@@ -18,7 +18,7 @@ export let textarea = {
   // 控件左侧label内容
   showLabel:true,
   label: '多行文本',
-  labelWidth: '80',
+  labelWidth: 80,
   placeholder: '请输入文本',
   type:'textarea',
   // 是否必填

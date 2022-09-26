@@ -15,7 +15,7 @@ export let alert = {
   form:false, //是否表单组件
   // 控件左侧label内容
   showLabel:false,
-  labelWidth: '0',
+  labelWidth: 0,
   span:24,
   //标题
   title:'alert',     

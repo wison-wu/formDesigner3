@@ -19,7 +19,7 @@ export let Switch = {
   showLabel:true,
    //栅格间隔
   gutter:15,
-  labelWidth: '80',
+  labelWidth: 80,
   value: false,
   rules:[],
   span: 24,

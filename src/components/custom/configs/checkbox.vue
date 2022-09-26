@@ -127,7 +127,7 @@ let vm = {
   },
   methods:{
     handlerChangeLabel(val){
-      this.props.labelWidth = val?'80':'1'
+      this.props.labelWidth = val?80:1;
     },
     handlerChangeDisStatus(val){
       this.props.readOnly = !val

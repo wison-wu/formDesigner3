@@ -19,7 +19,7 @@
     // 控件左侧label内容
     showLabel:true,
     label: '选择列表',
-    labelWidth: '80',
+    labelWidth: 80,
     showLabel: true,
     labelWidth: 80,
     // 是否必填

@@ -18,7 +18,7 @@ export let date = {
   // 控件左侧label内容
   showLabel:true,
   label: '日期',
-  labelWidth: '80',
+  labelWidth: 80,
   placeholder: '请选择',
   // 是否必填
   required: false,

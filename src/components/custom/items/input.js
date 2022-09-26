@@ -19,7 +19,7 @@ export let input = {
   // 控件左侧label内容
   showLabel:true,
   label: '单行文本',
-  labelWidth: '80',
+  labelWidth: 80,
   placeholder: '请输入文本',
   // 是否必填
   required: false,

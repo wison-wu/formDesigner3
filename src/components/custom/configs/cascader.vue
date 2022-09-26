@@ -152,7 +152,7 @@ export default {
   },
   methods:{
     handlerChangeLabel(val){
-      this.props.labelWidth = val?'80':'1'
+      this.props.labelWidth = val?80:1;
     },
     handlerStaticData(){
       this.staticOptions = JSON.stringify(this.props.options,null,4);

@@ -17,5 +17,5 @@ export let html = {
   // 控件左侧label内容
   showLabel:false,
   label:'',
-  labelWidth: '0'
+  labelWidth: 0
 }

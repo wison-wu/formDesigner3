@@ -14,7 +14,7 @@ export let editor = {
     form:true,
     // 控件左侧label内容
     showLabel:true,
-    labelWidth: '80',
+    labelWidth: 80,
     label:'文本编辑器',
     value:'',
     required:false,

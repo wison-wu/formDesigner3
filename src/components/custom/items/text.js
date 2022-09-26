@@ -20,6 +20,6 @@ export let text = {
     bold:'400',
     // 控件左侧label内容
     showLabel:false,
-    labelWidth: '0'
+    labelWidth: 0
   }
   

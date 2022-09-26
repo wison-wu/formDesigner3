@@ -19,7 +19,7 @@ export let upload = {
   // 控件左侧label内容
   showLabel:true,
   label: '附件上传',
-  labelWidth: '80',
+  labelWidth: 80,
   //栅格间隔
   gutter:15,
   //默认栅格

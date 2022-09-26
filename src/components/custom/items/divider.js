@@ -17,5 +17,5 @@ export let divider = {
   text:'',
   // 控件左侧label内容
   showLabel:false,
-  labelWidth: '0'
+  labelWidth: 0
 }

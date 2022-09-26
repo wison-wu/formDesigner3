@@ -15,7 +15,7 @@
     form:true, //是否表单组件
     // 控件左侧label内容
     showLabel:false,
-    labelWidth: '0',
+    labelWidth: 0,
     label:'条形码',
     span:24,
     value:'formDesigner',
