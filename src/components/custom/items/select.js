@@ -20,7 +20,7 @@ export let select = {
   //表单栅格
   span:24,
   //栅格间隔
-  gutter:'15',
+  gutter:15,
   //标签宽度
   labelWidth:80,
   //显示标签

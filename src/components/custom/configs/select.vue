@@ -60,7 +60,7 @@
     <div v-show='props.dataType ==="static"'>
     <el-divider>选项</el-divider>
       <draggable :list="props.options" handle=".option-drag">
-        <template #item="{ element }"></template>
+        <template #item="{ element }">
           <div v-for="(item, index) in element" :key="index" class="select-item">
             <div class="select-line-icon option-drag">
               <i class="el-icon-s-operation" />
@@ -76,12 +76,15 @@
               <i class="el-icon-remove-outline" />
             </div>
           </div>
+        </template>
+          
       </draggable>
     <div style="margin-left: 20px;">
       <el-button
         style="padding-bottom: 0"
         icon="el-icon-circle-plus-outline"
-        type="text"
+        type="primary"
+        link
         @click="addSelectItem"
       >
         添加选项

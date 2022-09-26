@@ -88,7 +88,8 @@
       <el-button
         style="padding-bottom: 0"
         icon="el-icon-circle-plus-outline"
-        type="link"
+        type="primary"
+        link
         @click="addRuleItem"
       >
         添加选项
