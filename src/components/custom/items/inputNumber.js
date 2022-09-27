@@ -28,7 +28,7 @@ export let inputNumber = {
   step: 1,
   'step-strictly': false,
   precision: 0,
-  'controls-position': 'default',
+  'controls-position': '',
   disabled: false,
   readonly: false,
   required: false,

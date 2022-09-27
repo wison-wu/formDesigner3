@@ -17,13 +17,13 @@ export let button = {
   config: true,
   // 控件左侧label内容
   showLabel:false,
-  label: '单行文本',
+  label: '按钮',
   labelWidth: 0,
   //是否可以禁用
   disabled:false,
-  //大小，medium / small / mini
-  size:'medium',
-  //primary / success / warning / danger / info / text
+  //大小，large / default /small
+  size:'default',
+  //primary / success / warning / danger / info 
   type:'primary',
   span:24,
   text:'按钮',
@@ -36,7 +36,5 @@ export let button = {
   //加载中
   loading:false,
   //禁用
-  disabled:false,
-  //图标
-  icon:'',
+  disabled:false
 }

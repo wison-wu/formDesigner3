@@ -22,7 +22,7 @@ export let colorPicker = {
     //是否可以禁用
     disabled:false,
     //大小，medium / small / mini
-    size:'medium',
+    size:'',
     //primary / success / warning / danger / info / text
     type:'primary',
     span:24,

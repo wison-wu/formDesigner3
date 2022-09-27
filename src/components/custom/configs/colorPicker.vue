@@ -22,9 +22,9 @@
     </el-form-item>
     <el-form-item label="大小">
       <el-radio-group v-model="props.size">
-        <el-radio-button label="medium">常规</el-radio-button>
-        <el-radio-button label="small">略小</el-radio-button>
-        <el-radio-button label="mini">迷你</el-radio-button>
+        <el-radio-button label="large">大</el-radio-button>
+        <el-radio-button label="">中</el-radio-button>
+        <el-radio-button label="small">小</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="预定义颜色">
