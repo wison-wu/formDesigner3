@@ -6,7 +6,7 @@ export let alert = {
   _id:'',
   compType: 'alert',
   ele: 'el-alert',
-  compName:'警告',
+  compName:'提示',
   compIcon:'alert',
   //展示表单的模式
   viewType:'component',
@@ -22,7 +22,7 @@ export let alert = {
   //主题
   type:'success',  
   //辅助文字
-  description:'form-designer',  
+  description:'formDesigner3,想做最好的表单设计器',  
   //是否可关闭
   closable:true,   
   //是否居中

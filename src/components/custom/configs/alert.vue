@@ -28,7 +28,7 @@
     <el-form-item label="居中">
       <el-switch v-model="props.center"></el-switch>
     </el-form-item>
-    <el-form-item label="关闭按钮自定义文本">
+    <el-form-item label="关闭文本">
       <el-input class="input" v-model="props['close-text']"/>
     </el-form-item>
     <el-form-item label="显示图标">

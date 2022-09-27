@@ -31,14 +31,14 @@ const components = {
 const layouts = {
   colItem(h, element,parent) {
     let className = this.activeItem.id === element.id ? 'drawing-item active-from-item' : 'drawing-item'
-    let labelWidth = element.labelWidth ? `${element.labelWidth}px` : null
+    let labelWidth = element.labelWidth ? `${element.labelWidth}px` : `0px`
     const {onActiveItemChange} = this.$attrs;
     return (
         <el-col class={className} span={element.span} nativeOnClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
           <span class="component-name component-id">{element.id}</span>
           <el-form-item label={element.showLabel ? element.label : ''}
                         label-width={labelWidth}
-                        required={element.required} >
+                        required={element.required?element.required:''} >
             
             <render key={element.id} conf={element} onInput={ event => {
               element.value=event;

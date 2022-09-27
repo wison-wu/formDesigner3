@@ -42,7 +42,12 @@ import {
     ElColorPicker,
     ElCascader,
     ElUpload,
-    ElRadio
+    ElRadio,
+    ElLink,
+    ElButton,
+    ElDivider,
+    ElAlert,
+    ElRow
 }  from "element-plus";
 export const renderComp = {
     methods:{
@@ -61,6 +66,11 @@ export const renderComp = {
             compMap.set("el-color-picker",ElColorPicker);
             compMap.set("el-cascader",ElCascader);
             compMap.set("el-upload",ElUpload);
+            compMap.set("el-link",ElLink);
+            compMap.set("el-button",ElButton);
+            compMap.set("el-divider",ElDivider);
+            compMap.set("el-alert",ElAlert);
+            compMap.set("el-row",ElRow);
             return compMap;
         }
     }
