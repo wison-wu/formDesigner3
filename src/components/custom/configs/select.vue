@@ -59,19 +59,14 @@
     </el-form-item>
     <div v-show='props.dataType ==="static"'>
     <el-divider>选项</el-divider>
-      <draggable :list="props.options" handle=".option-drag" item-key="index">
-        <template #item="{ element,index }">
-          <div :key="index" class="select-item">
+      <draggable :list="props.options" handle=".option-drag" item-key="id">
+        <template #item="{ element }">
+          <div  class="select-item">
             <div class="select-line-icon option-drag">
               <i class="el-icon-s-operation" />
             </div>
-            <el-input v-model="item.label" placeholder="选项名" size="small" />
-            <el-input
-              placeholder="选项值"
-              size="small"
-              :value="item.value"
-              @input="setOptionValue(item, $event)"
-            />
+            <el-input v-model="element.label" placeholder="选项名" size="small" />
+            <el-input v-model="element.value" placeholder="选项值" size="small" />
             <div class="close-btn select-line-icon" @click="element.splice(index, 1)">
               <i class="el-icon-remove-outline" />
             </div>

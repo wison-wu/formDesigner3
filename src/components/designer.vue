@@ -2,37 +2,37 @@
   <!--中间面板-->
   <div class="center-board" >
     <div class="action-bar">
-      <el-button :icon="View" link @click="preview">
+      <el-button link @click="preview">
         <el-icon>
           <View />
         </el-icon>
         预览
       </el-button>
-      <el-button icon="el-icon-view" link @click="view">
+      <el-button link @click="view">
         <el-icon>
           <View />
         </el-icon>
         查看
       </el-button>
-      <el-button icon="el-icon-tickets" link @click="viewJSON">
+      <el-button  link @click="viewJSON">
         <el-icon>
           <Tickets />
         </el-icon>
         JSON
       </el-button>
-      <el-button icon="el-icon-s-tools" link @click="setting">
+      <el-button  link @click="setting">
         <el-icon>
           <Tools />
         </el-icon>
         设置
       </el-button>
-      <el-button class="delete-btn" icon="el-icon-delete-solid" link @click="clear">
+      <el-button class="delete-btn" link @click="clear">
         <el-icon>
           <Delete />
         </el-icon>
         清空
       </el-button>
-      <el-button icon="el-icon-question" link @click="help">
+      <el-button  link @click="help">
         <el-icon>
           <Help />
         </el-icon>
@@ -56,7 +56,6 @@
                     >
                     <template #item="{ element }">
                       <design-item 
-                        :key="index" 
                         :model="element" 
                         :activeItem="activeItem"
                         @rowItemRollBack="handlerRollBack"
@@ -299,6 +298,7 @@ export default {
 <style  scoped>
 .action-bar .el-button{
   padding-top:10px;
+  padding-left:10px;
 }
 .el-rate{
   display:inline-block;
