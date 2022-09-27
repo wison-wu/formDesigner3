@@ -56,7 +56,6 @@
                     >
                     <template #item="{ element }">
                       <design-item 
-                        v-for="(element,index) in list" 
                         :key="index" 
                         :model="element" 
                         :activeItem="activeItem"

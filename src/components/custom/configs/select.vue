@@ -59,9 +59,9 @@
     </el-form-item>
     <div v-show='props.dataType ==="static"'>
     <el-divider>选项</el-divider>
-      <draggable :list="props.options" handle=".option-drag">
-        <template #item="{ element }">
-          <div v-for="(item, index) in element" :key="index" class="select-item">
+      <draggable :list="props.options" handle=".option-drag" item-key="index">
+        <template #item="{ element,index }">
+          <div :key="index" class="select-item">
             <div class="select-line-icon option-drag">
               <i class="el-icon-s-operation" />
             </div>
@@ -77,7 +77,6 @@
             </div>
           </div>
         </template>
-          
       </draggable>
     <div style="margin-left: 20px;">
       <el-button
