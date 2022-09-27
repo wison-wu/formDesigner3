@@ -49,7 +49,7 @@
         >
           <draggable class="drawing-board" 
                     :list="list" 
-                    :animation="100" 
+                    :animation="400" 
                     group="componentsGroup" 
                     draggable=".drawing-item"
                     item-key="index"

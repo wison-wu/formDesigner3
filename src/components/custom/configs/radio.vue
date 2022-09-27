@@ -43,9 +43,9 @@
     </el-form-item>
     <el-form-item label="大小" v-show="props.border||props.optionType ==='button'">
       <el-radio-group v-model="props.size">
-        <el-radio-button label="medium">正常</el-radio-button>
-        <el-radio-button label="small">略小</el-radio-button>
-        <el-radio-button label="mini">迷你</el-radio-button>
+        <el-radio-button label="large">大</el-radio-button>
+        <el-radio-button label="default">中</el-radio-button>
+        <el-radio-button label="small">小</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="禁用">
@@ -65,34 +65,30 @@
       </el-radio-group>
     </el-form-item>
     <div v-show='props.dataType ==="static"'>
-    <el-divider>选项</el-divider>
-      <draggable :list="props.options" handle=".option-drag">
-      <div v-for="(item, index) in props.options" :key="index" class="select-item">
-        <div class="select-line-icon option-drag">
-          <i class="el-icon-s-operation" />
-        </div>
-        <el-input v-model="item.label" placeholder="选项名" size="small" />
-        <el-input
-          placeholder="选项值"
-          size="small"
-          :value="item.value"
-          @input="setOptionValue(item, $event)"
-        />
-        <div class="close-btn select-line-icon" @click="props.options.splice(index, 1)">
-          <i class="el-icon-remove-outline" />
-        </div>
+      <el-divider>选项</el-divider>
+        <draggable :list="props.options" handle=".option-drag" item-key="id">
+          <template #item="{ element }">
+            <div  class="select-item option-drag">
+              <el-icon ><DCaret /></el-icon>
+              <el-input v-model="element.label" placeholder="选项名" size="small" />
+              <el-input v-model="element.value" placeholder="选项值" size="small" />
+              <el-icon class="remove-icon"><Remove /></el-icon>
+            </div>
+          </template>
+        </draggable>
+      <div style="margin-left: 20px;">
+        <div style="margin-left: 20px;">
+        <el-button
+          type="primary"
+          link
+          @click="addSelectItem"
+          
+        >
+        <el-icon><CirclePlus /></el-icon>
+          添加选项
+        </el-button>
       </div>
-      </draggable>
-    <div style="margin-left: 20px;">
-      <el-button
-        style="padding-bottom: 0"
-        icon="el-icon-circle-plus-outline"
-        type="text"
-        @click="addSelectItem"
-      >
-        添加选项
-      </el-button>
-    </div>
+      </div>
     </div>
     <div v-show='props.dataType ==="dynamic"'>
       <el-form-item label="地址">
@@ -162,9 +158,6 @@ let vm = {
         )
       }
     },
-    setOptionValue(item,val){
-      item.value = isNumberStr(val) ? +val : val
-    },
     addSelectItem(){
       this.props.options.push({
         label: '',
@@ -194,5 +187,8 @@ export default vm;
 <style scoped>
 .input{
   width:75%
+}
+.remove-icon{
+  color:#f56c6c;
 }
 </style>
