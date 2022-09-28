@@ -1,6 +1,5 @@
 const slots = import.meta.glob("./*.jsx",{ eager: true })
 const componentChild = {};
-console.log(slots);
 Object.keys(slots).forEach(key=>{
   const obj = slots[key];
   const tag = key.replace('./','').replace('.jsx','');
