@@ -16,8 +16,8 @@ export let text = {
     text:'文本',
     align:'left',
     color:'#000000',
-    size:'14',
-    bold:'400',
+    size:14,
+    bold:400,
     // 控件左侧label内容
     showLabel:false,
     labelWidth: 0

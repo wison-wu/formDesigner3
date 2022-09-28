@@ -1,23 +1,27 @@
 import formDesigner from './formDesigner';
 // import fancyEditor from './extend/fancyEditor';
-import fancyHtml from './extend/fancyHtml';
-import fancyText from './extend/fancyText';
+import fancyHtml from './extend/fancyHtml.vue';
+import fancyText from './extend/fancyText.vue';
 import fancyBarCode from 'vue3-barcode';
 import fancyDialogList from './extend/fancyDialogList';
 import iconDialog from './iconDialog';
+
+// 引入所有图标
+import * as Icons from '@element-plus/icons-vue';
+
 const plugins = {
-  install : function (Vue) {
-    Vue.component('form-designer',formDesigner);
+  install : (app)=> {
+    app.component('form-designer',formDesigner);
     /* Vue.component('fancy-editor',fancyEditor); */
-    Vue.component('fancy-html',fancyHtml);
-    Vue.component('fancy-text',fancyText);
-    // Vue.component('fancy-bar-code',fancyBarCode);
+    app.component('fancy-html',fancyHtml);
+    app.component('fancy-text',fancyText);
+    app.component('fancy-bar-code',fancyBarCode);
+    // 循环注册所有图标
+    for(const name in Icons){
+      app.component(name,Icons[name]);
+    }
     // Vue.component('fancy-dialog-list',fancyDialogList);
     // Vue.component('icon-dialog',iconDialog);
   }
 };
-// 这一步判断window.Vue是否存在，因为直接引用vue.min.js， 它会把Vue绑到Window上，我们直接引用打包好的js才能正常跑起来。
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(plugins);
-}
 export default plugins;

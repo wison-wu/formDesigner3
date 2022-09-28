@@ -49,6 +49,8 @@ import {
     ElAlert,
     ElRow
 }  from "element-plus";
+import fancyBarCode from 'vue3-barcode';
+import fancyText from '../../extend/fancyText.vue';
 export const renderComp = {
     methods:{
         getRenderComps(){
@@ -71,6 +73,8 @@ export const renderComp = {
             compMap.set("el-divider",ElDivider);
             compMap.set("el-alert",ElAlert);
             compMap.set("el-row",ElRow);
+            compMap.set("fancy-bar-code",fancyBarCode);
+            compMap.set("fancy-text",fancyText);
             return compMap;
         }
     }

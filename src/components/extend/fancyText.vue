@@ -1,19 +1,20 @@
 <!--文本扩展-->
 <template>
-  <div v-show="show" class="test">
+  <div v-show="show">
       <p v-html="text" style="margin-block-start:0em;margin-block-end:0em;" 
         :style="{'text-align':align,
-        'color':color,
-        'font-size':size+'px',
-        'font-weight':bold
-        }"/>
+                'color':color,
+                'font-size':size+'px',
+                'font-weight':bold
+        }"
+        />
   </div>
   
 </template>
 
 <script>
 export default {
-    name:"fancyText", 
+    name:"fancy-text", 
     props:{
         text: { 
             type: String,
@@ -38,11 +39,6 @@ export default {
         bold:{
             type:Number,
             default:400,
-        }
-    },
-    data(){
-        return {
-            htmlText:''
         }
     }
 }
