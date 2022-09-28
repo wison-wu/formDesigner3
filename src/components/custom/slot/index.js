@@ -3,6 +3,7 @@ const componentChild = {};
 Object.keys(slots).forEach(key=>{
   const obj = slots[key];
   const tag = key.replace('./','').replace('.jsx','');
+  console.log(tag);
   componentChild[tag] = obj.default;
 })
 

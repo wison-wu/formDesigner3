@@ -11,7 +11,7 @@ export let radio = {
   //控件名称
   compName:'单选框',
   //element标签
-  ele: 'el-radio',
+  ele: 'el-radio-group',
   //图标
   compIcon:'radio',
   //展示表单的模式

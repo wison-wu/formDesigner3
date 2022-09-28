@@ -33,7 +33,7 @@ import {
     ElInput,
     ElInputNumber,
     ElSelect,
-    ElCheckbox,
+    ElCheckboxGroup,
     ElSwitch,
     ElSlider,
     ElRate,
@@ -42,7 +42,7 @@ import {
     ElColorPicker,
     ElCascader,
     ElUpload,
-    ElRadio,
+    ElRadioGroup,
     ElLink,
     ElButton,
     ElDivider,
@@ -56,8 +56,8 @@ export const renderComp = {
             compMap.set("el-input",ElInput);
             compMap.set("el-inputNumber",ElInputNumber);
             compMap.set("el-select",ElSelect);
-            compMap.set("el-checkbox",ElCheckbox);
-            compMap.set("el-radio",ElRadio);
+            compMap.set("el-checkbox-group",ElCheckboxGroup);
+            compMap.set("el-radio-group",ElRadioGroup);
             compMap.set("el-switch",ElSwitch);
             compMap.set("el-slider",ElSlider);
             compMap.set("el-rate",ElRate);
