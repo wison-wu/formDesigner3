@@ -1,20 +1,16 @@
 import {h} from "vue";
 import {jsonClone} from '../utils/index';
-import {remoteData,renderComp} from './mixin';
-function vModel(self, dataObject) {
-  dataObject.onInput = val => {
-    self.$emit('input', val)
-  }
-}
+import childrenItem from './slot/index';
+import {renderComp} from './mixin';
 
 export default {
    render() {
     const map = this.getRenderComps();
-    const confClone = jsonClone(this.conf);
-    vModel(this, confClone);
+    let confClone = jsonClone(this.conf);
+    const children = childrenItem(h,confClone);
     const ele = map.get(confClone.ele);
-    return h(ele, confClone)
+    return h(ele, confClone,children)
   },
   props: ['conf'],
-  mixins:[remoteData,renderComp]
+  mixins:[renderComp]
 }

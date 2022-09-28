@@ -1,11 +1,11 @@
-const slots = require.context('./', false, /\.js$/);
+const slots = import.meta.glob("./*.jsx",{ eager: true })
 const componentChild = {};
-slots.keys().forEach(obj=>{
-  const tag = obj.replace('./','').replace('.js','');
-  if(tag !=='index'){
-    componentChild[tag] = slots(obj).default;
-  }
-});
+console.log(slots);
+Object.keys(slots).forEach(key=>{
+  const obj = slots[key];
+  const tag = key.replace('./','').replace('.jsx','');
+  componentChild[tag] = obj.default;
+})
 
 
 export default function childrenItem(h,confClone) {

@@ -20,7 +20,7 @@ export const changeId = {
             let idArray = this.getFormId(this.props._id);
             console.log(idArray);
             if(idArray.includes(val)){  //如果存在id相等，则提示
-                this.$message.error('该ID已经存在，请修改');
+                this.$message.error('该ID已经存在,请修改');
                 this.props.id=this.props._id;
             }else{
                 this.props._id=val;

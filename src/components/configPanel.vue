@@ -35,7 +35,6 @@ export default {
     const comp = computed(() => {
       let c = null;
       if(props.activeItem){
-        console.log(props.activeItem);
         c = components.get(props.activeItem.compType);
       }
       return shallowRef(c);

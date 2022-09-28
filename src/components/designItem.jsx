@@ -1,4 +1,4 @@
-import { defineComponent } from "vue";
+import { defineComponent,toRefs } from "vue";
 import draggable from 'vuedraggable'
 import render from './custom/render'
 import {getSimpleId} from "./utils/IdGenerate";
@@ -33,15 +33,15 @@ const layouts = {
     let className = this.activeItem.id === element.id ? 'drawing-item active-from-item' : 'drawing-item'
     let labelWidth = element.labelWidth ? `${element.labelWidth}px` : `0px`
     const {onActiveItemChange} = this.$attrs;
+    
     return (
         <el-col class={className} span={element.span} nativeOnClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
           <span class="component-name component-id">{element.id}</span>
           <el-form-item label={element.showLabel ? element.label : ''}
                         label-width={labelWidth}
-                        required={element.required?element.required:''} >
+                        required={element.required} >
             
-            <render key={element.id} conf={element} onInput={ event => {
-              element.value=event;
+            <render key={element.id} conf={element} onInput={ val => {
             }}/>
           </el-form-item>
           {components.itemBtns.apply(this, arguments)}
@@ -174,15 +174,14 @@ export default defineComponent({
       default:{}
     }
   },
-  data(){
-    return {
-      activeComponent:this.activeItem
-    }
+  setup(props){
+    const { model: vModel } = toRefs(props)
+    return { vModel }
   },
   render(h) {
-    const layout = layouts[this.model.layout]
+    const layout = layouts[this.vModel.layout]
     if (layout) {
-      return layout.call(this, h, this.model)
+      return layout.call(this, h, this.vModel)
     }
     return layoutIsNotFound.call(this)
   },
