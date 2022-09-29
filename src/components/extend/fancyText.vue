@@ -1,13 +1,13 @@
 <!--文本扩展-->
 <template>
-  <div v-show="show">
-      <p v-html="text" style="margin-block-start:0em;margin-block-end:0em;" 
-        :style="{'text-align':align,
-                'color':color,
-                'font-size':size+'px',
-                'font-weight':bold
-        }"
-        />
+  <div v-show="show" style="width: 100%;">
+      <p  style="margin-block-start:0em;margin-block-end:0em;" 
+        :style="{   'color':color,
+                    'font-size':size+'px',
+                    'text-align':align,
+                    'font-weight':bold}"
+        
+        >{{text}}</p>
   </div>
   
 </template>
@@ -43,5 +43,18 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
+.text-left{
+    
+    text-align:left
+}
+.text-center{
+    text-align:center;
+    justify-content: center;
+}
+.text-right{
+    margin-left: auto;
+    text-align:right;
+    justify-content: flex-end;
+}
 </style>

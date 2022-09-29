@@ -14,7 +14,7 @@ export let text = {
     form:false,
     show:true,
     text:'文本',
-    align:'left',
+    align:'center',
     color:'#000000',
     size:14,
     bold:400,

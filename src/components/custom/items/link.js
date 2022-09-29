@@ -21,7 +21,7 @@ export let link = {
     //主题
     type:'primary',  
     //链接地址
-    href:'http://www.baidu.com',  
+    href:'https://github.com/wison-wu/formDesigner3',  
     //是否下划线
     underline:true,   
     //是否禁用

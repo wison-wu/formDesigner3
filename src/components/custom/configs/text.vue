@@ -41,10 +41,10 @@ export default {
   mixins:[changeId],
   methods:{
     handlerChangeSize(val){
-      this.props.size = val+'';
+      this.props.size = val;
     },
     handlerChangeBold(val){
-      this.props.bold = val+'';
+      this.props.bold = val;
     }
   }
 }
