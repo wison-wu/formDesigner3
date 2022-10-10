@@ -28,6 +28,15 @@ const components = {
     ]
   }
 }
+const rowSlots = {
+  item: ({element}) => {
+    return (
+      element.map((obj)=>{
+        return renderChildren.call(this,h,obj,element)
+      })
+    )
+  }
+}
 const layouts = {
   colItem(h, element,parent) {
     let className = this.activeItem.id === element.id ? 'drawing-item active-from-item' : 'drawing-item'
@@ -61,13 +70,10 @@ const layouts = {
                   return (
                     <el-col class="drag-col-wrapper"  span={item.span}>
                       <draggable class="drag-wrapper row-drag" v-model={item.list} animation="100" group="componentsGroup"
+                      v-slots={ rowSlots }
                       onAdd={(e)=>{this.handlerAdd(e,item,element)}}
                       >
-                        {
-                          item.list.map((obj,objIndex)=>{
-                            return renderChildren.call(this,h,obj,element)
-                          })
-                        }
+                        
                       </draggable>
                     </el-col>
                   )
