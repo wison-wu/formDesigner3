@@ -28,16 +28,6 @@ const components = {
     ]
   }
 }
-/**
- * 修复vue3下jsx，dragable渲染row组件报错的问题
- */
-const rowSlots = {
-  item: ({element}) => {
-    return (
-      renderChildren.call(this,element)
-    )
-  }
-}
 const layouts = {
   colItem(element,parent) {
     let className = this.activeItem.id === element.id ? 'drawing-item active-from-item' : 'drawing-item'
@@ -67,11 +57,10 @@ const layouts = {
             <span class="component-name">{element.id}</span>
             <div class="drag-wrapper" style="padding-left: 7.5px; padding-right: 7.5px;width:100%">
               {
-                element.columns.map((item,index) =>{
+                element.columns.map((item) =>{
                   return (
                     <el-col class="drag-col-wrapper"  span={item.span}>
                       <draggable class="drag-wrapper row-drag" v-model={item.list} animation="100" group="componentsGroup"
-                       //v-slots={rowSlots} 
                        itemKey="id"
                       onAdd={(e)=>{this.handlerAdd(e,item,element)}}
                       >
@@ -162,10 +151,9 @@ const layouts = {
 function renderChildren(element,parent) {
   const layout = layouts[element.layout]
   if (layout) {
-    
     return layout.call(this,element,parent)
   }
-  return layoutIsNotFound.call(this)
+  return layoutIsNotFound.call(this);
 }
 function layoutIsNotFound() {
   throw new Error(`没有与${this.element.layout}匹配的layout`)
