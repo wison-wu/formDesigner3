@@ -480,6 +480,8 @@ body{
 
 .drawing-row-item .el-col {
   margin-bottom: 5px;
+  float:left;
+  width:100%;
 }
 
 .components-item.dynamicGhost {

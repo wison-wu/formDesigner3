@@ -10,7 +10,7 @@
           <i class="el-icon-s-operation" />
         </div>
         <el-input-number
-          size="normal"
+          size="default"
           v-model="item.span"
           :min="1" :max="24"
         />
@@ -22,7 +22,8 @@
       <el-button
         style="padding-bottom: 0"
         icon="el-icon-circle-plus-outline"
-        type="text"
+        type="primary"
+        link
         @click="handlerAddCol"
       >
         添加选项
