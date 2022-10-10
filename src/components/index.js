@@ -1,10 +1,10 @@
 import formDesigner from './formDesigner';
 // import fancyEditor from './extend/fancyEditor';
-import fancyHtml from './extend/fancyHtml.vue';
+// import fancyHtml from './extend/fancyHtml.vue';
 import fancyText from './extend/fancyText.vue';
 import fancyBarCode from 'vue3-barcode';
-import fancyDialogList from './extend/fancyDialogList';
-import iconDialog from './iconDialog';
+// import fancyDialogList from './extend/fancyDialogList';
+// import iconDialog from './iconDialog';
 
 // 引入所有图标
 import * as Icons from '@element-plus/icons-vue';
@@ -12,16 +12,16 @@ import * as Icons from '@element-plus/icons-vue';
 const plugins = {
   install : (app)=> {
     app.component('form-designer',formDesigner);
-    /* Vue.component('fancy-editor',fancyEditor); */
-    app.component('fancy-html',fancyHtml);
+    // app.component('fancy-editor',fancyEditor);
+    // app.component('fancy-html',fancyHtml);
     app.component('fancy-text',fancyText);
     app.component('fancy-bar-code',fancyBarCode);
     // 循环注册所有图标
     for(const name in Icons){
       app.component(name,Icons[name]);
     }
-    // Vue.component('fancy-dialog-list',fancyDialogList);
-    // Vue.component('icon-dialog',iconDialog);
+    // app.component('fancy-dialog-list',fancyDialogList);
+    // app.component('icon-dialog',iconDialog);
   }
 };
 export default plugins;

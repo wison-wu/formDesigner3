@@ -1,4 +1,4 @@
-import { defineComponent,toRefs } from "vue";
+import { defineComponent,toRefs,h } from "vue";
 import draggable from 'vuedraggable'
 import render from './custom/render'
 import {getSimpleId} from "./utils/IdGenerate";
@@ -8,7 +8,7 @@ import {CopyDocument,Delete} from '@element-plus/icons-vue';
  * 动态表单允许增加的组件列表
  */
 const components = {
-  itemBtns(h, element,parent) {
+  itemBtns( element,parent) {
     const {copyItem,deleteItem} = this.$attrs;
     return [
       <span class="drawing-item-copy" title="复制" onClick={event => {
@@ -34,14 +34,12 @@ const components = {
 const rowSlots = {
   item: ({element}) => {
     return (
-      element.map((obj)=>{
-        return renderChildren.call(this,h,obj,element)
-      })
+      renderChildren.call(this,element)
     )
   }
 }
 const layouts = {
-  colItem(h, element,parent) {
+  colItem(element,parent) {
     let className = this.activeItem.id === element.id ? 'drawing-item active-from-item' : 'drawing-item'
     let labelWidth = element.labelWidth ? `${element.labelWidth}px` : `0px`
     const {onActiveItemChange} = this.$attrs;
@@ -60,7 +58,7 @@ const layouts = {
         </el-col>
     )
   },
-  rowItem(h, element){
+  rowItem(element){
     const { onActiveItemChange } = this.$attrs;
     const className = this.activeItem.id === element.id ? 'drawing-item drawing-row-item active-from-item' : 'drawing-item drawing-row-item'    
     return (
@@ -70,15 +68,20 @@ const layouts = {
             <div class="drag-wrapper" style="padding-left: 7.5px; padding-right: 7.5px;width:100%">
               {
                 element.columns.map((item,index) =>{
-                  console.log(item.span);
                   return (
-                    
                     <el-col class="drag-col-wrapper"  span={item.span}>
                       <draggable class="drag-wrapper row-drag" v-model={item.list} animation="100" group="componentsGroup"
-                      v-slots={ rowSlots } itemKey="id"
+                       //v-slots={rowSlots} 
+                       itemKey="id"
                       onAdd={(e)=>{this.handlerAdd(e,item,element)}}
                       >
-                        
+                        {{
+                          item:(ele)=>{
+                            console.log(ele.ele);
+                            console.log(ele.value);
+                            return renderChildren.call(this,ele.element,ele);
+                          }
+                        }}
                       </draggable>
                     </el-col>
                   )
@@ -86,11 +89,11 @@ const layouts = {
               }
             </div>
           </el-row>
-          {components.itemBtns.call(this,h,element)}
+          {components.itemBtns.call(this,element)}
         </el-col>
     )    
   },
-  tableItem(h, element){
+  tableItem(element){
     let className = "";
     className = this.activeItem.id === element.id ? 'drawing-item drawing-row-item active-from-item' : 'drawing-item drawing-row-item'
     const {onActiveItemChange} = this.$attrs;
@@ -112,7 +115,7 @@ const layouts = {
                                 >
                                   {
                                     item.td.columns.map((obj)=>{
-                                      return renderChildren.call(this,h,obj,item.td)
+                                      return renderChildren.call(this,obj,item.td)
                                     })
                                   }
                                 </draggable>
@@ -120,11 +123,11 @@ const layouts = {
                         }
                       }}
         />
-        {components.itemBtns.call(this,h,element)}
+        {components.itemBtns.call(this,element)}
       </el-col>
     )
   },
-  dynamicItem(h,element){
+  dynamicItem(element){
     let className = "";
     className = this.activeItem.id === element.id ? className+'drawing-item active-from-item' : className+'drawing-item'
     const {onActiveItemChange} = this.$attrs;
@@ -148,7 +151,7 @@ const layouts = {
               }
             </draggable>
           </dynamic-table>
-          {components.itemBtns.call(this,h,element)}
+          {components.itemBtns.call(this,element)}
         </el-col>
     )
   }
@@ -156,11 +159,11 @@ const layouts = {
 /**
  * 生成row的子选项
  */
-function renderChildren(h, element,parent) {
+function renderChildren(element,parent) {
   const layout = layouts[element.layout]
   if (layout) {
     
-    return layout.call(this, h, element,parent)
+    return layout.call(this,element,parent)
   }
   return layoutIsNotFound.call(this)
 }
@@ -189,10 +192,11 @@ export default defineComponent({
     const { model: vModel } = toRefs(props)
     return { vModel }
   },
-  render(h) {
+  render() {
     const layout = layouts[this.vModel.layout]
+    console.log(layout);
     if (layout) {
-      return layout.call(this, h, this.vModel)
+      return layout.call(this, this.vModel)
     }
     return layoutIsNotFound.call(this)
   },
