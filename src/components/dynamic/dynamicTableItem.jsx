@@ -8,7 +8,26 @@ import render from '../custom/render'
 
 const colItem = function(element){
   const { selectItem,copyItem,deleteItem} = this.$attrs;
-  return <div>11</div>
+  return (
+    <div class={{'dynamic-table__item':true,'active':this.isHover||this.isActive}}
+      style="min-width:200px;width: auto;position:relative" onClick={(e)=>{selectItem(e,element)}}
+      onMouseover={(e)=>{this.isHover = true}}
+      onMouseleave={(e)=>{this.isHover = false}}
+      >
+      <div class="dynamic-table__item_title">
+        {element.label}
+      </div>
+      <div class="dynamic-table__item_body">
+        <render conf={element}/><span v-show={element.required} style="color:#F56C6C">*</span>
+      </div>
+      <span class="dynamic-table-item-copy" title="复制" v-show={this.showbutton} onClick={(e)=>{copyItem(e,element)}}>
+        <i class="el-icon-copy-document" />
+      </span>
+      <span class="dynamic-table-item-delete" title="删除" v-show={this.showbutton} onClick={(e)=>{deleteItem(e,element)}}>
+        <i class="el-icon-delete" />
+      </span>
+    </div>
+  )
 }
 
 
@@ -44,7 +63,7 @@ export default {
     }
   },
   render(){
-      return h('div');
+      return colItem.call(this,this.item);
   }
 }
 

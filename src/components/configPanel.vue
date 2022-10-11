@@ -25,7 +25,6 @@ export default {
     const components = new Map();
     
     const registComp = () => {
-      console.log("registComp执行...");
       reg.forEach(c => {
         const componentName = c.name;
         components.set(componentName,defineAsyncComponent(() => import(`./custom/configs/${componentName}.vue`)));

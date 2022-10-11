@@ -106,6 +106,7 @@ const layouts = {
                                 >
                                   {{
                                     item:(obj)=>{
+                                      console.log(obj);
                                       return renderChildren.call(this,obj.element,obj);
                                     }
                                   }}
@@ -132,7 +133,9 @@ const layouts = {
             >
               {{
                 item:(obj)=>{
+                  console.log(obj);
                   const item = obj.element;
+                  console.log(item);
                   return (
                     <dynamic-table-item item={item} activeItem={this.activeItem}
                                         onSelectItem={(evt,item)=>{onActiveItemChange(item);evt.stopPropagation()}}
@@ -190,7 +193,6 @@ export default defineComponent({
   },
   render() {
     const layout = layouts[this.vModel.layout]
-    console.log(layout);
     if (layout) {
       return layout.call(this, this.vModel)
     }
