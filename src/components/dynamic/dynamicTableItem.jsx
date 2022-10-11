@@ -5,6 +5,7 @@
 import {h} from "vue";
 import draggable from "vuedraggable";
 import render from '../custom/render'
+import './dynamicTable.css'
 
 const colItem = function(element){
   const { selectItem,copyItem,deleteItem} = this.$attrs;
@@ -21,10 +22,14 @@ const colItem = function(element){
         <render conf={element}/><span v-show={element.required} style="color:#F56C6C">*</span>
       </div>
       <span class="dynamic-table-item-copy" title="复制" v-show={this.showbutton} onClick={(e)=>{copyItem(e,element)}}>
-        <i class="el-icon-copy-document" />
+        <el-icon>
+          <CopyDocument />
+        </el-icon>
       </span>
       <span class="dynamic-table-item-delete" title="删除" v-show={this.showbutton} onClick={(e)=>{deleteItem(e,element)}}>
-        <i class="el-icon-delete" />
+        <el-icon>
+          <Delete />
+        </el-icon>
       </span>
     </div>
   )
