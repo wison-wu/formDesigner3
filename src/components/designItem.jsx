@@ -4,6 +4,9 @@ import render from './custom/render'
 import {getSimpleId} from "./utils/IdGenerate";
 import {dynamicTableAllowedItems,tableAllowedItems} from "./custom/formConf";
 import {CopyDocument,Delete} from '@element-plus/icons-vue';
+import dynamicTable from './dynamic/dynamicTable.vue'
+import dynamicTableItem from './dynamic/dynamicTableItem.jsx'
+import fancyTable from './table/fancyTable.vue'
 /**
  * 动态表单允许增加的组件列表
  */
@@ -61,14 +64,12 @@ const layouts = {
                   return (
                     <el-col class="drag-col-wrapper"  span={item.span}>
                       <draggable class="drag-wrapper row-drag" v-model={item.list} animation="100" group="componentsGroup"
-                       itemKey="id"
-                      onAdd={(e)=>{this.handlerAdd(e,item,element)}}
+                        itemKey="id"
+                        onAdd={(e)=>{this.handlerAdd(e,item,element)}}
                       >
                         {{
-                          item:(ele)=>{
-                            console.log(ele.ele);
-                            console.log(ele.value);
-                            return renderChildren.call(this,ele.element,ele);
+                          item:(obj)=>{
+                            return renderChildren.call(this,obj.element,obj);
                           }
                         }}
                       </draggable>
@@ -101,12 +102,13 @@ const layouts = {
                                            v-model={item.td.columns} animation="100"
                                            group="componentsGroup"
                                            onAdd={(e) => {this.handlerTableAdd(e, item.td);e.stopPropagation()}}
+                                           itemKey="id"
                                 >
-                                  {
-                                    item.td.columns.map((obj)=>{
-                                      return renderChildren.call(this,obj,item.td)
-                                    })
-                                  }
+                                  {{
+                                    item:(obj)=>{
+                                      return renderChildren.call(this,obj.element,obj);
+                                    }
+                                  }}
                                 </draggable>
                           );
                         }
@@ -125,19 +127,22 @@ const layouts = {
           <dynamic-table conf={element} activeItem={this.activeItem} nativeOnClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
             <draggable tag="div" class="dynamic-table__content row-drag" ghost-class="dynamicGhost" v-model={element.columns} animation="100"
                        group="componentsGroup"
+                       itemKey="id"
                        onAdd={(e)=>{this.handlerDynamicAdd(e,element)}}
             >
-              {
-                element.columns.map((item,index)=>{
+              {{
+                item:(obj)=>{
+                  const item = obj.element;
                   return (
-                      <dynamic-table-item item={item} activeItem={this.activeItem}
-                                          onSelectItem={(evt,item)=>{onActiveItemChange(item);evt.stopPropagation()}}
-                                          onCopyItem={(evt)=>{this.handlerCopyItem(evt,element,index);evt.stopPropagation()}}
-                                          onDeleteItem={(evt)=>{this.handlerDeleteItem(evt,element,index);evt.stopPropagation()}}
-                      />
-                  )
-                })
-              }
+                    <dynamic-table-item item={item} activeItem={this.activeItem}
+                                        onSelectItem={(evt,item)=>{onActiveItemChange(item);evt.stopPropagation()}}
+                                        onCopyItem={(evt)=>{this.handlerCopyItem(evt,element,index);evt.stopPropagation()}}
+                                        onDeleteItem={(evt)=>{this.handlerDeleteItem(evt,element,index);evt.stopPropagation()}}
+                    />
+                    )
+                  }
+                  //return renderChildren.call(this,obj.element,obj);
+              }}
             </draggable>
           </dynamic-table>
           {components.itemBtns.call(this,element)}
@@ -164,7 +169,10 @@ export default defineComponent({
     render,
     draggable,
     CopyDocument,
-    Delete
+    Delete,
+    dynamicTable,
+    dynamicTableItem,
+    fancyTable
   },
   props: {
     model: { 

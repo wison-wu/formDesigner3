@@ -6,16 +6,14 @@
     </el-form-item>
     <el-divider>列配置项</el-divider>
       <div v-for="(item, index) in props.columns" :key="index" class="select-item">
-        <div class="select-line-icon">
-          <i class="el-icon-s-operation" />
-        </div>
+        <el-icon><Operation /></el-icon>
         <el-input-number
           size="default"
           v-model="item.span"
           :min="1" :max="24"
         />
         <div class="close-btn select-line-icon" @click="props.columns.splice(index,1)">
-          <i class="el-icon-remove-outline" />
+          <el-icon><Remove /></el-icon>
         </div>
       </div>
     <div style="margin-left: 30px;">

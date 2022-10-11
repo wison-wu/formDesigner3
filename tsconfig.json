@@ -16,6 +16,6 @@
     "skipLibCheck": true,
     "allowJs": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/main.js", "src/components/designItem.jsx"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/main.js", "src/components/designItem.jsx", "src/components/dynamic/dynamicTableItem.jsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

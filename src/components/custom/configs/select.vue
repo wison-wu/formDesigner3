@@ -62,7 +62,7 @@
         <draggable :list="props.options" handle=".option-drag" item-key="id">
           <template #item="{ element }">
             <div  class="select-item option-drag">
-              <el-icon ><DCaret /></el-icon>
+              <el-icon><Operation /></el-icon>
               <el-input v-model="element.label" placeholder="选项名" size="small" />
               <el-input v-model="element.value" placeholder="选项值" size="small" />
               <el-icon class="remove-icon"><Remove /></el-icon>

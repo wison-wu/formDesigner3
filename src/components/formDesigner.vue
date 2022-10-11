@@ -85,7 +85,7 @@
 import draggable from "vuedraggable";
 import designer from "./designer.vue";
 import icon from "./icon.vue";
-import {getSimpleId} from "./utils/IdGenerate";
+import {getSimpleId,setTableId} from "./utils/IdGenerate";
 import {formItems,assistFormItems,layoutFormItems} from "./custom/itemList";
 import formConf from "./custom/formConf";
 let tempActiveData;
