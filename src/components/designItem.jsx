@@ -95,26 +95,27 @@ const layouts = {
                       width={element.width}
                       height={element.height}
                       onSelectItem={(item)=>{onActiveItemChange(item);}}
-                      scopedSlots={{
-                        default: (item) => {
-                          return (
-                                <draggable tag="div" class="table__content row-drag"
-                                           v-model={item.td.columns} animation="100"
-                                           group="componentsGroup"
-                                           onAdd={(e) => {this.handlerTableAdd(e, item.td);e.stopPropagation()}}
-                                           itemKey="id"
-                                >
-                                  {{
-                                    item:(obj)=>{
-                                      console.log(obj);
-                                      return renderChildren.call(this,obj.element,obj);
-                                    }
-                                  }}
-                                </draggable>
-                          );
+        >
+          {{
+            default: (item) => {
+              return (
+                    <draggable tag="div" class="table__content row-drag"
+                               v-model={item.td.columns} animation="100"
+                               group="componentsGroup"
+                               onAdd={(e) => {this.handlerTableAdd(e, item.td);e.stopPropagation()}}
+                               itemKey="id"
+                    >
+                      {{
+                        item:(obj)=>{
+                          console.log(obj);
+                          return renderChildren.call(this,obj.element,obj);
                         }
                       }}
-        />
+                    </draggable>
+              );
+            }
+          }}
+        </fancy-table>
         {components.itemBtns.call(this,element)}
       </el-col>
     )
@@ -133,9 +134,7 @@ const layouts = {
             >
               {{
                 item:(obj)=>{
-                  console.log(obj);
                   const item = obj.element;
-                  console.log(item);
                   return (
                     <dynamic-table-item item={item} activeItem={this.activeItem}
                                         onSelectItem={(evt,item)=>{onActiveItemChange(item);evt.stopPropagation()}}
