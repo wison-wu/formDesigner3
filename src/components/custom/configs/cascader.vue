@@ -34,9 +34,9 @@
     </el-form-item>
     <el-form-item label="大小">
       <el-radio-group v-model="props.size">
-        <el-radio-button label="medium">正常</el-radio-button>
-        <el-radio-button label="small">略小</el-radio-button>
-        <el-radio-button label="mini">迷你</el-radio-button>
+        <el-radio-button label="large">大</el-radio-button>
+        <el-radio-button label="default">中</el-radio-button>
+        <el-radio-button label="small">小</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="清除">
@@ -55,16 +55,16 @@
       <el-switch v-model="props.props.filterable" ></el-switch>
     </el-form-item>
     <el-form-item label="展开方式">
-      <el-radio-group v-model="props.props.props.expandTrigger">
+      <el-radio-group v-model="props.props.expandTrigger">
       <el-radio-button label="click">点击</el-radio-button>
       <el-radio-button label="hover">悬停</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="多选">
-      <el-switch v-model="props.props.props.multiple"></el-switch>
+      <el-switch v-model="props.props.multiple"></el-switch>
     </el-form-item>
     <el-form-item label="任一级可选">
-      <el-switch v-model="props.props.props.checkStrictly"></el-switch>
+      <el-switch v-model="props.props.checkStrictly"></el-switch>
     </el-form-item>
     <el-form-item label="数据类型">
       <el-radio-group v-model="props.dataType" @change="handlerChangeDataType">
@@ -77,21 +77,18 @@
         <el-input v-model="props.action"></el-input>
       </el-form-item>
       <el-form-item label="显示标识">
-        <el-input v-model="props.props.props.label"></el-input>
+        <el-input v-model="props.props.label"></el-input>
       </el-form-item>
       <el-form-item label="值标识">
-        <el-input v-model="props.props.props.value"></el-input>
+        <el-input v-model="props.props.value"></el-input>
       </el-form-item>
       <el-form-item label="下级标识">
-        <el-input v-model="props.props.props.children"></el-input>
+        <el-input v-model="props.props.children"></el-input>
       </el-form-item>
     </div>
     <div v-show="props.dataType ==='static'">
         <el-form-item label="静态数据">
-          <el-button icon="el-icon-edit-outline" circle @click="handlerStaticData"></el-button>
-        </el-form-item>
-        <el-form-item label="省市区">
-          <el-checkbox v-model="props['china-area-data']" @change="handlerSetAreaData"/>
+          <el-button circle @click="handlerStaticData"/>
         </el-form-item>
     </div>
     <!-- <el-form-item label="URL">

@@ -26,12 +26,11 @@ export let cascader = {
     span:24,
     value: [],
     //大小
-    size:"medium",
+    size:"default",
     //禁用
     disabled:false,
     //数据类型 static，dynamic
     dataType:'static',
-    'china-area-data':false,
     //请求地址
     action:'https://www.fastmock.site/mock/51715c0157535b99010bde55f2df33c8/formDesigner/api/cascaderOptions',
     props:{
@@ -42,18 +41,14 @@ export let cascader = {
       //显示完整路径
       'show-all-levels':false,
       filterable:false,
-      props: {
-        
-        //触发方式,hover
-        expandTrigger:'click',
-        //多选
-        multiple:false,
-        //可选任一级
-        checkStrictly:false,
-        label: 'label',
-        value: 'value',
-        children: 'children'
-      }
+      expandTrigger:'hover',
+      //多选
+      multiple:false,
+      label: 'label',
+      value: 'value',
+      children: 'children',
+      //可选任一级
+      checkStrictly:false
     },
     options:[
       {
