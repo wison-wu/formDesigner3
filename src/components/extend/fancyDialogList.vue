@@ -48,9 +48,13 @@
   
 </template>
 
-<script>
+<script >
+import {
+  getCurrentInstance,
+  defineComponent
+} from "vue";
 const splitKey = ";";
-export default {
+export default defineComponent({
     name:"fancyDialogList",
     props:{
         value: {
@@ -103,8 +107,10 @@ export default {
         }
     },
     mounted(){
+        const { appContext } = getCurrentInstance();
+        const $axios = appContext.config.globalProperties.axios;
         this.$nextTick(() => {
-            this.$axios.get(this.action).then(res => {
+            $axios.get(this.action).then(res => {
                 this.gridData = [];
                 this.gridData = this.gridData.concat(res.data.list);
                 if(this.value !=='' && this.dialogValue ===''){
@@ -240,7 +246,7 @@ export default {
             return this.gridData;
         }
     }
-}
+})
 </script>
 <style scoped>
 /**#e6f7ff; */

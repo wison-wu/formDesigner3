@@ -3,7 +3,7 @@ import formDesigner from './formDesigner';
 // import fancyHtml from './extend/fancyHtml.vue';
 import fancyText from './extend/fancyText.vue';
 import fancyBarCode from 'vue3-barcode';
-// import fancyDialogList from './extend/fancyDialogList';
+import fancyDialogList from './extend/fancyDialogList.vue';
 // import iconDialog from './iconDialog';
 
 // 引入所有图标
@@ -20,7 +20,7 @@ const plugins = {
     for(const name in Icons){
       app.component(name,Icons[name]);
     }
-    // app.component('fancy-dialog-list',fancyDialogList);
+    app.component('fancy-dialog-list',fancyDialogList);
     // app.component('icon-dialog',iconDialog);
   }
 };

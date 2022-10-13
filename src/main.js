@@ -10,6 +10,8 @@ import 'element-plus/dist/index.css'
 import "./components/style/designer.css";
 import 'default-passive-events'
 import { GlobalCmComponent } from "codemirror-editor-vue3";
+import Axios from 'axios';
+
 
 
 const app = createApp(App);
@@ -17,5 +19,8 @@ app.use(router);
 app.use(ElementPlus);
 app.use(plugins);
 app.use(GlobalCmComponent);
+
+/* 挂载全局对象 start */
+app.config.globalProperties.axios = Axios;
 
 app.mount('#app')
