@@ -107,7 +107,6 @@ const layouts = {
                     >
                       {{
                         item:(obj)=>{
-                          console.log(obj);
                           return renderChildren.call(this,obj.element,obj);
                         }
                       }}

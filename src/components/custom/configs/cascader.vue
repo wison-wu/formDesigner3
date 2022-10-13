@@ -105,7 +105,7 @@
                 :center="true"
                 top="20px"
     >
-      <codemirror v-model="staticOptions" :options="codeMirror"/>
+      <!-- <codemirror v-model="staticOptions" :options="codeMirror"/> -->
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="handlerSave">确 定</el-button>
       </span>
@@ -116,12 +116,12 @@
 import {changeId} from '../mixin'
 //引入 省市区 数据
 import {areaData} from '../../utils/chinaAreaData';
-import {codemirror} from 'vue-codemirror';
-// 核心样式
-import 'codemirror/lib/codemirror.css';
-// 引入主题后还需要在 options 中指定主题才会生效
-import 'codemirror/theme/dracula.css';
-import 'codemirror/mode/javascript/javascript'
+// import {codemirror} from 'vue-codemirror';
+// // 核心样式
+// import 'codemirror/lib/codemirror.css';
+// // 引入主题后还需要在 options 中指定主题才会生效
+// import 'codemirror/theme/dracula.css';
+// import 'codemirror/mode/javascript/javascript'
 const options = {
     tabSize: 2, // 缩进格式
     theme: 'dracula', // 主题，对应主题库 JS 需要提前引入
@@ -139,7 +139,6 @@ export default {
   name:"cascaderConfig",
   props:['props'],
   components:{
-    codemirror
   },
   mixins:[changeId],
   data(){

@@ -28,7 +28,7 @@ import {barCode} from "./items/barCode";
 
 export  const formItems = [
   input,select,radio,checkbox,Switch,inputNumber,textarea,slider
-  ,rate,date,time,editor,colorPicker,upload,dialogList,barCode,dynamicTable
+  ,rate,date,time,editor,colorPicker,cascader,upload,dialogList,barCode,dynamicTable
 ];
 export  const assistFormItems = [button,divider,alert,link,text];
 export  const layoutFormItems = [row,table];
