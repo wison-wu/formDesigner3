@@ -59,7 +59,7 @@
                         :model="element" 
                         :activeItem="activeItem"
                         @rowItemRollBack="handlerRollBack"
-                        @onActiveItemChange="handlerActiveItemChange"
+                        @activeItemChange="handlerActiveItemChange"
                         @copyItem="handlerItemCopy"
                         @deleteItem="handlerItemDelete"/>
                       </template>

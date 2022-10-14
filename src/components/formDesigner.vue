@@ -161,8 +161,8 @@ export default {
       return this.formData;
     },
     handlerUpdateJSON(json){
-      console.log(json);
       const jsonObject = JSON.parse(json);
+      this.formConfig = jsonObject.config;
       this.designList = [];
       this.designList = this.designList.concat(jsonObject.list);
     }

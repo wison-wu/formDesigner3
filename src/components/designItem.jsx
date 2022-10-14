@@ -12,17 +12,17 @@ import fancyTable from './table/fancyTable.vue'
  */
 const components = {
   itemBtns( element,parent) {
-    const {copyItem,deleteItem} = this.$attrs;
+    const {onCopyItem,onDeleteItem} = this.$attrs;
     return [
       <span class="drawing-item-copy" title="复制" onClick={event => {
-        copyItem(element,parent); event.stopPropagation();
+        onCopyItem(element,parent); event.stopPropagation();
       }}>
         <el-icon>
           <CopyDocument />
         </el-icon>
       </span>,
       <span class="drawing-item-delete" title="删除" onClick={event => {
-        deleteItem(element,parent); event.stopPropagation();
+        onDeleteItem(element,parent); event.stopPropagation();
       }}>
         <el-icon>
           <Delete />
@@ -36,9 +36,8 @@ const layouts = {
     let className = this.activeItem.id === element.id ? 'drawing-item active-from-item' : 'drawing-item'
     let labelWidth = element.labelWidth ? `${element.labelWidth}px` : `0px`
     const {onActiveItemChange} = this.$attrs;
-    
     return (
-        <el-col class={className} span={element.span} nativeOnClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
+        <el-col class={className} span={element.span} onClick={event=>{onActiveItemChange(element); event.stopPropagation()}}>
           <span class="component-name component-id">{element.id}</span>
           <el-form-item label={element.showLabel ? element.label : ''}
                         label-width={labelWidth}
@@ -56,7 +55,7 @@ const layouts = {
     const className = this.activeItem.id === element.id ? 'drawing-item drawing-row-item active-from-item' : 'drawing-item drawing-row-item'    
     return (
         <el-col class={className} >
-          <el-row  gutter={element.gutter}  nativeOnClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
+          <el-row  gutter={element.gutter}  onClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
             <span class="component-name">{element.id}</span>
             <div class="drag-wrapper" style="padding-left: 7.5px; padding-right: 7.5px;width:100%">
               {
@@ -88,7 +87,7 @@ const layouts = {
     className = this.activeItem.id === element.id ? 'drawing-item drawing-row-item active-from-item' : 'drawing-item drawing-row-item'
     const {onActiveItemChange} = this.$attrs;
     return (
-      <el-col class={className} nativeOnClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
+      <el-col class={className} onClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
         <span class="component-name" style="margin-bottom:15px">{element.id}</span>
         <fancy-table  layoutArray={element.layoutArray} 
                       tdStyle={element.tdStyle} 
@@ -125,7 +124,7 @@ const layouts = {
     const {onActiveItemChange} = this.$attrs;
     return (
         <el-col  class={className} >
-          <dynamic-table conf={element} activeItem={this.activeItem} nativeOnClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
+          <dynamic-table conf={element} activeItem={this.activeItem} onClick={event => { onActiveItemChange(element); event.stopPropagation()}}>
             <draggable tag="div" class="dynamic-table__content row-drag" ghost-class="dynamicGhost" v-model={element.columns} animation="100"
                        group="componentsGroup"
                        itemKey="id"
