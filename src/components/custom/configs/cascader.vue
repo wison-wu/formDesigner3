@@ -95,14 +95,15 @@
       <el-input v-model="props.action"></el-input>
     </el-form-item> -->
     
-    <el-dialog  :visible.sync="staticDataVisible" width="70%"
+    <el-dialog class="dialog_content" v-model="staticDataVisible" width="70%"
                 :close-on-press-escape="false"
                 :close-on-click-modal="false"
                 :show-close="false"
                 :center="true"
-                top="20px"
+                :draggable="true"
     >
-      <!-- <codemirror v-model="staticOptions" :options="codeMirror"/> -->
+
+      <codemirror v-model:value="staticOptions" :options="codeMirror" :height="400"/>
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="handlerSave">确 定</el-button>
       </span>
@@ -113,22 +114,21 @@
 import {changeId} from '../mixin'
 //引入 省市区 数据
 import {areaData} from '../../utils/chinaAreaData';
-// import {codemirror} from 'vue-codemirror';
+import Codemirror from "codemirror-editor-vue3";
 // // 核心样式
-// import 'codemirror/lib/codemirror.css';
-// // 引入主题后还需要在 options 中指定主题才会生效
-// import 'codemirror/theme/dracula.css';
-// import 'codemirror/mode/javascript/javascript'
+// language
+import "codemirror/mode/javascript/javascript.js";
+// theme
+import "codemirror/theme/dracula.css";
 const options = {
-    tabSize: 2, // 缩进格式
-    theme: 'dracula', // 主题，对应主题库 JS 需要提前引入
-    lineNumbers: true, // 显示行号
-    line: true,
-    styleActiveLine: true, // 高亮选中行
-    hintOptions: {
-      completeSingle: true // 当匹配只有一项的时候是否自动补全
-    }
-  }
+  mode: "text/javascript", // Language mode
+  theme: "dracula", // Theme
+  lineNumbers: true, // Show line number
+  smartIndent: true, // Smart indent
+  indentUnit: 2, // The smart indent unit is 2 spaces in length
+  foldGutter: true, // Code folding
+  styleActiveLine: true, // Display the style of the selected row
+}
 /**
  * input的配置项
  */
@@ -136,6 +136,7 @@ export default {
   name:"cascaderConfig",
   props:['props'],
   components:{
+    Codemirror
   },
   mixins:[changeId],
   data(){
@@ -153,7 +154,7 @@ export default {
     handlerStaticData(){
       this.staticOptions = JSON.stringify(this.props.options,null,4);
       this.staticDataVisible = true;
-      
+      console.log(this.staticOptions);
     },
     handlerSave(){
       this.props.options = JSON.parse(this.staticOptions);
