@@ -1,9 +1,9 @@
 <!--文本扩展-->
 <template>
   <div class="dialog-list">
-      <el-input v-model="dialogValue" readonly  @click.native="handlerShowDialog" :disabled="disabled" style="width:95%" suffix-icon="el-icon-search"></el-input>
+      <el-input v-model="dialogValue" readonly  @click.native="handlerShowDialog" :disabled="disabled" input-style="{width:95%}" suffix-icon="el-icon-search"></el-input>
       <el-dialog 
-      :visible.sync="dialogVisible" 
+      v-model="dialogVisible" 
       :title="title"
       width="60%"
       center
