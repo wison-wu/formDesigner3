@@ -108,7 +108,7 @@ const layouts = {
                     >
                       {{
                         item:(obj)=>{
-                          return renderChildren.call(this,obj.element,obj);
+                          return renderChildren.call(this,obj.element,item.td);
                         }
                       }}
                     </draggable>
