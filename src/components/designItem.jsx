@@ -36,6 +36,7 @@ const layouts = {
     let className = this.activeItem.id === element.id ? 'drawing-item active-from-item' : 'drawing-item'
     let labelWidth = element.labelWidth ? `${element.labelWidth}px` : `0px`
     const {onActiveItemChange} = this.$attrs;
+    console.log(arguments);
     return (
         <el-col class={className} span={element.span} onClick={event=>{onActiveItemChange(element); event.stopPropagation()}}>
           <span class="component-name component-id">{element.id}</span>
@@ -46,6 +47,7 @@ const layouts = {
             <render key={element.id} conf={element} onInput={ val => {
             }}/>
           </el-form-item>
+          
           {components.itemBtns.apply(this, arguments)}
         </el-col>
     )
@@ -68,7 +70,7 @@ const layouts = {
                       >
                         {{
                           item:(obj)=>{
-                            return renderChildren.call(this,obj.element,obj);
+                            return renderChildren.call(this,obj.element,element);
                           }
                         }}
                       </draggable>

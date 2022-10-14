@@ -142,8 +142,7 @@ export default {
       }
       this.$refs.designer.activeItem = tempActiveData;
     },
-    onStart(obj){
-      
+    onStart(evt){
     },
     onEnd(obj){
       if(obj.from !== obj.to){
