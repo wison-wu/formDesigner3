@@ -46,10 +46,10 @@
       <el-switch v-model="props.disabled" ></el-switch>
     </el-form-item>
     <el-form-item label="完整路径">
-      <el-switch v-model="props.props['show-all-levels']" ></el-switch>
+      <el-switch v-model="props['show-all-levels']" ></el-switch>
     </el-form-item>
     <el-form-item label="分隔符">
-      <el-input v-model="props.props.separator" ></el-input>
+      <el-input v-model="props.separator" ></el-input>
     </el-form-item>
     <el-form-item label="搜索">
       <el-switch v-model="props.props.filterable" ></el-switch>

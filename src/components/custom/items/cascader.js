@@ -33,13 +33,13 @@ export let cascader = {
     dataType:'static',
     //请求地址
     action:'https://www.fastmock.site/mock/51715c0157535b99010bde55f2df33c8/formDesigner/api/cascaderOptions',
+    //分隔符
+    separator:"/",
+    //显示完整路径
+    'show-all-levels':false,
+    //清空
+    clearable:true,
     props:{
-      //清空
-      clearable:true,
-      //分隔符
-      separator:"/",
-      //显示完整路径
-      'show-all-levels':false,
       filterable:false,
       expandTrigger:'hover',
       //多选

@@ -8,7 +8,6 @@ import './assets/iconfont/iconfont.js'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import "./components/style/designer.css";
-import 'default-passive-events'
 import { GlobalCmComponent } from "codemirror-editor-vue3";
 import Axios from 'axios';
 
