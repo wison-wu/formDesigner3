@@ -2,7 +2,7 @@
  * 表单配置
  */
 const formConf = {
-  version:'3.0.5',
+  version:'0.5',
   formRef: 'elForm',
   formModel: 'form',
   rules: 'rules',
