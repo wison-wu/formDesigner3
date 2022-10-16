@@ -122,7 +122,7 @@
         </span>
     </el-dialog>
     <el-dialog v-model="previewVisible" width="70%" title="预览">
-      
+      <preview :itemList="itemList"  :formConf="formConf" v-if="previewVisible"/>
     </el-dialog>
     <el-dialog v-model="JSONVisible" width="70%" title="JSON" center :close-on-click-modal="false">
       <codemirror v-model:value="viewCode" :options="options" :height="400"/>
@@ -145,6 +145,7 @@ import codeMirror from "codemirror-editor-vue3";
 import "codemirror/mode/javascript/javascript.js";
 // theme
 import "codemirror/theme/dracula.css";
+import preview from "./preview.vue";
 
 export default {
   name:"designer",
@@ -152,7 +153,8 @@ export default {
     configPanel,
     designItem,
     draggable,
-    codeMirror
+    codeMirror,
+    preview
   },
   props:{
     list: { 

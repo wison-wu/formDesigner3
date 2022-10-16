@@ -1,4 +1,3 @@
-<script>
 import render from '../custom/previewRender'
 import checkRules from '../custom/rule';
 const layouts = {
@@ -52,4 +51,3 @@ export default {
     }
   }
 }
-</script>

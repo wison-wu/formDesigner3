@@ -18,7 +18,7 @@ export function datas(){
         }
     })
     Object.keys(itemDatas).forEach(key =>{
-        this.$set(this.form, key, itemDatas[key]);
+        //this.$set(this.form, key, itemDatas[key]);
     })
 }
 
