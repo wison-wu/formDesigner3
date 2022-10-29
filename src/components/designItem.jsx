@@ -36,16 +36,17 @@ const layouts = {
     let className = this.activeItem.id === element.id ? 'drawing-item active-from-item' : 'drawing-item'
     let labelWidth = element.labelWidth ? `${element.labelWidth}px` : `0px`
     const {onActiveItemChange} = this.$attrs;
-    console.log(arguments);
     return (
         <el-col class={className} span={element.span} onClick={event=>{onActiveItemChange(element); event.stopPropagation()}}>
           <span class="component-name component-id">{element.id}</span>
           <el-form-item label={element.showLabel ? element.label : ''}
                         label-width={labelWidth}
                         required={element.required} >
-            
-            <render key={element.id} conf={element} onInput={ val => {
-            }}/>
+
+            <render key={element.id} conf={element} onInput={ event => {
+                            console.log(event);
+              this.activeItem.value=event;
+              }}/>
           </el-form-item>
           
           {components.itemBtns.apply(this, arguments)}

@@ -2,10 +2,10 @@ import render from './custom/previewRender'
 import checkRules from './custom/rule';
 
 const layouts = {
-  colItem(h, element,value) {
+  colItem(element,modelValue) {
     let labelWidth = element.labelWidth ? `${element.labelWidth}px` : null
-    const {onValChange} = this.$attrs;
     const rules = checkRules(element);
+    const {onValChange} = this.$attrs;
     return (
         <el-col  style="padding-left: 7.5px; padding-right: 7.5px;">
           <el-form-item label={element.showLabel ? element.label : ''}
@@ -13,9 +13,8 @@ const layouts = {
                         prop={element.id}
                         rules={rules}
                         >
-            <render key={element.id} conf={element} value={value} onInput={ event => {
-              //this.$set(element,'value',event);
-              onValChange(element.id,event);
+            <render key={element.id} conf={element} modelValue={modelValue} onInput={ event => {
+                onValChange(element.id,event);
             }}/>
           </el-form-item>
         </el-col>
@@ -28,13 +27,13 @@ export default {
   components: {
     render
   },
-  props: ['model','value'],
+  props: ['model','modelValue'],
   data(){
     return {
       eleConfig:this.model
     }
   },
-  render(h) {
-    return layouts.colItem.call(this, h, this.eleConfig,this.value)
+  render() {
+    return layouts.colItem.call(this, this.eleConfig,this.modelValue)
   }
 }

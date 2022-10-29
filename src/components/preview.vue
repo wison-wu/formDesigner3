@@ -99,7 +99,6 @@
               />
             </el-col>
           </template>
-          
         </el-form>
     </el-row>
     <el-divider></el-divider>
@@ -137,8 +136,7 @@ export default {
   },
   methods:{
     handlerValChange(key,origin){
-      console.log(key);
-      this.$set(this.form,key,origin);
+      this.form[key] = origin;
     },
     handlerDynamicValChange(parentId,index,key,origin){
       this.$set(this.form[parentId][index],key,origin);
