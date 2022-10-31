@@ -15,7 +15,7 @@
                 <el-button type="primary" class="button" @click="handlerSubForm">提交</el-button>
             </div>
           </div>
-          <codemirror v-model="code" :options="options" v-show="item.name ==='config'||item.name ==='value'"/>
+          <codemirror v-model:value="code" :options="options" :height="400" v-show="item.name ==='config'||item.name ==='value'"/>
           <div v-if="item.name==='view'">
             <form-viewer ref="formViewer" v-model="formVal" :buildData="formCode"></form-viewer>
           </div>

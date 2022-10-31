@@ -108,7 +108,7 @@ import previewRowItem from "./previewRowItem";
 import fancyDynamicTable from "./dynamic/fancyDynamicTable";
 import fancyDynamicTableItem from "./dynamic/fancyDynamicTableItem";
 import {datas,addRow,deleteRow,fillDatas} from "./custom/formDraw";
-import fancyEditTable from "./table/fancyEditTable";
+import fancyEditTable from "./table/fancyEditTable.vue";
 export default {
   name:'formBuilder',
   props:{
@@ -149,7 +149,10 @@ export default {
   },
   methods:{
     handlerValChange(key,origin){
-      this.$set(this.form,key,origin);
+      console.log(key);
+      console.log(origin);
+      this.form[key] = origin;
+      console.log(this.form);
     },
     handlerDynamicValChange(parentId,index,key,origin){
       this.$set(this.form[parentId][index],key,origin);
@@ -159,9 +162,9 @@ export default {
       this.$refs[this.formConf.formModel].validate((valid) => {
         if (valid) {
           this.$message.success('success');
-          this.$emit('input',JSON.stringify(this.form,null,4));
+          this.$emit('update:modelValue',JSON.stringify(this.form,null,4));
         }else{
-          this.$emit('input','');
+          this.$emit('update:modelValue','');
         }
       });
     },
