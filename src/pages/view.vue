@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import formBuilder from '../components/formBuilder'
-import formViewer from '../components/formViewer'
+import formBuilder from '../components/formBuilder.vue'
+import formViewer from '../components/formViewer.vue'
 import codeMirror from "codemirror-editor-vue3";
 // language
 import "codemirror/mode/javascript/javascript.js";
@@ -71,6 +71,7 @@ export default {
   mounted(){
     this.$nextTick(()=> {
       const formValue = localStorage.getItem("formValue");
+      console.log(formValue);
       this.formCode = formValue;
     })
     

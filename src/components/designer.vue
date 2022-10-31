@@ -211,7 +211,7 @@ export default {
     },
     view(){
       localStorage.setItem("formValue",this.code);
-      window.open('#/view');
+      window.open('/view');
     },
     setting(){
       this.formConfVisible = true;

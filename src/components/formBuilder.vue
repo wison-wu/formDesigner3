@@ -1,6 +1,5 @@
 <template>
-  <div >
-    <el-row  :gutter="formConf.gutter" class="form-builder">
+  <div class="form-builder">
       <el-form
           :rules="rules"
           :ref="formConf.formModel"
@@ -101,7 +100,6 @@
           </template>
           
         </el-form>
-    </el-row>
   </div>
 </template>
 <script>
