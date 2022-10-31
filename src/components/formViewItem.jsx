@@ -1,8 +1,6 @@
-<script>
 import render from './custom/viewRender'
-
 const layouts = {
-  colItem(h, element,value) {
+  colItem(element,value) {
     element.disabled= true;
     let labelWidth = element.labelWidth ? `${element.labelWidth}px` : null
     if(element.viewType === 'component'){
@@ -12,7 +10,7 @@ const layouts = {
             prop={element.id}
             >
             <render key={element.id} conf={element} value={value} onInput={ event => {
-              this.$set(element,'value',event);
+              //this.$set(element,'value',event);
             }}/>
           </el-form-item>
       )
@@ -53,18 +51,7 @@ export default {
       eleConfig:this.model
     }
   },
-  render(h) {
-    return layouts.colItem.call(this, h, this.eleConfig,this.value)
+  render() {
+    return layouts.colItem.call(this, this.eleConfig,this.value)
   }
 }
-</script>
-<style>
-/* .el-form-item__label{
-  font-weight: 600;
-} */
-.el-form-item{
-  margin-left:10px;
-  margin-right:10px;
-  margin-bottom: 5px;
-}
-</style>

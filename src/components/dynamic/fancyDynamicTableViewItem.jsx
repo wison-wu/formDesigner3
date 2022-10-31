@@ -1,4 +1,3 @@
-<script>
 import render from '../custom/viewRender'
 const layouts = {
   colItem(h, element,value) {
@@ -37,9 +36,3 @@ export default {
     return layouts.colItem.call(this, h, this.eleConfig,this.value)
   }
 }
-</script>
-<style>
-/* .el-form-item__label{
-  font-weight: 600;
-} */
-</style>

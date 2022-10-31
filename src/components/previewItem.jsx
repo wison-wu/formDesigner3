@@ -13,7 +13,7 @@ const layouts = {
                         prop={element.id}
                         rules={rules}
                         >
-            <render key={element.id} conf={element} modelValue={modelValue} onInput={ (event,v) => {
+            <render key={element.id} conf={element} modelValue={modelValue} onInput={event => {
               if (event.target)return;
               onValChange(element.id,event);
           }} onChange={ event => {

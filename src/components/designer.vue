@@ -89,9 +89,9 @@
             </el-form-item>
             <el-form-item label="表单尺寸">
                 <el-radio-group v-model="formConf.size">
-                  <el-radio-button label="medium">中等</el-radio-button>
-                  <el-radio-button label="small">较小</el-radio-button>
-                  <el-radio-button label="mini">迷你</el-radio-button>
+                  <el-radio-button label="large">大</el-radio-button>
+                  <el-radio-button label="default">中</el-radio-button>
+                  <el-radio-button label="small">小</el-radio-button>
                 </el-radio-group>
             </el-form-item>
             <el-form-item label="标签对齐">
