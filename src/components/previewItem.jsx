@@ -13,13 +13,11 @@ const layouts = {
                         prop={element.id}
                         rules={rules}
                         >
-            <render key={element.id} conf={element} modelValue={modelValue} onInput={ event => {
-             if(element.compType ==='select')return;
-             console.log(event,'111');
-             onValChange(element.id,event);
+            <render key={element.id} conf={element} modelValue={modelValue} onInput={ (event,v) => {
+              if (event.target)return;
+              onValChange(element.id,event);
           }} onChange={ event => {
-            if(element.compType !=='select')return;
-            console.log(event,'222');
+            if (event.target)return;
             onValChange(element.id,event);
         }}/>
           </el-form-item>
