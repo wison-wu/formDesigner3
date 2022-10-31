@@ -112,7 +112,7 @@ import fancyEditTable from "./table/fancyEditTable.vue";
 export default {
   name:'formBuilder',
   props:{
-    value:{
+    modelValue:{
       type:String,
       default:''
     },
@@ -141,32 +141,30 @@ export default {
   },
   mounted() {
     this.$nextTick(()=> {
-      if(this.value !==''){
-        const jsonValue = JSON.parse(this.value)
+      if(this.modelValue !==''){
+        const jsonValue = JSON.parse(this.modelValue)
         this.handlerFillDatas(jsonValue);
       }
     })
   },
   methods:{
     handlerValChange(key,origin){
-      console.log(key);
-      console.log(origin);
       this.form[key] = origin;
-      console.log(this.form);
     },
     handlerDynamicValChange(parentId,index,key,origin){
       this.$set(this.form[parentId][index],key,origin);
       this.currentIndex = index;
     },
-    validate(){
-      this.$refs[this.formConf.formModel].validate((valid) => {
-        if (valid) {
-          this.$message.success('success');
-          this.$emit('update:modelValue',JSON.stringify(this.form,null,4));
-        }else{
-          this.$emit('update:modelValue','');
-        }
-      });
+    async validate(){
+      let valid = await this.$refs[this.formConf.formModel].validate();
+      
+      if (valid) {
+        
+        this.$message.success('success');
+        this.$emit('update:modelValue',JSON.stringify(this.form,null,4));
+      }else{
+        this.$emit('update:modelValue','');
+      }
     },
     handlerAddRow:addRow,
     handlerDeleteRow:deleteRow,

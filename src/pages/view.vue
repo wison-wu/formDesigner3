@@ -15,7 +15,7 @@
                 <el-button type="primary" class="button" @click="handlerSubForm">提交</el-button>
             </div>
           </div>
-          <codemirror v-model:value="code" :options="options" :height="400" v-show="item.name ==='config'||item.name ==='value'"/>
+          <codemirror v-model:value="code" :options="options" :height="600" v-show="item.name ==='config'||item.name ==='value'"/>
           <div v-if="item.name==='view'">
             <form-viewer ref="formViewer" v-model="formVal" :buildData="formCode"></form-viewer>
           </div>
@@ -47,13 +47,13 @@ export default {
       tabName:'form',
       tableTabs: [{
           title: '编辑表单',
-          name: 'form',
+          name: 'form'
         }, {
           title: '配置',
-          name: 'config',
+          name: 'config'
         }, {
           title: '数据',
-          name: 'value',
+          name: 'value'
         }],
         options: {
           mode: "text/javascript",
@@ -71,7 +71,6 @@ export default {
   mounted(){
     this.$nextTick(()=> {
       const formValue = localStorage.getItem("formValue");
-      console.log(formValue);
       this.formCode = formValue;
     })
     
@@ -79,8 +78,8 @@ export default {
   methods:{
     handlerchangeopen(){
     },
-    handlerSubForm(){
-      this.$refs['formBuilder'][0].validate();
+    async handlerSubForm(){
+      await this.$refs['formBuilder'][0].validate();
       if(this.formVal!==''){
         this.addNewTab();
       }
@@ -92,7 +91,6 @@ export default {
           name: 'view'
         });
       }
-      
     }
   },
   computed:{
@@ -115,6 +113,13 @@ export default {
         }
       },
       set(){}
+    }
+  },
+  watch:{
+    formVal(newVal,oldVal){
+      // if(this.formVal!==''){
+      //   this.addNewTab();
+      // }
     }
   }
 }
