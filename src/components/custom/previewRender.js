@@ -12,7 +12,6 @@ export default {
     const map = this.getRenderComps();
     let confClone = jsonClone(this.conf);
     const children = childrenItem(h,confClone);
-
     Object.keys(confClone).forEach(key => {
       const val = confClone[key]
       if (dataObject[key]) {
@@ -22,7 +21,7 @@ export default {
       } else if (!isAttr(key)) {
         dataObject.props[key] = val
       }else {
-        if(key !== 'modelValue'){
+        if(key !== 'value'){
           dataObject.attrs[key] = val
         }
       }
@@ -39,7 +38,6 @@ export default {
 }
 function vModel(self, dataObject) {
   dataObject.modelValue=self.modelValue;
-  dataObject.onInput = (val) => {
-    self.$emit('update:modelValue',val)
-  }
+
+  
 }

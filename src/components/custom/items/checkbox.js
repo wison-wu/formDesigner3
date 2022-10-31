@@ -40,7 +40,7 @@ export let checkbox = {
   //选项是否垂直
   vertical:false,
   //选项大小
-  size:'medium',
+  size:'default',
   //是否是按钮
   optionType:'default',
   //选项列表

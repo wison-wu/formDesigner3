@@ -14,8 +14,14 @@ const layouts = {
                         rules={rules}
                         >
             <render key={element.id} conf={element} modelValue={modelValue} onInput={ event => {
-                onValChange(element.id,event);
-            }}/>
+             if(element.compType ==='select')return;
+             console.log(event,'111');
+             onValChange(element.id,event);
+          }} onChange={ event => {
+            if(element.compType !=='select')return;
+            console.log(event,'222');
+            onValChange(element.id,event);
+        }}/>
           </el-form-item>
         </el-col>
     )
