@@ -38,6 +38,5 @@ export default {
 }
 function vModel(self, dataObject) {
   dataObject.modelValue=self.modelValue;
-
   
 }

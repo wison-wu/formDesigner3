@@ -84,7 +84,7 @@ export default {
     }
   },
   props:{
-    value:{
+    modelValue:{
       type:String,
       default:''
     },
@@ -114,8 +114,8 @@ export default {
       }
     },
     form(){ //转换成json的值
-      if(this.value!==''){
-        const value = JSON.parse(this.value);
+      if(this.modelValue!==''){
+        const value = JSON.parse(this.modelValue);
         return value;
       }else{
         return {};
