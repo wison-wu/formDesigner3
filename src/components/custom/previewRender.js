@@ -9,21 +9,16 @@ export default {
       props: {},
       style: {}
     }
+    //debugger;
     const map = this.getRenderComps();
     let confClone = jsonClone(this.conf);
     const children = childrenItem(h,confClone);
     Object.keys(confClone).forEach(key => {
       const val = confClone[key]
-      if (dataObject[key]) {
-        dataObject[key] = val
-      } else if(key ==='width'){
+      if(key ==='width'){
         dataObject.style= 'width:'+val;
-      } else if (!isAttr(key)) {
-        dataObject.props[key] = val
-      }else {
-        if(key !== 'value'){
-          dataObject.attrs[key] = val
-        }
+      }else{
+        dataObject[key] = val
       }
     })
 
