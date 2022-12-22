@@ -1,6 +1,6 @@
 import formDesigner from './formDesigner';
 import fancyEditor from './extend/fancyEditor';
-// import fancyHtml from './extend/fancyHtml.vue';
+import fancyHtml from './extend/fancyHtml.vue';
 import fancyText from './extend/fancyText.vue';
 import fancyBarCode from 'vue3-barcode';
 import fancyDialogList from './extend/fancyDialogList.vue';
@@ -13,7 +13,7 @@ const plugins = {
   install : (app)=> {
     app.component('form-designer',formDesigner);
     app.component('fancy-editor',fancyEditor);
-    // app.component('fancy-html',fancyHtml);
+    app.component('fancy-html',fancyHtml);
     app.component('fancy-text',fancyText);
     app.component('fancy-bar-code',fancyBarCode);
     // 循环注册所有图标

@@ -51,6 +51,7 @@ import {
 }  from "element-plus";
 import fancyBarCode from 'vue3-barcode';
 import fancyText from '../../extend/fancyText.vue';
+import fancyHtml from '../../extend/fancyHtml.vue';
 import fancyDialogList from '../../extend/fancyDialogList.vue';
 import fancyEditor from '../../extend/fancyEditor.vue';
 export const renderComp = {
@@ -79,6 +80,7 @@ export const renderComp = {
             compMap.set("fancy-text",fancyText);
             compMap.set("fancy-dialog-list",fancyDialogList);
             compMap.set("fancy-editor",fancyEditor);
+            compMap.set("fancy-html",fancyHtml);
             return compMap;
         }
     }

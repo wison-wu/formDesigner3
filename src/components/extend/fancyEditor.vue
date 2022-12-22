@@ -1,11 +1,10 @@
 <template>
   <div class="edit_container" :class="{warn_edit_container:warnTextLength}">
         <quill-editor 
-            v-model="content" 
             ref="myQuillEditor" 
-            :options="editorOption" 
-            @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
-            @change="onEditorChange($event)">
+            toolbar="full"
+            theme="snow"
+            @textChange="onEditorChange($event)">
         </quill-editor>
         <div class="text_number_tips" :class="{warn_text_number_tips:warnTextLength}">{{currentLength}}/{{maxTextLength}}</div>
     </div>
@@ -52,8 +51,9 @@ export default {
         onEditorFocus(v){
         }, // 获得焦点事件
         onEditorChange(v){
-            this.currentLength = v.text.length-1;
-            this.$emit('input',this.content);
+            let text = this.$refs.myQuillEditor.getText();
+            this.currentLength = text.length-1;
+            this.$emit('input',text);
         }, // 内容改变事件
     },
     computed: {
@@ -71,12 +71,6 @@ export default {
             const warn =this.validateMaxText&&this.currentLength>this.maxTextLength;
             return warn;
         }
-    },
-    watch:{
-        value(newVal){
-            this.content = newVal;
-        },
-        
     }
 
 }
