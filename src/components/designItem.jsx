@@ -42,13 +42,11 @@ const layouts = {
           <el-form-item label={element.showLabel ? element.label : ''}
                         label-width={labelWidth}
                         required={element.required} >
-
             <render key={element.id} conf={element} onInput={ event => {
-                            console.log(event);
               this.activeItem.value=event;
-              }}/>
+              }}
+            />
           </el-form-item>
-          
           {components.itemBtns.apply(this, arguments)}
         </el-col>
     )

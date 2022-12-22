@@ -1,5 +1,5 @@
 import formDesigner from './formDesigner';
-// import fancyEditor from './extend/fancyEditor';
+import fancyEditor from './extend/fancyEditor';
 // import fancyHtml from './extend/fancyHtml.vue';
 import fancyText from './extend/fancyText.vue';
 import fancyBarCode from 'vue3-barcode';
@@ -12,7 +12,7 @@ import * as Icons from '@element-plus/icons-vue';
 const plugins = {
   install : (app)=> {
     app.component('form-designer',formDesigner);
-    // app.component('fancy-editor',fancyEditor);
+    app.component('fancy-editor',fancyEditor);
     // app.component('fancy-html',fancyHtml);
     app.component('fancy-text',fancyText);
     app.component('fancy-bar-code',fancyBarCode);

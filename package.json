@@ -11,6 +11,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.9",
     "@types/node": "^18.7.14",
+    "@vueup/vue-quill": "^1.0.1",
     "axios": "^1.1.2",
     "china-area-data": "^5.0.1",
     "codemirror-editor-vue3": "^2.1.7",
