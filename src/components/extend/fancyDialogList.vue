@@ -1,7 +1,7 @@
 <!--文本扩展-->
 <template>
   <div class="dialog-list">
-      <el-input v-model="dialogValue" readonly  @click.native="handlerShowDialog" :disabled="disabled"  :suffix-icon="Search"></el-input>
+      <el-input v-model="dialogValue" readonly  @click.native="handlerShowDialog" :disabled="disabled"  suffix-icon="Search"></el-input>
       <el-dialog 
       v-model="dialogVisible" 
       :title="title"
@@ -13,6 +13,7 @@
       @open="show()"
       :destroy-on-close="true"
       top="15px"
+      :draggable="true"
       >
       <!--搜索暂不启用-->
         <!-- <div class="search-text" v-show="searchable">
@@ -34,6 +35,7 @@
             @row-dblclick="handlerRowDoubleClick"
             @current-change="handleCurrentChange"
             @selection-change="handleSelectionChange"
+            
         >
             <el-table-column type="selection" width="55" v-if="multi"></el-table-column>
             <el-table-column type="index" v-if="showIndex" align="center"></el-table-column>
@@ -267,5 +269,10 @@ export default {
 }
 .dialog-list{
     width:100%
+}
+.dialog-footer{
+    text-align: center;
+    margin: 10px auto;
+    display: block;
 }
 </style>
