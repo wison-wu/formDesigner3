@@ -1,7 +1,7 @@
 <!--文本扩展-->
 <template>
   <div class="dialog-list">
-      <el-input v-model="dialogValue" readonly  @click.native="handlerShowDialog" :disabled="disabled" style="width:95%" suffix-icon="el-icon-search"></el-input>
+      <el-input v-model="dialogValue" readonly  @click.native="handlerShowDialog" :disabled="disabled"  :suffix-icon="Search"></el-input>
       <el-dialog 
       v-model="dialogVisible" 
       :title="title"
@@ -49,12 +49,13 @@
 </template>
 
 <script >
+import {Search} from '@element-plus/icons-vue'
 import {
   getCurrentInstance,
   defineComponent
 } from "vue";
 const splitKey = ";";
-export default defineComponent({
+export default {
     name:"fancyDialogList",
     props:{
         value: {
@@ -97,6 +98,9 @@ export default defineComponent({
             type:String,
             default:'name'
         }
+    },
+    components:{
+        Search
     },
     data() {
         return {
@@ -246,7 +250,7 @@ export default defineComponent({
             return this.gridData;
         }
     }
-})
+}
 </script>
 <style scoped>
 /**#e6f7ff; */
@@ -257,8 +261,11 @@ export default defineComponent({
     margin-bottom: 10px;
 }
 </style>
-<style>
+<style scoped>
 .el-table .odd-row {
     background-color:#FAFAFA;
+}
+.dialog-list{
+    width:100%
 }
 </style>
