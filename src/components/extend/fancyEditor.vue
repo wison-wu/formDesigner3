@@ -51,9 +51,10 @@ export default {
         onEditorFocus(v){
         }, // 获得焦点事件
         onEditorChange(v){
-            let text = this.$refs.myQuillEditor.getText();
+            const text = this.$refs.myQuillEditor.getText();
+            const hText = this.$refs.myQuillEditor.getHTML();
             this.currentLength = text.length-1;
-            this.$emit('input',text);
+            this.$emit('input',hText);
         }, // 内容改变事件
     },
     computed: {
