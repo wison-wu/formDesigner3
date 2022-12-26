@@ -81,7 +81,7 @@
         <p/>
         <el-input v-model="item.msg" placeholder="自定义提示" size="small" />
         <div class="close-btn select-line-icon" @click="props.rules.splice(index, 1)">
-          <i class="el-icon-remove-outline close-icon" />
+          <el-icon><Remove /></el-icon>
         </div>
       </div>
     <div style="margin-left: 20px;">
