@@ -72,7 +72,6 @@
           type="primary"
           link
           @click="addSelectItem"
-          
         >
         <el-icon><CirclePlus /></el-icon>
           添加选项
@@ -109,29 +108,26 @@ export default {
     },
     setValue(val) {
      // console.log(val);
-      return val;
-      // if (Array.isArray(val)) {
-      //   return val.join(',')
-      // }
-      // if (['string', 'number'].indexOf(val) > -1) {
-      //   return val
-      // }
-      // if (typeof val === 'boolean') {
-      //   return `${val}`
-      // }
-      // return val
+      // return val;
+      if (Array.isArray(val)) {
+        return val.join(',')
+      }
+      if (['string', 'number'].indexOf(val) > -1) {
+        return val
+      }
+      if (typeof val === 'boolean') {
+        return `${val}`
+      }
+      return val
     },
     onValueInput(str) {
+      debugger;
       if (Array.isArray(this.props.value)) {
         // 数组
-        this.$set(
-          this.props,
-          'value',
-          str.split(',').map(val => (isNumberStr(val) ? +val : val))
-        )
+        this.props.value = str.split(',').map(val => (isNumberStr(val) ? +val : val));
       } else if (['true', 'false'].indexOf(str) > -1) {
+        this.props.value = JSON.parse(str);
         // 布尔
-        this.$set(this.props, 'value', JSON.parse(str))
       } else {
         // 字符串和数字
         this.props.value=str;
@@ -144,7 +140,7 @@ export default {
       })
     },
     multipleChange(val){
-      this.$set(this.props, 'value', val ? [] : '')
+      this.props.value =val ? [] : '';
     },
     handlerChangeDataType(value){
       if(value === 'static'){

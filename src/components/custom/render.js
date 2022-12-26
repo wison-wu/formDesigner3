@@ -30,7 +30,6 @@ export default {
   mixins:[renderComp]
 }
 function vModel(self, dataObject) {
-
   dataObject.modelValue=self.modelValue;
   
 }

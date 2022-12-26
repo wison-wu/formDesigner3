@@ -157,9 +157,7 @@ export default {
     },
     async validate(){
       let valid = await this.$refs[this.formConf.formModel].validate();
-      
       if (valid) {
-        
         this.$message.success('success');
         this.$emit('update:modelValue',JSON.stringify(this.form,null,4));
       }else{

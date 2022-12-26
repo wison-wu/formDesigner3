@@ -14,13 +14,13 @@ const layouts = {
                         rules={rules}
                         >
             <render key={element.id} conf={element} modelValue={modelValue} onInput={event => {
-              //debugger;
-              //if (event.target)return;
+              //兼容select 搜索
+              if(event.data)return;
+              //兼容select 搜索 end
               element.value = event;
               onValChange(element.id,event);
           }} onChange={ event => {
-            //debugger;
-            //if (event.target)return;
+            console.log(event);
             element.value = event;
             onValChange(element.id,event);
         }}/>
