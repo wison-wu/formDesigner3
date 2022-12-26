@@ -14,10 +14,14 @@ const layouts = {
                         rules={rules}
                         >
             <render key={element.id} conf={element} modelValue={modelValue} onInput={event => {
-              if (event.target)return;
+              //debugger;
+              //if (event.target)return;
+              element.value = event;
               onValChange(element.id,event);
           }} onChange={ event => {
-            if (event.target)return;
+            //debugger;
+            //if (event.target)return;
+            element.value = event;
             onValChange(element.id,event);
         }}/>
           </el-form-item>

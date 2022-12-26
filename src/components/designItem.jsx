@@ -43,7 +43,7 @@ const layouts = {
                         label-width={labelWidth}
                         required={element.required} >
             <render key={element.id} conf={element} onInput={ event => {
-              this.activeItem.value=event;
+              element.value=event;
               }}
             />
           </el-form-item>

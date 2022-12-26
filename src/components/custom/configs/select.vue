@@ -45,8 +45,9 @@
       <el-switch v-model="props.filterable"></el-switch>
     </el-form-item>
     <el-form-item label="默认值">
+      <!--:value="setValue(props.value)"-->
       <el-input class="input"
-        :value="setValue(props.value)"
+        v-model="selectValue"
         placeholder="请输入默认值"
         @input="onValueInput"
       />
@@ -59,16 +60,13 @@
     </el-form-item>
     <div v-show='props.dataType ==="static"'>
       <el-divider>选项</el-divider>
-        <draggable :list="props.options" handle=".option-drag" item-key="id">
-          <template #item="{ element }">
-            <div  class="select-item option-drag">
-              <el-icon><Operation /></el-icon>
-              <el-input v-model="element.label" placeholder="选项名" size="small" />
-              <el-input v-model="element.value" placeholder="选项值" size="small" />
-              <el-icon class="remove-icon"><Remove /></el-icon>
-            </div>
-          </template>
-        </draggable>
+        <div v-for="(element) in props.options">
+          <div  class="select-item option-drag">
+            <el-input v-model="element.label" placeholder="选项名" size="small" />
+            <el-input v-model="element.value" placeholder="选项值" size="small" />
+            <el-icon class="remove-icon"><Remove /></el-icon>
+          </div>
+        </div>
       <div style="margin-left: 20px;">
         <el-button
           type="primary"
@@ -101,7 +99,8 @@ export default {
   mixins:[changeId],
   data(){
     return {
-      tempOptions:[]
+      tempOptions:[],
+      selectValue:''
     }
   },
   methods:{
@@ -109,16 +108,18 @@ export default {
       this.props.labelWidth = val?80:1;
     },
     setValue(val) {
-      if (Array.isArray(val)) {
-        return val.join(',')
-      }
-      if (['string', 'number'].indexOf(val) > -1) {
-        return val
-      }
-      if (typeof val === 'boolean') {
-        return `${val}`
-      }
-      return val
+     // console.log(val);
+      return val;
+      // if (Array.isArray(val)) {
+      //   return val.join(',')
+      // }
+      // if (['string', 'number'].indexOf(val) > -1) {
+      //   return val
+      // }
+      // if (typeof val === 'boolean') {
+      //   return `${val}`
+      // }
+      // return val
     },
     onValueInput(str) {
       if (Array.isArray(this.props.value)) {
@@ -133,11 +134,7 @@ export default {
         this.$set(this.props, 'value', JSON.parse(str))
       } else {
         // 字符串和数字
-        this.$set(
-          this.props,
-          'value',
-          isNumberStr(str) ? +str : str
-        )
+        this.props.value=str;
       }
     },
     addSelectItem(){
