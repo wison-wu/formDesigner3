@@ -1,7 +1,7 @@
 import {h} from "vue";
 import {jsonClone,isAttr} from '../utils/index';
 import childrenItem from './slot/index';
-import {renderComp} from './mixin';
+import {renderComp,remoteData} from './mixin';
 export default {
    render() {
     let dataObject = {
@@ -9,6 +9,7 @@ export default {
       props: {},
       style: {}
     }
+    this.getRemoteData();
     const map = this.getRenderComps();
     let confClone = jsonClone(this.conf);
     const children = childrenItem(h,confClone);
@@ -27,7 +28,7 @@ export default {
     return children.length==0?h(ele,dataObject):h(ele,dataObject,{default:()=>children})
   },
   props: ['conf','modelValue'],
-  mixins:[renderComp]
+  mixins:[renderComp,remoteData]
 }
 function vModel(self, dataObject) {
   dataObject.modelValue=self.modelValue;

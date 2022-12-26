@@ -20,6 +20,6 @@ app.use(plugins);
 app.use(GlobalCmComponent);
 
 /* 挂载全局对象 start */
-app.config.globalProperties.axios = Axios;
+app.config.globalProperties.$axios = Axios;
 
 app.mount('#app')
