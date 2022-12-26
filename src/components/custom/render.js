@@ -9,7 +9,6 @@ export default {
       props: {},
       style: {}
     }
-    //debugger;
     const map = this.getRenderComps();
     let confClone = jsonClone(this.conf);
     const children = childrenItem(h,confClone);
@@ -25,13 +24,13 @@ export default {
 
     const ele = map.get(confClone.ele);
     vModel(this, dataObject);
-    //console.log(confClone.value);
     return children.length==0?h(ele,dataObject):h(ele,dataObject,{default:()=>children})
   },
   props: ['conf','modelValue'],
   mixins:[renderComp]
 }
 function vModel(self, dataObject) {
+
   dataObject.modelValue=self.modelValue;
   
 }

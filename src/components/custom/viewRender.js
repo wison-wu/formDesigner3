@@ -10,6 +10,7 @@ export default {
       props: {},
       style: {}
     }
+    debugger;
     const map = this.getRenderComps();
     let confClone = jsonClone(this.conf);
     const children = childrenItem(h,confClone);

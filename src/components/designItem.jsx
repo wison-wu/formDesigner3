@@ -42,7 +42,7 @@ const layouts = {
           <el-form-item label={element.showLabel ? element.label : ''}
                         label-width={labelWidth}
                         required={element.required} >
-            <render key={element.id} conf={element} onInput={ event => {
+            <render key={element.id} conf={element} modelValue={element.value} onInput={ event => {
               element.value=event;
               }}
             />
