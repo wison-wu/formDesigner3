@@ -1,5 +1,5 @@
 export default {
-    slot(h,conf) {
+    default(conf) {
         const list = []
         const vertical = conf.vertical?'display:block;':'';
         conf.options.forEach(item => {

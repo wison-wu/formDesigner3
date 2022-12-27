@@ -7,13 +7,17 @@ Object.keys(slots).forEach(key=>{
 })
 
 
-export default function childrenItem(h,confClone) {
-  let children = [];
+export default function childrenItem(confClone) {
+  let children = {};
   const childObjs = componentChild[confClone.ele]
-  if (childObjs&&childObjs.slot) {
+  if (childObjs) {
     Object.keys(childObjs).forEach(key => {
       const childFunc = childObjs[key]
-      children.push(childFunc(h,confClone))
+      const slots = childFunc(confClone);
+      
+      if(slots!==null&&slots!==''){
+        children[key]=slots;
+      }
     })
   }
   return children;

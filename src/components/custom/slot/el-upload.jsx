@@ -1,5 +1,5 @@
 export default {
-    slot(h,conf) {
+    default(conf) {
         const list = [];
         if (conf['list-type'] === 'picture-card') {
             list.push(<i class="el-icon-plus"/>)

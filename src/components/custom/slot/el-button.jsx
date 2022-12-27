@@ -1,5 +1,5 @@
 export default {
-    slot(h,conf) {
+    default(conf) {
         return conf.text;
     }
 }

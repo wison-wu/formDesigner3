@@ -12,7 +12,7 @@ export default {
     this.getRemoteData();
     const map = this.getRenderComps();
     let confClone = jsonClone(this.conf);
-    const children = childrenItem(h,confClone);
+    const children = childrenItem(confClone);
     Object.keys(confClone).forEach(key => {
       const val = confClone[key]
       if(key ==='width'){
@@ -21,16 +21,14 @@ export default {
         dataObject[key] = val
       }
     })
-
-
     const ele = map.get(confClone.ele);
     vModel(this, dataObject);
-    return children.length==0?h(ele,dataObject):h(ele,dataObject,{default:()=>children})
+    console.log(children);
+    return children.length==0?h(ele,dataObject):h(ele,dataObject,children)
   },
   props: ['conf','modelValue'],
   mixins:[renderComp,remoteData]
 }
 function vModel(self, dataObject) {
   dataObject.modelValue=self.modelValue;
-  
 }
