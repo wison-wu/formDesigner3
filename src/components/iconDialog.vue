@@ -1,18 +1,19 @@
 <!--elementUI 图标选择器-->
 <template>
   <div >
-    <el-dialog title="选择icon" width="60%" top="0vh" :visible.sync="dialogVisible">
+    <el-dialog title="选择icon" width="60%" top="0vh" v-model="dialogVisible" >
       <ul class="icon-list">
         <li v-for="iconName in icons" :key="iconName" @click="handlerSelectIcon(iconName)" :class="{activeIcon:iconName ===value}">
-            <i :class="iconName"></i>
-            <!-- <div class="icon-name">{{iconName}}</div> -->
+            <el-icon>
+              <component :is="`${iconName}`"></component>
+            </el-icon>
         </li>
       </ul>
     </el-dialog>
   </div>
 </template>
 
-<script>
+<script >
 import iconList from './utils/icon.json';
 export default {
   props:{
@@ -32,7 +33,7 @@ export default {
   },
   methods:{
     handlerSelectIcon(iconName){
-      this.$emit('input',iconName);
+      this.$emit('update:modelValue',iconName);
       this.$emit('update:visible',false); 
     }
   },
@@ -64,7 +65,7 @@ export default {
   text-align: center;
   list-style-type: none;
   overflow: hidden;
-  padding: 15px 6px 6px 0px;
+  padding: 10px 6px 6px 0px;
   display: inline-block;
   box-sizing: border-box;
 }

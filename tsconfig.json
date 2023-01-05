@@ -14,7 +14,7 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "allowJs": false,
+    "allowJs": true,
     "noImplicitAny":false
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/main.js", "src/components/designItem.jsx", "src/components/dynamic/dynamicTableItem.jsx", "src/components/dynamic/fancyDynamicTableItem.jsx", "src/components/previewItem.jsx", "src/components/dynamic/fancyDynamicTableViewItem.jsx", "src/components/formViewItem.jsx"],

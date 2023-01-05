@@ -43,15 +43,15 @@
     </el-form-item>
     <el-form-item label="前置图标">
       <el-input placeholder="请选择图标" readonly  v-model="props['prefix-icon']">
-        <template slot="append" >
-          <i class="el-icon-picture" style="cursor: pointer;" @click="handlerPrefixSelectIcon"/>
+        <template #append >
+          <el-icon @click="handlerPrefixSelectIcon" style="cursor: pointer;"><Picture /></el-icon>
         </template>
       </el-input>
     </el-form-item>
     <el-form-item label="后置图标">
       <el-input placeholder="请选择图标" readonly  v-model="props['suffix-icon']">
-        <template slot="append" >
-          <i class="el-icon-picture" style="cursor: pointer;" @click="handlerSuffixSelectIcon"/>
+        <template #append >
+          <el-icon @click="handlerSuffixSelectIcon" style="cursor: pointer;"><Picture  /></el-icon>
         </template>
       </el-input>
     </el-form-item>
@@ -95,8 +95,8 @@
         添加选项
       </el-button>
     </div>
-    <icon-dialog v-model="props['suffix-icon']" :visible.sync="iconDialogVisible_suffix"/>
-    <icon-dialog v-model="props['prefix-icon']" :visible.sync="iconDialogVisible_prefix"/>
+    <icon-dialog v-model="props['suffix-icon']" v-model:visible="iconDialogVisible_suffix"/>
+    <icon-dialog v-model="props['prefix-icon']" v-model:visible="iconDialogVisible_prefix"/>
   </div>
 </template>
 <script>
@@ -148,10 +148,6 @@ export default {
         msg: obj.msg
       })
     }
-  },
-  mounted(){
-  },
-  watch:{
   }
 }
 </script>
