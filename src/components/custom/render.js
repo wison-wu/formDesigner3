@@ -1,4 +1,5 @@
-import {h} from "vue";
+//  const ElInputComponent = resolveComponent('el-input') as ComponentOptions
+import {h,resolveComponent} from "vue";
 import {jsonClone,isAttr} from '../utils/index';
 import childrenItem from './slot/index';
 import {renderComp,remoteData} from './mixin';
@@ -23,7 +24,6 @@ export default {
     })
     const ele = map.get(confClone.ele);
     vModel(this, dataObject);
-    console.log(children);
     return children.length==0?h(ele,dataObject):h(ele,dataObject,children)
   },
   props: ['conf','modelValue'],

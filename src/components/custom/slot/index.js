@@ -8,17 +8,20 @@ Object.keys(slots).forEach(key=>{
 
 
 export default function childrenItem(confClone) {
-  let children = {};
+  let children ={};
   const childObjs = componentChild[confClone.ele]
   if (childObjs) {
-    Object.keys(childObjs).forEach(key => {
-      const childFunc = childObjs[key]
-      const slots = childFunc(confClone);
-      
-      if(slots!==null&&slots!==''){
-        children[key]=slots;
-      }
-    })
+    children = () =>  {
+      let result = {}
+      Object.keys(childObjs).forEach(key => {
+        const childFunc = childObjs[key]
+        const slots = childFunc(confClone);
+        if(slots!==null&&slots!==''){
+          result[key]= () =>slots;
+        }
+      })
+      return result;
+    }
   }
   return children;
 };
