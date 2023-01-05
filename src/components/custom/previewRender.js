@@ -22,7 +22,7 @@ export default {
     })
     const eleComponent = resolveComponent(confClone.ele);
     vModel(this, dataObject);
-    return children.length==0?h(eleComponent,dataObject):h(eleComponent,dataObject,children)
+    return h(eleComponent,dataObject,children())
   },
   props: ['conf','modelValue'],
   mixins:[remoteData]
