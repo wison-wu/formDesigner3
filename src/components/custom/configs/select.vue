@@ -107,8 +107,6 @@ export default {
       this.props.labelWidth = val?80:1;
     },
     setValue(val) {
-     // console.log(val);
-      // return val;
       if (Array.isArray(val)) {
         return val.join(',')
       }
@@ -121,7 +119,6 @@ export default {
       return val
     },
     onValueInput(str) {
-      debugger;
       if (Array.isArray(this.props.value)) {
         // 数组
         this.props.value = str.split(',').map(val => (isNumberStr(val) ? +val : val));

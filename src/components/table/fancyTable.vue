@@ -142,7 +142,6 @@ export default {
 
     },
     handlerResetTable(){
-      //debugger;
       let col = this.layoutArray[this.currentRowIndex][this.currentColIndex].col;
       let row = this.layoutArray[this.currentRowIndex][this.currentColIndex].row;
       if(col===1&&row===1)return;

@@ -43,7 +43,10 @@ const layouts = {
                         label-width={labelWidth}
                         required={element.required} >
             <render key={element.id} conf={element} modelValue={element.value} onInput={ event => {
-              element.value=event;
+              //兼容select 搜索
+              if(event.data)return;
+              //兼容select 搜索 end
+              element.value = event;
               }}
             />
           </el-form-item>

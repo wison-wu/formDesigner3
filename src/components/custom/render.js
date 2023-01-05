@@ -9,7 +9,7 @@ export default {
       props: {},
       style: {}
     }
-    
+    this.getRemoteData();
     let confClone = jsonClone(this.conf);
     const children = childrenItem(confClone);
     Object.keys(confClone).forEach(key => {

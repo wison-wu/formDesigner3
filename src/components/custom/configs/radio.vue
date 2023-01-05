@@ -82,7 +82,6 @@
           type="primary"
           link
           @click="addSelectItem"
-          
         >
         <el-icon><CirclePlus /></el-icon>
           添加选项
@@ -141,21 +140,13 @@ let vm = {
     onDefaultValueInput(str) {
       if (Array.isArray(this.props.value)) {
         // 数组
-        this.$set(
-          this.props,
-          'value',
-          str.split(',').map(val => (isNumberStr(val) ? +val : val))
-        )
+        this.props.value = str.split(',').map(val => (isNumberStr(val) ? +val : val));
       } else if (['true', 'false'].indexOf(str) > -1) {
+        this.props.value = JSON.parse(str);
         // 布尔
-        this.$set(this.props, 'value', JSON.parse(str))
       } else {
         // 字符串和数字
-        this.$set(
-          this.props,
-          'value',
-          isNumberStr(str) ? +str : str
-        )
+        this.props.value=str;
       }
     },
     addSelectItem(){
