@@ -20,7 +20,7 @@ export let inputNumber = {
    //栅格间隔
   gutter:15,
   labelWidth: 80,
-  value: 0,
+  modelValue: 0,
   rules:[],
   span: 24,
   min: 0,

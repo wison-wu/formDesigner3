@@ -36,7 +36,7 @@
       <el-input class="input" v-model="props['inactive-value']"></el-input>
     </el-form-item>
     <el-form-item label="默认值">
-      <el-switch v-model="props['model-value']"></el-switch>
+      <el-switch v-model="props.modelValue"></el-switch>
     </el-form-item>
   </div>
 </template>

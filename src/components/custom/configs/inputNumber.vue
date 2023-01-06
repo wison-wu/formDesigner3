@@ -45,7 +45,7 @@
       <el-switch v-model="props.disabled" @change="handlerChangeDisStatus('disabled')"></el-switch>
     </el-form-item>
     <el-form-item label="默认值">
-      <el-input class="input" v-model="props.value"></el-input>
+      <el-input-number class="input" v-model="props.modelValue"></el-input-number>
     </el-form-item>
   </div>
 </template>
