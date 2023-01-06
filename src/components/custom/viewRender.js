@@ -8,7 +8,7 @@ export default {
     let dataObject = {
       attrs: {},
       props: {},
-      style: {}
+      style: ''
     }
     this.getRemoteData();
     let confClone = jsonClone(this.conf);
@@ -18,7 +18,9 @@ export default {
       if (dataObject[key]) {
         dataObject[key] = val
       } else if(key ==='width'){
-        dataObject.style= 'width:'+val;
+        dataObject.style+= `width:${val};`;
+      }else if(key ==='vertical'&&val){
+        dataObject.style+= `display:block;`;
       } else if (!isAttr(key)) {
         dataObject.props[key] = val
       }else {
@@ -29,7 +31,7 @@ export default {
     })
     const eleComponent = resolveComponent(confClone.ele);
     vModel(this, dataObject);
-    return h(eleComponent,dataObject,children())
+    return typeof children==='function'? h(eleComponent,dataObject,children()):h(eleComponent,dataObject)
   },
   props: ['conf','modelValue'],
   mixins:[remoteData]
