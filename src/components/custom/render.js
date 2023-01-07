@@ -22,7 +22,6 @@ export default {
     })
     const eleComponent = resolveComponent(confClone.ele);
     vModel(this, dataObject);
-    console.log(dataObject);
     return typeof children==='function'? h(eleComponent,dataObject,children()):h(eleComponent,dataObject)
   },
   props: ['conf','modelValue'],

@@ -59,7 +59,7 @@
     </el-form-item>
     <el-form-item label="默认值">
       <el-input class="input"
-        :value="setDefaultValue(props.value)"
+        v-model="defaultValue"
         placeholder="请输入默认值"
         @input="onDefaultValueInput"
       />
@@ -117,6 +117,7 @@ let vm = {
   mixins:[changeId],
   data(){
     return {
+      defaultValue:''
     }
   },
   methods:{
@@ -142,23 +143,8 @@ let vm = {
       return val
     },
     onDefaultValueInput(str) {
-      if (Array.isArray(this.props.value)) {
-        // 数组
-        this.$set(
-          this.props,
-          'value',
-          str.split(',').map(val => (isNumberStr(val) ? +val : val))
-        )
-      } else if (['true', 'false'].indexOf(str) > -1) {
-        // 布尔
-        this.$set(this.props, 'value', JSON.parse(str))
-      } else {
-        // 字符串和数字
-        this.$set(
-          this.props,
-          'value',
-          isNumberStr(str) ? +str : str
-        )
+      if (Array.isArray(this.props.modelValue)) {
+        this.props.modelValue = str.split(',').map(val => (isNumberStr(val) ? +val : val));
       }
     },
     setOptionValue(item,val){
@@ -169,9 +155,6 @@ let vm = {
         label: '',
         value: ''
       })
-    },
-    multipleChange(val){
-    //   this.$set(this.props, 'value', val ? [] : '')
     },
     handlerChangeDataType(value){
       if(value === 'static'){
@@ -186,6 +169,9 @@ let vm = {
   mounted(){
   },
   watch: {
+    'props.modelValue'(newVal){
+      this.defaultValue = newVal.join(',');
+    }
   }
 }
 export default vm;

@@ -42,11 +42,18 @@ const layouts = {
           <el-form-item label={element.showLabel ? element.label : ''}
                         label-width={labelWidth}
                         required={element.required} >
-            <render key={element.id} conf={element} modelValue={element.modelValue} onInput={ event => {
-              //兼容select 搜索
-              if(event.data)return;
-              //兼容select 搜索 end
-              element.modelValue = event;
+            <render key={element.id} conf={element} modelValue={element.modelValue} 
+              onInput={ event => {
+                //兼容select 搜索
+                if(event.data)return;
+                //兼容select 搜索 end
+                //多选框没有此事件
+                if(element.compType ==='checkbox')return;
+                //多选框没有此事件 end
+                element.modelValue = event;
+              }} 
+              onChange={ event => {
+                element.modelValue = event;
               }}
             />
           </el-form-item>
