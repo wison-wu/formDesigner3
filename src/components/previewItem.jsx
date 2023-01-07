@@ -17,10 +17,12 @@ const layouts = {
               //兼容select 搜索
               if(event.data)return;
               //兼容select 搜索 end
+              //多选框没有此事件
+              if(element.compType ==='checkbox')return;
+              //多选框没有此事件 end
               element.value = event;
               onValChange(element.id,event);
           }} onChange={ event => {
-            console.log(event);
             element.value = event;
             onValChange(element.id,event);
         }}/>
