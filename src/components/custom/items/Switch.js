@@ -20,7 +20,7 @@ export let Switch = {
    //栅格间隔
   gutter:15,
   labelWidth: 80,
-  modelValue: false,
+  modelValue: 'true',
   rules:[],
   span: 24,
   disabled: false,

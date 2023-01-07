@@ -86,6 +86,7 @@ import draggable from "vuedraggable";
 import designer from "./designer.vue";
 import icon from "./icon.vue";
 import {getSimpleId,setTableId} from "./utils/IdGenerate";
+import {jsonClone} from "./utils";
 import {formItems,assistFormItems,layoutFormItems} from "./custom/itemList";
 import formConf from "./custom/formConf";
 let tempActiveData;
@@ -120,7 +121,8 @@ export default {
 
     },
     cloneComponent(origin){
-      const clone = JSON.parse(JSON.stringify(origin))
+      let clone = {};
+      clone = jsonClone(origin);
       if (!clone.layout) clone.layout = 'colItem'
       if (clone.layout === 'colItem'||clone.layout === 'dynamicItem') {
         let uId = "fd_"+getSimpleId();
@@ -173,7 +175,6 @@ export default {
       let formData = {};
       formData.list = list;
       formData.config = config;
-      console.log(formData);
       return JSON.stringify(formData);
         //this.$emit('input',JSON.stringify(formData));
     },

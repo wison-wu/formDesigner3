@@ -232,7 +232,6 @@ export default {
       if(isLayout(origin)){ //row
           const clone = jsonClone(origin);
           const uId = "row_"+getSimpleId();
-          console.log(uId);
           clone.id = uId;
           clone._id = uId;
           clone.columns.map((column)=>{

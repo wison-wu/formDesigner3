@@ -36,7 +36,7 @@
       <el-input class="input" v-model="props['inactive-value']"></el-input>
     </el-form-item>
     <el-form-item label="默认值">
-      <el-switch v-model="props.modelValue"></el-switch>
+      <el-switch v-model="defaultValue" @change="handlerChangeDefaultValue"></el-switch>
     </el-form-item>
   </div>
 </template>
@@ -44,13 +44,15 @@
 import {changeId} from '../mixin'
 
 export default {
-  name:"inputConfig",
+  name:"switchConfig",
   props:['props','getFormId'],
   components: {
   },
   mixins:[changeId],
   data(){
-    return {}
+    return {
+      defaultValue:false
+    }
   },
   methods:{
     handlerChangeLabel(val){
@@ -61,10 +63,16 @@ export default {
     },
     handlerChangeReadStatus(val){
       this.props.disabled = !val;
+    },
+    handlerChangeDefaultValue(val){
+      this.props.modelValue = val+'';
     }
   },
-  mounted(){
-  }
+  watch: {
+    'props.modelValue'(newVal){
+      this.defaultValue = JSON.parse(newVal);;
+    }
+  },
 }
 </script>
 <style scoped>

@@ -49,7 +49,7 @@ export let select = {
   action:'https://www.fastmock.site/mock/51715c0157535b99010bde55f2df33c8/formDesigner/api/options',
   //是否可以清空
   clearable:false,
-  value: '',
+  modelValue: '',
   rules:[],
   // 验证错误提示信息
   ruleError: '该字段不能为空'

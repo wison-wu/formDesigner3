@@ -47,7 +47,7 @@
     <el-form-item label="默认值">
       <!--:value="setValue(props.value)"-->
       <el-input class="input"
-        v-model="selectValue"
+        v-model="props.modelValue"
         placeholder="请输入默认值"
         @input="onValueInput"
       />
@@ -119,15 +119,15 @@ export default {
       return val
     },
     onValueInput(str) {
-      if (Array.isArray(this.props.value)) {
+      if (Array.isArray(this.props.modelValue)) {
         // 数组
-        this.props.value = str.split(',').map(val => (isNumberStr(val) ? +val : val));
+        this.props.modelValue = str.split(',').map(val => (isNumberStr(val) ? +val : val));
       } else if (['true', 'false'].indexOf(str) > -1) {
-        this.props.value = JSON.parse(str);
+        this.props.modelValue = JSON.parse(str);
         // 布尔
       } else {
         // 字符串和数字
-        this.props.value=str;
+        this.props.modelValue=str;
       }
     },
     addSelectItem(){
@@ -149,7 +149,10 @@ export default {
       }
     }
   },
-  mounted(){
+  watch:{
+    // 'props.modelValue'(newVal){
+    //   this.selectValue = newVal
+    // }
   }
 }
 </script>
