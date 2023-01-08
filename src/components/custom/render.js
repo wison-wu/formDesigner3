@@ -28,9 +28,8 @@ export default {
   mixins:[remoteData]
 }
 function vModel(self, dataObject) {
-  dataObject.modelValue=self.modelValue;
-  dataObject.onChange=($event) => {
-    console.log(111)
-    this.$emit('update:modelValue', $event.target.value)
+  dataObject.modelValue = self.modelValue;
+  dataObject['onUpdate:modelValue']=($event) => {
+    self.$emit('change',$event);
   }
 }
