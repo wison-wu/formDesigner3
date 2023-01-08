@@ -32,7 +32,7 @@ export let date = {
   clearable:true,
   disabled:false,
   readonly:false,
-  value: '',
+  modelValue: '',
   rules:[],
   //时间类型
   type:'date',

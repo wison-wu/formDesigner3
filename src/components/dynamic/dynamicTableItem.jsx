@@ -8,10 +8,10 @@ import render from '../custom/render'
 import './dynamicTable.css'
 
 const colItem = function(element){
-  const { selectItem,copyItem,deleteItem} = this.$attrs;
+  const { onSelectItem,copyItem,deleteItem} = this.$attrs;
   return (
     <div class={{'dynamic-table__item':true,'active':this.isHover||this.isActive}}
-      style="min-width:200px;width: auto;position:relative" onClick={(e)=>{selectItem(e,element)}}
+      style="min-width:200px;width: auto;position:relative" onClick={(e)=>{onSelectItem(e,element)}}
       onMouseover={(e)=>{this.isHover = true}}
       onMouseleave={(e)=>{this.isHover = false}}
       >
