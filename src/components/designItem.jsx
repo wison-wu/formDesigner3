@@ -1,4 +1,4 @@
-import { defineComponent,toRefs,h } from "vue";
+import { defineComponent,toRefs,h, ref } from "vue";
 import draggable from 'vuedraggable'
 import render from './custom/render'
 import {getSimpleId} from "./utils/IdGenerate";
@@ -56,9 +56,6 @@ const layouts = {
               onChange={ event => {
                 console.log(event);
                 element.modelValue = event;
-              }}
-              onBlur = {event =>{
-                console.log(event);
               }}
             />
           </el-form-item>
@@ -202,7 +199,8 @@ export default defineComponent({
   },
   setup(props){
     const { model: vModel } = toRefs(props)
-    return { vModel }
+    const tempDate = ref('');
+    return { vModel,tempDate }
   },
   render() {
     const layout = layouts[this.vModel.layout]

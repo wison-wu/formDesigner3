@@ -5,6 +5,7 @@ import {remoteData} from './mixin';
 export default {
    render() {
     let dataObject = {
+      on: {},
       style: ''
     }
     this.getRemoteData();
@@ -22,7 +23,6 @@ export default {
     })
     const eleComponent = resolveComponent(confClone.ele);
     vModel(this, dataObject);
-    console.log(dataObject);
     return typeof children==='function'? h(eleComponent,dataObject,children()):h(eleComponent,dataObject)
   },
   props: ['conf','modelValue'],
@@ -30,5 +30,4 @@ export default {
 }
 function vModel(self, dataObject) {
   dataObject.modelValue=self.modelValue;
-  
 }

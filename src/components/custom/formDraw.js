@@ -59,7 +59,7 @@ function dataResolveTableItem(val){
 }
 
 function dataResolveColItem(val){
-    itemDatas[val.id] = val.value;
+    itemDatas[val.id] = val.modelValue;
 }
 
 export function fillDatas(jsonValue){

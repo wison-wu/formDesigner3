@@ -44,8 +44,8 @@
       <el-input v-model="props['range-separator']"></el-input>
     </el-form-item>
     <el-form-item label="默认值">
-      <el-date-picker class="input" v-model="props.modelValue" :format="props.format" :value-format="props['value-format']" :type="props.type" placeholder="选择日期"/>
-      <el-date-picker class="input" v-model="date" :value-format="props.format" type="datetime" placeholder="选择日期"/>
+      <el-date-picker class="input" v-model="props.modelValue" :format="props.format" :value-format="props['value-format']" :type="props.type" placeholder="选择日期" @change="handlerSelectDate"/>
+      <el-date-picker class="input" v-model="date" :value-format="props.format" type="datetime" placeholder="选择日期" />
     </el-form-item>
 
   </div>
@@ -119,6 +119,9 @@ export default {
     },
     handlerChangeValueFormat(val){
       this.props['value-format'] = val;
+    },
+    handlerSelectDate(val){
+      console.log(val);
     }
   },
   mounted(){

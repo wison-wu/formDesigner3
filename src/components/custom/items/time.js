@@ -32,7 +32,7 @@ export let time = {
   clearable:true,
   disabled:false,
   readonly:false,
-  value: '',
+  modelValue: '',
   rules:[],
   'picker-options': {
     selectableRange: '00:00:00-23:59:59'

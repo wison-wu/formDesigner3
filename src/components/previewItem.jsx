@@ -13,17 +13,18 @@ const layouts = {
                         prop={element.id}
                         rules={rules}
                         >
-            <render key={element.id} conf={element} modelValue={modelValue} onInput={event => {
+            <render key={element.id} conf={element} modelValue={element.modelValue} onInput={event => {
               //兼容select 搜索
               if(event.data)return;
               //兼容select 搜索 end
               //多选框没有此事件
               if(element.compType ==='checkbox')return;
               //多选框没有此事件 end
-              element.value = event;
+              element.modelValue = event;
               onValChange(element.id,event);
-          }} onChange={ event => {
-            element.value = event;
+          }}
+          onChange={ event => {
+            element.modelValue = event;
             onValChange(element.id,event);
         }}/>
           </el-form-item>

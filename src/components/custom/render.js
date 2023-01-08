@@ -29,4 +29,8 @@ export default {
 }
 function vModel(self, dataObject) {
   dataObject.modelValue=self.modelValue;
+  dataObject.onChange=($event) => {
+    console.log(111)
+    this.$emit('update:modelValue', $event.target.value)
+  }
 }
