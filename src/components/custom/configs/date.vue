@@ -29,7 +29,7 @@
       </el-select>
     </el-form-item>
     <el-form-item label="时间格式">
-      <el-input class="input" :value="props.format" @change="handlerChangeValueFormat"/>
+      <el-input class="input" :value="props['value-format']" @change="handlerChangeValueFormat"/>
     </el-form-item>
     <el-form-item label="清空">
       <el-switch v-model="props.clearable"></el-switch>
@@ -44,12 +44,15 @@
       <el-input v-model="props['range-separator']"></el-input>
     </el-form-item>
     <el-form-item label="默认值">
-      <el-date-picker class="input" v-model="props.modelValue" value-format="yyyy-MM-dd" type="date" placeholder="选择日期"/>
+      <el-date-picker class="input" v-model="props.modelValue" :format="props.format" :value-format="props['value-format']" :type="props.type" placeholder="选择日期"/>
+      <el-date-picker class="input" v-model="date" :value-format="props.format" type="datetime" placeholder="选择日期"/>
     </el-form-item>
-    
+
   </div>
 </template>
 <script>
+// https://day.js.org/docs/en/display/format#list-of-all-available-formats 
+// 日期格式改动参考这里
 import {changeId} from '../mixin'
 const dateType =[
     {
@@ -86,29 +89,31 @@ const dateType =[
     }
   ];
 const dateTimeFormat = {
-  date: 'yyyy-MM-dd',
-  week: 'yyyy 第 WW 周',
-  month: 'yyyy-MM',
-  year: 'yyyy',
-  datetime: 'yyyy-MM-dd HH:mm:ss',
-  daterange: 'yyyy-MM-dd',
-  monthrange: 'yyyy-MM',
-  datetimerange: 'yyyy-MM-dd HH:mm:ss'
+  date: 'YYYY-MM-DD',
+  week: 'YYYY 第 ww 周',
+  month: 'YYYY-MM',
+  year: 'YYYY',
+  datetime: 'YYYY-MM-DD HH:mm:ss',
+  daterange: 'YYYY-MM-DD',
+  monthrange: 'YYYY-MM',
+  datetimerange: 'YYYY-MM-DD HH:mm:ss'
 }
 
 export default {
-  name:"inputConfig",
+  name:"dateConfig",
   props:['props','getFormId'],
   components: {
   },
   mixins:[changeId],
   data(){
     return {
-      dateTypeOptions:dateType
+      dateTypeOptions:dateType,
+      date:''
     }
   },
   methods:{
     handlerFormatChange(val){
+      console.log(val);
       this.props.format = dateTimeFormat[val];
       this.props['value-format'] = dateTimeFormat[val];
     },

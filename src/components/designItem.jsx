@@ -44,6 +44,7 @@ const layouts = {
                         required={element.required} >
             <render key={element.id} conf={element} modelValue={element.modelValue} 
               onInput={ event => {
+                console.log(event);
                 //兼容select 搜索
                 if(event.data)return;
                 //兼容select 搜索 end
@@ -53,7 +54,11 @@ const layouts = {
                 element.modelValue = event;
               }} 
               onChange={ event => {
+                console.log(event);
                 element.modelValue = event;
+              }}
+              onBlur = {event =>{
+                console.log(event);
               }}
             />
           </el-form-item>

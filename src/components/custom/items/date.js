@@ -22,8 +22,6 @@ export let date = {
   placeholder: '请选择',
   // 是否必填
   required: false,
-  // 最大长度
-  maxLength: 50,
   //栅格间隔
   gutter:15,
   //默认栅格
@@ -33,11 +31,10 @@ export let date = {
   disabled:false,
   readonly:false,
   modelValue: '',
-  rules:[],
   //时间类型
   type:'date',
-  format:'yyyy-MM-dd',
-  'value-format':'yyyy-MM-dd',
+  format:'YYYY-MM-DD',
+  'value-format':'YYYY-MM-DD',
   'range-separator':'-',
   'start-placeholder':'开始日期',
   'end-placeholder':'结束日期'
