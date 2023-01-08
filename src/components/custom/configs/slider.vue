@@ -36,9 +36,10 @@
     <el-form-item label="步长">
       <el-input-number v-model="props.step"></el-input-number>
     </el-form-item>
-    <el-form-item label="范围选择">
+    <!--开启range会有一个bug，暂不启用-->
+    <!-- <el-form-item label="范围选择">
       <el-switch v-model="props.range"></el-switch>
-    </el-form-item>
+    </el-form-item> -->
     <el-form-item label="显示断点">
       <el-switch v-model="props['show-stops']"></el-switch>
     </el-form-item>
@@ -49,7 +50,7 @@
       <el-switch v-model="props.disabled"></el-switch>
     </el-form-item>
     <el-form-item label="默认值">
-      <el-input class="input" v-model="props.value"></el-input>
+      <el-input class="input" v-model="props.modelValue"></el-input>
     </el-form-item>
   </div>
 </template>

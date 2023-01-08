@@ -177,9 +177,6 @@ body{
 .el-checkbox:last-of-type{
   margin-right:30px;
 }
-.el-rate{
-  margin-top:10px;
-}
 
 .component-id{
   position: absolute;

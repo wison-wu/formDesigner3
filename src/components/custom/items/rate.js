@@ -20,7 +20,7 @@ export let rate = {
    //栅格间隔
   gutter:15,
   labelWidth: 80,
-  value: 1,
+  modelValue: 1,
   rules:[],
   span: 24,
   disabled: false,

@@ -39,7 +39,7 @@
       <el-switch v-model="props.disabled"></el-switch>
     </el-form-item>
     <el-form-item label="默认值">
-      <el-input class="input" v-model="props.value"></el-input>
+      <el-input class="input" v-model="props.modelValue"></el-input>
     </el-form-item>
   </div>
 </template>
