@@ -30,11 +30,10 @@ export let date = {
   clearable:true,
   disabled:false,
   readonly:false,
-  modelValue: '2022-01-01',
+  modelValue: '',
   //时间类型
   type:'date',
   format:'YYYY-MM-DD',
-  'value-format':'YYYY-MM-DD',
   'range-separator':'-',
   'start-placeholder':'开始日期',
   'end-placeholder':'结束日期'

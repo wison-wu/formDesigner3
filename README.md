@@ -82,7 +82,7 @@ element-plus 升级从属性从 value 变为 modelValue
 | 多行文本 | ✅ | |
 | 滑块 | ✅ | |
 | 评分 | ✅ | |
-| 日期 | 🔨 | https://day.js.org/docs/en/display/format#list-of-all-available-formats 日期格式改动参考这里 |
+| 日期 | 🔨 | https://day.js.org/docs/en/display/format#list-of-all-available-formats 日期格式改动参考这里,<br>时间切换类型似乎有问题，后期考虑直接固定类型，多来几个组件|
 | 时间 | 🔨 | |
 | 编辑器 | ✅ | |
 | 颜色选择器 | 🔨 | |

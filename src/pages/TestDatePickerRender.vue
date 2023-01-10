@@ -9,12 +9,6 @@
     const model = reactive({
         date:''
     })
-
-  
-  const handleChange = (value) => {
-    console.log(value,666)
-  }
-  
   </script>
   
   <style scoped>

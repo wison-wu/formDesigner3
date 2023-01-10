@@ -29,7 +29,7 @@
       </el-select>
     </el-form-item>
     <el-form-item label="时间格式">
-      <el-input class="input" :value="props['value-format']" @change="handlerChangeValueFormat"/>
+      <el-input class="input" :value="props.format" @change="handlerChangeValueFormat"/>
     </el-form-item>
     <el-form-item label="清空">
       <el-switch v-model="props.clearable"></el-switch>
@@ -44,8 +44,7 @@
       <el-input v-model="props['range-separator']"></el-input>
     </el-form-item>
     <el-form-item label="默认值">
-      <el-date-picker class="input" v-model="props.modelValue" :format="props.format" :value-format="props['value-format']" :type="props.type" placeholder="选择日期" @change="handlerSelectDate"/>
-      <el-date-picker class="input" v-model="date" :value-format="props.format" type="datetime" placeholder="选择日期" />
+      <el-date-picker class="input" v-model="props.modelValue" :format="props.format"  :type="props.type" placeholder="选择日期" @change="handlerSelectDate"/>
     </el-form-item>
 
   </div>
@@ -53,6 +52,7 @@
 <script>
 // https://day.js.org/docs/en/display/format#list-of-all-available-formats 
 // 日期格式改动参考这里
+//  时间切换类型似乎有问题，后期考虑直接固定类型，多来几个组件
 import {changeId} from '../mixin'
 const dateType =[
     {
@@ -113,15 +113,12 @@ export default {
   },
   methods:{
     handlerFormatChange(val){
-      console.log(val);
       this.props.format = dateTimeFormat[val];
-      this.props['value-format'] = dateTimeFormat[val];
     },
     handlerChangeValueFormat(val){
-      this.props['value-format'] = val;
+      this.props.format = val;
     },
     handlerSelectDate(val){
-      console.log(val);
     }
   },
   mounted(){
