@@ -45,25 +45,37 @@
       <el-input v-model="props['range-separator']"></el-input>
     </el-form-item>
     <el-form-item label="默认值">
-      <el-time-picker class="input" v-model="props.modelValue" placeholder="选择默认时间"/>
+      <el-time-picker class="input" v-model="time" placeholder="选择默认时间" @change="handlerChangeTime"/>
     </el-form-item>
   </div>
 </template>
 <script>
+import * as dayjs from 'dayjs';
 import {changeId} from '../mixin'
 export default {
   name:"timeConfig",
-  components: {
-  },
   mixins:[changeId],
   props:['props','getFormId'],
   data(){
     return {
+      time:''
     }
   },
   methods:{
+    handlerChangeTime(val){
+      //时间需要格式化之后再赋给modelValue，否则render会报错
+      console.log(val);
+      if(val!==null){
+        const d = dayjs(val).format('HH:mm:ss');
+        console.log(d);
+        this.props.modelValue = d;
+      }
+    }
   },
-  mounted(){
+  watch:{
+    'props.modelValue'(newVal){
+      this.time = newVal;
+    }
   }
 }
 </script>

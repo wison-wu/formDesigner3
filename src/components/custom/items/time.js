@@ -19,7 +19,7 @@ export let time = {
   showLabel:true,
   label: '时间',
   labelWidth: 80,
-  placeholder: '请选择',
+  placeholder: '请选择时间',
   // 是否必填
   required: false,
   // 最大长度
@@ -33,12 +33,7 @@ export let time = {
   disabled:false,
   readonly:false,
   modelValue: '',
-  rules:[],
-  'picker-options': {
-    selectableRange: '00:00:00-23:59:59'
-  },
   'arrow-control':true,
-  align:'left',
   format: 'HH:mm:ss',
   'value-format': 'HH:mm:ss',
   'is-range':false,

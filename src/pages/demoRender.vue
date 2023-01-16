@@ -1,7 +1,6 @@
 <script>
 import { h } from 'vue';
 import {ElDatePicker} from "element-plus";
-console.log
 export default {
     render(){
         return h(ElDatePicker, {
