@@ -9,7 +9,7 @@ import './assets/iconfont/iconfont.js'
 import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import 'element-plus/dist/index.css'
-import "./components/style/designer.css";
+import "./assets/style/designer.css";
 import { GlobalCmComponent } from "codemirror-editor-vue3";
 import Axios from 'axios';
 
