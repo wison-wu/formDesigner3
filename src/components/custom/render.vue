@@ -72,8 +72,31 @@ watch(()=>props.conf.dataType,(newVal,oldVal)=>{
         </el-radio-button>
     </el-radio-group>
     <!--多选-->
-    <el-checkbox-group v-if="props.conf.compType==='checkbox'">
-        <el-checkbox label="666" >test</el-checkbox>
+    <el-checkbox-group v-if="props.conf.compType==='checkbox'"
+        v-model="props.conf.modelValue"
+        :clearable="props.conf.clearable"
+        :disabled="props.conf.disabled"
+        :size="props.conf.size"
+        :max="props.conf.max"
+        :min="props.conf.min"
+    >
+        <el-checkbox 
+            :border="props.conf.border"
+            :label="item.value" 
+            :key="item" 
+            v-for="item in props.conf.options"
+            v-if="props.conf.optionType==='default'"
+        >
+            {{ item.label }}
+        </el-checkbox>
+        <el-checkbox-button 
+            :label="item.value" 
+            :key="item" 
+            v-for="item in props.conf.options"
+            v-if="props.conf.optionType==='button'"
+        >
+            {{ item.label }}
+        </el-checkbox-button>
     </el-checkbox-group>
     <!--开关-->
     <el-switch v-if="props.conf.compType==='Switch'"></el-switch>
@@ -136,4 +159,5 @@ watch(()=>props.conf.dataType,(newVal,oldVal)=>{
     <fancy-dialog-list v-if="props.conf.compType==='dialogList'"></fancy-dialog-list>
     <!--条码-->
     <fancy-bar-code v-if="props.conf.compType==='barCode'"></fancy-bar-code>
+
 </template>

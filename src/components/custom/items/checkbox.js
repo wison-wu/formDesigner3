@@ -21,8 +21,6 @@ export let checkbox = {
   // 控件左侧label内容
   label: '复选框',
   placeholder: '请选择',
-  // 最大长度
-  maxLength: 50,
   //表单栅格
   span:24,
   //栅格间隔
@@ -40,7 +38,7 @@ export let checkbox = {
   //选项是否垂直
   vertical:false,
   //选项大小
-  size:'default',
+  size:'medium',
   //是否是按钮
   optionType:'default',
   //选项列表

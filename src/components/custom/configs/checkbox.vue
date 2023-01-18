@@ -49,9 +49,9 @@
     </el-form-item>
     <el-form-item label="选项尺寸" v-show="props.border||props.optionType ==='button'">
       <el-radio-group v-model="props.size">
-        <el-radio-button label="medium">正常</el-radio-button>
-        <el-radio-button label="small">略小</el-radio-button>
-        <el-radio-button label="mini">迷你</el-radio-button>
+        <el-radio-button label="large">大</el-radio-button>
+        <el-radio-button label="default">中</el-radio-button>
+        <el-radio-button label="small">小</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="禁用">
