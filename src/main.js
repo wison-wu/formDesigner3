@@ -7,7 +7,7 @@ import plugins from './components';
 import './assets/iconfont/iconfont.js'
 // 导入element-plus
 import ElementPlus from 'element-plus'
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import ZH_CN from 'element-plus/dist/locale/zh-cn.mjs'
 import 'element-plus/dist/index.css'
 import "./assets/style/designer.css";
 import { GlobalCmComponent } from "codemirror-editor-vue3";
@@ -18,7 +18,7 @@ import Axios from 'axios';
 const app = createApp(App);
 app.use(router);
 app.use(ElementPlus, {
-    locale: zhCn
+    locale: ZH_CN
 })
 app.use(plugins);
 app.use(GlobalCmComponent);

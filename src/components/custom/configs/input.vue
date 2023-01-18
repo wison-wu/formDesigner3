@@ -64,7 +64,7 @@
       </el-input>
     </el-form-item>
     <el-form-item label="默认值">
-      <el-input class="input" v-model="props.value"></el-input>
+      <el-input class="input" v-model="props.modelValue"></el-input>
     </el-form-item>
     <el-divider>校验</el-divider>
     <el-form-item label="验证类型">

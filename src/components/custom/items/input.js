@@ -41,7 +41,7 @@ export let input = {
   'prefix-icon':'',
   //后置图标
   'suffix-icon':'',
-  value: '',
+  modelValue: '',
   //验证规则(字符,phone,email,number)
   rules:[],
   //验证规则

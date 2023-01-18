@@ -137,6 +137,7 @@ import draggable from "vuedraggable";
 import configPanel from "./configPanel.vue";
 import designItem from './designItem.jsx';
 import {getSimpleId} from "./utils/IdGenerate";
+import globalConstants from './utils/globalConstants'
 import { isLayout, isTable, inTable,jsonClone } from "./utils/index";
 import formConf from "./custom/formConf";
 import codeMirror from "codemirror-editor-vue3";
@@ -222,7 +223,7 @@ export default {
       })
     },
     help(){
-      window.open('https://gitee.com/wurong19870715/formDesigner3')
+      window.open(globalConstants.githubLink);
     },
     handlerActiveItemChange(obj){
       this.lastActiveItem = this.activeItem;

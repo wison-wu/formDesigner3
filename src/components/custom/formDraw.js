@@ -38,7 +38,6 @@ function dataResolveRowItem(val){
 }
 function dataResolveDynamicItem(val){
     const columns = val.columns;
-
     let obj ={};
     columns.forEach(v =>{
         const key = v.id;
@@ -52,7 +51,7 @@ function dataResolveDynamicItem(val){
 */
 function dataResolveTableItem(val){
     val.layoutArray.map((tr)=>{
-        tr.map((td)=>{
+        tr.map(td=>{
             td.columns.map(item=>dataResolveColItem(item));
         })
     })

@@ -1,5 +1,5 @@
 import {getSimpleId} from "../utils/IdGenerate";
-import constant from '../utils/constants'
+import globalConstants from '../utils/globalConstants'
 import {jsonClone} from "../utils";
 
 let tdItemObj = {
@@ -9,7 +9,7 @@ let tdItemObj = {
     hide:false,
     compType:'tdItem',
     style:{
-      background:constant.defaultTdBackgroundColor,
+      background:globalConstants.defaultTdBackgroundColor,
       width:35
     },
     columns:[]
@@ -22,7 +22,7 @@ export function getTdItem(){
 }
 export function getTitleTdItem(){
     let tdItem = cloneObj(tdItemObj);
-    tdItem.style.background = constant.defaultTitleTdBackgroundColor;
+    tdItem.style.background = globalConstants.defaultTitleTdBackgroundColor;
     tdItem.style.width = 15;
     tdItem.id = getSimpleId();
     return tdItem;

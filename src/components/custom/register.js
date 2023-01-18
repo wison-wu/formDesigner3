@@ -28,8 +28,6 @@ const components = [
   'table',
   'tdItem'
 ];
-
-
 let comps = [];
 for (let i in components) {
   const comp = {

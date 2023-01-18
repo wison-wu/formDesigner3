@@ -45,7 +45,7 @@
       <el-input v-model="props['range-separator']"></el-input>
     </el-form-item>
     <el-form-item label="默认值">
-      <el-time-picker class="input" v-model="time" placeholder="选择默认时间" @change="handlerChangeTime"/>
+      <el-time-picker class="input" v-model="props.modelValue" placeholder="选择默认时间" />
     </el-form-item>
   </div>
 </template>

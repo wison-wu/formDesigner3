@@ -4,7 +4,7 @@
 
 import {h} from "vue";
 import draggable from "vuedraggable";
-import render from '../custom/render'
+import render from '../custom/render_bak'
 import './dynamicTable.css'
 
 const colItem = function(element){
