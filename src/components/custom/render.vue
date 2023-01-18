@@ -1,15 +1,16 @@
 <script setup>
+/**
+    const time = ref();
+    watch(()=>props.conf.modelValue,(newVal,oldVal)=>{
+        console.log('modelValue   ',newVal);
+    })
+    const handlerChangeTime = (val)=>{
+        emit('timeChange',val);
+    }
+ */
 //import * as dayjs from 'dayjs';
 import {ref,reactive,watch,onMounted,getCurrentInstance} from 'vue';
-/**
-const time = ref();
-watch(()=>props.conf.modelValue,(newVal,oldVal)=>{
-    console.log('modelValue   ',newVal);
-})
-const handlerChangeTime = (val)=>{
-    emit('timeChange',val);
-}
- */
+
 import {getRemoteData} from './composition';
 //const emit = defineEmits(['timeChange']);
 const props = defineProps(['conf','modelValue']);
@@ -32,8 +33,21 @@ watch(()=>props.conf.dataType,(newVal,oldVal)=>{
         <template #append v-if="props.conf.append!==''">{{ props.conf.append }}</template>
     </el-input>
     <!--下拉-->
-    <el-select v-if="props.conf.compType==='select'">
-        
+    <el-select v-if="props.conf.compType==='select'"
+        v-model="props.conf.modelValue"
+        :placeholder="props.conf.placeholder"
+        :multiple="props.conf.multiple"
+        :collapse-tags="props.conf['collapse-tags']"
+        :disabled="props.conf.disabled"
+        :filterable="props.conf.filterable"
+        :clearable="props.conf.clearable"
+    >
+       <el-option 
+            :label="item.label" 
+            :value="item.value"
+            :key="item" 
+            v-for="item in props.conf.options" >
+        </el-option> 
     </el-select>
     <!--单选-->
     <el-radio-group v-if="props.conf.compType==='radio'"

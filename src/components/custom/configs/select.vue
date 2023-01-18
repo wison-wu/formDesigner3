@@ -137,7 +137,7 @@ export default {
       })
     },
     multipleChange(val){
-      this.props.value =val ? [] : '';
+      this.props.modelValue =val ? [] : '';
     },
     handlerChangeDataType(value){
       if(value === 'static'){

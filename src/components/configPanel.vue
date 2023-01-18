@@ -15,7 +15,7 @@
 
 <script>
 import reg from "./custom/register";
-import { defineAsyncComponent, ref,shallowRef,toRefs,computed } from 'vue'
+import { defineAsyncComponent, ref,shallowRef,computed } from 'vue'
 
 export default {
   name:'configPanel',

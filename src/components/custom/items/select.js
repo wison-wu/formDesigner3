@@ -15,8 +15,6 @@ export let select = {
   // 控件左侧label内容
   label: '下拉框',
   placeholder: '请选择',
-  // 最大长度
-  maxLength: 50,
   //表单栅格
   span:24,
   //栅格间隔
