@@ -45,7 +45,7 @@
       <el-switch v-model="props.readonly" @change="handlerChangeReadStatus"></el-switch>
     </el-form-item>
     <el-form-item label="默认值">
-      <el-input class="input" v-model="props.value"></el-input>
+      <el-input class="input" type="textarea" autosize v-model="props.modelValue"></el-input>
     </el-form-item>
   </div>
 </template>

@@ -32,7 +32,7 @@ export let slider = {
   //步长
   step: 1,
   //是否显示断点
-  'show-stops': true,
+  'show-stops': false,
   //是否显示tooltip
   'show-tooltip': true,
   //范围选择  1,50

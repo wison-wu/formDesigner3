@@ -99,7 +99,15 @@ watch(()=>props.conf.dataType,(newVal,oldVal)=>{
         </el-checkbox-button>
     </el-checkbox-group>
     <!--开关-->
-    <el-switch v-if="props.conf.compType==='Switch'"></el-switch>
+    <el-switch v-if="props.conf.compType==='Switch'"
+        v-model="props.conf.modelValue"
+        :disabled="props.conf.disabled"
+        :active-color="props.conf['active-color']"
+        :inactive-color="props.conf['inactive-color']"
+        :active-value="props.conf['active-value']"
+        :inactive-value="props.conf['inactive-value']"
+    >
+    </el-switch>
     <!--计数器-->
     <el-input-number v-if="props.conf.compType==='inputNumber'" 
         v-model="props.conf.modelValue"
@@ -120,13 +128,31 @@ watch(()=>props.conf.dataType,(newVal,oldVal)=>{
         :readonly ="props.conf.readonly" 
         :clear ="props.conf.clear" 
         :type="props.conf.type"
+        :maxlength="props.conf.maxlength"
+        :show-word-limit="props.conf['show-word-limit']"
+        :disabled="props.conf.disabled"
+        :rows="props.conf.rows"
     >
-    
     </el-input>
     <!--滑块-->
-    <el-slider v-if="props.conf.compType==='slider'"></el-slider>
+    <el-slider v-if="props.conf.compType==='slider'"
+        v-model="props.conf.modelValue"
+        :min="props.conf.min"
+        :max="props.conf.max"
+        :step="props.conf.step"
+        :show-stops="props.conf['show-stops']"
+        :show-tooltip="props.conf['show-tooltip']"
+        :range="props.conf.range"
+        :disabled="props.conf.disabled"
+    ></el-slider>
     <!--评分-->
-    <el-rate v-if="props.conf.compType==='rate'"></el-rate>
+    <el-rate v-if="props.conf.compType==='rate'"
+        v-model="props.conf.modelValue"
+        :disabled="props.conf.disabled"
+        :max="props.conf.max"
+        :allow-half="props.conf['allow-half']"
+        :show-score="props.conf['show-score']"
+    ></el-rate>
     <!--日期-->
     <el-date-picker v-if="props.conf.compType==='date'"></el-date-picker>
     <!--时间-->
