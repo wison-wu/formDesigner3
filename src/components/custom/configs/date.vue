@@ -51,8 +51,7 @@
 </template>
 <script>
 // https://day.js.org/docs/en/display/format#list-of-all-available-formats 
-// 日期格式改动参考这里
-//  时间切换类型似乎有问题，后期考虑直接固定类型，多来几个组件
+
 import {changeId} from '../mixin'
 const dateType =[
     {
@@ -74,7 +73,8 @@ const dateType =[
     {
       label: '日期时间(datetime)',
       value: 'datetime'
-    },
+    }
+    ,
     {
       label: '月份范围',
       value: 'monthrange'
@@ -113,6 +113,13 @@ export default {
   },
   methods:{
     handlerFormatChange(val){
+      if(val ==='monthrange'
+        ||val ==='daterange'
+        ||val ==='datetimerange'){
+          this.props.modelValue = [];
+        }else{
+          this.props.modelValue = '';
+        }
       this.props.format = dateTimeFormat[val];
     },
     handlerChangeValueFormat(val){

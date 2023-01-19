@@ -35,6 +35,6 @@ export let date = {
   type:'date',
   format:'YYYY-MM-DD',
   'range-separator':'-',
-  'start-placeholder':'开始日期',
-  'end-placeholder':'结束日期'
+  'start-placeholder':'请选择开始日期',
+  'end-placeholder':'请选择结束日期'
 }

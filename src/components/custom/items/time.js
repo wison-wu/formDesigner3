@@ -36,6 +36,4 @@ export let time = {
   'arrow-control':true,
   format: 'HH:mm:ss',
   'value-format': 'HH:mm:ss',
-  'is-range':false,
-  'range-separator':'-'
 }

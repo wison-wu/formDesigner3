@@ -154,19 +154,43 @@ watch(()=>props.conf.dataType,(newVal,oldVal)=>{
         :show-score="props.conf['show-score']"
     ></el-rate>
     <!--日期-->
-    <el-date-picker v-if="props.conf.compType==='date'"></el-date-picker>
+    <el-date-picker v-if="props.conf.compType==='date'"
+        v-model="props.conf.modelValue"
+        :placeholder="props.conf.placeholder"
+        :disabled="props.conf.disabled"
+        :clearable="props.conf.clearable"
+        :readonly="props.conf.readonly"
+        :type="props.conf.type"
+        :format="props.conf.format"
+        :range-separator="props.conf['range-separator']"
+        :start-placeholder="props.conf['start-placeholder']"
+        :end-placeholder="props.conf['end-placeholder']"
+    ></el-date-picker>
     <!--时间-->
     <el-time-picker v-if="props.conf.compType==='time'"
         v-model="props.conf.modelValue"
+        :placeholder="props.conf.placeholder"
         :disabled="props.conf.disabled"
         :readonly="props.conf.readonly"
         :clearable="props.conf.clearable"
     >
     </el-time-picker>
     <!--颜色选择器-->
-    <el-color-picker v-if="props.conf.compType==='colorPicker'"></el-color-picker>
+    <el-color-picker v-if="props.conf.compType==='colorPicker'"
+        v-model="props.conf.modelValue"
+        :disabled="props.conf.disabled"
+        :predefine="props.conf.predefine"
+        :size="props.conf.size"
+    ></el-color-picker>
     <!--级联选择器-->
-    <el-cascader v-if="props.conf.compType==='cascader'"></el-cascader>
+    <el-cascader v-if="props.conf.compType==='cascader'"
+        v-model="props.conf.modelValue"
+        :disabled="props.conf.disabled"
+        :clearable="props.conf.clearable"
+        :size="props.conf.size"
+        :show-all-levels="props.conf['show-all-levels']"
+        :separator="props.conf.separator"
+    ></el-cascader>
     <!--附件-->
     <el-upload v-if="props.conf.compType==='upload'"></el-upload>
     <!--按钮-->

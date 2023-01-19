@@ -14,16 +14,16 @@
     <el-form-item label="标签长度" v-show="props.showLabel">
       <el-input-number v-model="props.labelWidth"  :min="1" :max="200"></el-input-number>
     </el-form-item>
-    <el-form-item label="透明">
-        <el-switch v-model="props['show-alpha']"></el-switch>
-    </el-form-item>
     <el-form-item label="默认颜色">
-        <el-color-picker v-model="props.value" />
+        <el-color-picker v-model="props.modelValue" />
+    </el-form-item>
+    <el-form-item label="禁用">
+      <el-switch v-model="props.disabled"></el-switch>
     </el-form-item>
     <el-form-item label="大小">
       <el-radio-group v-model="props.size">
         <el-radio-button label="large">大</el-radio-button>
-        <el-radio-button label="">中</el-radio-button>
+        <el-radio-button label="default">中</el-radio-button>
         <el-radio-button label="small">小</el-radio-button>
       </el-radio-group>
     </el-form-item>

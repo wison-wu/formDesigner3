@@ -38,12 +38,6 @@
     <el-form-item label="禁用">
       <el-switch v-model="props.disabled"></el-switch>
     </el-form-item>
-    <el-form-item label="范围选择">
-      <el-switch v-model="props['is-range']"></el-switch>
-    </el-form-item>
-    <el-form-item label="分隔符"  v-show="props['is-range']">
-      <el-input v-model="props['range-separator']"></el-input>
-    </el-form-item>
     <el-form-item label="默认值">
       <el-time-picker class="input" v-model="props.modelValue" placeholder="选择默认时间" />
     </el-form-item>
@@ -64,17 +58,17 @@ export default {
   methods:{
     handlerChangeTime(val){
       //时间需要格式化之后再赋给modelValue，否则render会报错
-      console.log(val);
       if(val!==null){
         const d = dayjs(val).format('HH:mm:ss');
-        console.log(d);
         this.props.modelValue = d;
       }
-    }
-  },
-  watch:{
-    'props.modelValue'(newVal){
-      this.time = newVal;
+    },
+    handlerChangeRange(val){
+      if(val){
+        this.props.modelValue=[];
+      }else{
+        this.props.modelValue='';
+      }
     }
   }
 }

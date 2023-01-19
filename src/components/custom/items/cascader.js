@@ -24,7 +24,7 @@ export let cascader = {
     gutter:15,
     //默认栅格
     span:24,
-    value: [],
+    modelValue: [],
     //大小
     size:"default",
     //禁用
