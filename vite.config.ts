@@ -9,12 +9,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve('src'),
-      comps: resolve('src/components'),
-      apis: resolve('src/apis'),
-      views: resolve('src/views'),
+      components: resolve('src/components'),
+      pages: resolve('src/pages'),
       utils: resolve('src/utils'),
-      routes: resolve('src/routes'),
-      styles: resolve('src/styles')
+      router: resolve('src/router'),
+      styles: resolve('src/assets/style')
     },
     extensions: ['.vue', '.ts', '.tsx', '.js', '.jsx']
   },

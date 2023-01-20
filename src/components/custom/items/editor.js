@@ -16,7 +16,7 @@ export let editor = {
     showLabel:true,
     labelWidth: 80,
     label:'文本编辑器',
-    value:'',
+    modelValue:'',
     required:false,
     validateMaxText:false,
     //最大长度

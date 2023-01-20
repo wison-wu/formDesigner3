@@ -9,7 +9,7 @@
     }
  */
 //import * as dayjs from 'dayjs';
-import {ref,reactive,watch,onMounted,getCurrentInstance} from 'vue';
+import {watch,getCurrentInstance} from 'vue';
 
 import {getRemoteData} from './composition';
 //const emit = defineEmits(['timeChange']);
@@ -210,7 +210,6 @@ watch(()=>props.conf.dataType,(newVal,oldVal)=>{
     <!--分割线-->
     <el-divider v-if="props.conf.compType==='divider'"
         :content-position="props.conf['content-position']"
-        
     >
         {{ props.conf.text }}
     </el-divider>
@@ -245,10 +244,21 @@ watch(()=>props.conf.dataType,(newVal,oldVal)=>{
         {{ props.conf.text }}
     </fancy-text>
     <!--编辑器-->
-    <fancy-editor v-if="props.conf.compType==='editor'"></fancy-editor>
+    <fancy-editor v-if="props.conf.compType==='editor'"
+        v-model="props.conf.modelValue"
+        :max="props.conf.max"
+        :validateMaxText="props.conf.validateMaxText"
+    ></fancy-editor>
     <!--选择列表-->
     <fancy-dialog-list v-if="props.conf.compType==='dialogList'"></fancy-dialog-list>
     <!--条码-->
-    <fancy-bar-code v-if="props.conf.compType==='barCode'"></fancy-bar-code>
+    <fancy-bar-code v-if="props.conf.compType==='barCode'"
+        :value="props.conf.modelValue"
+        :format ="props.conf.format" 
+        :lineColor ="props.conf.lineColor" 
+        :background ="props.conf.background" 
+        :height ="props.conf.height" 
+        :fontSize ="props.conf.fontSize" 
+    ></fancy-bar-code>
 
 </template>
