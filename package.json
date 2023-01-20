@@ -1,7 +1,7 @@
 {
   "name": "formdesigner3",
   "private": true,
-  "version": "3.0.1",
+  "version": "3.0.5",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,7 +17,7 @@
     "codemirror-editor-vue3": "^2.1.7",
     "d": "^1.0.1",
     "element-plus": "^2.2.28",
-    "vue": "^3.2.37",
+    "vue": "^3.2.45",
     "vue-router": "^4.1.5",
     "vue3-barcode": "^1.0.1",
     "vuedraggable": "^4.1.0"
