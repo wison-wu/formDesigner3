@@ -45,6 +45,6 @@
     //字段
     dlabel:'name',
     height:500,
-    value: ''
+    modelValue: ''
   }
   

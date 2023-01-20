@@ -250,7 +250,18 @@ watch(()=>props.conf.dataType,(newVal,oldVal)=>{
         :validateMaxText="props.conf.validateMaxText"
     ></fancy-editor>
     <!--选择列表-->
-    <fancy-dialog-list v-if="props.conf.compType==='dialogList'"></fancy-dialog-list>
+    <fancy-dialog-list v-if="props.conf.compType==='dialogList'"
+        v-model="props.conf.modelValue"
+        :disabled="props.conf.disabled"
+        :title="props.conf.title"
+        :multi="props.conf.multi"
+        :showIndex="props.conf.showIndex"
+        :action="props.conf.action"
+        :height="props.conf.height"
+        :colConf="props.conf.colConf"
+        :dval="props.conf.dval"
+        :dlabel="props.conf.dlabel"
+    ></fancy-dialog-list>
     <!--条码-->
     <fancy-bar-code v-if="props.conf.compType==='barCode'"
         :value="props.conf.modelValue"

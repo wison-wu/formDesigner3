@@ -60,7 +60,7 @@ const splitKey = ";";
 export default {
     name:"fancyDialogList",
     props:{
-        value: {
+        modelValue: {
             type: String,
             default:''
         },
@@ -114,14 +114,14 @@ export default {
     },
     mounted(){
         const { appContext } = getCurrentInstance();
-        const $axios = appContext.config.globalProperties.axios;
+        const $axios = appContext.config.globalProperties.$axios;
         this.$nextTick(() => {
             $axios.get(this.action).then(res => {
                 this.gridData = [];
                 this.gridData = this.gridData.concat(res.data.list);
-                if(this.value !=='' && this.dialogValue ===''){
+                if(this.modelValue !=='' && this.dialogValue ===''){
                     if(this.multi){
-                        const ids = this.value.split(splitKey);
+                        const ids = this.modelValue.split(splitKey);
                         this.currentRow = [];
                         ids.forEach(e=>{
                             const index = this.gridData.findIndex(element=>(element[this.dval]+"") == e);
@@ -132,7 +132,7 @@ export default {
                         })
                         this.dialogValue = this.selectName;
                     }else{
-                        const index = this.gridData.findIndex(element=>element[this.dval] == this.value);
+                        const index = this.gridData.findIndex(element=>element[this.dval] == this.modelValue);
                         if(index>0){
                             const row = this.gridData[index];
                             this.dialogValue = row[this.dlabel];
@@ -188,7 +188,7 @@ export default {
         },
         setDialogValue(){
             if(this.multi){
-                const ids = this.value.split(splitKey);
+                const ids = this.modelValue.split(splitKey);
                 this.currentRow = [];
                 ids.forEach(e=>{
                     const index = this.gridData.findIndex(element=>element[this.dval] == e);
@@ -198,7 +198,7 @@ export default {
                     }
                 })
             }else{
-                const index = this.gridData.findIndex(element=>element[this.dval] == this.value);
+                const index = this.gridData.findIndex(element=>element[this.dval] == this.modelValue);
                 const row = this.gridData[index];
                 this.$refs.dataTable.setCurrentRow(row);
             }
