@@ -12,10 +12,10 @@ export let divider = {
   viewType:'component',
   config: true,
   form:false,
-  //内容坐标 left|center|right
-  'content-position':'left',
-  text:'',
   // 控件左侧label内容
   showLabel:false,
-  labelWidth: 0
+  labelWidth: 0,
+  //内容坐标 left|center|right
+  'content-position':'left',
+  text:''
 }

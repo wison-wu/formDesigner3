@@ -6,8 +6,9 @@
                     'font-size':size+'px',
                     'text-align':align,
                     'font-weight':bold}"
-        
-        >{{text}}</p>
+        >
+        <slot/>
+        </p>
   </div>
   
 </template>

@@ -33,9 +33,9 @@
     </el-form-item>
     <el-form-item label="按钮大小">
       <el-radio-group v-model="props.size">
-        <el-radio-button label="medium">大</el-radio-button>
-        <el-radio-button label="small">中</el-radio-button>
-        <el-radio-button label="mini">小</el-radio-button>
+        <el-radio-button label="large">大</el-radio-button>
+        <el-radio-button label="default">中</el-radio-button>
+        <el-radio-button label="small">小</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="禁用">

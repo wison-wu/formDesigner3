@@ -194,18 +194,56 @@ watch(()=>props.conf.dataType,(newVal,oldVal)=>{
         :options="props.conf.options"
         :filterable="props.conf.filterable"
     ></el-cascader>
-    <!--附件-->
+    <!--附件(待定)-->
     <el-upload v-if="props.conf.compType==='upload'"></el-upload>
     <!--按钮-->
-    <el-button v-if="props.conf.compType==='divider'"></el-button>
+    <el-button v-if="props.conf.compType==='button'"
+        :disabled="props.conf.disabled"
+        :size="props.conf.size"
+        :type="props.conf.type"
+        :plain="props.conf.plain"
+        :round="props.conf.round"
+        :circle="props.conf.circle"
+    >
+        {{ props.conf.text }}
+    </el-button>
     <!--分割线-->
-    <el-divider v-if="props.conf.compType==='divider'"></el-divider>
+    <el-divider v-if="props.conf.compType==='divider'"
+        :content-position="props.conf['content-position']"
+        
+    >
+        {{ props.conf.text }}
+    </el-divider>
     <!--提示-->
-    <el-alert v-if="props.conf.compType==='alert'"></el-alert>
+    <el-alert v-if="props.conf.compType==='alert'"
+        :title="props.conf.title"
+        :type="props.conf.type"
+        :effect="props.conf.effect"
+        :center="props.conf.center"
+        :closable="props.conf.closable"
+        :close-text="props.conf['close-text']"
+        :show-icon="props.conf['show-icon']"
+        :description="props.conf.description"
+    ></el-alert>
     <!--文字链接-->
-    <el-link v-if="props.conf.compType==='link'"></el-link>
+    <el-link v-if="props.conf.compType==='link'"
+        :type="props.conf.type"
+        :href="props.conf.href"
+        :underline="props.conf.underline"
+        :disabled="props.conf.disabled"
+        :target="props.conf.target"
+    >
+        {{ props.conf.text }}
+    </el-link>
     <!--文本-->
-    <fancy-text v-if="props.conf.compType==='text'"></fancy-text>
+    <fancy-text v-if="props.conf.compType==='text'"
+        :align="props.conf.align"
+        :size="props.conf.size"
+        :bold="props.conf.bold"
+        :color="props.conf.color"
+    >
+        {{ props.conf.text }}
+    </fancy-text>
     <!--编辑器-->
     <fancy-editor v-if="props.conf.compType==='editor'"></fancy-editor>
     <!--选择列表-->

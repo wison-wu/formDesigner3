@@ -22,10 +22,10 @@
         </el-radio-group>
     </el-form-item>
     <el-form-item label="大小" labelWidth="40px">
-        <el-input-number v-model="props.size" :min="10" :max="50" @change="handlerChangeSize"></el-input-number>
+        <el-input-number v-model="props.size" :min="10" :max="100" @change="handlerChangeSize"></el-input-number>
     </el-form-item>
     <el-form-item label="加粗" labelWidth="40px">
-        <el-input-number v-model="props.bold" :min="100" :max="800" :step="100" @change="handlerChangeBold"></el-input-number>
+        <el-input-number v-model="props.bold" :min="0" :max="900" :step="100" @change="handlerChangeBold"></el-input-number>
     </el-form-item>
   </div>
 </template>

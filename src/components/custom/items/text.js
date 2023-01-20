@@ -13,13 +13,13 @@ export let text = {
     config: true,
     form:false,
     show:true,
+    // 控件左侧label内容
+    showLabel:false,
+    labelWidth: 0,
     text:'文本',
     align:'center',
     color:'#000000',
     size:14,
-    bold:400,
-    // 控件左侧label内容
-    showLabel:false,
-    labelWidth: 0
+    bold:400
   }
   

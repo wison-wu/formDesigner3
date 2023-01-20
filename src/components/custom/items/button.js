@@ -19,8 +19,6 @@ export let button = {
   showLabel:false,
   label: '按钮',
   labelWidth: 0,
-  //是否可以禁用
-  disabled:false,
   //大小，large / default /small
   size:'default',
   //primary / success / warning / danger / info 
