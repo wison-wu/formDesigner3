@@ -35,7 +35,7 @@ export let upload = {
   'show-file-list':true,
   //文件列表类型
   'list-type':'text',
-  value:'',
+  modelValue:[],
   width:100,
   //按钮文字
   buttonText:'请上传附件',

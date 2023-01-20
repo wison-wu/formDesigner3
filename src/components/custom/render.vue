@@ -9,7 +9,9 @@
     }
  */
 //import * as dayjs from 'dayjs';
-import {watch,getCurrentInstance} from 'vue';
+import { Plus } from '@element-plus/icons-vue'
+import {watch,getCurrentInstance,ref} from 'vue';
+import { ElMessage as message } from 'element-plus'
 
 import {getRemoteData} from './composition';
 //const emit = defineEmits(['timeChange']);
@@ -18,6 +20,24 @@ const { appContext } = getCurrentInstance();
 watch(()=>props.conf.dataType,(newVal,oldVal)=>{
     getRemoteData(appContext,props.conf);
 })
+//upload组件
+const fileList = ref([]);
+const beforeUpload =(file) => {
+  //非限定后缀不允许上传
+    const fileName = file.name;
+    const suffixName = fileName.split('.').pop();
+
+    if(!props.conf.accept.includes(suffixName)){ 
+        message.error('该后缀文件不允许上传');
+        return false;
+    }
+    const fileSize = file.size;
+    if(fileSize>props.conf.fileSize*1024*1024){
+        message.error('文件大小超出限制，请检查！')
+        return false;
+    }
+    return true
+}
 </script>
 <template>
     <!--输入框-->
@@ -195,7 +215,23 @@ watch(()=>props.conf.dataType,(newVal,oldVal)=>{
         :filterable="props.conf.filterable"
     ></el-cascader>
     <!--附件(待定)-->
-    <el-upload v-if="props.conf.compType==='upload'"></el-upload>
+    <el-upload v-if="props.conf.compType==='upload'"
+        v-model:file-list="props.conf.modelValue"
+        :action="props.conf.action"
+        :multiple="props.conf.multiple"
+        :show-file-list="props.conf['show-file-list']"
+        :list-type="props.conf['list-type']"
+        :before-upload="beforeUpload"
+    >
+        <el-button type="primary" v-if="props.conf['list-type'] === 'text'">{{props.conf.buttonText}}</el-button>
+        <template #tip v-if="props.conf['list-type'] === 'text'&&props.conf.showTip">
+            <div class="el-upload__tip">
+                {{ props.conf.tips }}
+            </div>
+        </template>
+        <img :src="imageUrl" class="avatar" v-if="props.conf['list-type'] === 'picture-card'"/>
+        <el-icon v-if="props.conf['list-type'] === 'picture-card'"><Plus /></el-icon>
+    </el-upload>
     <!--按钮-->
     <el-button v-if="props.conf.compType==='button'"
         :disabled="props.conf.disabled"
