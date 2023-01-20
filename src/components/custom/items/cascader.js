@@ -39,8 +39,9 @@ export let cascader = {
     'show-all-levels':false,
     //清空
     clearable:true,
+    //搜索
+    filterable:false,
     props:{
-      filterable:false,
       expandTrigger:'hover',
       //多选
       multiple:false,

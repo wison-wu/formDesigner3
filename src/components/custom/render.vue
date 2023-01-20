@@ -190,6 +190,9 @@ watch(()=>props.conf.dataType,(newVal,oldVal)=>{
         :size="props.conf.size"
         :show-all-levels="props.conf['show-all-levels']"
         :separator="props.conf.separator"
+        :props="props.conf.props"
+        :options="props.conf.options"
+        :filterable="props.conf.filterable"
     ></el-cascader>
     <!--附件-->
     <el-upload v-if="props.conf.compType==='upload'"></el-upload>
