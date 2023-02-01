@@ -29,25 +29,13 @@ const beforeUpload =(file) => {
 }
 </script>
 <template>
-    <!--输入框-->
-    <el-input v-if="props.conf.compType==='input'" 
-        v-model="props.conf.modelValue"
-        :readonly ="props.conf.readonly" 
-        :clear ="props.conf.clear" 
-        :placeholder="props.conf.placeholder"
-        :suffix-icon="props.conf['suffix-icon']"
-        :prefix-icon="props.conf['prefix-icon']"
-    >
-        <template #prepend v-if="props.conf.prepend!==''">{{ props.conf.prepend }}</template>
-        <template #append v-if="props.conf.append!==''">{{ props.conf.append }}</template>
-    </el-input>
     <!--下拉-->
     <el-select v-if="props.conf.compType==='select'"
         v-model="props.conf.modelValue"
         :placeholder="props.conf.placeholder"
         :multiple="props.conf.multiple"
         :collapse-tags="props.conf['collapse-tags']"
-        :disabled="props.conf.disabled"
+        disabled
         :filterable="props.conf.filterable"
         :clearable="props.conf.clearable"
     >
@@ -61,6 +49,7 @@ const beforeUpload =(file) => {
     <!--单选-->
     <el-radio-group v-if="props.conf.compType==='radio'"
         v-model="props.conf.modelValue"
+        disabled
     >
         <el-radio 
             :label="item.value" 
@@ -84,7 +73,7 @@ const beforeUpload =(file) => {
     <el-checkbox-group v-if="props.conf.compType==='checkbox'"
         v-model="props.conf.modelValue"
         :clearable="props.conf.clearable"
-        :disabled="props.conf.disabled"
+        disabled
         :size="props.conf.size"
         :max="props.conf.max"
         :min="props.conf.min"
@@ -110,39 +99,13 @@ const beforeUpload =(file) => {
     <!--开关-->
     <el-switch v-if="props.conf.compType==='Switch'"
         v-model="props.conf.modelValue"
-        :disabled="props.conf.disabled"
+        disabled
         :active-color="props.conf['active-color']"
         :inactive-color="props.conf['inactive-color']"
         :active-value="props.conf['active-value']"
         :inactive-value="props.conf['inactive-value']"
     >
     </el-switch>
-    <!--计数器-->
-    <el-input-number v-if="props.conf.compType==='inputNumber'" 
-        v-model="props.conf.modelValue"
-        :placeholder="props.conf.placeholder"
-        :min="props.conf.min"
-        :max="props.conf.max"
-        :step="props.conf.step"
-        :precision="props.conf.precision"
-        :step-strictly="props.conf['step-strictly']"
-        :controls-position="props.conf['controls-position']"
-        :disabled="props.conf.disabled"
-        :readonly="props.conf.readonly"
-    >
-    </el-input-number>
-    <!--多行文本-->
-    <el-input v-if="props.conf.compType==='textarea'" 
-        v-model="props.conf.modelValue"
-        :readonly ="props.conf.readonly" 
-        :clear ="props.conf.clear" 
-        :type="props.conf.type"
-        :maxlength="props.conf.maxlength"
-        :show-word-limit="props.conf['show-word-limit']"
-        :disabled="props.conf.disabled"
-        :rows="props.conf.rows"
-    >
-    </el-input>
     <!--滑块-->
     <el-slider v-if="props.conf.compType==='slider'"
         v-model="props.conf.modelValue"
@@ -152,49 +115,27 @@ const beforeUpload =(file) => {
         :show-stops="props.conf['show-stops']"
         :show-tooltip="props.conf['show-tooltip']"
         :range="props.conf.range"
-        :disabled="props.conf.disabled"
+        disabled
     ></el-slider>
     <!--评分-->
     <el-rate v-if="props.conf.compType==='rate'"
         v-model="props.conf.modelValue"
-        :disabled="props.conf.disabled"
+        disabled
         :max="props.conf.max"
         :allow-half="props.conf['allow-half']"
         :show-score="props.conf['show-score']"
     ></el-rate>
-    <!--日期-->
-    <el-date-picker v-if="props.conf.compType==='date'"
-        v-model="props.conf.modelValue"
-        :placeholder="props.conf.placeholder"
-        :disabled="props.conf.disabled"
-        :clearable="props.conf.clearable"
-        :readonly="props.conf.readonly"
-        :type="props.conf.type"
-        :format="props.conf.format"
-        :range-separator="props.conf['range-separator']"
-        :start-placeholder="props.conf['start-placeholder']"
-        :end-placeholder="props.conf['end-placeholder']"
-    ></el-date-picker>
-    <!--时间-->
-    <el-time-picker v-if="props.conf.compType==='time'"
-        v-model="props.conf.modelValue"
-        :placeholder="props.conf.placeholder"
-        :disabled="props.conf.disabled"
-        :readonly="props.conf.readonly"
-        :clearable="props.conf.clearable"
-    >
-    </el-time-picker>
     <!--颜色选择器-->
     <el-color-picker v-if="props.conf.compType==='colorPicker'"
         v-model="props.conf.modelValue"
-        :disabled="props.conf.disabled"
+        disabled
         :predefine="props.conf.predefine"
         :size="props.conf.size"
     ></el-color-picker>
     <!--级联选择器-->
     <el-cascader v-if="props.conf.compType==='cascader'"
         v-model="props.conf.modelValue"
-        :disabled="props.conf.disabled"
+        disabled
         :clearable="props.conf.clearable"
         :size="props.conf.size"
         :show-all-levels="props.conf['show-all-levels']"
@@ -223,7 +164,7 @@ const beforeUpload =(file) => {
     </el-upload>
     <!--按钮-->
     <el-button v-if="props.conf.compType==='button'"
-        :disabled="props.conf.disabled"
+        disabled
         :size="props.conf.size"
         :type="props.conf.type"
         :plain="props.conf.plain"
@@ -268,12 +209,6 @@ const beforeUpload =(file) => {
     >
         {{ props.conf.text }}
     </fancy-text>
-    <!--编辑器-->
-    <fancy-editor v-if="props.conf.compType==='editor'"
-        v-model="props.conf.modelValue"
-        :max="props.conf.max"
-        :validateMaxText="props.conf.validateMaxText"
-    ></fancy-editor>
     <!--选择列表-->
     <fancy-dialog-list v-if="props.conf.compType==='dialogList'"
         v-model="props.conf.modelValue"

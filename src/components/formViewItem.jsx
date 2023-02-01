@@ -1,4 +1,4 @@
-import render from './custom/viewRender'
+import render from './custom/viewRender.vue'
 const layouts = {
   colItem(element,value) {
     let labelWidth = element.labelWidth ? `${element.labelWidth}px` : null

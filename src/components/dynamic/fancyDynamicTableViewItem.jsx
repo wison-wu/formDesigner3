@@ -1,13 +1,11 @@
-import render from '../custom/viewRender'
+import render from '../custom/viewRender.vue'
 const layouts = {
   colItem(h, element,value) {
     element.disabled= true;
     let labelWidth = element.labelWidth ? `${element.labelWidth}px` : null
     if(element.viewType === 'component'){
       return (
-          <render key={element.id} conf={element} value={value} onInput={ event => {
-              this.$set(element,'value',event);
-            }}/>
+        <render key={element.id} conf={element} value={value}/>
       )
     }else if(element.viewType === 'html'){
       return (
