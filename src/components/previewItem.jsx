@@ -1,4 +1,4 @@
-import render from './custom/previewRender'
+import render from './custom/previewRender_bak'
 import checkRules from './custom/rule';
 
 const layouts = {
