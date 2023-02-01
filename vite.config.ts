@@ -38,5 +38,5 @@ export default defineConfig({
     //服务器启动时自动在浏览器中打开应用程序,当此值为字符串时，会被用作 URL 的路径名
     open: false
   },
-  base:'./'
+  base:'/formdesigner3/'
 })
