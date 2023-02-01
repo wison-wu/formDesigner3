@@ -17,6 +17,17 @@ export default defineConfig({
     },
     extensions: ['.vue', '.ts', '.tsx', '.js', '.jsx']
   },
+  build:{
+    minify:true,  //打包结果取消minify，方便我们看打包后结果对比
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'js/[name]-[hash].js',  // 引入文件名的名称
+        entryFileNames: 'js/[name]-[hash].js',  // 包的入口文件名称
+        assetFileNames: '[ext]/[name]-[hash].[ext]', // 资源文件像 字体，图片等
+      }
+    },
+    chunkSizeWarningLimit:1500
+  },
   server: {
     //服务器主机名
     host: '',
@@ -26,5 +37,6 @@ export default defineConfig({
     strictPort: false,
     //服务器启动时自动在浏览器中打开应用程序,当此值为字符串时，会被用作 URL 的路径名
     open: false
-  }
+  },
+  base:'/formdesigner3/'
 })
