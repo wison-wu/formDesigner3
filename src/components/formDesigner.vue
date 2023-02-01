@@ -25,7 +25,7 @@
           >
           <template #item="{ element }">
             <div class="components-item" @click="addComponent(element)" >
-              <div class="components-body" :class="{ 'dynamicTable-tips': dynamicTableExist(element)}">
+              <div class="components-body" >
                 <icon :code="element.compIcon" :text="element.compName"/>
               </div>
             </div>
