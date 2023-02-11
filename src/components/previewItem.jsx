@@ -1,4 +1,4 @@
-import render from './custom/previewRender_bak'
+import render from './custom/previewRender'
 import checkRules from './custom/rule';
 
 const layouts = {
@@ -14,19 +14,10 @@ const layouts = {
                         rules={rules}
                         >
             <render key={element.id} conf={element} modelValue={element.modelValue} onInput={event => {
-              //兼容select 搜索
-              if(event.data)return;
-              //兼容select 搜索 end
-              //多选框没有此事件
-              if(element.compType ==='checkbox')return;
-              //多选框没有此事件 end
-              element.modelValue = event;
-              onValChange(element.id,event);
-          }}
-          onChange={ event => {
-            element.modelValue = event;
-            onValChange(element.id,event);
-        }}/>
+                element.modelValue = event;
+                onValChange(element.id,event);
+            }}
+          />
           </el-form-item>
         </el-col>
     )

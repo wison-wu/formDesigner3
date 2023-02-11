@@ -55,6 +55,7 @@ export default {
             const hText = this.$refs.myQuillEditor.getHTML();
             this.currentLength = text.length-1;
             this.$emit('input',hText);
+            this.$emit('change',hText);
         }, // 内容改变事件
     },
     computed: {

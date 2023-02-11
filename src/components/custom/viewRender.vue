@@ -31,7 +31,7 @@ const beforeUpload =(file) => {
 <template>
     <!--下拉-->
     <el-select v-if="props.conf.compType==='select'"
-        v-model="props.conf.modelValue"
+        v-model="props.modelValue"
         :placeholder="props.conf.placeholder"
         :multiple="props.conf.multiple"
         :collapse-tags="props.conf['collapse-tags']"

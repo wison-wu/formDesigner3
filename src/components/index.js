@@ -1,4 +1,6 @@
 import formDesigner from './formDesigner';
+import formBuilder from './formBuilder'
+import formViewer from './formViewer'
 import fancyEditor from './extend/fancyEditor';
 import fancyHtml from './extend/fancyHtml.vue';
 import fancyText from './extend/fancyText.vue';
@@ -12,6 +14,8 @@ import * as Icons from '@element-plus/icons-vue';
 const plugins = {
   install : (app)=> {
     app.component('form-designer',formDesigner);
+    app.component('form-builder',formBuilder);
+    app.component('form-viewer',formViewer);
     app.component('fancy-editor',fancyEditor);
     app.component('fancy-html',fancyHtml);
     app.component('fancy-text',fancyText);
