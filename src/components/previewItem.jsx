@@ -1,4 +1,4 @@
-import render from './custom/previewRender'
+import render from './custom/previewRender.vue'
 import checkRules from './custom/rule';
 
 const layouts = {
@@ -36,6 +36,7 @@ export default {
     }
   },
   render() {
+    this.eleConfig.modelValue = this.modelValue;
     return layouts.colItem.call(this, this.eleConfig,this.modelValue)
   }
 }
