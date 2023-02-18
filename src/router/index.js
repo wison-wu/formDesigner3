@@ -26,7 +26,7 @@ const router = createRouter({
             name: 'view',
             component: view
         },{
-            path: '/formDesigner3/view',
+            path: '/formdesigner3/view',
             name: 'view3',
             component: view
         },{
