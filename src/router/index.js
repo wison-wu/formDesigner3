@@ -26,6 +26,10 @@ const router = createRouter({
             name: 'view',
             component: view
         },{
+            path: '/formDesigner3/view',
+            name: 'view3',
+            component: view
+        },{
             path: '/TestDatePickerRender',
             name: 'TestDatePickerRender',
             component: TestDatePickerRender
