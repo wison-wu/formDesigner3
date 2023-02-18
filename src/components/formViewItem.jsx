@@ -49,6 +49,7 @@ export default {
     }
   },
   render() {
+    this.eleConfig.modelValue = this.modelValue;
     return layouts.colItem.call(this, this.eleConfig,this.modelValue)
   }
 }
