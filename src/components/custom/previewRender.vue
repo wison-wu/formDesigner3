@@ -2,9 +2,11 @@
 import { Plus } from '@element-plus/icons-vue'
 import {watch,getCurrentInstance,ref} from 'vue';
 import {ElMessage as message } from 'element-plus'
-
 import {getRemoteData} from './composition';
+import * as dayjs from 'dayjs';
+
 const props = defineProps(['conf','modelValue']);
+const emit = defineEmits(['input']);
 const { appContext } = getCurrentInstance();
 watch(()=>props.conf.dataType,(newVal,oldVal)=>{
     getRemoteData(appContext,props.conf);
@@ -27,6 +29,13 @@ const beforeUpload =(file) => {
     }
     return true
 }
+const handlerEmitValue=(val)=>{
+    if(props.conf.compType==='date'&&val!==''){
+        const format = props.conf.format;
+        val = dayjs(val).format(format);
+    }
+    emit("input",val);
+}
 </script>
 <template>
     <!--输入框-->
@@ -37,6 +46,7 @@ const beforeUpload =(file) => {
         :placeholder="props.conf.placeholder"
         :suffix-icon="props.conf['suffix-icon']"
         :prefix-icon="props.conf['prefix-icon']"
+        @change="handlerEmitValue"
     >
         <template #prepend v-if="props.conf.prepend!==''">{{ props.conf.prepend }}</template>
         <template #append v-if="props.conf.append!==''">{{ props.conf.append }}</template>
@@ -50,6 +60,7 @@ const beforeUpload =(file) => {
         :disabled="props.conf.disabled"
         :filterable="props.conf.filterable"
         :clearable="props.conf.clearable"
+        @change="handlerEmitValue"
     >
        <el-option 
             :label="item.label" 
@@ -61,6 +72,7 @@ const beforeUpload =(file) => {
     <!--单选-->
     <el-radio-group v-if="props.conf.compType==='radio'"
         v-model="props.conf.modelValue"
+        @change="handlerEmitValue"
     >
         <el-radio 
             :label="item.value" 
@@ -88,6 +100,7 @@ const beforeUpload =(file) => {
         :size="props.conf.size"
         :max="props.conf.max"
         :min="props.conf.min"
+        @change="handlerEmitValue"
     >
         <el-checkbox 
             :border="props.conf.border"
@@ -115,6 +128,7 @@ const beforeUpload =(file) => {
         :inactive-color="props.conf['inactive-color']"
         :active-value="props.conf['active-value']"
         :inactive-value="props.conf['inactive-value']"
+        @change="handlerEmitValue"
     >
     </el-switch>
     <!--计数器-->
@@ -129,6 +143,7 @@ const beforeUpload =(file) => {
         :controls-position="props.conf['controls-position']"
         :disabled="props.conf.disabled"
         :readonly="props.conf.readonly"
+        @change="handlerEmitValue"
     >
     </el-input-number>
     <!--多行文本-->
@@ -141,6 +156,7 @@ const beforeUpload =(file) => {
         :show-word-limit="props.conf['show-word-limit']"
         :disabled="props.conf.disabled"
         :rows="props.conf.rows"
+        @change="handlerEmitValue"
     >
     </el-input>
     <!--滑块-->
@@ -153,6 +169,7 @@ const beforeUpload =(file) => {
         :show-tooltip="props.conf['show-tooltip']"
         :range="props.conf.range"
         :disabled="props.conf.disabled"
+        @change="handlerEmitValue"
     ></el-slider>
     <!--评分-->
     <el-rate v-if="props.conf.compType==='rate'"
@@ -161,6 +178,7 @@ const beforeUpload =(file) => {
         :max="props.conf.max"
         :allow-half="props.conf['allow-half']"
         :show-score="props.conf['show-score']"
+        @change="handlerEmitValue"
     ></el-rate>
     <!--日期-->
     <el-date-picker v-if="props.conf.compType==='date'"
@@ -174,6 +192,7 @@ const beforeUpload =(file) => {
         :range-separator="props.conf['range-separator']"
         :start-placeholder="props.conf['start-placeholder']"
         :end-placeholder="props.conf['end-placeholder']"
+        @change="handlerEmitValue"
     ></el-date-picker>
     <!--时间-->
     <el-time-picker v-if="props.conf.compType==='time'"
@@ -182,6 +201,7 @@ const beforeUpload =(file) => {
         :disabled="props.conf.disabled"
         :readonly="props.conf.readonly"
         :clearable="props.conf.clearable"
+        @change="handlerEmitValue"
     >
     </el-time-picker>
     <!--颜色选择器-->
@@ -190,6 +210,7 @@ const beforeUpload =(file) => {
         :disabled="props.conf.disabled"
         :predefine="props.conf.predefine"
         :size="props.conf.size"
+        @change="handlerEmitValue"
     ></el-color-picker>
     <!--级联选择器-->
     <el-cascader v-if="props.conf.compType==='cascader'"
@@ -202,6 +223,7 @@ const beforeUpload =(file) => {
         :props="props.conf.props"
         :options="props.conf.options"
         :filterable="props.conf.filterable"
+        @change="handlerEmitValue"
     ></el-cascader>
     <!--附件(待定)-->
     <el-upload v-if="props.conf.compType==='upload'"
@@ -273,6 +295,7 @@ const beforeUpload =(file) => {
         v-model="props.conf.modelValue"
         :max="props.conf.max"
         :validateMaxText="props.conf.validateMaxText"
+        @change="handlerEmitValue"
     ></fancy-editor>
     <!--选择列表-->
     <fancy-dialog-list v-if="props.conf.compType==='dialogList'"
