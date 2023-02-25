@@ -166,6 +166,7 @@ export default {
       this.formConfig = jsonObject.config;
       this.designList = [];
       this.designList = this.designList.concat(jsonObject.list);
+      this.$refs['designer'].changeFormConfig(this.formConfig);
     }
   },
   computed:{

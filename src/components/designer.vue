@@ -201,6 +201,10 @@ export default {
   mounted() {
   },
   methods: {
+    //修改表单的基础配置
+    changeFormConfig(formConfig){
+      this.formConf = formConfig;
+    },
     preview(){
       const clone = JSON.parse(JSON.stringify(this.list))
       this.itemList = clone;
