@@ -32,8 +32,14 @@
         <li @click="handlerAppendCol">
           <icon code="zhuijiahang" text="追加行" />
         </li>
+        <li @click="handlerDeleteCol">
+          <icon code="shanchuhang" text="删除行" />
+        </li>
         <li @click="handlerAppendRow">
           <icon code="zhuijialie" text="追加列" />
+        </li>
+        <li @click="handlerDeleteRow">
+          <icon code="shanchulie" text="删除列" />
         </li>
       </ul>
     </div>
@@ -170,6 +176,16 @@ export default {
         const _td = jsonClone(getTdItem());
         item.push(_td);
       })
+    },
+    //删除列
+    handlerDeleteRow(){
+      this.layoutArray.forEach(item=>{
+        item.splice(this.currentColIndex,1);
+      })
+    },
+    //删除行
+    handlerDeleteCol(){
+      this.layoutArray.splice(this.currentRowIndex,1);
     }
   },
   computed:{
