@@ -43,16 +43,16 @@ const layouts = {
                         label-width={labelWidth}
                         required={element.required} >
             <render key={element.id} conf={element} modelValue={element.modelValue} 
-              // onInput={ event => {
-              //   console.log(event);
-              //   //兼容select 搜索
-              //   if(event.data)return;
-              //   //兼容select 搜索 end
-              //   //多选框没有此事件
-              //   if(element.compType ==='checkbox')return;
-              //   //多选框没有此事件 end
-              //   element.modelValue = event;
-              // }} 
+              onInput={ event => {
+                console.log(event);
+                //兼容select 搜索
+                if(event.data)return;
+                //兼容select 搜索 end
+                //多选框没有此事件
+                if(element.compType ==='checkbox')return;
+                //多选框没有此事件 end
+                element.modelValue = event;
+              }} 
               // onChange={ event => {
               //   console.log(event);
               //   element.modelValue = event;
