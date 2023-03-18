@@ -53,8 +53,7 @@
 <script >
 import {Search} from '@element-plus/icons-vue'
 import {
-  getCurrentInstance,
-  defineComponent
+  getCurrentInstance
 } from "vue";
 const splitKey = ";";
 export default {
@@ -180,11 +179,11 @@ export default {
             dialogId = this.selectId;
             this.dialogValue = dialogVal;
             this.$emit('input',dialogId+'');
+            this.$emit('change',dialogId+'');
         },
         handlerHideDialog(){
             this.dialogVisible = false;
             this.dialogValue = '';
-            this.$emit('input','');
         },
         setDialogValue(){
             if(this.multi){

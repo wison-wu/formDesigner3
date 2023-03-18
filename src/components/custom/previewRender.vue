@@ -39,6 +39,7 @@ const handlerEmitValue=(val)=>{
 </script>
 <template>
     <!--输入框-->
+    {{ props.conf.modelValue }}
     <el-input v-if="props.conf.compType==='input'" 
         v-model="props.conf.modelValue"
         :readonly ="props.conf.readonly" 
@@ -309,6 +310,7 @@ const handlerEmitValue=(val)=>{
         :colConf="props.conf.colConf"
         :dval="props.conf.dval"
         :dlabel="props.conf.dlabel"
+        @change="handlerEmitValue"
     ></fancy-dialog-list>
     <!--条码-->
     <fancy-bar-code v-if="props.conf.compType==='barCode'"

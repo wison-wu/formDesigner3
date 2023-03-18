@@ -1,3 +1,4 @@
+//此文件已经废弃，仅作为之前文件的参考。
 import {h,resolveComponent} from "vue";
 import {jsonClone,isAttr} from '../utils/index';
 import childrenItem from './slot/index';
