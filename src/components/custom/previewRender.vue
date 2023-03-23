@@ -39,7 +39,6 @@ const handlerEmitValue=(val)=>{
 </script>
 <template>
     <!--输入框-->
-    {{ props.conf.modelValue }}
     <el-input v-if="props.conf.compType==='input'" 
         v-model="props.conf.modelValue"
         :readonly ="props.conf.readonly" 
