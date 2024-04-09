@@ -1,0 +1,44 @@
+
+.active{
+  background: #E6F2FF;
+}
+.dynamic-table-item-copy{
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top:0px;
+  right:30px;
+  border: 1px solid;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 22px;
+  text-align: center;
+  color: #409EFF;
+  background: #fff;
+  z-index:2;
+}
+.dynamic-table-item-copy:hover{
+  color:  #fff;
+  background:#409EFF;
+}
+.dynamic-table-item-delete{
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top:0px;
+  right:0px;
+  border: 1px solid;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 22px;
+  text-align: center;
+  color: #F56C6C;
+  background: #fff;
+  z-index:2;
+}
+.dynamic-table-item-delete:hover{
+  color:  #fff;
+  background:#F56C6C;
+}
