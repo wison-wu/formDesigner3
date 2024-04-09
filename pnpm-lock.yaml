@@ -120,6 +120,9 @@ importers:
 
   packages/form-designer-example-app:
     dependencies:
+      form-designer-core:
+        specifier: 'workspaces: *'
+        version: link:../form-designer-core
       pinia:
         specifier: ^2.1.7
         version: 2.1.7(typescript@5.4.4)(vue@3.4.21)
