@@ -6,8 +6,8 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-import './assets/style/designer.css'
-import './assets/iconfont/iconfont.js'
+import '@/assets/style/designer.css'
+import '@/assets/iconfont/iconfont.js'
 
 //挂载相关的插件
 import plugins from '@/components/formDesigner.vue';
