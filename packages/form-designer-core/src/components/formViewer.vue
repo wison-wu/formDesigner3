@@ -74,7 +74,7 @@ import formViewItem from "./formViewItem";
 import previewRowItem from "./previewRowItem";
 import fancyDynamicViewTable from "./dynamic/fancyDynamicViewTable";
 import fancyDynamicTableViewItem from "./dynamic/fancyDynamicTableViewItem";
-import fancyEditTable from "./table/fancyEditTable";
+import fancyEditTable from "./table/fancyEditTable.vue";
 export default {
   name:'formViewer',
   data(){

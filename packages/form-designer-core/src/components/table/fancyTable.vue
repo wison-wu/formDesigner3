@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import icon from '../icon';
-import fancyTableItem from './fancyTableItem';
+import icon from '../icon.vue';
+import fancyTableItem from './fancyTableItem.vue';
 import {jsonClone} from "../utils";
 import {getTrItem,getTdItem} from "./table";
 import { getSimpleId } from '../utils/IdGenerate';

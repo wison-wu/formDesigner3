@@ -109,10 +109,10 @@
 </template>
 <script>
 import previewItem from "./previewItem";
-import previewRowItem from "./previewRowItem";
-import fancyDynamicTable from "./dynamic/fancyDynamicTable";
+import previewRowItem from "./previewRowItem.vue";
+import fancyDynamicTable from "./dynamic/fancyDynamicTable.vue";
 import fancyDynamicTableItem from "./dynamic/fancyDynamicTableItem";
-import fancyEditTable from "./table/fancyEditTable";
+import fancyEditTable from "./table/fancyEditTable.vue";
 import {datas,addRow,batchDeleteRow,deleteRow} from "./custom/formDraw";
 export default {
   name:'preview',

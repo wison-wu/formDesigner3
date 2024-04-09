@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import fancyEditTableItem from './fancyEditTableItem';
+import fancyEditTableItem from './fancyEditTableItem.vue';
 export default {
     name: 'fancyEditTable',
     components: {
