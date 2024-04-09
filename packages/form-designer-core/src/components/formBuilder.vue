@@ -104,8 +104,8 @@
 </template>
 <script>
 import previewItem from "./previewItem";
-import previewRowItem from "./previewRowItem";
-import fancyDynamicTable from "./dynamic/fancyDynamicTable";
+import previewRowItem from "./previewRowItem.vue";
+import fancyDynamicTable from "./dynamic/fancyDynamicTable.vue";
 import fancyDynamicTableItem from "./dynamic/fancyDynamicTableItem";
 import {datas,addRow,deleteRow,fillDatas} from "./custom/formDraw";
 import fancyEditTable from "./table/fancyEditTable.vue";

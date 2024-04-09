@@ -71,8 +71,8 @@
 
 <script>
 import formViewItem from "./formViewItem";
-import previewRowItem from "./previewRowItem";
-import fancyDynamicViewTable from "./dynamic/fancyDynamicViewTable";
+import previewRowItem from "./previewRowItem.vue";
+import fancyDynamicViewTable from "./dynamic/fancyDynamicViewTable.vue";
 import fancyDynamicTableViewItem from "./dynamic/fancyDynamicTableViewItem";
 import fancyEditTable from "./table/fancyEditTable.vue";
 export default {
