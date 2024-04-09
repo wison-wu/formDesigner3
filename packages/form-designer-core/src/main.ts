@@ -15,6 +15,8 @@ import ZH_CN from 'element-plus/dist/locale/zh-cn.mjs';
 //挂载相关的插件
 import plugins from '@/components/formDesigner.vue';
 import { GlobalCmComponent } from "codemirror-editor-vue3";
+
+import FormDesigner from './index.js'
 // 请求类
 import Axios from 'axios';
 // 创建app
@@ -31,6 +33,7 @@ app.use(GlobalCmComponent);
 app.use(ElementPlus, {
     locale: ZH_CN
 })
+app.use(FormDesigner);
 // 创建全局请求类
 app.config.globalProperties.$axios = Axios;
 // 创建vue app

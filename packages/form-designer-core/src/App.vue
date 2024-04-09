@@ -5,7 +5,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import FormDesigner from "@/components/formDesigner.vue";
 import {reactive} from 'vue';
 const form = reactive({
   config:{},
