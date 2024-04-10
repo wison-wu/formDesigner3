@@ -7,7 +7,10 @@ import fancyText from './extend/fancyText.vue';
 import fancyBarCode from 'vue3-barcode';
 import fancyDialogList from './extend/fancyDialogList.vue';
 // import iconDialog from './iconDialog';
-
+// 导入必须得CSS和图标
+import '@/assets/style/designer.css';
+import '@/assets/iconfont/iconfont.js';
+import 'element-plus/dist/index.css';
 // 引入所有图标
 import * as Icons from '@element-plus/icons-vue';
 
@@ -22,6 +25,7 @@ const plugins = {
     app.component('fancy-bar-code',fancyBarCode);
     // 循环注册所有图标
     for(const name in Icons){
+      //@ts-ignore
       app.component(name,Icons[name]);
     }
     app.component('fancy-dialog-list',fancyDialogList);

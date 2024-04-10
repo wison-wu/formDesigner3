@@ -5,15 +5,12 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 // router
 import router from './router'
-// 导入必须得CSS和图标
-import '@/assets/style/designer.css';
-import '@/assets/iconfont/iconfont.js';
-import 'element-plus/dist/index.css';
 // 导入element-plus
 import ElementPlus from 'element-plus';
 import ZH_CN from 'element-plus/dist/locale/zh-cn.mjs';
 //挂载相关的插件
 import plugins from '@/components';
+//@ts-ignore
 import { GlobalCmComponent } from "codemirror-editor-vue3";
 
 // 请求类
