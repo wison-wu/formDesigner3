@@ -15,8 +15,6 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "element-plus": "^2.2.28",
-    "@element-plus/icons-vue": "^2.0.9",
     "form-designer-core": "workspaces: *",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
