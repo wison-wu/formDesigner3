@@ -56,6 +56,9 @@ importers:
       vuedraggable:
         specifier: ^4.1.0
         version: 4.1.0(vue@3.4.21)
+      web-decorator-vue:
+        specifier: ^1.0.8
+        version: 1.0.8
     devDependencies:
       '@playwright/test':
         specifier: ^1.42.1
@@ -123,7 +126,7 @@ importers:
 
   packages/form-designer-example-app:
     dependencies:
-      form-designer-core:
+      form-designer-v3:
         specifier: 'workspaces: *'
         version: link:../form-designer-core
       pinia:
@@ -7061,6 +7064,10 @@ packages:
     dependencies:
       defaults: 1.0.4
     dev: true
+
+  /web-decorator-vue@1.0.8:
+    resolution: {integrity: sha512-GGiRHZOnIKCuXEwspEZIHyvU0Xl8XZapxiOY7u/xjqUBAGyRd+/oUJXiVgxt/J2lBKWlRRekH1O6koF6W4P7Mw==}
+    dev: false
 
   /webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
