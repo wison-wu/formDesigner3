@@ -1,9 +1,13 @@
 {
-  "name": "form-designer-core",
-  "version": "0.0.0",
-  "private": true,
+  "name": "form-designer-v3",
+  "version": "1.0.0-rc.0",
+  "private": false,
   "type": "module",
   "main": "dist/form-designer-core.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wison-wu/formDesigner3"
+  },
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",

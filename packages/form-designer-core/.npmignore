@@ -1,0 +1,17 @@
+.vscode
+e2e
+public
+src
+.eslintrc.cjs
+.gitignore
+.prettierrc.json
+env.d.ts
+index.html
+playwright.config.ts
+pnpm-lock.yaml
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+tsconfig.vitest.json
+vite.config.ts
+vitest.config.ts
