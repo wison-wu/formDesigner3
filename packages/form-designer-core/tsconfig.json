@@ -12,6 +12,8 @@
     }
   ],
   "compilerOptions": {
-    "types": ["element-plus/global"]
+    "types": ["element-plus/global"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }

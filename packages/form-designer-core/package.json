@@ -33,15 +33,16 @@
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "vue3-barcode": "^1.0.1",
-    "vuedraggable": "^4.1.0"
+    "vuedraggable": "^4.1.0",
+    "web-decorator-vue": "^1.0.8"
   },
   "peerDependencies": {
+    "@element-plus/icons-vue": "^2.0.9",
     "@vueup/vue-quill": "^1.0.1",
-    "vue3-barcode": "^1.0.1",
-    "vuedraggable": "^4.1.0",
-    "codemirror-editor-vue3": "^2.1.7",
     "china-area-data": "^5.0.1",
-    "@element-plus/icons-vue": "^2.0.9"
+    "codemirror-editor-vue3": "^2.1.7",
+    "vue3-barcode": "^1.0.1",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.42.1",
