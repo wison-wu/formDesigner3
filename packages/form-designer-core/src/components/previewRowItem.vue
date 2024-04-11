@@ -1,25 +1,20 @@
 <template>
   <el-col>
-    <el-row  :gutter="model.gutter">
-        <slot></slot>
+    <el-row :gutter="model.gutter">
+      <slot></slot>
     </el-row>
   </el-col>
 </template>
 <script>
 
 
-
 export default {
-  name:"previewRowItem",
-  components: {
+  name: "previewRowItem",
+  components: {},
+  props: ['model', 'value'],
+  data() {
+    return {}
   },
-  props: ['model','value'],
-  data(){
-    return {
-      
-    }
-  },
-  computed:{
-  }
+  computed: {}
 }
 </script>
