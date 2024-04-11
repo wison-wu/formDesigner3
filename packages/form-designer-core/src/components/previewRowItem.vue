@@ -5,16 +5,18 @@
     </el-row>
   </el-col>
 </template>
-<script>
+<script lang="ts">
+import { Component, Prop } from "web-decorator-vue";
 
-
-export default {
-  name: "previewRowItem",
-  components: {},
-  props: ['model', 'value'],
-  data() {
-    return {}
-  },
-  computed: {}
+@Component(
+    {
+      name: "previewRowItem",
+    }
+)
+export default class PreviewRowItem {
+  // TODO 补齐注释
+  @Prop() model: any;
+  // TODO 补齐注释
+  @Prop() value: any;
 }
 </script>
