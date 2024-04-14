@@ -2,12 +2,12 @@ import render from './custom/previewRender.vue'
 import checkRules from './custom/rule'
 
 const layouts = {
-  colItem(element, modelValue) {
+  colItem(element) {
     let labelWidth = element.labelWidth ? `${element.labelWidth}px` : null
     const rules = checkRules(element)
     const { onValChange } = this.$attrs
     return (
-      <el-col style="padding-left: 7.5px; padding-right: 7.5px;">
+      <el-col style={'padding-left: 7.5px; padding-right: 7.5px;'}>
         <el-form-item
           label={element.showLabel ? element.label : ''}
           label-width={labelWidth}
