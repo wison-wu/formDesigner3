@@ -57,8 +57,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0(vue@3.4.21)
       web-decorator-vue:
-        specifier: ^1.0.8
-        version: 1.0.8
+        specifier: ^1.1.2
+        version: 1.1.2
     devDependencies:
       '@playwright/test':
         specifier: ^1.42.1
@@ -7065,8 +7065,8 @@ packages:
       defaults: 1.0.4
     dev: true
 
-  /web-decorator-vue@1.0.8:
-    resolution: {integrity: sha512-GGiRHZOnIKCuXEwspEZIHyvU0Xl8XZapxiOY7u/xjqUBAGyRd+/oUJXiVgxt/J2lBKWlRRekH1O6koF6W4P7Mw==}
+  /web-decorator-vue@1.1.2:
+    resolution: {integrity: sha512-XL9xMLkYOJd49OEbTnQ6U/RMFBVRki81RyZQOg+eX+ZwzX22sAJjNbLXIRdgBz7faFm3RMHwU74KZncT+qdHgA==}
     dev: false
 
   /webidl-conversions@3.0.1:
