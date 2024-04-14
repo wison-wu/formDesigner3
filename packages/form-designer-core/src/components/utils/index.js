@@ -4,9 +4,7 @@ export function makeMap(str, expectsLowerCase) {
   for (let i = 0; i < list.length; i++) {
     map[list[i]] = true
   }
-  return expectsLowerCase
-    ? val => map[val.toLowerCase()]
-    : val => map[val]
+  return expectsLowerCase ? (val) => map[val.toLowerCase()] : (val) => map[val]
 }
 
 /**
@@ -17,8 +15,10 @@ export function makeMap(str, expectsLowerCase) {
  */
 export function indent(str, num, len = 2) {
   if (num === 0) return str
-  const isLeft = num < 0; const result = []; let reg; let
-    spaces = ''
+  const isLeft = num < 0
+  const result = []
+  let reg
+  let spaces = ''
   if (isLeft) {
     num *= -1
     reg = new RegExp(`(^\\s{0,${num * len}})`, 'g')
@@ -26,7 +26,7 @@ export function indent(str, num, len = 2) {
     for (let i = 0; i < num * len; i++) spaces += ' '
   }
 
-  str.split('\n').forEach(line => {
+  str.split('\n').forEach((line) => {
     line = isLeft ? line.replace(reg, '') : spaces + line
     result.push(line)
   })
@@ -35,18 +35,17 @@ export function indent(str, num, len = 2) {
 
 // 首字母大小
 export function titleCase(str) {
-  return str.replace(/( |^)[a-z]/g, L => L.toUpperCase())
+  return str.replace(/( |^)[a-z]/g, (L) => L.toUpperCase())
 }
 
 // 下划转驼峰
 export function camelCase(str) {
-  return str.replace(/-[a-z]/g, str1 => str1.substr(-1).toUpperCase())
+  return str.replace(/-[a-z]/g, (str1) => str1.substr(-1).toUpperCase())
 }
 
 export function isNumberStr(str) {
   return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/g.test(str)
 }
-
 
 export const beautifierConf = {
   html: {
@@ -100,7 +99,7 @@ function stringify(obj) {
 
 function parse(str) {
   return JSON.parse(str, (k, v) => {
-    if (v!==null&&v.indexOf && v.indexOf('function') > -1) {
+    if (v !== null && v.indexOf && v.indexOf('function') > -1) {
       return eval(`(${v})`)
     }
     return v
@@ -108,31 +107,31 @@ function parse(str) {
 }
 
 export function jsonClone(obj) {
-  return parse(stringify(obj));
+  return parse(stringify(obj))
 }
 
 export function isLayout(obj) {
-  return obj.compType === 'row';
+  return obj.compType === 'row'
 }
 export function isTable(obj) {
-  return obj.compType === 'table';
+  return obj.compType === 'table'
 }
 export function inTable(obj) {
-  return obj.col&&obj.row;
+  return obj.col && obj.row
 }
 
 export const isAttr = makeMap(
-  'accept,accept-charset,accesskey,action,align,alt,async,autocomplete,'
-  + 'autofocus,autoplay,autosave,bgcolor,border,buffered,challenge,charset,'
-  + 'checked,cite,class,code,codebase,color,cols,colspan,content,http-equiv,'
-  + 'name,contenteditable,contextmenu,controls,coords,data,datetime,default,'
-  + 'defer,dir,dirname,download,draggable,dropzone,enctype,method,for,'
-  + 'form,formaction,headers,height,hidden,high,href,hreflang,http-equiv,'
-  + 'icon,id,ismap,itemprop,keytype,kind,label,lang,language,list,loop,low,'
-  + 'manifest,max,maxlength,media,method,GET,POST,min,multiple,email,file,'
-  + 'muted,name,novalidate,open,optimum,pattern,ping,placeholder,poster,'
-  + 'preload,radiogroup,readonly,rel,required,reversed,rows,rowspan,sandbox,'
-  + 'scope,scoped,seamless,selected,shape,size,type,text,password,sizes,span,'
-  + 'spellcheck,src,srcdoc,srclang,srcset,start,step,style,summary,tabindex,'
-  + 'target,title,type,usemap,value,width,wrap'
+  'accept,accept-charset,accesskey,action,align,alt,async,autocomplete,' +
+    'autofocus,autoplay,autosave,bgcolor,border,buffered,challenge,charset,' +
+    'checked,cite,class,code,codebase,color,cols,colspan,content,http-equiv,' +
+    'name,contenteditable,contextmenu,controls,coords,data,datetime,default,' +
+    'defer,dir,dirname,download,draggable,dropzone,enctype,method,for,' +
+    'form,formaction,headers,height,hidden,high,href,hreflang,http-equiv,' +
+    'icon,id,ismap,itemprop,keytype,kind,label,lang,language,list,loop,low,' +
+    'manifest,max,maxlength,media,method,GET,POST,min,multiple,email,file,' +
+    'muted,name,novalidate,open,optimum,pattern,ping,placeholder,poster,' +
+    'preload,radiogroup,readonly,rel,required,reversed,rows,rowspan,sandbox,' +
+    'scope,scoped,seamless,selected,shape,size,type,text,password,sizes,span,' +
+    'spellcheck,src,srcdoc,srclang,srcset,start,step,style,summary,tabindex,' +
+    'target,title,type,usemap,value,width,wrap'
 )

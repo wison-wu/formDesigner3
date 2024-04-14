@@ -1,27 +1,26 @@
-const slots = import.meta.glob("./*.jsx",{ eager: true })
-const componentChild = {};
-Object.keys(slots).forEach(key=>{
-  const obj = slots[key];
-  const tag = key.replace('./','').replace('.jsx','');
-  componentChild[tag] = obj.default;
+const slots = import.meta.glob('./*.jsx', { eager: true })
+const componentChild = {}
+Object.keys(slots).forEach((key) => {
+  const obj = slots[key]
+  const tag = key.replace('./', '').replace('.jsx', '')
+  componentChild[tag] = obj.default
 })
 
-
 export default function childrenItem(confClone) {
-  let children ={};
+  let children = {}
   const childObjs = componentChild[confClone.ele]
   if (childObjs) {
-    children = () =>  {
+    children = () => {
       let result = {}
-      Object.keys(childObjs).forEach(key => {
+      Object.keys(childObjs).forEach((key) => {
         const childFunc = childObjs[key]
-        const slots = childFunc(confClone);
-        if(slots!==null&&slots!==''){
-          result[key]= () =>slots;
+        const slots = childFunc(confClone)
+        if (slots !== null && slots !== '') {
+          result[key] = () => slots
         }
       })
-      return result;
+      return result
     }
   }
-  return children;
-};
+  return children
+}
