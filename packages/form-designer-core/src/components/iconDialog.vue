@@ -1,51 +1,56 @@
 <!--elementUI 图标选择器-->
 <template>
-  <div >
-    <el-dialog title="选择icon" width="60%" top="0vh" v-model="dialogVisible" >
+  <div>
+    <el-dialog title="选择icon" width="60%" top="0vh" v-model="dialogVisible">
       <ul class="icon-list">
-        <li v-for="iconName in icons" :key="iconName" @click="handlerSelectIcon(iconName)" :class="{activeIcon:iconName ===value}">
-            <el-icon>
-              <component :is="`${iconName}`"></component>
-            </el-icon>
+        <li
+          v-for="iconName in icons"
+          :key="iconName"
+          @click="handlerSelectIcon(iconName)"
+          :class="{ activeIcon: iconName === value }"
+        >
+          <el-icon>
+            <component :is="`${iconName}`"></component>
+          </el-icon>
         </li>
       </ul>
     </el-dialog>
   </div>
 </template>
 
-<script >
-import iconList from './utils/icon.json';
+<script>
+import iconList from './utils/icon.json'
 export default {
-  props:{
-    visible:{
+  props: {
+    visible: {
       type: Boolean,
-      default:true
+      default: true
     },
-    value:{
-      type:String,
-      default:''
+    value: {
+      type: String,
+      default: ''
     }
   },
-  data(){
-    return{
-      icons:iconList,
-    } 
-  },
-  methods:{
-    handlerSelectIcon(iconName){
-      this.$emit('update:modelValue',iconName);
-      this.$emit('update:visible',false); 
+  data() {
+    return {
+      icons: iconList
     }
   },
-  computed:{
-    dialogVisible:{
-       // getter
+  methods: {
+    handlerSelectIcon(iconName) {
+      this.$emit('update:modelValue', iconName)
+      this.$emit('update:visible', false)
+    }
+  },
+  computed: {
+    dialogVisible: {
+      // getter
       get: function () {
-        return this.visible;
+        return this.visible
       },
       // setter
       set: function (newValue) {
-        this.$emit('update:visible',false); 
+        this.$emit('update:visible', false)
       }
     }
   }
@@ -53,15 +58,15 @@ export default {
 </script>
 
 <style scoped>
-.icon-list{
-  padding:0;
-  margin:0;
-  font-size:0;
+.icon-list {
+  padding: 0;
+  margin: 0;
+  font-size: 0;
 }
-.icon-list li{
+.icon-list li {
   width: 10%;
-  height:60px;
-  font-size:14px;
+  height: 60px;
+  font-size: 14px;
   text-align: center;
   list-style-type: none;
   overflow: hidden;
@@ -69,22 +74,22 @@ export default {
   display: inline-block;
   box-sizing: border-box;
 }
-.icon-list li:hover{
-  background-color: #F2F6FC;
+.icon-list li:hover {
+  background-color: #f2f6fc;
   cursor: pointer;
 }
-.activeIcon{
-  background-color: #F2F6FC;
+.activeIcon {
+  background-color: #f2f6fc;
   cursor: pointer;
 }
-.icon-list li i{
-  width:100%;
+.icon-list li i {
+  width: 100%;
   font-size: 30px;
   padding: 6px 6px 6px 0px;
 }
-.icon-name{
+.icon-name {
   display: block;
-  padding-left:6px;
+  padding-left: 6px;
 }
 .el-dialog {
   border-radius: 8px;

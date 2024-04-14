@@ -1,28 +1,21 @@
 <!--动态表单（设计器）-->
 <template>
-
   <div class="dynamic-table">
-    <slot>
-    </slot>
+    <slot> </slot>
   </div>
-
 </template>
 <script>
 export default {
-  name:'dynamicTable',
-  props:['conf','activeItem'],
-  data(){
+  name: 'dynamicTable',
+  props: ['conf', 'activeItem'],
+  data() {
     return {
-      test1:'',
-      list:[]
+      test1: '',
+      list: []
     }
   },
-  components:{
-  },
-  methods:{
-  }
+  components: {},
+  methods: {}
 }
 </script>
-<style>
-
-</style>
+<style></style>

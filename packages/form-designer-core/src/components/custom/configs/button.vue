@@ -1,8 +1,13 @@
 <template>
   <div v-show="props.compType === 'button'">
     <el-form-item label="ID">
-      <el-tooltip class="item" effect="dark" content="请注意,ID的修改可能会导致该组件相关事件失效！" placement="left">
-        <el-input class="input" v-model="props.id" ></el-input>
+      <el-tooltip
+        class="item"
+        effect="dark"
+        content="请注意,ID的修改可能会导致该组件相关事件失效！"
+        placement="left"
+      >
+        <el-input class="input" v-model="props.id"></el-input>
       </el-tooltip>
     </el-form-item>
     <el-form-item label="按钮文字">
@@ -15,20 +20,20 @@
       <el-input class="input" v-model="props.label"></el-input>
     </el-form-item>
     <el-form-item label="标签长度" v-show="props.showLabel">
-      <el-input-number v-model="props.labelWidth"  :min="1" :max="200"></el-input-number>
+      <el-input-number v-model="props.labelWidth" :min="1" :max="200"></el-input-number>
     </el-form-item>
     <el-form-item label="占用列数" v-show="props.span">
-      <el-input-number v-model="props.span"  :min="1" :max="24"></el-input-number>
+      <el-input-number v-model="props.span" :min="1" :max="24"></el-input-number>
     </el-form-item>
-    
-    <el-form-item label="按钮类型" >
+
+    <el-form-item label="按钮类型">
       <el-select v-model="props.type" placeholder="请选择">
-        <el-option label="primary" value="primary"/>
-        <el-option label="success" value="success"/>
-        <el-option label="warning" value="warning"/>
-        <el-option label="danger" value="danger"/>
-        <el-option label="info" value="info"/>
-        <el-option label="text" value="text"/>
+        <el-option label="primary" value="primary" />
+        <el-option label="success" value="success" />
+        <el-option label="warning" value="warning" />
+        <el-option label="danger" value="danger" />
+        <el-option label="info" value="info" />
+        <el-option label="text" value="text" />
       </el-select>
     </el-form-item>
     <el-form-item label="按钮大小">
@@ -53,33 +58,31 @@
   </div>
 </template>
 <script>
-
 /**
  * input的配置项
  */
 export default {
-  name:"buttonConfig",
-  props:{
-    props:{}
+  name: 'buttonConfig',
+  props: {
+    props: {}
   },
-  data(){
+  data() {
     return {
-      iconDialogVisible:false
+      iconDialogVisible: false
     }
   },
-  methods:{
-    handlerShowLabel(val){
-      if(val){
-        this.props.labelWidth = 80;
-      }else{
-        this.props.labelWidth = 0;
+  methods: {
+    handlerShowLabel(val) {
+      if (val) {
+        this.props.labelWidth = 80
+      } else {
+        this.props.labelWidth = 0
       }
     },
-    handlerSelectIcon(){
-      this.iconDialogVisible = true;
+    handlerSelectIcon() {
+      this.iconDialogVisible = true
     }
   },
-  mounted(){
-  }
+  mounted() {}
 }
 </script>

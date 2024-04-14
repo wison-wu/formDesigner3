@@ -2,26 +2,26 @@
  * 单行&多行输入框
  */
 export let slider = {
-  id:'',
-  _id:'',
+  id: '',
+  _id: '',
   compType: 'slider',
   ele: 'el-slider',
   //控件名称(左侧显示)
-  compName:'滑块',
+  compName: '滑块',
   label: '滑块',
   //图标
-  compIcon:'slider',
+  compIcon: 'slider',
   //展示表单的模式
-  viewType:'component',
+  viewType: 'component',
   //暂时默认为true，无法更改，后期考虑某些时候无法配置
   config: true,
   // 控件左侧label内容
-  showLabel:true,
-   //栅格间隔
-  gutter:15,
+  showLabel: true,
+  //栅格间隔
+  gutter: 15,
   labelWidth: 80,
   modelValue: 0,
-  rules:[],
+  rules: [],
   span: 24,
   disabled: false,
   required: false,

@@ -34,7 +34,7 @@
     "vue-router": "^4.3.0",
     "vue3-barcode": "^1.0.1",
     "vuedraggable": "^4.1.0",
-    "web-decorator-vue": "^1.0.8"
+    "web-decorator-vue": "^1.1.2"
   },
   "peerDependencies": {
     "@element-plus/icons-vue": "^2.0.9",

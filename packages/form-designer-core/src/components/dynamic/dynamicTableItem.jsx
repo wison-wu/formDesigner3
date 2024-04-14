@@ -2,31 +2,54 @@
  * 动态表单（设计器）
  */
 
-import {h} from "vue";
-import draggable from "vuedraggable";
+import { h } from 'vue'
+import draggable from 'vuedraggable'
 import render from '../custom/render_bak'
 import './dynamicTable.css'
 
-const colItem = function(element){
-  const { onSelectItem,copyItem,deleteItem} = this.$attrs;
+const colItem = function (element) {
+  const { onSelectItem, copyItem, deleteItem } = this.$attrs
   return (
-    <div class={{'dynamic-table__item':true,'active':this.isHover||this.isActive}}
-      style="min-width:200px;width: auto;position:relative" onClick={(e)=>{onSelectItem(e,element)}}
-      onMouseover={(e)=>{this.isHover = true}}
-      onMouseleave={(e)=>{this.isHover = false}}
-      >
-      <div class="dynamic-table__item_title">
-        {element.label}
-      </div>
+    <div
+      class={{ 'dynamic-table__item': true, active: this.isHover || this.isActive }}
+      style="min-width:200px;width: auto;position:relative"
+      onClick={(e) => {
+        onSelectItem(e, element)
+      }}
+      onMouseover={(e) => {
+        this.isHover = true
+      }}
+      onMouseleave={(e) => {
+        this.isHover = false
+      }}
+    >
+      <div class="dynamic-table__item_title">{element.label}</div>
       <div class="dynamic-table__item_body">
-        <render conf={element}/><span v-show={element.required} style="color:#F56C6C">*</span>
+        <render conf={element} />
+        <span v-show={element.required} style="color:#F56C6C">
+          *
+        </span>
       </div>
-      <span class="dynamic-table-item-copy" title="复制" v-show={this.showbutton} onClick={(e)=>{copyItem(e,element)}}>
+      <span
+        class="dynamic-table-item-copy"
+        title="复制"
+        v-show={this.showbutton}
+        onClick={(e) => {
+          copyItem(e, element)
+        }}
+      >
         <el-icon>
           <CopyDocument />
         </el-icon>
       </span>
-      <span class="dynamic-table-item-delete" title="删除" v-show={this.showbutton} onClick={(e)=>{deleteItem(e,element)}}>
+      <span
+        class="dynamic-table-item-delete"
+        title="删除"
+        v-show={this.showbutton}
+        onClick={(e) => {
+          deleteItem(e, element)
+        }}
+      >
         <el-icon>
           <Delete />
         </el-icon>
@@ -35,40 +58,38 @@ const colItem = function(element){
   )
 }
 
-
 export default {
-  name:'dynamicTableItem',
-  props:['item','activeItem'],
-  data(){
+  name: 'dynamicTableItem',
+  props: ['item', 'activeItem'],
+  data() {
     return {
-      isActive:false,
-      isHover:false,
+      isActive: false,
+      isHover: false
     }
   },
-  components:{
+  components: {
     draggable,
     render
   },
-  methods:{
-    handlerCopy(evt){
-      this.$emit('copy',evt,this.item);
+  methods: {
+    handlerCopy(evt) {
+      this.$emit('copy', evt, this.item)
     },
-    handlerDelete(evt){
-      this.$emit('delete',evt,this.item);
+    handlerDelete(evt) {
+      this.$emit('delete', evt, this.item)
     }
   },
   watch: {
-    activeItem(newvalue){
-      this.isActive = newvalue.id === this.item.id?true:false;
+    activeItem(newvalue) {
+      this.isActive = newvalue.id === this.item.id ? true : false
     }
   },
-  computed:{
-    showbutton(){
-      return this.isActive||this.isHover;
+  computed: {
+    showbutton() {
+      return this.isActive || this.isHover
     }
   },
-  render(){
-      return colItem.call(this,this.item);
+  render() {
+    return colItem.call(this, this.item)
   }
 }
-

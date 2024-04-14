@@ -1,6 +1,5 @@
-
-body{
-  margin:0px;
+body {
+  margin: 0px;
 }
 .container {
   position: relative;
@@ -14,14 +13,14 @@ body{
   top: 0;
   height: 100vh;
 }
-.d-logo-wrapper{
+.d-logo-wrapper {
   position: relative;
   height: 42px;
   background: #ffffff;
   border-bottom: 1px solid #f1e8e8;
   box-sizing: border-box;
 }
-.d-logo{
+.d-logo {
   position: absolute;
   left: 12px;
   top: 6px;
@@ -31,18 +30,18 @@ body{
   font-size: 17px;
   white-space: nowrap;
 }
-.d-logo img{
+.d-logo img {
   width: 30px;
   height: 30px;
   vertical-align: top;
 }
-.components-title{
+.components-title {
   font-size: 14px;
   color: #222;
   margin: 6px 6px;
-  font-weight:700
+  font-weight: 700;
 }
-.components-draggable{
+.components-draggable {
   padding-bottom: 20px;
 }
 .components-list {
@@ -76,7 +75,7 @@ body{
   margin: 0 350px 0 260px;
   box-sizing: border-box;
 }
-.empty-info{
+.empty-info {
   position: absolute;
   top: 30%;
   left: 0;
@@ -85,26 +84,26 @@ body{
   font-size: 18px;
   letter-spacing: 4px;
 }
-.action-bar{
+.action-bar {
   position: relative;
   height: 42px;
   text-align: right;
   padding: 0 15px;
-  box-sizing: border-box;;
+  box-sizing: border-box;
   border: 1px solid #f1e8e8;
   border-top: none;
   border-left: none;
   background: #ffffff;
 }
-.action-bar .el-button{
+.action-bar .el-button {
   font-size: 18px;
   vertical-align: middle;
   position: relative;
   top: -1px;
-  color:#409EFF
+  color: #409eff;
 }
-.action-bar .delete-btn{
-  color: #F56C6C;
+.action-bar .delete-btn {
+  color: #f56c6c;
 }
 .center-scrollbar {
   height: calc(100vh - 42px);
@@ -122,63 +121,63 @@ body{
   height: calc(100vh - 69px);
 }
 
-.dynamic-table{
+.dynamic-table {
   margin: 0px;
   height: auto;
   min-height: 120px;
   padding: 10px 0px;
 }
-.dynamic-table__content{
-  width:100%;
-  height:100%;
+.dynamic-table__content {
+  width: 100%;
+  height: 100%;
   display: flex;
   overflow-y: hidden;
   outline: 1px dashed #ccc;
   outline-offset: -1px;
   min-height: 100px;
-  float:left
+  float: left;
 }
 .dynamic-table__item {
-  margin:1px;
-  padding-top:5px;
-  border: 1px solid #EBEEF5;
-  background:#f2f6fc;
+  margin: 1px;
+  padding-top: 5px;
+  border: 1px solid #ebeef5;
+  background: #f2f6fc;
   border-radius: 2px;
 }
 .dynamic-table__item:hover {
-  border: 1px solid #409EFF;
+  border: 1px solid #409eff;
 }
-.dynamic-table__item_title{
-  width:100%;
-  padding-top:8px;
+.dynamic-table__item_title {
+  width: 100%;
+  padding-top: 8px;
   line-height: 23px;
   text-align: center;
-  border-bottom: 1px solid #EBEEF5;
+  border-bottom: 1px solid #ebeef5;
   font-size: 14px;
-  color:#606266;
-  height:30px;
+  color: #606266;
+  height: 30px;
 }
-.dynamic-table__item_body{
-  padding:10px;
+.dynamic-table__item_body {
+  padding: 10px;
   text-align: center;
 }
-.table__content{
-  width:100%;
-  height:100%;
+.table__content {
+  width: 100%;
+  height: 100%;
   overflow-y: hidden;
   outline: 1px dashed #ccc;
   outline-offset: -1px;
   min-height: 100px;
-  float:left
+  float: left;
 }
 .el-radio:last-child {
-  margin-right:30px;
+  margin-right: 30px;
 }
-.el-checkbox:last-of-type{
-  margin-right:30px;
+.el-checkbox:last-of-type {
+  margin-right: 30px;
 }
 
-.component-id{
+.component-id {
   position: absolute;
   top: 0;
   left: 0;
@@ -203,13 +202,13 @@ body{
   overflow: hidden;
 }
 .drawing-board .sortable-ghost::before {
-  content: " ";
+  content: ' ';
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   height: 3px;
-  background: #409EFF;
+  background: #409eff;
   z-index: 2;
 }
 .drawing-board .components-item.sortable-ghost {
@@ -231,11 +230,12 @@ body{
   background: #e6f2ff;
   border-radius: 6px;
 }
-.drawing-board .active-from-item > .drawing-item-copy, .drawing-board .active-from-item > .drawing-item-delete {
+.drawing-board .active-from-item > .drawing-item-copy,
+.drawing-board .active-from-item > .drawing-item-delete {
   display: initial;
 }
 .drawing-board .active-from-item > .component-name {
-  color: #409EFF;
+  color: #409eff;
 }
 .drawing-board .el-form-item {
   margin-bottom: 5px;
@@ -297,13 +297,20 @@ body{
   padding: 0 6px;
 }
 
-.drawing-item:hover > .el-form-item, .drawing-row-item:hover > .el-form-item {
+.drawing-item:hover > .el-form-item,
+.drawing-row-item:hover > .el-form-item {
   background: #ebeef5;
 }
-.drawing-item:hover > .drawing-item-copy, .drawing-item:hover > .drawing-item-delete, .drawing-row-item:hover > .drawing-item-copy, .drawing-row-item:hover > .drawing-item-delete {
+.drawing-item:hover > .drawing-item-copy,
+.drawing-item:hover > .drawing-item-delete,
+.drawing-row-item:hover > .drawing-item-copy,
+.drawing-row-item:hover > .drawing-item-delete {
   display: initial;
 }
-.drawing-item > .drawing-item-copy, .drawing-item > .drawing-item-delete, .drawing-row-item > .drawing-item-copy, .drawing-row-item > .drawing-item-delete {
+.drawing-item > .drawing-item-copy,
+.drawing-item > .drawing-item-delete,
+.drawing-row-item > .drawing-item-copy,
+.drawing-row-item > .drawing-item-delete {
   display: none;
   position: absolute;
   top: -10px;
@@ -317,34 +324,45 @@ body{
   cursor: pointer;
   z-index: 1;
 }
-.drawing-item > .drawing-item-copy, .drawing-row-item > .drawing-item-copy {
+.drawing-item > .drawing-item-copy,
+.drawing-row-item > .drawing-item-copy {
   right: 56px;
-  border-color: #409EFF;
-  color: #409EFF;
+  border-color: #409eff;
+  color: #409eff;
   background: #fff;
 }
-.drawing-item > .drawing-item-copy:hover, .drawing-row-item > .drawing-item-copy:hover {
-  background: #409EFF;
+.drawing-item > .drawing-item-copy:hover,
+.drawing-row-item > .drawing-item-copy:hover {
+  background: #409eff;
   color: #fff;
 }
-.drawing-item > .drawing-item-delete, .drawing-row-item > .drawing-item-delete {
+.drawing-item > .drawing-item-delete,
+.drawing-row-item > .drawing-item-delete {
   right: 24px;
-  border-color: #F56C6C;
-  color: #F56C6C;
+  border-color: #f56c6c;
+  color: #f56c6c;
   background: #fff;
 }
-.drawing-item > .drawing-item-delete:hover, .drawing-row-item > .drawing-item-delete:hover {
-  background: #F56C6C;
+.drawing-item > .drawing-item-delete:hover,
+.drawing-row-item > .drawing-item-delete:hover {
+  background: #f56c6c;
   color: #fff;
 }
 
-.drawing-item:hover > .el-form-item, .drawing-form-item:hover > .el-form-item {
+.drawing-item:hover > .el-form-item,
+.drawing-form-item:hover > .el-form-item {
   background: #ebeef5;
 }
-.drawing-item:hover > .drawing-item-copy, .drawing-item:hover > .drawing-item-delete, .drawing-form-item:hover > .drawing-item-copy, .drawing-form-item:hover > .drawing-item-delete {
+.drawing-item:hover > .drawing-item-copy,
+.drawing-item:hover > .drawing-item-delete,
+.drawing-form-item:hover > .drawing-item-copy,
+.drawing-form-item:hover > .drawing-item-delete {
   display: initial;
 }
-.drawing-item > .drawing-item-copy, .drawing-item > .drawing-item-delete, .drawing-form-item > .drawing-item-copy, .drawing-form-item > .drawing-item-delete {
+.drawing-item > .drawing-item-copy,
+.drawing-item > .drawing-item-delete,
+.drawing-form-item > .drawing-item-copy,
+.drawing-form-item > .drawing-item-delete {
   display: none;
   position: absolute;
   top: -10px;
@@ -358,24 +376,28 @@ body{
   cursor: pointer;
   z-index: 1;
 }
-.drawing-item > .drawing-item-copy, .drawing-form-item > .drawing-item-copy {
+.drawing-item > .drawing-item-copy,
+.drawing-form-item > .drawing-item-copy {
   right: 56px;
-  border-color: #409EFF;
-  color: #409EFF;
+  border-color: #409eff;
+  color: #409eff;
   background: #fff;
 }
-.drawing-item > .drawing-item-copy:hover, .drawing-form-item > .drawing-item-copy:hover {
-  background: #409EFF;
+.drawing-item > .drawing-item-copy:hover,
+.drawing-form-item > .drawing-item-copy:hover {
+  background: #409eff;
   color: #fff;
 }
-.drawing-item > .drawing-item-delete, .drawing-form-item > .drawing-item-delete {
+.drawing-item > .drawing-item-delete,
+.drawing-form-item > .drawing-item-delete {
   right: 24px;
-  border-color: #F56C6C;
-  color: #F56C6C;
+  border-color: #f56c6c;
+  color: #f56c6c;
   background: #fff;
 }
-.drawing-item > .drawing-item-delete:hover, .drawing-form-item > .drawing-item-delete:hover {
-  background: #F56C6C;
+.drawing-item > .drawing-item-delete:hover,
+.drawing-form-item > .drawing-item-delete:hover {
+  background: #f56c6c;
   color: #fff;
 }
 
@@ -477,18 +499,18 @@ body{
 
 .drawing-row-item .el-col {
   margin-bottom: 5px;
-  float:left;
-  width:100%;
+  float: left;
+  width: 100%;
 }
 
 .components-item.dynamicGhost {
   width: 5px;
   height: 120px;
-  background-color: #409EFF;
+  background-color: #409eff;
 }
 
 .dynamic-table_item.dynamicGhost {
   width: 5px;
   height: 120px;
-  background-color: #409EFF;
+  background-color: #409eff;
 }

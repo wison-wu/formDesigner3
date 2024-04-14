@@ -2,20 +2,20 @@
  * 分割线
  */
 export let divider = {
-  id:'',
-  _id:'',
+  id: '',
+  _id: '',
   compType: 'divider',
   ele: 'el-divider',
-  compName:'分割线',
-  compIcon:'divider',
+  compName: '分割线',
+  compIcon: 'divider',
   //展示表单的模式
-  viewType:'component',
+  viewType: 'component',
   config: true,
-  form:false,
+  form: false,
   // 控件左侧label内容
-  showLabel:false,
+  showLabel: false,
   labelWidth: 0,
   //内容坐标 left|center|right
-  'content-position':'left',
-  text:''
+  'content-position': 'left',
+  text: ''
 }
