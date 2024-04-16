@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { type ComponentPublicInstance, createApp } from 'vue'
 import { createPinia } from 'pinia'
 // 引入 main 组件
 import App from './App.vue'
@@ -28,3 +28,7 @@ app.use(ElementPlus, {
 app.config.globalProperties.$axios = Axios
 // 创建vue app
 app.mount('#app')
+
+app.config.errorHandler = (err: any, instance: any, info: any) => {
+  console.error(err)
+};
