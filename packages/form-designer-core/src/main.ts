@@ -31,4 +31,4 @@ app.mount('#app')
 
 app.config.errorHandler = (err: any, instance: any, info: any) => {
   console.error(err)
-};
+}
