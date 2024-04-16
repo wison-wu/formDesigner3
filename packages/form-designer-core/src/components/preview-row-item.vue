@@ -9,7 +9,7 @@
 import { Component, Prop } from 'web-decorator-vue'
 
 @Component({
-  name: 'previewRowItem'
+  name: 'preview-row-item'
 })
 export default class PreviewRowItem {
   // TODO 补齐注释
