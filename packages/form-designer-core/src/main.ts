@@ -1,4 +1,4 @@
-import { type ComponentPublicInstance, createApp } from 'vue'
+import { type, ComponentPublicInstance, createApp } from 'vue'
 import { createPinia } from 'pinia'
 // 引入 main 组件
 import App from './App.vue'
