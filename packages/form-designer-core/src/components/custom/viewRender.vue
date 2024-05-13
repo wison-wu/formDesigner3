@@ -84,7 +84,7 @@ const beforeUpload = (file) => {
     </el-option>
   </el-select>
   <!--单选-->
-  <el-radio-group v-if="props.conf.compType === 'radio'" v-model="props.conf.modelValue" disabled>
+  <el-radio-group v-if="props.conf.compType === 'radio'" v-model="props.conf.modelValue" disabled :class="{verticalDiv:props.conf.vertical}">
     <el-radio
       :label="item.value"
       :key="item"
@@ -282,3 +282,10 @@ const beforeUpload = (file) => {
     :fontSize="props.conf.fontSize"
   ></fancy-bar-code>
 </template>
+<style scoped>
+.verticalDiv{
+  width: auto;
+  text-align: left;
+  display: table;
+}
+</style>

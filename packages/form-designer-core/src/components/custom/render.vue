@@ -77,25 +77,33 @@ const beforeUpload = (file) => {
     </el-option>
   </el-select>
   <!--单选-->
-  <el-radio-group v-if="props.conf.compType === 'radio'" v-model="props.conf.modelValue">
-    <el-radio
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      :border="props.conf.border"
-      v-if="props.conf.optionType === 'default'"
+  <div style="text-align: center; display:block;">
+    <el-radio-group
+        v-if="props.conf.compType === 'radio'"
+        v-model="props.conf.modelValue"
+        :class="{verticalDiv:props.conf.vertical}"
     >
-      {{ item.label }}
-    </el-radio>
-    <el-radio-button
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'button'"
-    >
-      {{ item.label }}
-    </el-radio-button>
-  </el-radio-group>
+      <div  v-for="item in props.conf.options">
+        <el-radio
+            :label="item.value"
+            :key="item"
+            :border="props.conf.border"
+            v-if="props.conf.optionType === 'default'"
+        >
+          {{ item.label }}
+        </el-radio>
+        <el-radio-button
+            :label="item.value"
+            :key="item"
+            v-if="props.conf.optionType === 'button'"
+        >
+          {{ item.label }}
+        </el-radio-button>
+      </div>
+
+    </el-radio-group>
+  </div>
+
   <!--多选-->
   <el-checkbox-group
     v-if="props.conf.compType === 'checkbox'"
@@ -334,3 +342,8 @@ const beforeUpload = (file) => {
     :fontSize="props.conf.fontSize"
   ></fancy-bar-code>
 </template>
+<style scoped>
+.verticalDiv{
+  display: table;
+}
+</style>

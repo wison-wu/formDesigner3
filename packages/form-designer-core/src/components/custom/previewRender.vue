@@ -78,27 +78,30 @@ const handlerEmitValue = (val) => {
   </el-select>
   <!--单选-->
   <el-radio-group
-    v-if="props.conf.compType === 'radio'"
-    v-model="props.conf.modelValue"
-    @change="handlerEmitValue"
+      v-if="props.conf.compType === 'radio'"
+      v-model="props.conf.modelValue"
+      @change="handlerEmitValue"
+      :class="{verticalDiv:props.conf.vertical}"
   >
-    <el-radio
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      :border="props.conf.border"
-      v-if="props.conf.optionType === 'default'"
-    >
-      {{ item.label }}
-    </el-radio>
-    <el-radio-button
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'button'"
-    >
-      {{ item.label }}
-    </el-radio-button>
+    <div  v-for="item in props.conf.options">
+      <el-radio
+          :label="item.value"
+          :key="item"
+          :border="props.conf.border"
+          v-if="props.conf.optionType === 'default'"
+          style="display:block;"
+      >
+        {{ item.label }}
+      </el-radio>
+      <el-radio-button
+          :label="item.value"
+          :key="item"
+          v-if="props.conf.optionType === 'button'"
+      >
+        {{ item.label }}
+      </el-radio-button>
+    </div>
+
   </el-radio-group>
   <!--多选-->
   <el-checkbox-group
@@ -352,3 +355,8 @@ const handlerEmitValue = (val) => {
     :fontSize="props.conf.fontSize"
   ></fancy-bar-code>
 </template>
+<style scoped>
+.verticalDiv{
+  display: table;
+}
+</style>
