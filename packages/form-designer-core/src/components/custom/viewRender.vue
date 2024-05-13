@@ -32,6 +32,38 @@ const beforeUpload = (file) => {
 }
 </script>
 <template>
+  <el-input
+      v-if="props.conf.compType === 'input'"
+      v-model="props.conf.modelValue"
+      :readonly="props.conf.readonly"
+      :clear="props.conf.clear"
+      disabled
+      :placeholder="props.conf.placeholder"
+      :suffix-icon="props.conf['suffix-icon']"
+      :prefix-icon="props.conf['prefix-icon']"
+  >
+    <template #prepend v-if="props.conf.prepend !== ''">{{ props.conf.prepend }}</template>
+    <template #append v-if="props.conf.append !== ''">{{ props.conf.append }}</template>
+  </el-input>
+  <!--下拉-->
+  <el-select
+      v-if="props.conf.compType === 'input'"
+      v-model="props.modelValue"
+      :placeholder="props.conf.placeholder"
+      :multiple="props.conf.multiple"
+      :collapse-tags="props.conf['collapse-tags']"
+      disabled
+      :filterable="props.conf.filterable"
+      :clearable="props.conf.clearable"
+  >
+    <el-option
+        :label="item.label"
+        :value="item.value"
+        :key="item"
+        v-for="item in props.conf.options"
+    >
+    </el-option>
+  </el-select>
   <!--下拉-->
   <el-select
     v-if="props.conf.compType === 'select'"

@@ -47,6 +47,7 @@ const handlerEmitValue = (val) => {
     v-model="props.conf.modelValue"
     :readonly="props.conf.readonly"
     :clear="props.conf.clear"
+    :disabled="props.conf.disabled"
     :placeholder="props.conf.placeholder"
     :suffix-icon="props.conf['suffix-icon']"
     :prefix-icon="props.conf['prefix-icon']"
