@@ -114,23 +114,42 @@ const beforeUpload = (file) => {
     :max="props.conf.max"
     :min="props.conf.min"
   >
-    <el-checkbox
-      :border="props.conf.border"
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'default'"
-    >
-      {{ item.label }}
-    </el-checkbox>
-    <el-checkbox-button
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'button'"
-    >
-      {{ item.label }}
-    </el-checkbox-button>
+    <div  v-for="item in props.conf.options" v-if="props.conf.vertical">
+      <el-checkbox
+          :border="props.conf.border"
+          :label="item.value"
+          :key="item"
+          v-if="props.conf.optionType === 'default'"
+      >
+        {{ item.label }}
+      </el-checkbox>
+      <el-checkbox-button
+          :label="item.value"
+          :key="item"
+          v-if="props.conf.optionType === 'button'"
+      >
+        {{ item.label }}
+      </el-checkbox-button>
+    </div>
+    <div v-if="!props.conf.vertical">
+      <el-checkbox
+          :border="props.conf.border"
+          :label="item.value"
+          :key="item"
+          v-for="item in props.conf.options"
+          v-if="props.conf.optionType === 'default'"
+      >
+        {{ item.label }}
+      </el-checkbox>
+      <el-checkbox-button
+          :label="item.value"
+          :key="item"
+          v-for="item in props.conf.options"
+          v-if="props.conf.optionType === 'button'"
+      >
+        {{ item.label }}
+      </el-checkbox-button>
+    </div>
   </el-checkbox-group>
   <!--开关-->
   <el-switch
@@ -345,5 +364,6 @@ const beforeUpload = (file) => {
 <style scoped>
 .verticalDiv{
   display: table;
+  float: left;
 }
 </style>
