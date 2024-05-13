@@ -61,7 +61,6 @@ const beforeUpload = (file) => {
   <el-select
     v-if="props.conf.compType === 'select'"
     v-model="props.conf.modelValue"
-    :placeholder="props.conf.placeholder"
     :multiple="props.conf.multiple"
     :collapse-tags="props.conf['collapse-tags']"
     :disabled="props.conf.disabled"
@@ -184,6 +183,7 @@ const beforeUpload = (file) => {
     :readonly="props.conf.readonly"
     :clear="props.conf.clear"
     :type="props.conf.type"
+    :placeholder="props.conf.placeholder"
     :maxlength="props.conf.maxlength"
     :show-word-limit="props.conf['show-word-limit']"
     :disabled="props.conf.disabled"
