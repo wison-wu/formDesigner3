@@ -49,6 +49,7 @@ const beforeUpload = (file) => {
     v-model="props.conf.modelValue"
     :readonly="props.conf.readonly"
     :clear="props.conf.clear"
+    :disabled="props.conf.disabled"
     :placeholder="props.conf.placeholder"
     :suffix-icon="props.conf['suffix-icon']"
     :prefix-icon="props.conf['prefix-icon']"
@@ -60,7 +61,6 @@ const beforeUpload = (file) => {
   <el-select
     v-if="props.conf.compType === 'select'"
     v-model="props.conf.modelValue"
-    :placeholder="props.conf.placeholder"
     :multiple="props.conf.multiple"
     :collapse-tags="props.conf['collapse-tags']"
     :disabled="props.conf.disabled"
@@ -76,25 +76,33 @@ const beforeUpload = (file) => {
     </el-option>
   </el-select>
   <!--单选-->
-  <el-radio-group v-if="props.conf.compType === 'radio'" v-model="props.conf.modelValue">
-    <el-radio
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      :border="props.conf.border"
-      v-if="props.conf.optionType === 'default'"
+  <div style="text-align: center; display:block;">
+    <el-radio-group
+        v-if="props.conf.compType === 'radio'"
+        v-model="props.conf.modelValue"
+        :class="{verticalDiv:props.conf.vertical}"
     >
-      {{ item.label }}
-    </el-radio>
-    <el-radio-button
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'button'"
-    >
-      {{ item.label }}
-    </el-radio-button>
-  </el-radio-group>
+      <div  v-for="item in props.conf.options">
+        <el-radio
+            :label="item.value"
+            :key="item"
+            :border="props.conf.border"
+            v-if="props.conf.optionType === 'default'"
+        >
+          {{ item.label }}
+        </el-radio>
+        <el-radio-button
+            :label="item.value"
+            :key="item"
+            v-if="props.conf.optionType === 'button'"
+        >
+          {{ item.label }}
+        </el-radio-button>
+      </div>
+
+    </el-radio-group>
+  </div>
+
   <!--多选-->
   <el-checkbox-group
     v-if="props.conf.compType === 'checkbox'"
@@ -105,23 +113,42 @@ const beforeUpload = (file) => {
     :max="props.conf.max"
     :min="props.conf.min"
   >
-    <el-checkbox
-      :border="props.conf.border"
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'default'"
-    >
-      {{ item.label }}
-    </el-checkbox>
-    <el-checkbox-button
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'button'"
-    >
-      {{ item.label }}
-    </el-checkbox-button>
+    <div  v-for="item in props.conf.options" v-if="props.conf.vertical">
+      <el-checkbox
+          :border="props.conf.border"
+          :label="item.value"
+          :key="item"
+          v-if="props.conf.optionType === 'default'"
+      >
+        {{ item.label }}
+      </el-checkbox>
+      <el-checkbox-button
+          :label="item.value"
+          :key="item"
+          v-if="props.conf.optionType === 'button'"
+      >
+        {{ item.label }}
+      </el-checkbox-button>
+    </div>
+    <div v-if="!props.conf.vertical">
+      <el-checkbox
+          :border="props.conf.border"
+          :label="item.value"
+          :key="item"
+          v-for="item in props.conf.options"
+          v-if="props.conf.optionType === 'default'"
+      >
+        {{ item.label }}
+      </el-checkbox>
+      <el-checkbox-button
+          :label="item.value"
+          :key="item"
+          v-for="item in props.conf.options"
+          v-if="props.conf.optionType === 'button'"
+      >
+        {{ item.label }}
+      </el-checkbox-button>
+    </div>
   </el-checkbox-group>
   <!--开关-->
   <el-switch
@@ -156,6 +183,7 @@ const beforeUpload = (file) => {
     :readonly="props.conf.readonly"
     :clear="props.conf.clear"
     :type="props.conf.type"
+    :placeholder="props.conf.placeholder"
     :maxlength="props.conf.maxlength"
     :show-word-limit="props.conf['show-word-limit']"
     :disabled="props.conf.disabled"
@@ -333,3 +361,9 @@ const beforeUpload = (file) => {
     :fontSize="props.conf.fontSize"
   ></fancy-bar-code>
 </template>
+<style scoped>
+.verticalDiv{
+  display: table;
+  float: left;
+}
+</style>

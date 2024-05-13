@@ -8,12 +8,6 @@
         </el-icon>
         预览
       </el-button>
-      <el-button link @click="view">
-        <el-icon>
-          <View />
-        </el-icon>
-        查看
-      </el-button>
       <el-button link @click="viewJSON">
         <el-icon>
           <Tickets />
@@ -213,10 +207,6 @@ export default {
     viewJSON() {
       this.viewCode = this.code
       this.JSONVisible = true
-    },
-    view() {
-      localStorage.setItem('formValue', this.code)
-      window.open('/formdesigner3/view')
     },
     setting() {
       this.formConfVisible = true

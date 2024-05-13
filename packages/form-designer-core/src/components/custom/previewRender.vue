@@ -47,6 +47,7 @@ const handlerEmitValue = (val) => {
     v-model="props.conf.modelValue"
     :readonly="props.conf.readonly"
     :clear="props.conf.clear"
+    :disabled="props.conf.disabled"
     :placeholder="props.conf.placeholder"
     :suffix-icon="props.conf['suffix-icon']"
     :prefix-icon="props.conf['prefix-icon']"
@@ -77,27 +78,30 @@ const handlerEmitValue = (val) => {
   </el-select>
   <!--单选-->
   <el-radio-group
-    v-if="props.conf.compType === 'radio'"
-    v-model="props.conf.modelValue"
-    @change="handlerEmitValue"
+      v-if="props.conf.compType === 'radio'"
+      v-model="props.conf.modelValue"
+      @change="handlerEmitValue"
+      :class="{verticalDiv:props.conf.vertical}"
   >
-    <el-radio
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      :border="props.conf.border"
-      v-if="props.conf.optionType === 'default'"
-    >
-      {{ item.label }}
-    </el-radio>
-    <el-radio-button
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'button'"
-    >
-      {{ item.label }}
-    </el-radio-button>
+    <div  v-for="item in props.conf.options">
+      <el-radio
+          :label="item.value"
+          :key="item"
+          :border="props.conf.border"
+          v-if="props.conf.optionType === 'default'"
+          style="display:block;"
+      >
+        {{ item.label }}
+      </el-radio>
+      <el-radio-button
+          :label="item.value"
+          :key="item"
+          v-if="props.conf.optionType === 'button'"
+      >
+        {{ item.label }}
+      </el-radio-button>
+    </div>
+
   </el-radio-group>
   <!--多选-->
   <el-checkbox-group
@@ -110,23 +114,42 @@ const handlerEmitValue = (val) => {
     :min="props.conf.min"
     @change="handlerEmitValue"
   >
-    <el-checkbox
-      :border="props.conf.border"
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'default'"
-    >
-      {{ item.label }}
-    </el-checkbox>
-    <el-checkbox-button
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'button'"
-    >
-      {{ item.label }}
-    </el-checkbox-button>
+    <div  v-for="item in props.conf.options" v-if="props.conf.vertical">
+      <el-checkbox
+          :border="props.conf.border"
+          :label="item.value"
+          :key="item"
+          v-if="props.conf.optionType === 'default'"
+      >
+        {{ item.label }}
+      </el-checkbox>
+      <el-checkbox-button
+          :label="item.value"
+          :key="item"
+          v-if="props.conf.optionType === 'button'"
+      >
+        {{ item.label }}
+      </el-checkbox-button>
+    </div>
+    <div v-if="!props.conf.vertical">
+      <el-checkbox
+          :border="props.conf.border"
+          :label="item.value"
+          :key="item"
+          v-for="item in props.conf.options"
+          v-if="props.conf.optionType === 'default'"
+      >
+        {{ item.label }}
+      </el-checkbox>
+      <el-checkbox-button
+          :label="item.value"
+          :key="item"
+          v-for="item in props.conf.options"
+          v-if="props.conf.optionType === 'button'"
+      >
+        {{ item.label }}
+      </el-checkbox-button>
+    </div>
   </el-checkbox-group>
   <!--开关-->
   <el-switch
@@ -163,6 +186,7 @@ const handlerEmitValue = (val) => {
     :readonly="props.conf.readonly"
     :clear="props.conf.clear"
     :type="props.conf.type"
+    :placeholder="props.conf.placeholder"
     :maxlength="props.conf.maxlength"
     :show-word-limit="props.conf['show-word-limit']"
     :disabled="props.conf.disabled"
@@ -351,3 +375,8 @@ const handlerEmitValue = (val) => {
     :fontSize="props.conf.fontSize"
   ></fancy-bar-code>
 </template>
+<style scoped>
+.verticalDiv{
+  display: table;
+}
+</style>
