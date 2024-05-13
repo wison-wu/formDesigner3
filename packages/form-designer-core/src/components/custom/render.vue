@@ -359,6 +359,7 @@ const beforeUpload = (file) => {
     :background="props.conf.background"
     :height="props.conf.height"
     :fontSize="props.conf.fontSize"
+    :displayValue="props.conf.displayValue"
   ></fancy-bar-code>
 </template>
 <style scoped>
