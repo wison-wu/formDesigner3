@@ -5,6 +5,7 @@ import fancyEditor from './extend/fancyEditor.vue'
 import fancyHtml from './extend/fancyHtml.vue'
 import fancyText from './extend/fancyText.vue'
 import fancyBarCode from 'vue3-barcode'
+import vue3Barcode from 'vue3-barcode'
 import fancyDialogList from './extend/fancyDialogList.vue'
 // import iconDialog from './iconDialog';
 // 导入必须得CSS和图标
@@ -23,12 +24,12 @@ const plugins = {
     app.component('fancy-html', fancyHtml)
     app.component('fancy-text', fancyText)
     app.component('fancy-bar-code', fancyBarCode)
+    app.component('fancy-dialog-list', fancyDialogList)
     // 循环注册所有图标
     for (const name in Icons) {
       //@ts-ignore
       app.component(name, Icons[name])
     }
-    app.component('fancy-dialog-list', fancyDialogList)
     // app.component('icon-dialog',iconDialog);
   }
 }

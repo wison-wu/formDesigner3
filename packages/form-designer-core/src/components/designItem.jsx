@@ -1,4 +1,4 @@
-import { defineComponent, toRefs, h, ref } from 'vue'
+import { defineComponent, toRefs, ref } from 'vue'
 import draggable from 'vuedraggable'
 import render from './custom/render.vue'
 import { getSimpleId } from './utils/IdGenerate'
