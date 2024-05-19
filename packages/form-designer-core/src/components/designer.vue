@@ -120,7 +120,7 @@
       <preview :itemList="itemList" :formConf="formConf" v-if="previewVisible" />
     </el-dialog>
     <el-dialog v-model="JSONVisible" width="70%" title="JSON" center :close-on-click-modal="false">
-      <codemirror v-model:value="viewCode" :options="options" :height="400" />
+      <code-mirror v-model:value="viewCode" :options="options" :height="400" />
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="handlerSetJson()">确 定</el-button>
       </span>
@@ -135,7 +135,7 @@ import { getSimpleId } from './utils/IdGenerate'
 import globalConstants from './utils/globalConstants'
 import { isLayout, isTable, inTable, jsonClone } from './utils/index'
 import formConf from './custom/formConf'
-import codeMirror from 'codemirror-editor-vue3'
+import CodeMirror from 'codemirror-editor-vue3'
 // // 核心样式
 // language
 import 'codemirror/mode/javascript/javascript.js'
@@ -149,7 +149,7 @@ export default {
     configPanel,
     designItem,
     draggable,
-    codeMirror,
+    CodeMirror,
     preview
   },
   props: {
