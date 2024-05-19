@@ -4,8 +4,7 @@ import formViewer from './formViewer.vue'
 import fancyEditor from './extend/fancyEditor.vue'
 import fancyHtml from './extend/fancyHtml.vue'
 import fancyText from './extend/fancyText.vue'
-import fancyBarCode from 'vue3-barcode'
-import vue3Barcode from 'vue3-barcode'
+import fancyBarCode from './extend/fancyBarCode.vue'
 import fancyDialogList from './extend/fancyDialogList.vue'
 // import iconDialog from './iconDialog';
 // 导入必须得CSS和图标

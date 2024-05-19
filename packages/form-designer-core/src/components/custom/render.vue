@@ -14,9 +14,11 @@ import { watch, getCurrentInstance, ref } from 'vue'
 import { ElMessage as message } from 'element-plus'
 
 import { getRemoteData } from './composition'
+import dayjs from "dayjs";
 //const emit = defineEmits(['timeChange']);
 const props = defineProps(['conf', 'modelValue'])
 const { appContext } = getCurrentInstance()
+
 watch(
   () => props.conf.dataType,
   (newVal, oldVal) => {
@@ -53,6 +55,7 @@ const beforeUpload = (file) => {
     :placeholder="props.conf.placeholder"
     :suffix-icon="props.conf['suffix-icon']"
     :prefix-icon="props.conf['prefix-icon']"
+    
   >
     <template #prepend v-if="props.conf.prepend !== ''">{{ props.conf.prepend }}</template>
     <template #append v-if="props.conf.append !== ''">{{ props.conf.append }}</template>
@@ -66,6 +69,7 @@ const beforeUpload = (file) => {
     :disabled="props.conf.disabled"
     :filterable="props.conf.filterable"
     :clearable="props.conf.clearable"
+    
   >
     <el-option
       :label="item.label"
@@ -81,6 +85,7 @@ const beforeUpload = (file) => {
         v-if="props.conf.compType === 'radio'"
         v-model="props.conf.modelValue"
         :class="{verticalDiv:props.conf.vertical}"
+        
     >
       <div  v-for="item in props.conf.options">
         <el-radio
@@ -112,6 +117,7 @@ const beforeUpload = (file) => {
     :size="props.conf.size"
     :max="props.conf.max"
     :min="props.conf.min"
+    
   >
     <div  v-for="item in props.conf.options" v-if="props.conf.vertical">
       <el-checkbox
@@ -159,6 +165,7 @@ const beforeUpload = (file) => {
     :inactive-color="props.conf['inactive-color']"
     :active-value="props.conf['active-value']"
     :inactive-value="props.conf['inactive-value']"
+    
   >
   </el-switch>
   <!--计数器-->
@@ -174,6 +181,7 @@ const beforeUpload = (file) => {
     :controls-position="props.conf['controls-position']"
     :disabled="props.conf.disabled"
     :readonly="props.conf.readonly"
+    
   >
   </el-input-number>
   <!--多行文本-->
@@ -188,6 +196,7 @@ const beforeUpload = (file) => {
     :show-word-limit="props.conf['show-word-limit']"
     :disabled="props.conf.disabled"
     :rows="props.conf.rows"
+    
   >
   </el-input>
   <!--滑块-->
@@ -201,6 +210,7 @@ const beforeUpload = (file) => {
     :show-tooltip="props.conf['show-tooltip']"
     :range="props.conf.range"
     :disabled="props.conf.disabled"
+    
   ></el-slider>
   <!--评分-->
   <el-rate
@@ -210,6 +220,7 @@ const beforeUpload = (file) => {
     :max="props.conf.max"
     :allow-half="props.conf['allow-half']"
     :show-score="props.conf['show-score']"
+    
   ></el-rate>
   <!--日期-->
   <el-date-picker
@@ -224,6 +235,7 @@ const beforeUpload = (file) => {
     :range-separator="props.conf['range-separator']"
     :start-placeholder="props.conf['start-placeholder']"
     :end-placeholder="props.conf['end-placeholder']"
+    
   ></el-date-picker>
   <!--时间-->
   <el-time-picker
@@ -233,6 +245,7 @@ const beforeUpload = (file) => {
     :disabled="props.conf.disabled"
     :readonly="props.conf.readonly"
     :clearable="props.conf.clearable"
+    
   >
   </el-time-picker>
   <!--颜色选择器-->
@@ -242,6 +255,7 @@ const beforeUpload = (file) => {
     :disabled="props.conf.disabled"
     :predefine="props.conf.predefine"
     :size="props.conf.size"
+    
   ></el-color-picker>
   <!--级联选择器-->
   <el-cascader
@@ -255,6 +269,7 @@ const beforeUpload = (file) => {
     :props="props.conf.props"
     :options="props.conf.options"
     :filterable="props.conf.filterable"
+    
   ></el-cascader>
   <!--附件(待定)-->
   <el-upload
@@ -265,6 +280,7 @@ const beforeUpload = (file) => {
     :show-file-list="props.conf['show-file-list']"
     :list-type="props.conf['list-type']"
     :before-upload="beforeUpload"
+    
   >
     <el-button type="primary" v-if="props.conf['list-type'] === 'text'">{{
       props.conf.buttonText
@@ -286,6 +302,7 @@ const beforeUpload = (file) => {
     :plain="props.conf.plain"
     :round="props.conf.round"
     :circle="props.conf.circle"
+    
   >
     {{ props.conf.text }}
   </el-button>
@@ -307,6 +324,7 @@ const beforeUpload = (file) => {
     :close-text="props.conf['close-text']"
     :show-icon="props.conf['show-icon']"
     :description="props.conf.description"
+    
   ></el-alert>
   <!--文字链接-->
   <el-link
@@ -326,6 +344,7 @@ const beforeUpload = (file) => {
     :size="props.conf.size"
     :bold="props.conf.bold"
     :color="props.conf.color"
+    
   >
     {{ props.conf.text }}
   </fancy-text>
@@ -335,6 +354,7 @@ const beforeUpload = (file) => {
     v-model="props.conf.modelValue"
     :max="props.conf.max"
     :validateMaxText="props.conf.validateMaxText"
+    
   ></fancy-editor>
   <!--选择列表-->
   <fancy-dialog-list
@@ -349,17 +369,19 @@ const beforeUpload = (file) => {
     :colConf="props.conf.colConf"
     :dval="props.conf.dval"
     :dlabel="props.conf.dlabel"
+    
   ></fancy-dialog-list>
   <!--条码-->
   <fancy-bar-code
     v-if="props.conf.compType === 'barCode'"
-    :value="props.conf.modelValue"
+    v-model="props.conf.modelValue"
     :format="props.conf.format"
     :lineColor="props.conf.lineColor"
     :background="props.conf.background"
     :height="props.conf.height"
     :fontSize="props.conf.fontSize"
     :displayValue="props.conf.displayValue"
+    
   ></fancy-bar-code>
 </template>
 <style scoped>

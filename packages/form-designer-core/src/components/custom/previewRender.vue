@@ -366,13 +366,15 @@ const handlerEmitValue = (val) => {
   ></fancy-dialog-list>
   <!--条码-->
   <fancy-bar-code
-    v-if="props.conf.compType === 'barCode'"
-    :value="props.conf.modelValue"
-    :format="props.conf.format"
-    :lineColor="props.conf.lineColor"
-    :background="props.conf.background"
-    :height="props.conf.height"
-    :fontSize="props.conf.fontSize"
+      v-if="props.conf.compType === 'barCode'"
+      v-model="props.conf.modelValue"
+      :format="props.conf.format"
+      :lineColor="props.conf.lineColor"
+      :background="props.conf.background"
+      :height="props.conf.height"
+      :fontSize="props.conf.fontSize"
+      :displayValue="props.conf.displayValue"
+      @change="handlerEmitValue"
   ></fancy-bar-code>
 </template>
 <style scoped>
