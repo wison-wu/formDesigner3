@@ -1,6 +1,5 @@
 # form-designer-v3
 ### 努力修复bug中，有bug，请去github提issue  ===> [电梯](https://github.com/wison-wu/formDesigner3/issues)
-
 ## 安装
 ```sh
 // 安装 form-designer-v3

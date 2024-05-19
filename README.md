@@ -1,5 +1,5 @@
 ## 依赖项目
-
+### 努力修复bug中，有bug，请去github提issue  ===> [电梯](https://github.com/wison-wu/formDesigner3/issues)
 ```sh
 pnpm install
 ```
