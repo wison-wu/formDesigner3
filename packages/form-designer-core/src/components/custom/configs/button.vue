@@ -28,19 +28,19 @@
 
     <el-form-item label="按钮类型">
       <el-select v-model="props.type" placeholder="请选择">
-        <el-option label="primary" value="primary" />
-        <el-option label="success" value="success" />
-        <el-option label="warning" value="warning" />
-        <el-option label="danger" value="danger" />
-        <el-option label="info" value="info" />
-        <el-option label="text" value="text" />
+        <el-option label="primary" value="primary" ></el-option>
+        <el-option label="success" value="success" ></el-option>
+        <el-option label="warning" value="warning" ></el-option>
+        <el-option label="danger" value="danger" ></el-option>
+        <el-option label="info" value="info" ></el-option>
+        <el-option label="text" value="text" ></el-option>
       </el-select>
     </el-form-item>
     <el-form-item label="按钮大小">
       <el-radio-group v-model="props.size">
-        <el-radio-button label="large">大</el-radio-button>
-        <el-radio-button label="default">中</el-radio-button>
-        <el-radio-button label="small">小</el-radio-button>
+        <el-radio-button value="large">大</el-radio-button>
+        <el-radio-button value="default">中</el-radio-button>
+        <el-radio-button value="small">小</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="禁用">
