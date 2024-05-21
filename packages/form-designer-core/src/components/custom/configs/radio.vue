@@ -67,7 +67,7 @@
     <el-form-item label="数据类型">
       <el-radio-group v-model="props.dataType" @change="handlerChangeDataType">
         <el-radio-button value="static">静态数据</el-radio-button>
-        <el-radio-button value="dynamic">动态数据</el-radio-button>
+<!--        <el-radio-button value="dynamic">动态数据</el-radio-button>-->
       </el-radio-group>
     </el-form-item>
     <div v-show="props.dataType === 'static'">
