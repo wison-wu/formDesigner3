@@ -5,7 +5,7 @@ export default {
     conf.options.forEach((item) => {
       if (conf.optionType === 'button') {
         list.push(
-          <el-radio-button label={item.value} style="">
+          <el-radio-button value={item.value} style="">
             {item.label}
           </el-radio-button>
         )

@@ -14,9 +14,11 @@ import { watch, getCurrentInstance, ref } from 'vue'
 import { ElMessage as message } from 'element-plus'
 
 import { getRemoteData } from './composition'
+import dayjs from "dayjs";
 //const emit = defineEmits(['timeChange']);
 const props = defineProps(['conf', 'modelValue'])
 const { appContext } = getCurrentInstance()
+
 watch(
   () => props.conf.dataType,
   (newVal, oldVal) => {
@@ -49,9 +51,11 @@ const beforeUpload = (file) => {
     v-model="props.conf.modelValue"
     :readonly="props.conf.readonly"
     :clear="props.conf.clear"
+    :disabled="props.conf.disabled"
     :placeholder="props.conf.placeholder"
     :suffix-icon="props.conf['suffix-icon']"
     :prefix-icon="props.conf['prefix-icon']"
+    
   >
     <template #prepend v-if="props.conf.prepend !== ''">{{ props.conf.prepend }}</template>
     <template #append v-if="props.conf.append !== ''">{{ props.conf.append }}</template>
@@ -60,12 +64,12 @@ const beforeUpload = (file) => {
   <el-select
     v-if="props.conf.compType === 'select'"
     v-model="props.conf.modelValue"
-    :placeholder="props.conf.placeholder"
     :multiple="props.conf.multiple"
     :collapse-tags="props.conf['collapse-tags']"
     :disabled="props.conf.disabled"
     :filterable="props.conf.filterable"
     :clearable="props.conf.clearable"
+    
   >
     <el-option
       :label="item.label"
@@ -76,25 +80,34 @@ const beforeUpload = (file) => {
     </el-option>
   </el-select>
   <!--单选-->
-  <el-radio-group v-if="props.conf.compType === 'radio'" v-model="props.conf.modelValue">
-    <el-radio
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      :border="props.conf.border"
-      v-if="props.conf.optionType === 'default'"
+  <div style="text-align: center; display:block;">
+    <el-radio-group
+        v-if="props.conf.compType === 'radio'"
+        v-model="props.conf.modelValue"
+        :class="{verticalDiv:props.conf.vertical}"
+        
     >
-      {{ item.label }}
-    </el-radio>
-    <el-radio-button
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'button'"
-    >
-      {{ item.label }}
-    </el-radio-button>
-  </el-radio-group>
+      <div  v-for="item in props.conf.options">
+        <el-radio
+            :label="item.value"
+            :key="item"
+            :border="props.conf.border"
+            v-if="props.conf.optionType === 'default'"
+        >
+          {{ item.label }}
+        </el-radio>
+        <el-radio-button
+            :label="item.value"
+            :key="item"
+            v-if="props.conf.optionType === 'button'"
+        >
+          {{ item.label }}
+        </el-radio-button>
+      </div>
+
+    </el-radio-group>
+  </div>
+
   <!--多选-->
   <el-checkbox-group
     v-if="props.conf.compType === 'checkbox'"
@@ -104,24 +117,44 @@ const beforeUpload = (file) => {
     :size="props.conf.size"
     :max="props.conf.max"
     :min="props.conf.min"
+    
   >
-    <el-checkbox
-      :border="props.conf.border"
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'default'"
-    >
-      {{ item.label }}
-    </el-checkbox>
-    <el-checkbox-button
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'button'"
-    >
-      {{ item.label }}
-    </el-checkbox-button>
+    <div  v-for="item in props.conf.options" v-if="props.conf.vertical">
+      <el-checkbox
+          :border="props.conf.border"
+          :label="item.value"
+          :key="item"
+          v-if="props.conf.optionType === 'default'"
+      >
+        {{ item.label }}
+      </el-checkbox>
+      <el-checkbox-button
+          :label="item.value"
+          :key="item"
+          v-if="props.conf.optionType === 'button'"
+      >
+        {{ item.label }}
+      </el-checkbox-button>
+    </div>
+    <div v-if="!props.conf.vertical">
+      <el-checkbox
+          :border="props.conf.border"
+          :label="item.value"
+          :key="item"
+          v-for="item in props.conf.options"
+          v-if="props.conf.optionType === 'default'"
+      >
+        {{ item.label }}
+      </el-checkbox>
+      <el-checkbox-button
+          :label="item.value"
+          :key="item"
+          v-for="item in props.conf.options"
+          v-if="props.conf.optionType === 'button'"
+      >
+        {{ item.label }}
+      </el-checkbox-button>
+    </div>
   </el-checkbox-group>
   <!--开关-->
   <el-switch
@@ -132,6 +165,7 @@ const beforeUpload = (file) => {
     :inactive-color="props.conf['inactive-color']"
     :active-value="props.conf['active-value']"
     :inactive-value="props.conf['inactive-value']"
+    
   >
   </el-switch>
   <!--计数器-->
@@ -147,6 +181,7 @@ const beforeUpload = (file) => {
     :controls-position="props.conf['controls-position']"
     :disabled="props.conf.disabled"
     :readonly="props.conf.readonly"
+    
   >
   </el-input-number>
   <!--多行文本-->
@@ -156,10 +191,12 @@ const beforeUpload = (file) => {
     :readonly="props.conf.readonly"
     :clear="props.conf.clear"
     :type="props.conf.type"
+    :placeholder="props.conf.placeholder"
     :maxlength="props.conf.maxlength"
     :show-word-limit="props.conf['show-word-limit']"
     :disabled="props.conf.disabled"
     :rows="props.conf.rows"
+    
   >
   </el-input>
   <!--滑块-->
@@ -173,6 +210,7 @@ const beforeUpload = (file) => {
     :show-tooltip="props.conf['show-tooltip']"
     :range="props.conf.range"
     :disabled="props.conf.disabled"
+    
   ></el-slider>
   <!--评分-->
   <el-rate
@@ -182,6 +220,7 @@ const beforeUpload = (file) => {
     :max="props.conf.max"
     :allow-half="props.conf['allow-half']"
     :show-score="props.conf['show-score']"
+    
   ></el-rate>
   <!--日期-->
   <el-date-picker
@@ -196,6 +235,7 @@ const beforeUpload = (file) => {
     :range-separator="props.conf['range-separator']"
     :start-placeholder="props.conf['start-placeholder']"
     :end-placeholder="props.conf['end-placeholder']"
+    
   ></el-date-picker>
   <!--时间-->
   <el-time-picker
@@ -205,6 +245,7 @@ const beforeUpload = (file) => {
     :disabled="props.conf.disabled"
     :readonly="props.conf.readonly"
     :clearable="props.conf.clearable"
+    
   >
   </el-time-picker>
   <!--颜色选择器-->
@@ -214,6 +255,7 @@ const beforeUpload = (file) => {
     :disabled="props.conf.disabled"
     :predefine="props.conf.predefine"
     :size="props.conf.size"
+    
   ></el-color-picker>
   <!--级联选择器-->
   <el-cascader
@@ -227,6 +269,7 @@ const beforeUpload = (file) => {
     :props="props.conf.props"
     :options="props.conf.options"
     :filterable="props.conf.filterable"
+    
   ></el-cascader>
   <!--附件(待定)-->
   <el-upload
@@ -237,6 +280,7 @@ const beforeUpload = (file) => {
     :show-file-list="props.conf['show-file-list']"
     :list-type="props.conf['list-type']"
     :before-upload="beforeUpload"
+    
   >
     <el-button type="primary" v-if="props.conf['list-type'] === 'text'">{{
       props.conf.buttonText
@@ -258,6 +302,7 @@ const beforeUpload = (file) => {
     :plain="props.conf.plain"
     :round="props.conf.round"
     :circle="props.conf.circle"
+    
   >
     {{ props.conf.text }}
   </el-button>
@@ -279,6 +324,7 @@ const beforeUpload = (file) => {
     :close-text="props.conf['close-text']"
     :show-icon="props.conf['show-icon']"
     :description="props.conf.description"
+    
   ></el-alert>
   <!--文字链接-->
   <el-link
@@ -298,6 +344,7 @@ const beforeUpload = (file) => {
     :size="props.conf.size"
     :bold="props.conf.bold"
     :color="props.conf.color"
+    
   >
     {{ props.conf.text }}
   </fancy-text>
@@ -307,6 +354,7 @@ const beforeUpload = (file) => {
     v-model="props.conf.modelValue"
     :max="props.conf.max"
     :validateMaxText="props.conf.validateMaxText"
+    
   ></fancy-editor>
   <!--选择列表-->
   <fancy-dialog-list
@@ -321,15 +369,24 @@ const beforeUpload = (file) => {
     :colConf="props.conf.colConf"
     :dval="props.conf.dval"
     :dlabel="props.conf.dlabel"
+    
   ></fancy-dialog-list>
   <!--条码-->
   <fancy-bar-code
     v-if="props.conf.compType === 'barCode'"
-    :value="props.conf.modelValue"
+    v-model="props.conf.modelValue"
     :format="props.conf.format"
     :lineColor="props.conf.lineColor"
     :background="props.conf.background"
     :height="props.conf.height"
     :fontSize="props.conf.fontSize"
+    :displayValue="props.conf.displayValue"
+    
   ></fancy-bar-code>
 </template>
+<style scoped>
+.verticalDiv{
+  display: table;
+  float: left;
+}
+</style>

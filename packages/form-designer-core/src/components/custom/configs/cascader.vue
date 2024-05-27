@@ -39,9 +39,9 @@
     </el-form-item>
     <el-form-item label="大小">
       <el-radio-group v-model="props.size">
-        <el-radio-button label="large">大</el-radio-button>
-        <el-radio-button label="default">中</el-radio-button>
-        <el-radio-button label="small">小</el-radio-button>
+        <el-radio-button value="large">大</el-radio-button>
+        <el-radio-button value="default">中</el-radio-button>
+        <el-radio-button value="small">小</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="清除">
@@ -61,8 +61,8 @@
     </el-form-item>
     <el-form-item label="展开方式">
       <el-radio-group v-model="props.props.expandTrigger">
-        <el-radio-button label="click">点击</el-radio-button>
-        <el-radio-button label="hover">悬停</el-radio-button>
+        <el-radio-button value="click">点击</el-radio-button>
+        <el-radio-button value="hover">悬停</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="多选">
@@ -73,8 +73,8 @@
     </el-form-item>
     <el-form-item label="数据类型">
       <el-radio-group v-model="props.dataType" @change="handlerChangeDataType">
-        <el-radio-button label="static">静态数据</el-radio-button>
-        <el-radio-button label="dynamic">动态数据</el-radio-button>
+        <el-radio-button value="static">静态数据</el-radio-button>
+<!--        <el-radio-button value="dynamic">动态数据</el-radio-button>-->
       </el-radio-group>
     </el-form-item>
     <div v-show="props.dataType === 'dynamic'">

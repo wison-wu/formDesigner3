@@ -1,6 +1,11 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "../../node_modules/.pnpm/@vue+runtime-core@3.4.21/node_modules/@vue/runtime-core/dist/runtime-core.d.ts"
+  ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "composite": true,

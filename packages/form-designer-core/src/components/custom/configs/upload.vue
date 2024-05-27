@@ -51,9 +51,9 @@
     </el-form-item>
     <el-form-item label="显示类型">
       <el-radio-group v-model="props['list-type']">
-        <el-radio-button label="text">普通</el-radio-button>
+        <el-radio-button value="text">普通</el-radio-button>
         <!-- <el-radio-button label="picture">照片</el-radio-button> -->
-        <el-radio-button label="picture-card">照片</el-radio-button>
+        <el-radio-button value="picture-card">照片</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="按钮文字">

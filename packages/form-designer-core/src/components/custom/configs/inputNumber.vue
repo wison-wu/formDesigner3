@@ -42,8 +42,8 @@
     </el-form-item>
     <el-form-item label="按钮位置">
       <el-radio-group v-model="props['controls-position']">
-        <el-radio-button label="">默认</el-radio-button>
-        <el-radio-button label="right">右侧</el-radio-button>
+        <el-radio-button value="">默认</el-radio-button>
+        <el-radio-button value="right">右侧</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="禁用">

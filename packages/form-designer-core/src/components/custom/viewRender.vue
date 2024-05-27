@@ -32,6 +32,38 @@ const beforeUpload = (file) => {
 }
 </script>
 <template>
+  <el-input
+      v-if="props.conf.compType === 'input'"
+      v-model="props.conf.modelValue"
+      :readonly="props.conf.readonly"
+      :clear="props.conf.clear"
+      disabled
+      :placeholder="props.conf.placeholder"
+      :suffix-icon="props.conf['suffix-icon']"
+      :prefix-icon="props.conf['prefix-icon']"
+  >
+    <template #prepend v-if="props.conf.prepend !== ''">{{ props.conf.prepend }}</template>
+    <template #append v-if="props.conf.append !== ''">{{ props.conf.append }}</template>
+  </el-input>
+  <!--下拉-->
+  <el-select
+      v-if="props.conf.compType === 'input'"
+      v-model="props.modelValue"
+      :placeholder="props.conf.placeholder"
+      :multiple="props.conf.multiple"
+      :collapse-tags="props.conf['collapse-tags']"
+      disabled
+      :filterable="props.conf.filterable"
+      :clearable="props.conf.clearable"
+  >
+    <el-option
+        :label="item.label"
+        :value="item.value"
+        :key="item"
+        v-for="item in props.conf.options"
+    >
+    </el-option>
+  </el-select>
   <!--下拉-->
   <el-select
     v-if="props.conf.compType === 'select'"
@@ -52,7 +84,7 @@ const beforeUpload = (file) => {
     </el-option>
   </el-select>
   <!--单选-->
-  <el-radio-group v-if="props.conf.compType === 'radio'" v-model="props.conf.modelValue" disabled>
+  <el-radio-group v-if="props.conf.compType === 'radio'" v-model="props.conf.modelValue" disabled :class="{verticalDiv:props.conf.vertical}">
     <el-radio
       :label="item.value"
       :key="item"
@@ -81,23 +113,43 @@ const beforeUpload = (file) => {
     :max="props.conf.max"
     :min="props.conf.min"
   >
-    <el-checkbox
-      :border="props.conf.border"
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'default'"
-    >
-      {{ item.label }}
-    </el-checkbox>
-    <el-checkbox-button
-      :label="item.value"
-      :key="item"
-      v-for="item in props.conf.options"
-      v-if="props.conf.optionType === 'button'"
-    >
-      {{ item.label }}
-    </el-checkbox-button>
+    <div v-for="item in props.conf.options" v-if="props.conf.vertical">
+      <el-checkbox
+          :border="props.conf.border"
+          :label="item.value"
+          :key="item"
+          v-if="props.conf.optionType === 'default'"
+      >
+        {{ item.label }}
+      </el-checkbox>
+      <el-checkbox-button
+          :label="item.value"
+          :key="item"
+          v-if="props.conf.optionType === 'button'"
+      >
+        {{ item.label }}
+      </el-checkbox-button>
+    </div>
+    <div v-if="!props.conf.vertical">
+      <el-checkbox
+          :border="props.conf.border"
+          :label="item.value"
+          :key="item"
+          v-for="item in props.conf.options"
+          v-if="props.conf.optionType === 'default'"
+      >
+        {{ item.label }}
+      </el-checkbox>
+      <el-checkbox-button
+          :label="item.value"
+          :key="item"
+          v-for="item in props.conf.options"
+          v-if="props.conf.optionType === 'button'"
+      >
+        {{ item.label }}
+      </el-checkbox-button>
+    </div>
+
   </el-checkbox-group>
   <!--开关-->
   <el-switch
@@ -110,6 +162,37 @@ const beforeUpload = (file) => {
     :inactive-value="props.conf['inactive-value']"
   >
   </el-switch>
+  <!--计数器-->
+  <el-input-number
+      v-if="props.conf.compType === 'inputNumber'"
+      v-model="props.conf.modelValue"
+      :placeholder="props.conf.placeholder"
+      :min="props.conf.min"
+      :max="props.conf.max"
+      :step="props.conf.step"
+      :precision="props.conf.precision"
+      :step-strictly="props.conf['step-strictly']"
+      :controls-position="props.conf['controls-position']"
+      disabled
+      :readonly="props.conf.readonly"
+      @change="handlerEmitValue"
+  >
+  </el-input-number>
+  <!--多行文本-->
+  <el-input
+      v-if="props.conf.compType === 'textarea'"
+      v-model="props.conf.modelValue"
+      :readonly="props.conf.readonly"
+      :clear="props.conf.clear"
+      :type="props.conf.type"
+      :placeholder="props.conf.placeholder"
+      :maxlength="props.conf.maxlength"
+      :show-word-limit="props.conf['show-word-limit']"
+      disabled
+      :rows="props.conf.rows"
+      @change="handlerEmitValue"
+  >
+  </el-input>
   <!--滑块-->
   <el-slider
     v-if="props.conf.compType === 'slider'"
@@ -250,3 +333,10 @@ const beforeUpload = (file) => {
     :fontSize="props.conf.fontSize"
   ></fancy-bar-code>
 </template>
+<style scoped>
+.verticalDiv{
+  width: auto;
+  text-align: left;
+  display: table;
+}
+</style>
