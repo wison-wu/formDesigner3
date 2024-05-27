@@ -37,10 +37,10 @@
         :key="index"
         min-width="240px;"
       >
-        <template slot="header">
+        <template #header>
           {{ tableColumnLabels[index] }}
         </template>
-        <template slot-scope="scope">
+        <template #default="scope">
           <slot name="item" :rowScope="scope" :item="item"></slot>
         </template>
       </el-table-column>
