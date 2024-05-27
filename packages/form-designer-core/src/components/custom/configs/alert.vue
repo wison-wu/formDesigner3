@@ -41,8 +41,8 @@
     </el-form-item>
     <el-form-item label="主题">
       <el-radio-group v-model="props.effect">
-        <el-radio-button label="light">light</el-radio-button>
-        <el-radio-button label="dark">dark</el-radio-button>
+        <el-radio-button value="light">light</el-radio-button>
+        <el-radio-button value="dark">dark</el-radio-button>
       </el-radio-group>
     </el-form-item>
   </div>

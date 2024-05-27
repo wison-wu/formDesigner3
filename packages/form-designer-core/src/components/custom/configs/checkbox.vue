@@ -45,8 +45,8 @@
     </el-form-item>
     <el-form-item label="选项样式">
       <el-radio-group v-model="props.optionType">
-        <el-radio-button label="default">默认</el-radio-button>
-        <el-radio-button label="button">按钮</el-radio-button>
+        <el-radio-button value="default">默认</el-radio-button>
+        <el-radio-button value="button">按钮</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="显示边框">
@@ -54,9 +54,9 @@
     </el-form-item>
     <el-form-item label="选项尺寸" v-show="props.border || props.optionType === 'button'">
       <el-radio-group v-model="props.size">
-        <el-radio-button label="large">大</el-radio-button>
-        <el-radio-button label="default">中</el-radio-button>
-        <el-radio-button label="small">小</el-radio-button>
+        <el-radio-button value="large">大</el-radio-button>
+        <el-radio-button value="default">中</el-radio-button>
+        <el-radio-button value="small">小</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="禁用">
@@ -72,8 +72,8 @@
     </el-form-item>
     <el-form-item label="数据类型">
       <el-radio-group v-model="props.dataType" @change="handlerChangeDataType">
-        <el-radio-button label="static">静态数据</el-radio-button>
-        <el-radio-button label="dynamic">动态数据</el-radio-button>
+        <el-radio-button value="static">静态数据</el-radio-button>
+<!--        <el-radio-button value="dynamic">动态数据</el-radio-button>-->
       </el-radio-group>
     </el-form-item>
     <div v-show="props.dataType === 'static'">

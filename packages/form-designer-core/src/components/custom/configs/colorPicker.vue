@@ -27,9 +27,9 @@
     </el-form-item>
     <el-form-item label="大小">
       <el-radio-group v-model="props.size">
-        <el-radio-button label="large">大</el-radio-button>
-        <el-radio-button label="default">中</el-radio-button>
-        <el-radio-button label="small">小</el-radio-button>
+        <el-radio-button value="large">大</el-radio-button>
+        <el-radio-button value="default">中</el-radio-button>
+        <el-radio-button value="small">小</el-radio-button>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="预定义颜色">

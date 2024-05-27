@@ -1,4 +1,4 @@
-import { defineComponent, toRefs, h, ref } from 'vue'
+import { defineComponent, toRefs, ref } from 'vue'
 import draggable from 'vuedraggable'
 import render from './custom/render.vue'
 import { getSimpleId } from './utils/IdGenerate'
@@ -66,8 +66,8 @@ const layouts = {
             key={element.id}
             conf={element}
             modelValue={element.modelValue}
-            onInput={(event) => {
-              console.log(event)
+            /*暂时去除，接触警告，后续观察是否会带出其他问题*/
+            /*onInput={(event) => {
               //兼容select 搜索
               if (event.data) return
               //兼容select 搜索 end
@@ -75,11 +75,7 @@ const layouts = {
               if (element.compType === 'checkbox') return
               //多选框没有此事件 end
               element.modelValue = event
-            }}
-            // onChange={ event => {
-            //   console.log(event);
-            //   element.modelValue = event;
-            // }}
+            }}*/
           />
         </el-form-item>
         {components.itemBtns.apply(this, arguments)}
