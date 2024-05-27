@@ -6,7 +6,7 @@
       :fit="true"
       border
       :ref="conf.id"
-      size="mini"
+      size="small"
       :cell-style="{ padding: '5px 0' }"
       :header-cell-style="{ background: '#F5F7FA' }"
       style="width: 100%"
