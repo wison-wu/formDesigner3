@@ -78,30 +78,25 @@ const handlerEmitValue = (val) => {
   </el-select>
   <!--单选-->
   <el-radio-group
-      v-if="props.conf.compType === 'radio'"
-      v-model="props.conf.modelValue"
-      @change="handlerEmitValue"
-      :class="{verticalDiv:props.conf.vertical}"
+    v-if="props.conf.compType === 'radio'"
+    v-model="props.conf.modelValue"
+    @change="handlerEmitValue"
+    :class="{ verticalDiv: props.conf.vertical }"
   >
-    <div  v-for="item in props.conf.options">
+    <div v-for="item in props.conf.options">
       <el-radio
-          :label="item.value"
-          :key="item"
-          :border="props.conf.border"
-          v-if="props.conf.optionType === 'default'"
-          style="display:block;"
+        :label="item.value"
+        :key="item"
+        :border="props.conf.border"
+        v-if="props.conf.optionType === 'default'"
+        style="display: block"
       >
         {{ item.label }}
       </el-radio>
-      <el-radio-button
-          :label="item.value"
-          :key="item"
-          v-if="props.conf.optionType === 'button'"
-      >
+      <el-radio-button :label="item.value" :key="item" v-if="props.conf.optionType === 'button'">
         {{ item.label }}
       </el-radio-button>
     </div>
-
   </el-radio-group>
   <!--多选-->
   <el-checkbox-group
@@ -114,38 +109,34 @@ const handlerEmitValue = (val) => {
     :min="props.conf.min"
     @change="handlerEmitValue"
   >
-    <div  v-for="item in props.conf.options" v-if="props.conf.vertical">
+    <div v-for="item in props.conf.options" v-if="props.conf.vertical">
       <el-checkbox
-          :border="props.conf.border"
-          :label="item.value"
-          :key="item"
-          v-if="props.conf.optionType === 'default'"
+        :border="props.conf.border"
+        :label="item.value"
+        :key="item"
+        v-if="props.conf.optionType === 'default'"
       >
         {{ item.label }}
       </el-checkbox>
-      <el-checkbox-button
-          :label="item.value"
-          :key="item"
-          v-if="props.conf.optionType === 'button'"
-      >
+      <el-checkbox-button :label="item.value" :key="item" v-if="props.conf.optionType === 'button'">
         {{ item.label }}
       </el-checkbox-button>
     </div>
     <div v-if="!props.conf.vertical">
       <el-checkbox
-          :border="props.conf.border"
-          :label="item.value"
-          :key="item"
-          v-for="item in props.conf.options"
-          v-if="props.conf.optionType === 'default'"
+        :border="props.conf.border"
+        :label="item.value"
+        :key="item"
+        v-for="item in props.conf.options"
+        v-if="props.conf.optionType === 'default'"
       >
         {{ item.label }}
       </el-checkbox>
       <el-checkbox-button
-          :label="item.value"
-          :key="item"
-          v-for="item in props.conf.options"
-          v-if="props.conf.optionType === 'button'"
+        :label="item.value"
+        :key="item"
+        v-for="item in props.conf.options"
+        v-if="props.conf.optionType === 'button'"
       >
         {{ item.label }}
       </el-checkbox-button>
@@ -366,19 +357,19 @@ const handlerEmitValue = (val) => {
   ></fancy-dialog-list>
   <!--条码-->
   <fancy-bar-code
-      v-if="props.conf.compType === 'barCode'"
-      v-model="props.conf.modelValue"
-      :format="props.conf.format"
-      :lineColor="props.conf.lineColor"
-      :background="props.conf.background"
-      :height="props.conf.height"
-      :fontSize="props.conf.fontSize"
-      :displayValue="props.conf.displayValue"
-      @change="handlerEmitValue"
+    v-if="props.conf.compType === 'barCode'"
+    v-model="props.conf.modelValue"
+    :format="props.conf.format"
+    :lineColor="props.conf.lineColor"
+    :background="props.conf.background"
+    :height="props.conf.height"
+    :fontSize="props.conf.fontSize"
+    :displayValue="props.conf.displayValue"
+    @change="handlerEmitValue"
   ></fancy-bar-code>
 </template>
 <style scoped>
-.verticalDiv{
+.verticalDiv {
   display: table;
 }
 </style>

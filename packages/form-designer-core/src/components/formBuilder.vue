@@ -115,9 +115,9 @@ export default {
       type: Boolean,
       default: false
     },
-    valChange:{
+    valChange: {
       type: Function,
-      default:null
+      default: null
     }
   },
   components: {
@@ -160,7 +160,7 @@ export default {
     handlerValChange(key, origin) {
       this.form[key] = origin
       //向父组件触发一个事件，父组件监听该事件
-      this.$emit("valChange",key,origin)
+      this.$emit('valChange', key, origin)
     },
     handlerDynamicValChange(parentId, index, key, origin) {
       this.$set(this.form[parentId][index], key, origin)
