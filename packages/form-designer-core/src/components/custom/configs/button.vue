@@ -28,12 +28,12 @@
 
     <el-form-item label="按钮类型">
       <el-select v-model="props.type" placeholder="请选择">
-        <el-option label="primary" value="primary" ></el-option>
-        <el-option label="success" value="success" ></el-option>
-        <el-option label="warning" value="warning" ></el-option>
-        <el-option label="danger" value="danger" ></el-option>
-        <el-option label="info" value="info" ></el-option>
-        <el-option label="text" value="text" ></el-option>
+        <el-option label="primary" value="primary"></el-option>
+        <el-option label="success" value="success"></el-option>
+        <el-option label="warning" value="warning"></el-option>
+        <el-option label="danger" value="danger"></el-option>
+        <el-option label="info" value="info"></el-option>
+        <el-option label="text" value="text"></el-option>
       </el-select>
     </el-form-item>
     <el-form-item label="按钮大小">
