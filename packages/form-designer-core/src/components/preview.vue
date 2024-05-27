@@ -225,10 +225,10 @@ export default class Preview {
 }
 
 .preview :deep(.el-radio.is-bordered + .el-radio.is-bordered) {
-  margin-left: 0px;
+  margin-left: 0;
 }
 
 .preview :deep(.el-checkbox.is-bordered + .el-checkbox.is-bordered) {
-  margin-left: 0px;
+  margin-left: 0;
 }
 </style>
