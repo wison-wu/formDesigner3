@@ -45,6 +45,7 @@
 </template>
 <script lang="ts">
 import { Component, Prop } from 'web-decorator-vue';
+import type { BarCodeOption } from '@/components/model/BarCodeOption';
 
 /**
  * 条码
@@ -76,65 +77,5 @@ export default class BarCode {
   handlerChangeBackground(val: any) {
     if (val == null) this.props.background = '#fff';
   }
-}
-
-/**
- * BarCode 的 Prop的参数
- * @version 1.0.0
- * @author chen yu
- */
-export interface BarCodeOption {
-  /**
-   * 类型
-   * @version 1.0.0
-   */
-  compType: string;
-  /**
-   * id
-   * @version 1.0.0
-   */
-  id: string;
-  /**
-   * 是否显示文本
-   * @version 1.0.0
-   */
-  showLabel: boolean;
-  /**
-   * 宽度
-   * @version 1.0.0
-   */
-  labelWidth: number;
-  /**
-   * 是否显示span
-   */
-  span: number;
-  /**
-   * 条码值
-   * @version 1.0.0
-   */
-  modelValue: string;
-  /**
-   * 文本
-   * @version 1.0.0
-   */
-  label: string;
-  /**
-   * 边线颜色
-   * @version 1.0.0
-   */
-  lineColor: string;
-  /**
-   * 背景色
-   * @version 1.0.0
-   */
-  background: string;
-  /**
-   * 条码高度
-   */
-  height: number;
-  /**
-   * 显示值
-   */
-  displayValue: number;
 }
 </script>
