@@ -1,8 +1,5 @@
 <template>
   <div v-show="props.compType === 'checkbox'">
-    <!-- <el-form-item label="字段名">
-      <el-input class="input" v-model="props"></el-input>
-    </el-form-item> -->
     <el-form-item label="ID">
       <el-tooltip
         class="item"
@@ -19,9 +16,6 @@
     <el-form-item label="提示符">
       <el-input class="input" v-model="props.placeholder" placeholder="请输入提示符" />
     </el-form-item>
-    <!-- <el-form-item label="表单栅格">
-      <el-slider class="input" v-model="props.span" :max="24" :min="1" :marks="{12:''}"></el-slider>
-    </el-form-item> -->
     <el-form-item label="栅格间隔">
       <el-input-number v-model="props.gutter" :min="0"></el-input-number>
     </el-form-item>
@@ -73,7 +67,6 @@
     <el-form-item label="数据类型">
       <el-radio-group v-model="props.dataType" @change="handlerChangeDataType">
         <el-radio-button value="static">静态数据</el-radio-button>
-        <!--        <el-radio-button value="dynamic">动态数据</el-radio-button>-->
       </el-radio-group>
     </el-form-item>
     <div v-show="props.dataType === 'static'">
