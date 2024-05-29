@@ -6,7 +6,7 @@
       :fit="true"
       border
       :ref="conf.id"
-      size="mini"
+      size="small"
       :cell-style="{ padding: '5px 0' }"
       :header-cell-style="{ background: '#F5F7FA' }"
       style="width: 100%"
@@ -37,10 +37,10 @@
         :key="index"
         min-width="240px;"
       >
-        <template slot="header">
+        <template #header>
           {{ tableColumnLabels[index] }}
         </template>
-        <template slot-scope="scope">
+        <template #default="scope">
           <slot name="item" :rowScope="scope" :item="item"></slot>
         </template>
       </el-table-column>

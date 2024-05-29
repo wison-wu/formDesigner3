@@ -1,14 +1,11 @@
 /**
  * 动态表单（设计器）
  */
-
-import { h } from 'vue'
-import draggable from 'vuedraggable'
-import render from '../custom/render_bak'
+import render from '../custom/render.vue'
 import './dynamicTable.css'
 
 const colItem = function (element) {
-  const { onSelectItem, copyItem, deleteItem } = this.$attrs
+  const { onSelectItem, onCopyItem, onDeleteItem } = this.$attrs
   return (
     <div
       class={{ 'dynamic-table__item': true, active: this.isHover || this.isActive }}
@@ -35,7 +32,7 @@ const colItem = function (element) {
         title="复制"
         v-show={this.showbutton}
         onClick={(e) => {
-          copyItem(e, element)
+          onCopyItem(e, element)
         }}
       >
         <el-icon>
@@ -47,7 +44,7 @@ const colItem = function (element) {
         title="删除"
         v-show={this.showbutton}
         onClick={(e) => {
-          deleteItem(e, element)
+          onDeleteItem(e, element)
         }}
       >
         <el-icon>
@@ -68,7 +65,6 @@ export default {
     }
   },
   components: {
-    draggable,
     render
   },
   methods: {
