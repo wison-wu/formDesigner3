@@ -34,14 +34,14 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
+import { changeId } from '../mixin';
 export default {
   name: 'dynamicTableConfig',
   props: ['props', 'getFormId'],
   mixins: [changeId],
   data() {
-    return {}
+    return {};
   },
   methods: {}
-}
+};
 </script>

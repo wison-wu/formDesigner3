@@ -46,15 +46,15 @@ export default {
   data() {
     return {
       editTextVisible: false
-    }
+    };
   },
   methods: {
     handlerEditMore() {
-      this.editTextVisible = true
+      this.editTextVisible = true;
     },
     handlerSave() {
-      this.editTextVisible = false
+      this.editTextVisible = false;
     }
   }
-}
+};
 </script>

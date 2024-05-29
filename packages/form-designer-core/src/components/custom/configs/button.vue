@@ -2,10 +2,10 @@
   <div v-show="props.compType === 'button'">
     <el-form-item label="ID">
       <el-tooltip
-          class="item"
-          effect="dark"
-          content="请注意,ID的修改可能会导致该组件相关事件失效！"
-          placement="left"
+        class="item"
+        effect="dark"
+        content="请注意,ID的修改可能会导致该组件相关事件失效！"
+        placement="left"
       >
         <el-input class="input" v-model="props.id"></el-input>
       </el-tooltip>
@@ -58,7 +58,7 @@
   </div>
 </template>
 <script lang="ts">
-import {Component, Prop} from "web-decorator-vue";
+import { Component, Prop } from 'web-decorator-vue';
 
 /**
  * 条码
@@ -66,7 +66,7 @@ import {Component, Prop} from "web-decorator-vue";
  * @version 1.0.0
  */
 @Component({
-  name: "button-config"
+  name: 'button-config'
 })
 export default class FDButton {
   /**
@@ -157,11 +157,11 @@ export interface ButtonOption {
  * @author chen yu
  * @version 1.0.0
  */
-export type ButtonType = "primary" | "success" | "warning" | "danger" | "info" | "text";
+export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text';
 /**
  * 按钮大小的类型
  * @author chen yu
  * @version 1.0.0
  */
-export type ButtonSize = "large" | "default" | "small";
+export type ButtonSize = 'large' | 'default' | 'small';
 </script>

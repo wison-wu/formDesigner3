@@ -32,9 +32,9 @@ export default {
     props: {}
   },
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>

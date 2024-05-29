@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import { QuillEditor } from '@vueup/vue-quill'
-import '@vueup/vue-quill/dist/vue-quill.snow.css'
+import { QuillEditor } from '@vueup/vue-quill';
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 export default {
   components: {
     QuillEditor
@@ -44,36 +44,36 @@ export default {
       currentLength: 0,
       defaultMaxLength: 2000,
       editorOption: {}
-    }
+    };
   },
   methods: {
     onEditorBlur(editor) {}, // 失去焦点事件
     onEditorFocus(v) {}, // 获得焦点事件
     onEditorChange(v) {
-      const text = this.$refs.myQuillEditor.getText()
-      const hText = this.$refs.myQuillEditor.getHTML()
-      this.currentLength = text.length - 1
-      this.$emit('input', hText)
-      this.$emit('change', hText)
+      const text = this.$refs.myQuillEditor.getText();
+      const hText = this.$refs.myQuillEditor.getHTML();
+      this.currentLength = text.length - 1;
+      this.$emit('input', hText);
+      this.$emit('change', hText);
     } // 内容改变事件
   },
   computed: {
     editor() {
-      return this.$refs.myQuillEditor.quill
+      return this.$refs.myQuillEditor.quill;
     },
     maxTextLength() {
-      let len = this.defaultMaxLength
+      let len = this.defaultMaxLength;
       if (this.max >= 1) {
-        len = this.max
+        len = this.max;
       }
-      return len
+      return len;
     },
     warnTextLength() {
-      const warn = this.validateMaxText && this.currentLength > this.maxTextLength
-      return warn
+      const warn = this.validateMaxText && this.currentLength > this.maxTextLength;
+      return warn;
     }
   }
-}
+};
 </script>
 
 <style>

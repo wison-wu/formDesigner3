@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
-import JsBarcode from 'jsbarcode'
-import { getSimpleId } from '@/components/utils/IdGenerate'
+import { onMounted, ref, watch } from 'vue';
+import JsBarcode from 'jsbarcode';
+import { getSimpleId } from '@/components/utils/IdGenerate';
 
 /**
  *  后续增补下列属性
@@ -44,11 +44,11 @@ const props = defineProps({
     required: false,
     default: true
   }
-})
+});
 
-const id = ref('barCode' + getSimpleId())
+const id = ref('barCode' + getSimpleId());
 const generateBarCode = () => {
-  const barCodeElement = document.getElementById(id.value)
+  const barCodeElement = document.getElementById(id.value);
   JsBarcode(barCodeElement, props.modelValue, {
     format: props.format,
     lineColor: props.lineColor,
@@ -56,19 +56,19 @@ const generateBarCode = () => {
     displayValue: props.displayValue,
     fontSize: props.fontSize,
     background: props.background
-  })
-}
+  });
+};
 
 onMounted(() => {
-  generateBarCode()
-})
+  generateBarCode();
+});
 watch(
   () => props,
   (newValue, oldValue) => {
-    generateBarCode()
+    generateBarCode();
   },
   { deep: true }
-)
+);
 </script>
 
 <template>

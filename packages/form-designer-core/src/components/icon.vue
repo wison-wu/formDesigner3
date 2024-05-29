@@ -12,10 +12,10 @@ export default {
   props: ['code', 'text'],
   computed: {
     iconFont() {
-      return '#icon-' + this.code
+      return '#icon-' + this.code;
     }
   }
-}
+};
 </script>
 <style scoped>
 .icon {

@@ -1,7 +1,7 @@
-import render from './custom/viewRender.vue'
+import render from './custom/viewRender.vue';
 const layouts = {
   colItem(element, value) {
-    let labelWidth = element.labelWidth ? `${element.labelWidth}px` : null
+    let labelWidth = element.labelWidth ? `${element.labelWidth}px` : null;
     if (element.viewType === 'component') {
       return (
         <el-form-item
@@ -11,7 +11,7 @@ const layouts = {
         >
           <render key={element.id} conf={element} modelValue={value} />
         </el-form-item>
-      )
+      );
     } else if (element.viewType === 'html') {
       return (
         <el-form-item
@@ -21,10 +21,10 @@ const layouts = {
         >
           <fancy-html text={value} />
         </el-form-item>
-      )
+      );
     } else {
       if (typeof value === 'object') {
-        value = value[0] + ' ' + element['range-separator'] + ' ' + value[1]
+        value = value[0] + ' ' + element['range-separator'] + ' ' + value[1];
       }
       return (
         <el-form-item
@@ -34,10 +34,10 @@ const layouts = {
         >
           {value}
         </el-form-item>
-      )
+      );
     }
   }
-}
+};
 
 export default {
   name: 'formViewItem',
@@ -48,10 +48,10 @@ export default {
   data() {
     return {
       eleConfig: this.model
-    }
+    };
   },
   render() {
-    this.eleConfig.modelValue = this.modelValue
-    return layouts.colItem.call(this, this.eleConfig, this.modelValue)
+    this.eleConfig.modelValue = this.modelValue;
+    return layouts.colItem.call(this, this.eleConfig, this.modelValue);
   }
-}
+};

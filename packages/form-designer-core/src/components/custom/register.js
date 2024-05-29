@@ -27,13 +27,13 @@ const components = [
   'dynamicTable',
   'table',
   'tdItem'
-]
-let comps = []
+];
+let comps = [];
 for (let i in components) {
   const comp = {
     name: components[i],
     content: null
-  }
-  comps.push(comp)
+  };
+  comps.push(comp);
 }
-export default comps
+export default comps;

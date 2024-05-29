@@ -48,4 +48,4 @@ export let dialogList = {
   dlabel: 'name',
   height: 500,
   modelValue: ''
-}
+};

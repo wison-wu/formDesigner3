@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
+import { changeId } from '../mixin';
 export default {
   name: 'editorConfig',
   props: {
@@ -41,11 +41,11 @@ export default {
   methods: {
     handlerShowLabel(val) {
       if (val) {
-        this.props.labelWidth = 80
+        this.props.labelWidth = 80;
       } else {
-        this.props.labelWidth = 0
+        this.props.labelWidth = 0;
       }
     }
   }
-}
+};
 </script>

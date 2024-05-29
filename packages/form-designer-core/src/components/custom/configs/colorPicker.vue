@@ -48,7 +48,7 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
+import { changeId } from '../mixin';
 export default {
   name: 'buttonConfig',
   props: {
@@ -58,27 +58,27 @@ export default {
   data() {
     return {
       color: '#409EFF'
-    }
+    };
   },
   methods: {
     handlerShowLabel(val) {
       if (val) {
-        this.props.labelWidth = 80
+        this.props.labelWidth = 80;
       } else {
-        this.props.labelWidth = 0
+        this.props.labelWidth = 0;
       }
     },
     handlerAddPreColor(val) {
-      console.log(val)
-      this.props.predefine.push(val)
-      console.log(this.props.predefine)
+      console.log(val);
+      this.props.predefine.push(val);
+      console.log(this.props.predefine);
     },
     handlerRemoveColor(index) {
-      this.props.predefine.splice(index, 1)
+      this.props.predefine.splice(index, 1);
     }
   },
   mounted() {}
-}
+};
 </script>
 <style scoped>
 .el-color-picker__color {

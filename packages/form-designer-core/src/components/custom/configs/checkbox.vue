@@ -108,9 +108,9 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
-import draggable from 'vuedraggable'
-import { isNumberStr } from '../../utils/index'
+import { changeId } from '../mixin';
+import draggable from 'vuedraggable';
+import { isNumberStr } from '../../utils/index';
 /**
  * input的配置项
  */
@@ -124,62 +124,62 @@ let vm = {
   data() {
     return {
       defaultValue: ''
-    }
+    };
   },
   methods: {
     handlerChangeLabel(val) {
-      this.props.labelWidth = val ? 80 : 1
+      this.props.labelWidth = val ? 80 : 1;
     },
     handlerChangeDisStatus(val) {
-      this.props.readOnly = !val
+      this.props.readOnly = !val;
     },
     handlerChangeReadStatus(val) {
-      this.props.disabled = !val
+      this.props.disabled = !val;
     },
     setDefaultValue(val) {
       if (Array.isArray(val)) {
-        return val.join(',')
+        return val.join(',');
       }
       if (['string', 'number'].indexOf(val) > -1) {
-        return val
+        return val;
       }
       if (typeof val === 'boolean') {
-        return `${val}`
+        return `${val}`;
       }
-      return val
+      return val;
     },
     onDefaultValueInput(str) {
       if (Array.isArray(this.props.modelValue)) {
-        this.props.modelValue = str.split(',').map((val) => (isNumberStr(val) ? +val : val))
+        this.props.modelValue = str.split(',').map((val) => (isNumberStr(val) ? +val : val));
       }
     },
     setOptionValue(item, val) {
-      item.value = isNumberStr(val) ? +val : val
+      item.value = isNumberStr(val) ? +val : val;
     },
     addSelectItem() {
       this.props.options.push({
         label: '',
         value: ''
-      })
+      });
     },
     handlerChangeDataType(value) {
       if (value === 'static') {
-        this.props.options = []
-        this.props.options = this.tempOptions
+        this.props.options = [];
+        this.props.options = this.tempOptions;
       } else {
-        this.tempOptions = this.props.options
-        this.props.options = []
+        this.tempOptions = this.props.options;
+        this.props.options = [];
       }
     }
   },
   mounted() {},
   watch: {
     'props.modelValue'(newVal) {
-      this.defaultValue = newVal.join(',')
+      this.defaultValue = newVal.join(',');
     }
   }
-}
-export default vm
+};
+export default vm;
 </script>
 <style scoped>
 .input {

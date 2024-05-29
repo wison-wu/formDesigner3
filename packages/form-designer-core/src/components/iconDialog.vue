@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import iconList from './utils/icon.json'
+import iconList from './utils/icon.json';
 export default {
   props: {
     visible: {
@@ -34,27 +34,27 @@ export default {
   data() {
     return {
       icons: iconList
-    }
+    };
   },
   methods: {
     handlerSelectIcon(iconName) {
-      this.$emit('update:modelValue', iconName)
-      this.$emit('update:visible', false)
+      this.$emit('update:modelValue', iconName);
+      this.$emit('update:visible', false);
     }
   },
   computed: {
     dialogVisible: {
       // getter
       get: function () {
-        return this.visible
+        return this.visible;
       },
       // setter
       set: function (newValue) {
-        this.$emit('update:visible', false)
+        this.$emit('update:visible', false);
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>

@@ -46,21 +46,21 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
+import { changeId } from '../mixin';
 export default {
   name: 'textConfig',
   props: ['props'],
   data() {
-    return {}
+    return {};
   },
   mixins: [changeId],
   methods: {
     handlerChangeSize(val) {
-      this.props.size = val
+      this.props.size = val;
     },
     handlerChangeBold(val) {
-      this.props.bold = val
+      this.props.bold = val;
     }
   }
-}
+};
 </script>

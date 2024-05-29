@@ -29,4 +29,4 @@ export let Switch = {
   'inactive-color': '#DCDFE6',
   'active-value': 'true',
   'inactive-value': 'false'
-}
+};

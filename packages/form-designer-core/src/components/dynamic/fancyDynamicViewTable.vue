@@ -45,45 +45,45 @@ export default {
     return {
       tableColumns: [],
       tableColumnLables: []
-    }
+    };
   },
   mounted() {
     this.conf.columns.forEach((element) => {
-      this.tableColumnLables.push(element.label)
-      let tableCol = {}
-      Object.assign(tableCol, element)
-      this.tableColumns.push(tableCol)
-    })
+      this.tableColumnLables.push(element.label);
+      let tableCol = {};
+      Object.assign(tableCol, element);
+      this.tableColumns.push(tableCol);
+    });
   },
   methods: {
     sumTotal(param) {
-      const { columns, data } = param
-      const sums = []
+      const { columns, data } = param;
+      const sums = [];
       columns.forEach((column, index) => {
         if (index === 0) {
-          sums[index] = this.conf['sum-text']
-          return
+          sums[index] = this.conf['sum-text'];
+          return;
         }
-        const values = data.map((item) => Number(item[column.property]))
+        const values = data.map((item) => Number(item[column.property]));
         if (!values.every((value) => isNaN(value))) {
           sums[index] = values.reduce((prev, curr) => {
-            const value = Number(curr)
+            const value = Number(curr);
             if (!isNaN(value)) {
-              return prev + curr
+              return prev + curr;
             } else {
-              return prev
+              return prev;
             }
-          }, 0)
-          sums[index] += ' ' + this.conf['summary-text']
+          }, 0);
+          sums[index] += ' ' + this.conf['summary-text'];
         } else {
-          sums[index] = ''
+          sums[index] = '';
         }
-      })
+      });
 
-      return sums
+      return sums;
     }
   }
-}
+};
 </script>
 <style scoped>
 .fancyDynamicTable {

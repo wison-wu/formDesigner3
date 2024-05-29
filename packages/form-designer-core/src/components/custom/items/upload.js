@@ -47,4 +47,4 @@ export let upload = {
   accept: '.pdf, .doc, .docx, .xls, .xlsx',
   //文件大小MB
   fileSize: 10
-}
+};

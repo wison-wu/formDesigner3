@@ -37,4 +37,4 @@ export let date = {
   'range-separator': '-',
   'start-placeholder': '请选择开始日期',
   'end-placeholder': '请选择结束日期'
-}
+};

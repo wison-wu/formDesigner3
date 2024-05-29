@@ -37,21 +37,21 @@ export default {
     }
   },
   data() {
-    return {}
+    return {};
   },
   inject: ['getContext'],
   methods: {
     rightClick(e, rowIndex, colIndex) {
-      this.$emit('rightClick', e, rowIndex, colIndex)
+      this.$emit('rightClick', e, rowIndex, colIndex);
     }
   },
   computed: {
     isActiveItem() {
-      return this.getContext.activeItem.id === this.item.id ? true : false
+      return this.getContext.activeItem.id === this.item.id ? true : false;
       //this.designerActiveItem
     }
   }
-}
+};
 </script>
 
 <style scoped>

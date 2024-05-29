@@ -63,17 +63,17 @@
 </template>
 
 <script>
-import formViewItem from './formViewItem'
-import previewRowItem from './preview-row-item.vue'
-import fancyDynamicViewTable from './dynamic/fancyDynamicViewTable.vue'
-import fancyDynamicTableViewItem from './dynamic/fancyDynamicTableViewItem'
-import fancyEditTable from './table/fancyEditTable.vue'
+import formViewItem from './formViewItem';
+import previewRowItem from './preview-row-item.vue';
+import fancyDynamicViewTable from './dynamic/fancyDynamicViewTable.vue';
+import fancyDynamicTableViewItem from './dynamic/fancyDynamicTableViewItem';
+import fancyEditTable from './table/fancyEditTable.vue';
 export default {
   name: 'formViewer',
   data() {
     return {
       disabled: true
-    }
+    };
   },
   props: {
     modelValue: {
@@ -93,37 +93,37 @@ export default {
     fancyEditTable
   },
   mounted() {
-    this.$nextTick(() => {})
+    this.$nextTick(() => {});
   },
   computed: {
     itemList() {
       if (this.buildData !== '') {
-        const buildData = JSON.parse(this.buildData)
-        return buildData.list
+        const buildData = JSON.parse(this.buildData);
+        return buildData.list;
       } else {
-        return []
+        return [];
       }
     },
     form() {
       //转换成json的值
       if (this.modelValue !== '') {
-        const value = JSON.parse(this.modelValue)
-        return value
+        const value = JSON.parse(this.modelValue);
+        return value;
       } else {
-        return {}
+        return {};
       }
     },
     formConf() {
       if (this.buildData !== '') {
-        const buildData = JSON.parse(this.buildData)
-        buildData.config.disabled = this.disabled
-        return buildData.config
+        const buildData = JSON.parse(this.buildData);
+        buildData.config.disabled = this.disabled;
+        return buildData.config;
       } else {
-        return {}
+        return {};
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>

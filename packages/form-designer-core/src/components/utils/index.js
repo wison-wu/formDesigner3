@@ -1,10 +1,10 @@
 export function makeMap(str, expectsLowerCase) {
-  const map = Object.create(null)
-  const list = str.split(',')
+  const map = Object.create(null);
+  const list = str.split(',');
   for (let i = 0; i < list.length; i++) {
-    map[list[i]] = true
+    map[list[i]] = true;
   }
-  return expectsLowerCase ? (val) => map[val.toLowerCase()] : (val) => map[val]
+  return expectsLowerCase ? (val) => map[val.toLowerCase()] : (val) => map[val];
 }
 
 /**
@@ -14,37 +14,37 @@ export function makeMap(str, expectsLowerCase) {
  * @param {number} len 【可选】缩进单位，空格数
  */
 export function indent(str, num, len = 2) {
-  if (num === 0) return str
-  const isLeft = num < 0
-  const result = []
-  let reg
-  let spaces = ''
+  if (num === 0) return str;
+  const isLeft = num < 0;
+  const result = [];
+  let reg;
+  let spaces = '';
   if (isLeft) {
-    num *= -1
-    reg = new RegExp(`(^\\s{0,${num * len}})`, 'g')
+    num *= -1;
+    reg = new RegExp(`(^\\s{0,${num * len}})`, 'g');
   } else {
-    for (let i = 0; i < num * len; i++) spaces += ' '
+    for (let i = 0; i < num * len; i++) spaces += ' ';
   }
 
   str.split('\n').forEach((line) => {
-    line = isLeft ? line.replace(reg, '') : spaces + line
-    result.push(line)
-  })
-  return result.join('\n')
+    line = isLeft ? line.replace(reg, '') : spaces + line;
+    result.push(line);
+  });
+  return result.join('\n');
 }
 
 // 首字母大小
 export function titleCase(str) {
-  return str.replace(/( |^)[a-z]/g, (L) => L.toUpperCase())
+  return str.replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
 }
 
 // 下划转驼峰
 export function camelCase(str) {
-  return str.replace(/-[a-z]/g, (str1) => str1.substr(-1).toUpperCase())
+  return str.replace(/-[a-z]/g, (str1) => str1.substr(-1).toUpperCase());
 }
 
 export function isNumberStr(str) {
-  return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/g.test(str)
+  return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/g.test(str);
 }
 
 export const beautifierConf = {
@@ -86,38 +86,38 @@ export const beautifierConf = {
     e4x: true,
     indent_empty_lines: true
   }
-}
+};
 
 function stringify(obj) {
   return JSON.stringify(obj, (key, val) => {
     if (typeof val === 'function') {
-      return `${val}`
+      return `${val}`;
     }
-    return val
-  })
+    return val;
+  });
 }
 
 function parse(str) {
   return JSON.parse(str, (k, v) => {
     if (v !== null && v.indexOf && v.indexOf('function') > -1) {
-      return eval(`(${v})`)
+      return eval(`(${v})`);
     }
-    return v
-  })
+    return v;
+  });
 }
 
 export function jsonClone(obj) {
-  return parse(stringify(obj))
+  return parse(stringify(obj));
 }
 
 export function isLayout(obj) {
-  return obj.compType === 'row'
+  return obj.compType === 'row';
 }
 export function isTable(obj) {
-  return obj.compType === 'table'
+  return obj.compType === 'table';
 }
 export function inTable(obj) {
-  return obj.col && obj.row
+  return obj.col && obj.row;
 }
 
 export const isAttr = makeMap(
@@ -134,4 +134,4 @@ export const isAttr = makeMap(
     'scope,scoped,seamless,selected,shape,size,type,text,password,sizes,span,' +
     'spellcheck,src,srcdoc,srclang,srcset,start,step,style,summary,tabindex,' +
     'target,title,type,usemap,value,width,wrap'
-)
+);

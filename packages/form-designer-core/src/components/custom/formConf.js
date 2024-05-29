@@ -13,8 +13,8 @@ const formConf = {
   gutter: 15,
   disabled: false,
   dynamicTableAllowed: true
-}
-export default formConf
+};
+export default formConf;
 
 //动态表单允许放入的组件
 export const dynamicTableAllowedItems = [
@@ -29,7 +29,7 @@ export const dynamicTableAllowedItems = [
   'rate',
   'date',
   'time'
-]
+];
 
 //row允许放入的items
 export const rowAllowedItems = [
@@ -45,6 +45,6 @@ export const rowAllowedItems = [
   'rate',
   'date',
   'time'
-]
+];
 //table允许放入的items
-export const tableAllowedItems = ['row', 'dynamicTable']
+export const tableAllowedItems = ['row', 'dynamicTable'];

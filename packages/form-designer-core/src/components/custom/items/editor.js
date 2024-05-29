@@ -23,4 +23,4 @@ export let editor = {
   max: 2000,
   //自定义rules
   customRules: []
-}
+};

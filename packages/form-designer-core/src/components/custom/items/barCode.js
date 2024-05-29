@@ -24,4 +24,4 @@ export let barCode = {
   height: 30,
   fontSize: 12,
   displayValue: true
-}
+};

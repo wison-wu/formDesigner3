@@ -83,75 +83,75 @@ export default {
       tableColumnLabels: [],
       multipleSelection: [],
       componentsMount: false
-    }
+    };
   },
   mounted() {
     this.conf.columns.forEach((element) => {
-      this.tableColumnLabels.push(element.label)
-      let tableCol = {}
-      Object.assign(tableCol, element)
-      this.tableColumns.push(tableCol)
-    })
-    this.componentsMount = true
+      this.tableColumnLabels.push(element.label);
+      let tableCol = {};
+      Object.assign(tableCol, element);
+      this.tableColumns.push(tableCol);
+    });
+    this.componentsMount = true;
   },
   components: {},
   methods: {
     handlerAdd(origin) {
-      this.$emit('addRow', origin)
+      this.$emit('addRow', origin);
     },
     handlerDelete(scope, element) {
-      this.$emit('deleteRow', scope, element)
+      this.$emit('deleteRow', scope, element);
     },
     handlerBachDelete() {
       this.$confirm('确认删除选中的数据?').then(() => {
-        const indexs = []
-        this.multipleSelection.forEach((item) => indexs.push(item.index))
-        this.$emit('batchDeleteRow', indexs, this.conf)
-      })
+        const indexs = [];
+        this.multipleSelection.forEach((item) => indexs.push(item.index));
+        this.$emit('batchDeleteRow', indexs, this.conf);
+      });
     },
     handlerSelectionChange(val) {
-      this.multipleSelection = val
+      this.multipleSelection = val;
     },
     tableRowClassName(row) {
-      row.row.index = row.rowIndex
+      row.row.index = row.rowIndex;
     },
     sumTotal(param) {
-      const { columns, data } = param
-      const sums = []
+      const { columns, data } = param;
+      const sums = [];
       columns.forEach((column, index) => {
         if (index === 0) {
-          sums[index] = this.conf['sum-text']
-          return
+          sums[index] = this.conf['sum-text'];
+          return;
         }
-        const values = data.map((item) => Number(item[column.property]))
+        const values = data.map((item) => Number(item[column.property]));
         if (!values.every((value) => isNaN(value))) {
           sums[index] = values.reduce((prev, curr) => {
-            const value = Number(curr)
+            const value = Number(curr);
             if (!isNaN(value)) {
-              return prev + curr
+              return prev + curr;
             } else {
-              return prev
+              return prev;
             }
-          }, 0)
-          sums[index] += ' ' + this.conf['summary-text']
+          }, 0);
+          sums[index] += ' ' + this.conf['summary-text'];
         } else {
-          sums[index] = ''
+          sums[index] = '';
         }
-      })
+      });
 
-      return sums
+      return sums;
     }
   },
   computed: {
     BachDeleteButtonShow() {
       return function (id) {
         if (this.componentsMount) {
-          return this.conf.multiCheck && this.$refs[id].selection.length > 0
+          return this.conf.multiCheck && this.$refs[id].selection.length > 0;
         }
-      }
+      };
     }
   }
-}
+};
 </script>
 <style scoped>
 .fancyDynamicTable {

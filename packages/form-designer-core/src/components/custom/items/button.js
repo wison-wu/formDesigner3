@@ -35,4 +35,4 @@ export let button = {
   loading: false,
   //禁用
   disabled: false
-}
+};

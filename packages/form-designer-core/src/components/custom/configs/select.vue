@@ -88,9 +88,9 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
-import draggable from 'vuedraggable'
-import { isNumberStr } from '../../utils/index'
+import { changeId } from '../mixin';
+import draggable from 'vuedraggable';
+import { isNumberStr } from '../../utils/index';
 export default {
   name: 'inputConfig',
   props: ['props', 'getFormId'],
@@ -102,52 +102,52 @@ export default {
     return {
       tempOptions: [],
       selectValue: ''
-    }
+    };
   },
   methods: {
     handlerChangeLabel(val) {
-      this.props.labelWidth = val ? 80 : 1
+      this.props.labelWidth = val ? 80 : 1;
     },
     setValue(val) {
       if (Array.isArray(val)) {
-        return val.join(',')
+        return val.join(',');
       }
       if (['string', 'number'].indexOf(val) > -1) {
-        return val
+        return val;
       }
       if (typeof val === 'boolean') {
-        return `${val}`
+        return `${val}`;
       }
-      return val
+      return val;
     },
     onValueInput(str) {
       if (Array.isArray(this.props.modelValue)) {
         // 数组
-        this.props.modelValue = str.split(',').map((val) => (isNumberStr(val) ? +val : val))
+        this.props.modelValue = str.split(',').map((val) => (isNumberStr(val) ? +val : val));
       } else if (['true', 'false'].indexOf(str) > -1) {
-        this.props.modelValue = JSON.parse(str)
+        this.props.modelValue = JSON.parse(str);
         // 布尔
       } else {
         // 字符串和数字
-        this.props.modelValue = str
+        this.props.modelValue = str;
       }
     },
     addSelectItem() {
       this.props.options.push({
         label: '',
         value: ''
-      })
+      });
     },
     multipleChange(val) {
-      this.props.modelValue = val ? [] : ''
+      this.props.modelValue = val ? [] : '';
     },
     handlerChangeDataType(value) {
       if (value === 'static') {
-        this.props.options = []
-        this.props.options = this.tempOptions
+        this.props.options = [];
+        this.props.options = this.tempOptions;
       } else {
-        this.tempOptions = this.props.options
-        this.props.options = []
+        this.tempOptions = this.props.options;
+        this.props.options = [];
       }
     }
   },
@@ -156,7 +156,7 @@ export default {
     //   this.selectValue = newVal
     // }
   }
-}
+};
 </script>
 <style scoped>
 .input {

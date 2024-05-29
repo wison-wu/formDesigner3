@@ -55,28 +55,28 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
+import { changeId } from '../mixin';
 export default {
   name: 'inputConfig',
   props: ['props', 'getFormId'],
   components: {},
   mixins: [changeId],
   data() {
-    return {}
+    return {};
   },
   methods: {
     handlerChangeLabel(val) {
-      this.props.labelWidth = val ? 80 : 1
+      this.props.labelWidth = val ? 80 : 1;
     },
     handlerChangeDisStatus(val) {
-      this.props.readOnly = val ? false : true
+      this.props.readOnly = val ? false : true;
     },
     handlerChangeReadStatus(val) {
-      this.props.disabled = val ? false : true
+      this.props.disabled = val ? false : true;
     }
   },
   mounted() {}
-}
+};
 </script>
 <style scoped>
 .input {

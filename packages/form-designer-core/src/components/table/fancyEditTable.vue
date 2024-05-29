@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import fancyEditTableItem from './fancyEditTableItem.vue'
+import fancyEditTableItem from './fancyEditTableItem.vue';
 export default {
   name: 'fancyEditTable',
   components: {
@@ -47,20 +47,20 @@ export default {
     }
   },
   data() {
-    return {}
+    return {};
   },
   mounted() {},
   destroyed() {},
   methods: {},
   computed: {
     tableWidth() {
-      return 'width:' + this.width + '%'
+      return 'width:' + this.width + '%';
     },
     trHeight() {
-      return 'height:' + this.height + 'px'
+      return 'height:' + this.height + 'px';
     }
   }
-}
+};
 </script>
 
 <style scoped>

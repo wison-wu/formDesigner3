@@ -73,7 +73,7 @@
 <script>
 // https://day.js.org/docs/en/display/format#list-of-all-available-formats
 
-import { changeId } from '../mixin'
+import { changeId } from '../mixin';
 const dateType = [
   {
     label: '日(date)',
@@ -107,7 +107,7 @@ const dateType = [
     label: '日期时间范围',
     value: 'datetimerange'
   }
-]
+];
 const dateTimeFormat = {
   date: 'YYYY-MM-DD',
   week: 'YYYY 第 ww 周',
@@ -117,7 +117,7 @@ const dateTimeFormat = {
   daterange: 'YYYY-MM-DD',
   monthrange: 'YYYY-MM',
   datetimerange: 'YYYY-MM-DD HH:mm:ss'
-}
+};
 
 export default {
   name: 'dateConfig',
@@ -128,24 +128,24 @@ export default {
     return {
       dateTypeOptions: dateType,
       date: ''
-    }
+    };
   },
   methods: {
     handlerFormatChange(val) {
       if (val === 'monthrange' || val === 'daterange' || val === 'datetimerange') {
-        this.props.modelValue = []
+        this.props.modelValue = [];
       } else {
-        this.props.modelValue = ''
+        this.props.modelValue = '';
       }
-      this.props.format = dateTimeFormat[val]
+      this.props.format = dateTimeFormat[val];
     },
     handlerChangeValueFormat(val) {
-      this.props.format = val
+      this.props.format = val;
     },
     handlerSelectDate(val) {}
   },
   mounted() {}
-}
+};
 </script>
 <style scoped>
 .input {

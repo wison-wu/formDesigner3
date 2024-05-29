@@ -21,4 +21,4 @@ export let text = {
   color: '#000000',
   size: 14,
   bold: 400
-}
+};

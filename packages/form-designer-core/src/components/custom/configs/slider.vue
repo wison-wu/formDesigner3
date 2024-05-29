@@ -60,18 +60,18 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
+import { changeId } from '../mixin';
 export default {
   name: 'inputConfig',
   props: ['props', 'getFormId'],
   components: {},
   mixins: [changeId],
   data() {
-    return {}
+    return {};
   },
   methods: {},
   mounted() {}
-}
+};
 </script>
 <style scoped>
 .input {

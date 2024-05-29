@@ -6,15 +6,15 @@
   </el-col>
 </template>
 <script lang="ts">
-import { Component, Prop } from 'web-decorator-vue'
+import { Component, Prop } from 'web-decorator-vue';
 
 @Component({
   name: 'preview-row-item'
 })
 export default class PreviewRowItem {
   // TODO 补齐注释
-  @Prop() model: any
+  @Prop() model: any;
   // TODO 补齐注释
-  @Prop() value: any
+  @Prop() value: any;
 }
 </script>

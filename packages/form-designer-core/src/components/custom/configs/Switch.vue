@@ -49,7 +49,7 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
+import { changeId } from '../mixin';
 
 export default {
   name: 'switchConfig',
@@ -59,28 +59,28 @@ export default {
   data() {
     return {
       defaultValue: false
-    }
+    };
   },
   methods: {
     handlerChangeLabel(val) {
-      this.props.labelWidth = val ? 80 : 1
+      this.props.labelWidth = val ? 80 : 1;
     },
     handlerChangeDisStatus(val) {
-      this.props.readOnly = !val
+      this.props.readOnly = !val;
     },
     handlerChangeReadStatus(val) {
-      this.props.disabled = !val
+      this.props.disabled = !val;
     },
     handlerChangeDefaultValue(val) {
-      this.props.modelValue = val + ''
+      this.props.modelValue = val + '';
     }
   },
   watch: {
     'props.modelValue'(newVal) {
-      this.defaultValue = JSON.parse(newVal)
+      this.defaultValue = JSON.parse(newVal);
     }
   }
-}
+};
 </script>
 <style scoped>
 .input {

@@ -53,12 +53,12 @@
 </template>
 
 <script>
-import icon from '../icon.vue'
-import fancyTableItem from './fancyTableItem.vue'
-import { jsonClone } from '../utils'
-import { getTrItem, getTdItem } from './table'
-import { getSimpleId } from '../utils/IdGenerate'
-let tr = getTrItem()
+import icon from '../icon.vue';
+import fancyTableItem from './fancyTableItem.vue';
+import { jsonClone } from '../utils';
+import { getTrItem, getTdItem } from './table';
+import { getSimpleId } from '../utils/IdGenerate';
+let tr = getTrItem();
 export default {
   name: 'fancyTable',
   components: {
@@ -91,57 +91,57 @@ export default {
       currentRowIndex: 0,
       currentColIndex: 0
       //columns: this.trs
-    }
+    };
   },
   mounted() {
     // 添加监听取消右键菜单
-    document.addEventListener('click', this.hideRightContextMenu, true)
-    document.addEventListener('contextmenu', this.hideRightContextMenu, true)
+    document.addEventListener('click', this.hideRightContextMenu, true);
+    document.addEventListener('contextmenu', this.hideRightContextMenu, true);
     // this.handlerAppendCol();
     // this.handlerAppendCol();
   },
   destroyed() {
     // 移除监听
-    document.removeEventListener('click', this.hideRightContextMenu, true)
-    document.removeEventListener('contextmenu', this.hideRightContextMenu, true)
+    document.removeEventListener('click', this.hideRightContextMenu, true);
+    document.removeEventListener('contextmenu', this.hideRightContextMenu, true);
   },
   methods: {
     rightClick(e, rowIndex, colIndex) {
-      this.positionX = e.clientX
-      this.positionY = e.clientY
-      this.showContextMunu = true
-      this.currentRowIndex = rowIndex
-      this.currentColIndex = colIndex
+      this.positionX = e.clientX;
+      this.positionY = e.clientY;
+      this.showContextMunu = true;
+      this.currentRowIndex = rowIndex;
+      this.currentColIndex = colIndex;
     },
     hideRightContextMenu() {
-      this.showContextMunu = false
+      this.showContextMunu = false;
     },
     //向右合并单元格
     handlerRightCol() {
-      let col = this.layoutArray[this.currentRowIndex][this.currentColIndex].col
-      let row = this.layoutArray[this.currentRowIndex][this.currentColIndex].row
+      let col = this.layoutArray[this.currentRowIndex][this.currentColIndex].col;
+      let row = this.layoutArray[this.currentRowIndex][this.currentColIndex].row;
       if (row > 1) {
         for (let i = 0; i < row; i++) {
-          this.layoutArray[this.currentRowIndex + i][this.currentColIndex + col].hide = true
-          this.layoutArray[this.currentRowIndex][this.currentColIndex].col = col + 1
+          this.layoutArray[this.currentRowIndex + i][this.currentColIndex + col].hide = true;
+          this.layoutArray[this.currentRowIndex][this.currentColIndex].col = col + 1;
         }
       } else {
-        this.layoutArray[this.currentRowIndex][this.currentColIndex + col].hide = true
-        this.layoutArray[this.currentRowIndex][this.currentColIndex].col = col + 1
+        this.layoutArray[this.currentRowIndex][this.currentColIndex + col].hide = true;
+        this.layoutArray[this.currentRowIndex][this.currentColIndex].col = col + 1;
       }
     },
     //向下合并单元格
     handlerDownRow() {
-      let col = this.layoutArray[this.currentRowIndex][this.currentColIndex].col
-      let row = this.layoutArray[this.currentRowIndex][this.currentColIndex].row
+      let col = this.layoutArray[this.currentRowIndex][this.currentColIndex].col;
+      let row = this.layoutArray[this.currentRowIndex][this.currentColIndex].row;
       if (col > 1) {
         for (let i = 0; i < col; i++) {
-          this.layoutArray[this.currentRowIndex + row][this.currentColIndex + i].hide = true
-          this.layoutArray[this.currentRowIndex][this.currentColIndex].row = row + 1
+          this.layoutArray[this.currentRowIndex + row][this.currentColIndex + i].hide = true;
+          this.layoutArray[this.currentRowIndex][this.currentColIndex].row = row + 1;
         }
       } else {
-        this.layoutArray[this.currentRowIndex + row][this.currentColIndex].hide = true
-        this.layoutArray[this.currentRowIndex][this.currentColIndex].row = row + 1
+        this.layoutArray[this.currentRowIndex + row][this.currentColIndex].hide = true;
+        this.layoutArray[this.currentRowIndex][this.currentColIndex].row = row + 1;
       }
       // let nextCol = this.columns[this.currentRowIndex+1][this.currentColIndex].col;
       // let nextRow = this.columns[this.currentRowIndex+1][this.currentColIndex].row;
@@ -152,84 +152,84 @@ export default {
       // }
     },
     handlerResetTable() {
-      let col = this.layoutArray[this.currentRowIndex][this.currentColIndex].col
-      let row = this.layoutArray[this.currentRowIndex][this.currentColIndex].row
-      if (col === 1 && row === 1) return
+      let col = this.layoutArray[this.currentRowIndex][this.currentColIndex].col;
+      let row = this.layoutArray[this.currentRowIndex][this.currentColIndex].row;
+      if (col === 1 && row === 1) return;
 
       for (let i = 0; i < row; i++) {
         for (let j = 0; j < col; j++) {
-          this.layoutArray[this.currentRowIndex + i][this.currentColIndex + j].hide = false
+          this.layoutArray[this.currentRowIndex + i][this.currentColIndex + j].hide = false;
         }
       }
-      this.layoutArray[this.currentRowIndex][this.currentColIndex].row = 1
-      this.layoutArray[this.currentRowIndex][this.currentColIndex].col = 1
+      this.layoutArray[this.currentRowIndex][this.currentColIndex].row = 1;
+      this.layoutArray[this.currentRowIndex][this.currentColIndex].col = 1;
     },
     handlerSelectedTd(e, td) {
-      this.$emit('selectItem', td)
-      e.stopPropagation()
+      this.$emit('selectItem', td);
+      e.stopPropagation();
     },
     //追加行
     handlerAppendCol() {
-      let _trItem = jsonClone(tr)
-      _trItem.map((item) => (item.id = getSimpleId()))
-      this.layoutArray.push(_trItem)
+      let _trItem = jsonClone(tr);
+      _trItem.map((item) => (item.id = getSimpleId()));
+      this.layoutArray.push(_trItem);
     },
     handlerAppendRow() {
-      tr.push(getTdItem())
+      tr.push(getTdItem());
       this.layoutArray.forEach((item) => {
-        const _td = jsonClone(getTdItem())
-        item.push(_td)
-      })
+        const _td = jsonClone(getTdItem());
+        item.push(_td);
+      });
     },
     //删除列
     handlerDeleteRow() {
       this.layoutArray.forEach((item) => {
-        item.splice(this.currentColIndex, 1)
-      })
+        item.splice(this.currentColIndex, 1);
+      });
     },
     //删除行
     handlerDeleteCol() {
-      this.layoutArray.splice(this.currentRowIndex, 1)
+      this.layoutArray.splice(this.currentRowIndex, 1);
     }
   },
   computed: {
     showRightColMenu() {
       if (this.showContextMunu) {
-        const col = this.layoutArray[this.currentRowIndex][this.currentColIndex].col
-        const td = this.layoutArray[this.currentRowIndex][this.currentColIndex + col]
-        return td && td.row < 2 && td.col < 2 && !td.hide
+        const col = this.layoutArray[this.currentRowIndex][this.currentColIndex].col;
+        const td = this.layoutArray[this.currentRowIndex][this.currentColIndex + col];
+        return td && td.row < 2 && td.col < 2 && !td.hide;
       } else {
-        return false
+        return false;
       }
     },
     showDownRowMenu() {
       if (this.showContextMunu) {
-        const row = this.layoutArray[this.currentRowIndex][this.currentColIndex].row
-        let td = undefined
+        const row = this.layoutArray[this.currentRowIndex][this.currentColIndex].row;
+        let td = undefined;
         if (typeof this.layoutArray[this.currentRowIndex + row] !== 'undefined') {
-          td = this.layoutArray[this.currentRowIndex + row][this.currentColIndex]
+          td = this.layoutArray[this.currentRowIndex + row][this.currentColIndex];
         }
-        return td && td.row < 2 && td.col < 2 && !td.hide
+        return td && td.row < 2 && td.col < 2 && !td.hide;
       } else {
-        return false
+        return false;
       }
     },
     showResetTableMenu() {
       if (this.showContextMunu) {
-        const td = this.layoutArray[this.currentRowIndex][this.currentColIndex]
-        return !(td.row < 2 && td.col < 2 && !td.hide)
+        const td = this.layoutArray[this.currentRowIndex][this.currentColIndex];
+        return !(td.row < 2 && td.col < 2 && !td.hide);
       } else {
-        return false
+        return false;
       }
     },
     tableStyle() {
-      return 'width:' + this.width + '%;'
+      return 'width:' + this.width + '%;';
     },
     trHeight() {
-      return 'height:' + this.height + 'px'
+      return 'height:' + this.height + 'px';
     }
   }
-}
+};
 </script>
 
 <style scoped>

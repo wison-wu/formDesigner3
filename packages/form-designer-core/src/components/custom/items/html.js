@@ -18,4 +18,4 @@ export let html = {
   showLabel: false,
   label: '',
   labelWidth: 0
-}
+};

@@ -62,9 +62,9 @@
 </template>
 
 <script>
-import { Search } from '@element-plus/icons-vue'
-import { getCurrentInstance } from 'vue'
-const splitKey = ';'
+import { Search } from '@element-plus/icons-vue';
+import { getCurrentInstance } from 'vue';
+const splitKey = ';';
 export default {
   name: 'fancyDialogList',
   props: {
@@ -119,147 +119,147 @@ export default {
       dialogValue: '',
       dialogVisible: false,
       gridData: []
-    }
+    };
   },
   mounted() {
-    const { appContext } = getCurrentInstance()
-    const $axios = appContext.config.globalProperties.$axios
+    const { appContext } = getCurrentInstance();
+    const $axios = appContext.config.globalProperties.$axios;
     this.$nextTick(() => {
       $axios.get(this.action).then((res) => {
-        this.gridData = []
-        this.gridData = this.gridData.concat(res.data.list)
+        this.gridData = [];
+        this.gridData = this.gridData.concat(res.data.list);
         if (this.modelValue !== '' && this.dialogValue === '') {
           if (this.multi) {
-            const ids = this.modelValue.split(splitKey)
-            this.currentRow = []
+            const ids = this.modelValue.split(splitKey);
+            this.currentRow = [];
             ids.forEach((e) => {
-              const index = this.gridData.findIndex((element) => element[this.dval] + '' == e)
+              const index = this.gridData.findIndex((element) => element[this.dval] + '' == e);
               if (index > 0) {
-                const row = this.gridData[index]
-                this.currentRow.push(row)
+                const row = this.gridData[index];
+                this.currentRow.push(row);
               }
-            })
-            this.dialogValue = this.selectName
+            });
+            this.dialogValue = this.selectName;
           } else {
             const index = this.gridData.findIndex(
               (element) => element[this.dval] == this.modelValue
-            )
+            );
             if (index > 0) {
-              const row = this.gridData[index]
-              this.dialogValue = row[this.dlabel]
+              const row = this.gridData[index];
+              this.dialogValue = row[this.dlabel];
             }
           }
         }
-      })
-    })
+      });
+    });
   },
   methods: {
     handlerShowDialog() {
-      if (this.disabled) return
-      this.dialogVisible = true
+      if (this.disabled) return;
+      this.dialogVisible = true;
     },
     handleClose() {},
     tableRowClassName(v) {
       if (v.rowIndex % 2 == 1) {
-        return 'odd-row'
+        return 'odd-row';
       }
-      return ''
+      return '';
     },
     handleCurrentChange(val) {
       if (!this.multi) {
-        this.currentRow = val
+        this.currentRow = val;
       }
     },
 
     handlerRowDoubleClick(val) {
       if (!this.multi) {
-        this.currentRow = val
-        this.handlerSelect()
+        this.currentRow = val;
+        this.handlerSelect();
       }
     },
     handleSelectionChange(val) {
-      this.currentRow = val
+      this.currentRow = val;
     },
     handlerSelect() {
-      this.dialogVisible = false
-      let dialogVal = ''
-      let dialogId = ''
-      dialogVal = this.selectName
-      dialogId = this.selectId
-      this.dialogValue = dialogVal
-      this.$emit('input', dialogId + '')
-      this.$emit('change', dialogId + '')
+      this.dialogVisible = false;
+      let dialogVal = '';
+      let dialogId = '';
+      dialogVal = this.selectName;
+      dialogId = this.selectId;
+      this.dialogValue = dialogVal;
+      this.$emit('input', dialogId + '');
+      this.$emit('change', dialogId + '');
     },
     handlerHideDialog() {
-      this.dialogVisible = false
-      this.dialogValue = ''
+      this.dialogVisible = false;
+      this.dialogValue = '';
     },
     setDialogValue() {
       if (this.multi) {
-        const ids = this.modelValue.split(splitKey)
-        this.currentRow = []
+        const ids = this.modelValue.split(splitKey);
+        this.currentRow = [];
         ids.forEach((e) => {
-          const index = this.gridData.findIndex((element) => element[this.dval] == e)
+          const index = this.gridData.findIndex((element) => element[this.dval] == e);
           if (index > 0) {
-            const row = this.gridData[index]
-            this.$refs.dataTable.toggleRowSelection(row)
+            const row = this.gridData[index];
+            this.$refs.dataTable.toggleRowSelection(row);
           }
-        })
+        });
       } else {
-        const index = this.gridData.findIndex((element) => element[this.dval] == this.modelValue)
-        const row = this.gridData[index]
-        this.$refs.dataTable.setCurrentRow(row)
+        const index = this.gridData.findIndex((element) => element[this.dval] == this.modelValue);
+        const row = this.gridData[index];
+        this.$refs.dataTable.setCurrentRow(row);
       }
     },
     show() {
       this.$nextTick(() => {
-        this.setDialogValue()
-      })
+        this.setDialogValue();
+      });
     }
   },
   computed: {
     jsonColConf() {
-      return JSON.parse(this.colConf)
+      return JSON.parse(this.colConf);
     },
     selectName() {
       if (this.currentRow == null) {
-        return ''
+        return '';
       }
       if (this.multi) {
-        let names = ''
+        let names = '';
         this.currentRow.forEach((element) => {
-          names = names + splitKey + element[this.dlabel]
-        })
+          names = names + splitKey + element[this.dlabel];
+        });
         if (names.length > 0) {
-          names = names.substring(1)
+          names = names.substring(1);
         }
-        return names
+        return names;
       } else {
-        return this.currentRow[this.dlabel]
+        return this.currentRow[this.dlabel];
       }
     },
     selectId() {
       if (this.currentRow == null) {
-        return ''
+        return '';
       }
       if (this.multi) {
-        let ids = ''
+        let ids = '';
         this.currentRow.forEach((element) => {
-          ids = ids + splitKey + element[this.dval]
-        })
+          ids = ids + splitKey + element[this.dval];
+        });
         if (ids.length > 0) {
-          ids = ids.substring(1)
+          ids = ids.substring(1);
         }
-        return ids
+        return ids;
       } else {
-        return this.currentRow[this.dval]
+        return this.currentRow[this.dval];
       }
     },
     filterGridData() {
-      return this.gridData
+      return this.gridData;
     }
   }
-}
+};
 </script>
 <style scoped>
 /**#e6f7ff; */

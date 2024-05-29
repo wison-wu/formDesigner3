@@ -94,12 +94,12 @@
   </div>
 </template>
 <script>
-import previewItem from './previewItem'
-import previewRowItem from './preview-row-item.vue'
-import fancyDynamicTable from './dynamic/fancyDynamicTable.vue'
-import fancyDynamicTableItem from './dynamic/fancyDynamicTableItem'
-import { datas, addRow, deleteRow, fillDatas } from './custom/formDraw'
-import fancyEditTable from './table/fancyEditTable.vue'
+import previewItem from './previewItem';
+import previewRowItem from './preview-row-item.vue';
+import fancyDynamicTable from './dynamic/fancyDynamicTable.vue';
+import fancyDynamicTableItem from './dynamic/fancyDynamicTableItem';
+import { datas, addRow, deleteRow, fillDatas } from './custom/formDraw';
+import fancyEditTable from './table/fancyEditTable.vue';
 export default {
   name: 'formBuilder',
   props: {
@@ -135,44 +135,44 @@ export default {
       isInitData: false,
       isBuildFormData: false,
       currentIndex: -1
-    }
+    };
   },
   mounted() {
     this.$nextTick(() => {
       //构建表单
       if (this.buildData !== '' && !this.isBuildFormData) {
-        const buildData = JSON.parse(this.buildData)
-        this.itemList = buildData.list
-        this.isBuildFormData = true
+        const buildData = JSON.parse(this.buildData);
+        this.itemList = buildData.list;
+        this.isBuildFormData = true;
       }
       if (!this.isInitData) {
         //初始化form函数
-        this.handlerInitDatas()
+        this.handlerInitDatas();
       }
 
       if (this.modelValue !== '') {
-        const jsonValue = JSON.parse(this.modelValue)
-        this.handlerFillDatas(jsonValue)
+        const jsonValue = JSON.parse(this.modelValue);
+        this.handlerFillDatas(jsonValue);
       }
-    })
+    });
   },
   methods: {
     handlerValChange(key, origin) {
-      this.form[key] = origin
+      this.form[key] = origin;
       //向父组件触发一个事件，父组件监听该事件
-      this.$emit('valChange', key, origin)
+      this.$emit('valChange', key, origin);
     },
     handlerDynamicValChange(parentId, index, key, origin) {
-      this.$set(this.form[parentId][index], key, origin)
-      this.currentIndex = index
+      this.$set(this.form[parentId][index], key, origin);
+      this.currentIndex = index;
     },
     async validate() {
-      let valid = await this.$refs[this.formConf.formModel].validate()
+      let valid = await this.$refs[this.formConf.formModel].validate();
       if (valid) {
-        this.$message.success('success')
-        this.$emit('update:modelValue', JSON.stringify(this.form, null, 4))
+        this.$message.success('success');
+        this.$emit('update:modelValue', JSON.stringify(this.form, null, 4));
       } else {
-        this.$emit('update:modelValue', '')
+        this.$emit('update:modelValue', '');
       }
     },
     handlerAddRow: addRow,
@@ -183,11 +183,11 @@ export default {
   computed: {
     formConf() {
       if (this.buildData !== '') {
-        const buildData = JSON.parse(this.buildData)
-        buildData.config.disabled = this.disabled
-        return buildData.config
+        const buildData = JSON.parse(this.buildData);
+        buildData.config.disabled = this.disabled;
+        return buildData.config;
       } else {
-        return {}
+        return {};
       }
     }
   },
@@ -195,23 +195,23 @@ export default {
     modelValue(newVal, oldVal) {
       //构建表单
       if (this.buildData !== '' && !this.isBuildFormData) {
-        const buildData = JSON.parse(this.buildData)
-        this.itemList = buildData.list
-        this.isBuildFormData = true
+        const buildData = JSON.parse(this.buildData);
+        this.itemList = buildData.list;
+        this.isBuildFormData = true;
       }
 
       if (!this.isInitData) {
         //初始化form函数
-        this.handlerInitDatas()
+        this.handlerInitDatas();
       }
 
       if (this.modelValue !== '') {
-        const jsonValue = JSON.parse(this.modelValue)
-        this.handlerFillDatas(jsonValue)
+        const jsonValue = JSON.parse(this.modelValue);
+        this.handlerFillDatas(jsonValue);
       }
     }
   }
-}
+};
 </script>
 <style scoped>
 .preview-board {

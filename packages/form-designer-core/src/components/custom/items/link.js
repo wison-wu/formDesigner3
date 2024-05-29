@@ -28,4 +28,4 @@ export let link = {
   disabled: false,
   text: '链接',
   target: '_blank'
-}
+};

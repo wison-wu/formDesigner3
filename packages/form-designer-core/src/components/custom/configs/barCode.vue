@@ -5,10 +5,10 @@
     </el-form-item> -->
     <el-form-item label="ID">
       <el-tooltip
-          class="item"
-          effect="dark"
-          content="请注意,ID的修改可能会导致该组件相关事件失效！"
-          placement="left"
+        class="item"
+        effect="dark"
+        content="请注意,ID的修改可能会导致该组件相关事件失效！"
+        placement="left"
       >
         <el-input class="input" v-model="props.id"></el-input>
       </el-tooltip>
@@ -26,10 +26,10 @@
       <el-input v-model="props.modelValue"></el-input>
     </el-form-item>
     <el-form-item label="条码颜色" v-show="props.lineColor">
-      <el-color-picker v-model="props.lineColor" @change="handlerChangeBarCode"/>
+      <el-color-picker v-model="props.lineColor" @change="handlerChangeBarCode" />
     </el-form-item>
     <el-form-item label="背景颜色" v-show="props.background">
-      <el-color-picker v-model="props.background" @change="handlerChangeBackground"/>
+      <el-color-picker v-model="props.background" @change="handlerChangeBackground" />
     </el-form-item>
     <!--暂不启用-->
     <!-- <el-form-item label="条码宽度">
@@ -44,7 +44,7 @@
   </div>
 </template>
 <script lang="ts">
-import {Component, Prop} from "web-decorator-vue";
+import { Component, Prop } from 'web-decorator-vue';
 
 /**
  * 条码
@@ -65,7 +65,7 @@ export default class BarCode {
    * @param val
    */
   handlerChangeBarCode(val: any) {
-    if (val == null) this.props.lineColor = '#000'
+    if (val == null) this.props.lineColor = '#000';
   }
 
   // TODO 补齐作用
@@ -74,7 +74,7 @@ export default class BarCode {
    * @param val
    */
   handlerChangeBackground(val: any) {
-    if (val == null) this.props.background = '#fff'
+    if (val == null) this.props.background = '#fff';
   }
 }
 
@@ -88,7 +88,7 @@ export interface BarCodeOption {
    * 类型
    * @version 1.0.0
    */
-  compType:string;
+  compType: string;
   /**
    * id
    * @version 1.0.0
@@ -107,12 +107,12 @@ export interface BarCodeOption {
   /**
    * 是否显示span
    */
-  span:number;
+  span: number;
   /**
    * 条码值
    * @version 1.0.0
    */
-  modelValue:string;
+  modelValue: string;
   /**
    * 文本
    * @version 1.0.0
