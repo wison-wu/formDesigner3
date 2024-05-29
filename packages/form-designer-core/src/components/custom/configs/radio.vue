@@ -99,9 +99,9 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
-import draggable from 'vuedraggable'
-import { isNumberStr } from '../../utils/index'
+import { changeId } from '../mixin';
+import draggable from 'vuedraggable';
+import { isNumberStr } from '../../utils/index';
 /**
  * input的配置项
  */
@@ -115,65 +115,65 @@ let vm = {
   data() {
     return {
       val: 123
-    }
+    };
   },
   methods: {
     handlerChangeLabel(val) {
-      this.props.labelWidth = val ? 80 : 1
+      this.props.labelWidth = val ? 80 : 1;
     },
     handlerChangeDisStatus(val) {
-      this.props.readOnly = !val
+      this.props.readOnly = !val;
     },
     handlerChangeReadStatus(val) {
-      this.props.disabled = !val
+      this.props.disabled = !val;
     },
     setDefaultValue(val) {
       if (Array.isArray(val)) {
-        return val.join(',')
+        return val.join(',');
       }
       if (['string', 'number'].indexOf(val) > -1) {
-        return val
+        return val;
       }
       if (typeof val === 'boolean') {
-        return `${val}`
+        return `${val}`;
       }
-      return val
+      return val;
     },
     onDefaultValueInput(str) {
       if (Array.isArray(this.props.value)) {
         // 数组
-        this.props.value = str.split(',').map((val) => (isNumberStr(val) ? +val : val))
+        this.props.value = str.split(',').map((val) => (isNumberStr(val) ? +val : val));
       } else if (['true', 'false'].indexOf(str) > -1) {
-        this.props.value = JSON.parse(str)
+        this.props.value = JSON.parse(str);
         // 布尔
       } else {
         // 字符串和数字
-        this.props.value = str
+        this.props.value = str;
       }
     },
     addSelectItem() {
       this.props.options.push({
         label: '',
         value: ''
-      })
+      });
     },
     multipleChange(val) {
       //   this.$set(this.props, 'value', val ? [] : '')
     },
     handlerChangeDataType(value) {
       if (value === 'static') {
-        this.props.options = []
-        this.props.options = this.tempOptions
+        this.props.options = [];
+        this.props.options = this.tempOptions;
       } else {
-        this.tempOptions = this.props.options
-        this.props.options = []
+        this.tempOptions = this.props.options;
+        this.props.options = [];
       }
     }
   },
   mounted() {},
   watch: {}
-}
-export default vm
+};
+export default vm;
 </script>
 <style scoped>
 .input {

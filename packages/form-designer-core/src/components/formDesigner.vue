@@ -81,14 +81,14 @@
   </div>
 </template>
 <script>
-import draggable from 'vuedraggable'
-import designer from './designer.vue'
-import icon from './icon.vue'
-import { getSimpleId, setTableId } from './utils/IdGenerate'
-import { jsonClone } from './utils'
-import { formItems, assistFormItems, layoutFormItems } from './custom/itemList'
-import formConf from './custom/formConf'
-let tempActiveData
+import draggable from 'vuedraggable';
+import designer from './designer.vue';
+import icon from './icon.vue';
+import { getSimpleId, setTableId } from './utils/IdGenerate';
+import { jsonClone } from './utils';
+import { formItems, assistFormItems, layoutFormItems } from './custom/itemList';
+import formConf from './custom/formConf';
+let tempActiveData;
 export default {
   name: 'formDesigner',
   components: {
@@ -104,7 +104,7 @@ export default {
       designList: [],
       activeData: {},
       formConfig: formConf
-    }
+    };
   },
   props: {
     value: {
@@ -116,60 +116,60 @@ export default {
   methods: {
     addComponent(element) {},
     cloneComponent(origin) {
-      let clone = {}
-      clone = jsonClone(origin)
-      if (!clone.layout) clone.layout = 'colItem'
+      let clone = {};
+      clone = jsonClone(origin);
+      if (!clone.layout) clone.layout = 'colItem';
       if (clone.layout === 'colItem' || clone.layout === 'dynamicItem') {
-        let uId = 'fd_' + getSimpleId()
-        clone.id = uId
-        clone._id = uId
-        tempActiveData = clone
+        let uId = 'fd_' + getSimpleId();
+        clone.id = uId;
+        clone._id = uId;
+        tempActiveData = clone;
       } else if (clone.layout === 'rowItem') {
-        let uId = 'row_' + getSimpleId()
-        clone.id = uId
-        clone._id = uId
-        tempActiveData = clone
+        let uId = 'row_' + getSimpleId();
+        clone.id = uId;
+        clone._id = uId;
+        tempActiveData = clone;
       } else if (clone.layout === 'tableItem') {
-        let uId = 'table_' + getSimpleId()
-        clone.id = uId
-        clone._id = uId
+        let uId = 'table_' + getSimpleId();
+        clone.id = uId;
+        clone._id = uId;
         //增加td默认的id
-        setTableId(clone)
-        tempActiveData = clone
+        setTableId(clone);
+        tempActiveData = clone;
       }
-      this.$refs.designer.activeItem = tempActiveData
+      this.$refs.designer.activeItem = tempActiveData;
     },
     onStart(evt) {},
     onEnd(obj) {
       if (obj.from !== obj.to) {
-        this.activeData = tempActiveData
-        this.$refs.designer.activeItem = this.activeData
+        this.activeData = tempActiveData;
+        this.$refs.designer.activeItem = this.activeData;
         if (obj.to.className.indexOf('row-drag') < 0) {
-          this.designList.splice(obj.newIndex, 0, this.activeData)
+          this.designList.splice(obj.newIndex, 0, this.activeData);
         }
       } else {
-        this.$refs.designer.activeItem = {}
+        this.$refs.designer.activeItem = {};
       }
     },
     getFormData() {
-      return this.formData
+      return this.formData;
     },
     handlerUpdateJSON(json) {
-      const jsonObject = JSON.parse(json)
-      this.formConfig = jsonObject.config
-      this.designList = []
-      this.designList = this.designList.concat(jsonObject.list)
-      this.$refs['designer'].changeFormConfig(this.formConfig)
+      const jsonObject = JSON.parse(json);
+      this.formConfig = jsonObject.config;
+      this.designList = [];
+      this.designList = this.designList.concat(jsonObject.list);
+      this.$refs['designer'].changeFormConfig(this.formConfig);
     }
   },
   computed: {
     formData: function () {
-      const list = this.designList
-      const config = this.formConfig
-      let formData = {}
-      formData.list = list
-      formData.config = config
-      return JSON.stringify(formData)
+      const list = this.designList;
+      const config = this.formConfig;
+      let formData = {};
+      formData.list = list;
+      formData.config = config;
+      return JSON.stringify(formData);
       //this.$emit('input',JSON.stringify(formData));
     },
     dynamicTableExist() {
@@ -178,20 +178,20 @@ export default {
           this.formConfig.dynamicTableAllowed &&
           this.designList.filter((item) => item.compType === 'dynamicTable').length > 0 &&
           dynamicTableAllowedItems.includes(element.compType)
-        )
-      }
+        );
+      };
     }
   },
   watch: {
     value(newVal) {
       if (newVal !== '') {
-        const formData = JSON.parse(newVal)
-        this.designList = formData.list
-        this.formConfig = formData.config
+        const formData = JSON.parse(newVal);
+        this.designList = formData.list;
+        this.formConfig = formData.config;
       }
     }
   }
-}
+};
 </script>
 <style scoped>
 .container {

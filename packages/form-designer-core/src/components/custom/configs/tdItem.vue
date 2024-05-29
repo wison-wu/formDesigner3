@@ -18,8 +18,8 @@ export default {
   data() {
     return {
       predefineColors: ['#F6F6F6']
-    }
+    };
   },
   methods: {}
-}
+};
 </script>

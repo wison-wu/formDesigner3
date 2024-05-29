@@ -39,7 +39,7 @@ export default {
       default: 400
     }
   }
-}
+};
 </script>
 <style scoped>
 .text-left {

@@ -48,7 +48,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop } from 'web-decorator-vue'
+import { Component, Prop } from 'web-decorator-vue';
 
 @Component()
 export default class Alert {
@@ -56,7 +56,7 @@ export default class Alert {
   /**
    * 参数
    */
-  @Prop() props!: any
+  @Prop() props!: any;
   // TODO 不知道有没有用
   /**
    *
@@ -64,9 +64,9 @@ export default class Alert {
    */
   handlerShowLabel(val: any) {
     if (val) {
-      this.props.labelWidth = 80
+      this.props.labelWidth = 80;
     } else {
-      this.props.labelWidth = 0
+      this.props.labelWidth = 0;
     }
   }
 }

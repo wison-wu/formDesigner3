@@ -30,4 +30,4 @@ export let dynamicTable = {
   'sum-text': '合计',
   'summary-text': '元',
   columns: []
-}
+};

@@ -1,35 +1,35 @@
 <script setup>
-import { Plus } from '@element-plus/icons-vue'
-import { watch, getCurrentInstance, ref } from 'vue'
-import { ElMessage as message } from 'element-plus'
+import { Plus } from '@element-plus/icons-vue';
+import { watch, getCurrentInstance, ref } from 'vue';
+import { ElMessage as message } from 'element-plus';
 
-import { getRemoteData } from './composition'
-const props = defineProps(['conf', 'modelValue'])
-const { appContext } = getCurrentInstance()
+import { getRemoteData } from './composition';
+const props = defineProps(['conf', 'modelValue']);
+const { appContext } = getCurrentInstance();
 watch(
   () => props.conf.dataType,
   (newVal, oldVal) => {
-    getRemoteData(appContext, props.conf)
+    getRemoteData(appContext, props.conf);
   }
-)
+);
 //upload组件
-const fileList = ref([])
+const fileList = ref([]);
 const beforeUpload = (file) => {
   //非限定后缀不允许上传
-  const fileName = file.name
-  const suffixName = fileName.split('.').pop()
+  const fileName = file.name;
+  const suffixName = fileName.split('.').pop();
 
   if (!props.conf.accept.includes(suffixName)) {
-    message.error('该后缀文件不允许上传')
-    return false
+    message.error('该后缀文件不允许上传');
+    return false;
   }
-  const fileSize = file.size
+  const fileSize = file.size;
   if (fileSize > props.conf.fileSize * 1024 * 1024) {
-    message.error('文件大小超出限制，请检查！')
-    return false
+    message.error('文件大小超出限制，请检查！');
+    return false;
   }
-  return true
-}
+  return true;
+};
 </script>
 <template>
   <el-input

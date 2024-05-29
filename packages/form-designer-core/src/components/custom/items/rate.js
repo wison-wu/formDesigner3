@@ -28,4 +28,4 @@ export let rate = {
   max: 5,
   'allow-half': false,
   'show-score': false
-}
+};

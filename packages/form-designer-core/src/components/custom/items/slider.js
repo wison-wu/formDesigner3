@@ -37,4 +37,4 @@ export let slider = {
   'show-tooltip': true,
   //范围选择  1,50
   range: false
-}
+};

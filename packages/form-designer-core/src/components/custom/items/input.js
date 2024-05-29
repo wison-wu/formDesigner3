@@ -50,4 +50,4 @@ export let input = {
   prepend: '',
   //后缀
   append: ''
-}
+};

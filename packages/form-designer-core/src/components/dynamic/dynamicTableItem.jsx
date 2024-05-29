@@ -1,23 +1,23 @@
 /**
  * 动态表单（设计器）
  */
-import render from '../custom/render.vue'
-import './dynamicTable.css'
+import render from '../custom/render.vue';
+import './dynamicTable.css';
 
 const colItem = function (element) {
-  const { onSelectItem, onCopyItem, onDeleteItem } = this.$attrs
+  const { onSelectItem, onCopyItem, onDeleteItem } = this.$attrs;
   return (
     <div
       class={{ 'dynamic-table__item': true, active: this.isHover || this.isActive }}
       style="min-width:200px;width: auto;position:relative"
       onClick={(e) => {
-        onSelectItem(e, element)
+        onSelectItem(e, element);
       }}
       onMouseover={(e) => {
-        this.isHover = true
+        this.isHover = true;
       }}
       onMouseleave={(e) => {
-        this.isHover = false
+        this.isHover = false;
       }}
     >
       <div class="dynamic-table__item_title">{element.label}</div>
@@ -32,7 +32,7 @@ const colItem = function (element) {
         title="复制"
         v-show={this.showbutton}
         onClick={(e) => {
-          onCopyItem(e, element)
+          onCopyItem(e, element);
         }}
       >
         <el-icon>
@@ -44,7 +44,7 @@ const colItem = function (element) {
         title="删除"
         v-show={this.showbutton}
         onClick={(e) => {
-          onDeleteItem(e, element)
+          onDeleteItem(e, element);
         }}
       >
         <el-icon>
@@ -52,8 +52,8 @@ const colItem = function (element) {
         </el-icon>
       </span>
     </div>
-  )
-}
+  );
+};
 
 export default {
   name: 'dynamicTableItem',
@@ -62,30 +62,30 @@ export default {
     return {
       isActive: false,
       isHover: false
-    }
+    };
   },
   components: {
     render
   },
   methods: {
     handlerCopy(evt) {
-      this.$emit('copy', evt, this.item)
+      this.$emit('copy', evt, this.item);
     },
     handlerDelete(evt) {
-      this.$emit('delete', evt, this.item)
+      this.$emit('delete', evt, this.item);
     }
   },
   watch: {
     activeItem(newvalue) {
-      this.isActive = newvalue.id === this.item.id ? true : false
+      this.isActive = newvalue.id === this.item.id ? true : false;
     }
   },
   computed: {
     showbutton() {
-      return this.isActive || this.isHover
+      return this.isActive || this.isHover;
     }
   },
   render() {
-    return colItem.call(this, this.item)
+    return colItem.call(this, this.item);
   }
-}
+};

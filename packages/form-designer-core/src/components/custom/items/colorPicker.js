@@ -29,4 +29,4 @@ export let colorPicker = {
   //预定义颜色
   predefine: [],
   modelValue: '#409EFF'
-}
+};

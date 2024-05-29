@@ -118,15 +118,15 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
+import { changeId } from '../mixin';
 //引入 省市区 数据
-import { areaData } from '../../utils/chinaAreaData'
-import Codemirror from 'codemirror-editor-vue3'
+import { areaData } from '../../utils/chinaAreaData';
+import Codemirror from 'codemirror-editor-vue3';
 // // 核心样式
 // language
-import 'codemirror/mode/javascript/javascript.js'
+import 'codemirror/mode/javascript/javascript.js';
 // theme
-import 'codemirror/theme/dracula.css'
+import 'codemirror/theme/dracula.css';
 const options = {
   mode: 'text/javascript', // Language mode
   theme: 'dracula', // Theme
@@ -135,7 +135,7 @@ const options = {
   indentUnit: 2, // The smart indent unit is 2 spaces in length
   foldGutter: true, // Code folding
   styleActiveLine: true // Display the style of the selected row
-}
+};
 /**
  * input的配置项
  */
@@ -152,42 +152,42 @@ export default {
       codeMirror: options,
       staticOptions: '',
       tempOptions: []
-    }
+    };
   },
   methods: {
     handlerChangeLabel(val) {
-      this.props.labelWidth = val ? 80 : 1
+      this.props.labelWidth = val ? 80 : 1;
     },
     handlerStaticData() {
-      this.staticOptions = JSON.stringify(this.props.options, null, 4)
-      this.staticDataVisible = true
-      console.log(this.staticOptions)
+      this.staticOptions = JSON.stringify(this.props.options, null, 4);
+      this.staticDataVisible = true;
+      console.log(this.staticOptions);
     },
     handlerSave() {
-      this.props.options = JSON.parse(this.staticOptions)
-      this.staticDataVisible = false
+      this.props.options = JSON.parse(this.staticOptions);
+      this.staticDataVisible = false;
     },
     handlerChangeDataType(value) {
       if (value === 'static') {
-        this.props.options = []
-        this.props.options = this.tempOptions
+        this.props.options = [];
+        this.props.options = this.tempOptions;
       } else {
-        this.tempOptions = this.props.options
-        this.props.options = []
+        this.tempOptions = this.props.options;
+        this.props.options = [];
       }
     },
     handlerSetAreaData(val) {
       if (val) {
-        const areaoptions = areaData()
-        this.tempOptions = this.props.options
-        this.props.options = areaoptions
+        const areaoptions = areaData();
+        this.tempOptions = this.props.options;
+        this.props.options = areaoptions;
       } else {
-        this.props.options = this.tempOptions
+        this.props.options = this.tempOptions;
       }
     }
   },
   mounted() {},
   watch: {}
-}
+};
 </script>
 <style scoped></style>

@@ -61,4 +61,4 @@ export let checkbox = {
   rules: [],
   // 验证错误提示信息
   ruleError: '该字段不能为空'
-}
+};

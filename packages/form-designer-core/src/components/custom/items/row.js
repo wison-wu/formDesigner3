@@ -38,4 +38,4 @@ export let row = {
       list: []
     }
   ]
-}
+};

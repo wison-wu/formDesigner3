@@ -32,7 +32,7 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
+import { changeId } from '../mixin';
 /**
  * input的配置项
  */
@@ -42,9 +42,9 @@ export default {
   components: {},
   mixins: [changeId],
   data() {
-    return {}
+    return {};
   },
   methods: {}
-}
+};
 </script>
 <style scoped></style>

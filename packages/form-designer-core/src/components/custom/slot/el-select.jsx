@@ -1,11 +1,11 @@
 export default {
   default(conf) {
-    const list = []
+    const list = [];
     conf.options.forEach((item) => {
       list.push(
         <el-option label={item.label} value={item.value} disabled={item.disabled}></el-option>
-      )
-    })
-    return list
+      );
+    });
+    return list;
   }
-}
+};

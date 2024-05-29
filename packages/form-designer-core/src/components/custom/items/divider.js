@@ -18,4 +18,4 @@ export let divider = {
   //内容坐标 left|center|right
   'content-position': 'left',
   text: ''
-}
+};

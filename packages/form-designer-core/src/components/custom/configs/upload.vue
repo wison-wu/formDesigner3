@@ -68,23 +68,23 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
+import { changeId } from '../mixin';
 export default {
   name: 'uploadConfig',
   props: ['props'],
   components: {},
   mixins: [changeId],
   data() {
-    return {}
+    return {};
   },
   methods: {
     handlerChangeLabel(val) {
-      this.props.labelWidth = val ? 80 : 1
+      this.props.labelWidth = val ? 80 : 1;
     }
   },
   mounted() {},
   watch: {}
-}
+};
 </script>
 <style scoped>
 .input {

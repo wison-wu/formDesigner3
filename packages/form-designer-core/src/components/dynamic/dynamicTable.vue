@@ -12,10 +12,10 @@ export default {
     return {
       test1: '',
       list: []
-    }
+    };
   },
   components: {},
   methods: {}
-}
+};
 </script>
 <style></style>

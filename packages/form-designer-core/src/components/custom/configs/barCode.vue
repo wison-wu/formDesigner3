@@ -44,7 +44,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop } from 'web-decorator-vue'
+import { Component, Prop } from 'web-decorator-vue';
 
 /**
  * 条码
@@ -57,7 +57,7 @@ export default class BarCode {
   /**
    * 参数
    */
-  @Prop() props!: BarCodeOption
+  @Prop() props!: BarCodeOption;
 
   // TODO 补齐作用
   /**
@@ -65,7 +65,7 @@ export default class BarCode {
    * @param val
    */
   handlerChangeBarCode(val: any) {
-    if (val == null) this.props.lineColor = '#000'
+    if (val == null) this.props.lineColor = '#000';
   }
 
   // TODO 补齐作用
@@ -74,7 +74,7 @@ export default class BarCode {
    * @param val
    */
   handlerChangeBackground(val: any) {
-    if (val == null) this.props.background = '#fff'
+    if (val == null) this.props.background = '#fff';
   }
 }
 
@@ -88,53 +88,53 @@ export interface BarCodeOption {
    * 类型
    * @version 1.0.0
    */
-  compType: string
+  compType: string;
   /**
    * id
    * @version 1.0.0
    */
-  id: string
+  id: string;
   /**
    * 是否显示文本
    * @version 1.0.0
    */
-  showLabel: boolean
+  showLabel: boolean;
   /**
    * 宽度
    * @version 1.0.0
    */
-  labelWidth: number
+  labelWidth: number;
   /**
    * 是否显示span
    */
-  span: number
+  span: number;
   /**
    * 条码值
    * @version 1.0.0
    */
-  modelValue: string
+  modelValue: string;
   /**
    * 文本
    * @version 1.0.0
    */
-  label: string
+  label: string;
   /**
    * 边线颜色
    * @version 1.0.0
    */
-  lineColor: string
+  lineColor: string;
   /**
    * 背景色
    * @version 1.0.0
    */
-  background: string
+  background: string;
   /**
    * 条码高度
    */
-  height: number
+  height: number;
   /**
    * 显示值
    */
-  displayValue: number
+  displayValue: number;
 }
 </script>

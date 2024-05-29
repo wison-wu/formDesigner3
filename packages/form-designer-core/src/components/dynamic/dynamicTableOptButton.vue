@@ -13,9 +13,9 @@ export default {
   name: 'dynamicTableOptButton',
   props: ['type'],
   data() {
-    return {}
+    return {};
   }
-}
+};
 </script>
 <style scoped>
 .dynamic-table__item_opt {

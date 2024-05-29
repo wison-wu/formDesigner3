@@ -30,18 +30,18 @@ export default {
   name: 'rowConfig',
   props: ['props', 'getFormId'],
   data() {
-    return {}
+    return {};
   },
   methods: {
     handlerAddCol() {
-      const colIndex = this.props.columns + 1
+      const colIndex = this.props.columns + 1;
       this.props.columns.push({
         index: colIndex,
         span: 12,
         list: []
-      })
+      });
     }
   },
   mounted() {}
-}
+};
 </script>

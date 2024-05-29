@@ -49,8 +49,8 @@
   </div>
 </template>
 <script>
-import dayjs from 'dayjs'
-import { changeId } from '../mixin'
+import dayjs from 'dayjs';
+import { changeId } from '../mixin';
 export default {
   name: 'timeConfig',
   mixins: [changeId],
@@ -58,25 +58,25 @@ export default {
   data() {
     return {
       time: ''
-    }
+    };
   },
   methods: {
     handlerChangeTime(val) {
       //时间需要格式化之后再赋给modelValue，否则render会报错
       if (val !== null) {
-        const d = dayjs(val).format('HH:mm:ss')
-        this.props.modelValue = d
+        const d = dayjs(val).format('HH:mm:ss');
+        this.props.modelValue = d;
       }
     },
     handlerChangeRange(val) {
       if (val) {
-        this.props.modelValue = []
+        this.props.modelValue = [];
       } else {
-        this.props.modelValue = ''
+        this.props.modelValue = '';
       }
     }
   }
-}
+};
 </script>
 <style scoped>
 .input {

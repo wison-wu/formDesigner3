@@ -33,4 +33,4 @@ export let inputNumber = {
   readonly: false,
   required: false,
   regList: []
-}
+};

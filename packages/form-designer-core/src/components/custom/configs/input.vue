@@ -103,8 +103,8 @@
   </div>
 </template>
 <script>
-import { changeId } from '../mixin'
-import iconDialog from '../../iconDialog.vue'
+import { changeId } from '../mixin';
+import iconDialog from '../../iconDialog.vue';
 const defaultRules = {
   phone: { rule: '0?(13|14|15|17|18|19)[0-9]{9}', msg: '您输入的电话号码不符合规则' },
   email: {
@@ -113,7 +113,7 @@ const defaultRules = {
   },
   number: { rule: '^[0-9]*$', msg: '您输入的内容不符合纯数字规则' },
   idcard: { rule: '\\d{17}[\\d|x]|\\d{15}', msg: '您输入的身份证号码不符合规则' }
-}
+};
 /**
  * input的配置项
  */
@@ -129,33 +129,33 @@ export default {
       val: '',
       iconDialogVisible_suffix: false,
       iconDialogVisible_prefix: false
-    }
+    };
   },
   methods: {
     handlerChangeLabel(val) {
-      this.props.labelWidth = val ? 80 : 1
+      this.props.labelWidth = val ? 80 : 1;
     },
     handlerSuffixSelectIcon() {
-      this.iconDialogVisible_suffix = true
+      this.iconDialogVisible_suffix = true;
     },
     handlerPrefixSelectIcon() {
-      this.iconDialogVisible_prefix = true
+      this.iconDialogVisible_prefix = true;
     },
     addRuleItem() {
       this.props.rules.push({
         rule: '',
         msg: ''
-      })
+      });
     },
     handlerChangeRulesType(val) {
-      const obj = defaultRules[val]
+      const obj = defaultRules[val];
       this.props.rules.push({
         rule: obj.rule,
         msg: obj.msg
-      })
+      });
     }
   }
-}
+};
 </script>
 <style scoped>
 .input {

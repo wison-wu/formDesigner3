@@ -127,52 +127,52 @@ export default {
       dShow: true,
       alertShow: false,
       propertyExistShow: false
-    }
+    };
   },
   methods: {
     addColItem() {
       if (this.dLabel !== '' && this.dProperty !== '') {
-        const existOptions = this.colOptions.find((item) => item.property === this.dProperty)
+        const existOptions = this.colOptions.find((item) => item.property === this.dProperty);
         if (typeof existOptions === 'undefined') {
-          this.alertShow = false
-          this.propertyExistShow = false
-          const obj = {}
-          obj.index = this.colOptions.length
-          obj.show = this.dShow
-          obj.label = this.dLabel
-          obj.property = this.dProperty
-          obj.width = this.dWidth
-          this.colOptions.push(obj)
-          this.resetFields()
+          this.alertShow = false;
+          this.propertyExistShow = false;
+          const obj = {};
+          obj.index = this.colOptions.length;
+          obj.show = this.dShow;
+          obj.label = this.dLabel;
+          obj.property = this.dProperty;
+          obj.width = this.dWidth;
+          this.colOptions.push(obj);
+          this.resetFields();
         } else {
-          this.propertyExistShow = true
+          this.propertyExistShow = true;
         }
       } else {
-        this.alertShow = true
+        this.alertShow = true;
       }
     },
     resetFields() {
-      this.dLabel = ''
-      this.dProperty = ''
-      this.dWidth = 150
-      this.dShow = true
+      this.dLabel = '';
+      this.dProperty = '';
+      this.dWidth = 150;
+      this.dShow = true;
     },
     handlerDeleteRow(row) {
-      let index = this.colOptions.findIndex((item) => item.property == row.property)
-      this.colOptions.splice(index, 1)
+      let index = this.colOptions.findIndex((item) => item.property == row.property);
+      this.colOptions.splice(index, 1);
     }
   },
   mounted() {
     this.$nextTick(() => {
-      this.colOptions = this.colOptions.concat(JSON.parse(this.props.colConf))
-    })
+      this.colOptions = this.colOptions.concat(JSON.parse(this.props.colConf));
+    });
   },
   watch: {
     colOptions(newVal) {
-      this.props.colConf = JSON.stringify(newVal)
+      this.props.colConf = JSON.stringify(newVal);
     }
   }
-}
+};
 </script>
 <style scoped>
 .dialogList :deep(.el-collapse-item__header) {

@@ -58,7 +58,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop } from 'web-decorator-vue'
+import { Component, Prop } from 'web-decorator-vue';
 
 /**
  * 条码
@@ -72,14 +72,14 @@ export default class FDButton {
   /**
    * 参数
    */
-  @Prop() props!: ButtonOption
+  @Prop() props!: ButtonOption;
 
   /**
    * 设置按钮宽度
    * @param val
    */
   handlerShowLabel(val: number) {
-    this.props.labelWidth = val ? 80 : 0
+    this.props.labelWidth = val ? 80 : 0;
   }
 }
 
@@ -88,68 +88,68 @@ export interface ButtonOption {
    * id
    * @version 1.0.0
    */
-  id: string
+  id: string;
   /**
    * 是否显示文本
    * @version 1.0.0
    */
-  showLabel: boolean
+  showLabel: boolean;
   /**
    * 类型
    * @version 1.0.0
    */
-  compType: string
+  compType: string;
   /**
    * 宽度
    */
-  labelWidth: number
+  labelWidth: number;
   /**
    * 按钮文字
    */
-  text: string
+  text: string;
   /**
    * 文本
    * @version 1.0.0
    */
-  label: string
+  label: string;
   /**
    * 是否显示span
    * @version 1.0.0
    */
-  span: number
+  span: number;
   /**
    * 按钮类型
    * @version 1.0.0
    */
-  type: ButtonType
+  type: ButtonType;
   /**
    * 按钮大小
    * @version 1.0.0
    */
-  size: ButtonSize
+  size: ButtonSize;
   /**
    * 是否禁用
    * @version 1.0.0
    */
-  disabled: boolean
+  disabled: boolean;
   // TODO 补充类型
   /**
    * 简单样式
    * @version 1.0.0
    */
-  plain: object
+  plain: object;
   // TODO 补充类型
   /**
    * 圆角
    * @version 1.0.0
    */
-  round: object
+  round: object;
   // TODO 补充类型
   /**
    * 圆形
    * @version 1.0.0
    */
-  circle: object
+  circle: object;
 }
 
 /**
@@ -157,11 +157,11 @@ export interface ButtonOption {
  * @author chen yu
  * @version 1.0.0
  */
-export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text'
+export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text';
 /**
  * 按钮大小的类型
  * @author chen yu
  * @version 1.0.0
  */
-export type ButtonSize = 'large' | 'default' | 'small'
+export type ButtonSize = 'large' | 'default' | 'small';
 </script>

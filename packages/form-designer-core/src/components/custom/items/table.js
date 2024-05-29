@@ -1,8 +1,8 @@
 /**
  * 表格布局
  */
-import { getDefaultTrs } from '../../table/table'
-let trs = getDefaultTrs()
+import { getDefaultTrs } from '../../table/table';
+let trs = getDefaultTrs();
 export let table = {
   id: '',
   _id: '',
@@ -21,4 +21,4 @@ export let table = {
   tdStyle: '',
   width: 100,
   height: 50
-}
+};

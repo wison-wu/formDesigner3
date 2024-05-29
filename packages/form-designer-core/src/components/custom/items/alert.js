@@ -33,4 +33,4 @@ export let alert = {
   'show-icon': false,
   //主题  light/dark
   effect: 'light'
-}
+};

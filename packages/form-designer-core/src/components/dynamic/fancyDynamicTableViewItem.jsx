@@ -1,17 +1,17 @@
-import render from '../custom/viewRender.vue'
+import render from '../custom/viewRender.vue';
 const layouts = {
   colItem(h, element, value) {
-    element.disabled = true
-    let labelWidth = element.labelWidth ? `${element.labelWidth}px` : null
+    element.disabled = true;
+    let labelWidth = element.labelWidth ? `${element.labelWidth}px` : null;
     if (element.viewType === 'component') {
-      return <render key={element.id} conf={element} value={value} />
+      return <render key={element.id} conf={element} value={value} />;
     } else if (element.viewType === 'html') {
-      return <fancy-html text={value} />
+      return <fancy-html text={value} />;
     } else {
-      return <fancy-text text={value} align="center" />
+      return <fancy-text text={value} align="center" />;
     }
   }
-}
+};
 
 export default {
   name: 'fancyDynamicTableViewItem',
@@ -22,9 +22,9 @@ export default {
   data() {
     return {
       eleConfig: this.model
-    }
+    };
   },
   render(h) {
-    return layouts.colItem.call(this, h, this.eleConfig, this.value)
+    return layouts.colItem.call(this, h, this.eleConfig, this.value);
   }
-}
+};
