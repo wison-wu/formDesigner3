@@ -85,6 +85,11 @@ export default class BarCode {
  */
 export interface BarCodeOption {
   /**
+   * 类型
+   * @version 1.0.0
+   */
+  compType:string;
+  /**
    * id
    * @version 1.0.0
    */
