@@ -199,7 +199,6 @@ const layouts = {
             onActiveItemChange(element)
             event.stopPropagation()
           }}
-
         >
           <draggable
             tag="div"
@@ -225,11 +224,11 @@ const layouts = {
                       evt.stopPropagation()
                     }}
                     onCopyItem={(evt) => {
-                      this.handlerCopyItem(evt, element,item)
+                      this.handlerCopyItem(evt, element, item)
                       evt.stopPropagation()
                     }}
                     onDeleteItem={(evt) => {
-                      this.handlerDeleteItem(evt,element, item)
+                      this.handlerDeleteItem(evt, element, item)
                       evt.stopPropagation()
                     }}
                   />
@@ -341,7 +340,7 @@ export default defineComponent({
         }
       }
     },
-    handlerCopyItem(evt, element,item) {
+    handlerCopyItem(evt, element, item) {
       const clone = JSON.parse(JSON.stringify(item))
       let uId = 'fd_' + getSimpleId()
       clone.id = uId
@@ -349,7 +348,7 @@ export default defineComponent({
       element.columns.push(clone)
     },
     handlerDeleteItem(evt, element, item) {
-      const index = element.columns.findIndex(col=>col.id===item.id);
+      const index = element.columns.findIndex((col) => col.id === item.id)
       element.columns.splice(index, 1)
     }
   }

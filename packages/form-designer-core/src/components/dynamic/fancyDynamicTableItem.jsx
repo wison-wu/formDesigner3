@@ -2,7 +2,7 @@ import render from '../custom/previewRender.vue'
 import checkRules from '../custom/rule'
 const layouts = {
   colItem(element, value, parent, index) {
-    const { valChange } = this.$attrs;
+    const { valChange } = this.$attrs
     let rules = []
     if (element && element.rules) {
       rules = rules.concat(checkRules(element))
