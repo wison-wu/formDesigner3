@@ -74,10 +74,14 @@
       <draggable :list="props.options" handle=".option-drag" item-key="id">
         <template #item="{ element }">
           <div class="select-item option-drag">
-            <el-icon><DCaret /></el-icon>
+            <el-icon>
+              <DCaret />
+            </el-icon>
             <el-input v-model="element.label" placeholder="选项名" size="small" />
             <el-input v-model="element.value" placeholder="选项值" size="small" />
-            <el-icon class="remove-icon"><Remove /></el-icon>
+            <el-icon class="remove-icon">
+              <Remove />
+            </el-icon>
           </div>
         </template>
       </draggable>
@@ -100,84 +104,111 @@
     </div>
   </div>
 </template>
-<script>
-import { changeId } from '../mixin';
-import draggable from 'vuedraggable';
-import { isNumberStr } from '../../utils/index';
+<script lang="ts">
 /**
- * input的配置项
+ * 多选按钮
+ * @author chen yu
+ * @version 1.0.0
  */
-let vm = {
-  name: 'checkboxConfig',
-  props: ['props', 'getFormId'],
-  components: {
-    draggable
-  },
-  mixins: [changeId],
-  data() {
-    return {
-      defaultValue: ''
-    };
-  },
-  methods: {
-    handlerChangeLabel(val) {
-      this.props.labelWidth = val ? 80 : 1;
-    },
-    handlerChangeDisStatus(val) {
-      this.props.readOnly = !val;
-    },
-    handlerChangeReadStatus(val) {
-      this.props.disabled = !val;
-    },
-    setDefaultValue(val) {
-      if (Array.isArray(val)) {
-        return val.join(',');
-      }
-      if (['string', 'number'].indexOf(val) > -1) {
-        return val;
-      }
-      if (typeof val === 'boolean') {
-        return `${val}`;
-      }
-      return val;
-    },
-    onDefaultValueInput(str) {
-      if (Array.isArray(this.props.modelValue)) {
-        this.props.modelValue = str.split(',').map((val) => (isNumberStr(val) ? +val : val));
-      }
-    },
-    setOptionValue(item, val) {
-      item.value = isNumberStr(val) ? +val : val;
-    },
-    addSelectItem() {
-      this.props.options.push({
-        label: '',
-        value: ''
-      });
-    },
-    handlerChangeDataType(value) {
-      if (value === 'static') {
-        this.props.options = [];
-        this.props.options = this.tempOptions;
-      } else {
-        this.tempOptions = this.props.options;
-        this.props.options = [];
-      }
-    }
-  },
-  mounted() {},
-  watch: {
-    'props.modelValue'(newVal) {
-      this.defaultValue = newVal.join(',');
+import { Component, Prop } from 'web-decorator-vue';
+import type { CheckboxOption } from '@/components/model/CheckboxOption';
+import { isNumberStr } from '../../utils/index';
+
+@Component({
+  name: 'checkbox-config'
+})
+export default class CheckboxConfig {
+  /**
+   * CheckboxConfig
+   * @version 1.0.0
+   */
+  @Prop() props!: CheckboxOption;
+  /**
+   *
+   */
+  @Prop() getFormId: any;
+  /**
+   * 默认值
+   * @version 1.0.0
+   */
+  defaultValue: string = '';
+  // TODO 补全说明
+  /**
+   *
+   * @param val
+   */
+  handlerChangeLabel(val: any) {
+    this.props.labelWidth = val ? 80 : 1;
+  }
+
+  // TODO 补全说明
+  /**
+   *
+   * @param val
+   */
+  handlerChangeDisStatus(val: any) {
+    this.props.readOnly = !val;
+  }
+  // TODO 补全说明
+  /**
+   *
+   * @param str
+   */
+  onDefaultValueInput(str: any) {
+    if (Array.isArray(this.props.modelValue)) {
+      this.props.modelValue = str.split(',').map((val: any) => (isNumberStr(val) ? +val : val));
     }
   }
-};
-export default vm;
+  // TODO 补全说明
+  /**
+   *
+   */
+  addSelectItem() {
+    this.props.options.push({
+      label: '',
+      value: ''
+    });
+  }
+  // TODO 补全说明
+  /**
+   *
+   * @param value
+   */
+  handlerChangeDataType(value: any) {
+    if (value === 'static') {
+      this.props.options = [];
+      // TODO 错误待处理
+      // @ts-ignore
+      this.props.options = this.tempOptions;
+    } else {
+      // TODO 错误待处理
+      // @ts-ignore
+      this.tempOptions = this.props.options;
+      this.props.options = [];
+    }
+  }
+  // TODO 补全说明
+  /**
+   * @param val
+   */
+  handlerChangeId(val: any) {
+    let idArray = this.getFormId(this.props._id);
+    console.log(idArray);
+    if (idArray.includes(val)) {
+      // @ts-ignore 如果存在id相等，则提示
+      this.$message.error('该ID已经存在,请修改');
+      this.props.id = this.props._id;
+    } else {
+      this.props._id = val;
+    }
+  }
+}
 </script>
 <style scoped>
 .input {
   width: 75%;
 }
+
 .remove-icon {
   color: #f56c6c;
 }

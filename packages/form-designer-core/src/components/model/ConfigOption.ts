@@ -1,3 +1,5 @@
+import type { ButtonSize } from '@/components/model/FDType';
+
 /**
  * Base Option
  * @author chen yu
@@ -42,4 +44,8 @@ export interface ConfigOption {
    * @version 1.0.0
    */
   disabled?: boolean;
+  /**
+   * 大小
+   */
+  size?: ButtonSize;
 }
