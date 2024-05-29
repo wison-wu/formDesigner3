@@ -2,10 +2,10 @@
   <div v-show="props.compType === 'button'">
     <el-form-item label="ID">
       <el-tooltip
-        class="item"
-        effect="dark"
-        content="请注意,ID的修改可能会导致该组件相关事件失效！"
-        placement="left"
+          class="item"
+          effect="dark"
+          content="请注意,ID的修改可能会导致该组件相关事件失效！"
+          placement="left"
       >
         <el-input class="input" v-model="props.id"></el-input>
       </el-tooltip>
@@ -57,32 +57,111 @@
     </el-form-item>
   </div>
 </template>
-<script>
+<script lang="ts">
+import {Component, Prop} from "web-decorator-vue";
+
 /**
- * input的配置项
+ * 条码
+ * @author chen yu
+ * @version 1.0.0
  */
-export default {
-  name: 'buttonConfig',
-  props: {
-    props: {}
-  },
-  data() {
-    return {
-      iconDialogVisible: false
-    }
-  },
-  methods: {
-    handlerShowLabel(val) {
-      if (val) {
-        this.props.labelWidth = 80
-      } else {
-        this.props.labelWidth = 0
-      }
-    },
-    handlerSelectIcon() {
-      this.iconDialogVisible = true
-    }
-  },
-  mounted() {}
+@Component({
+  name: "button-config"
+})
+export default class FDButton {
+  /**
+   * 参数
+   */
+  @Prop() props!: ButtonOption;
+
+  /**
+   * 设置按钮宽度
+   * @param val
+   */
+  handlerShowLabel(val: number) {
+    this.props.labelWidth = val ? 80 : 0;
+  }
 }
+
+export interface ButtonOption {
+  /**
+   * id
+   * @version 1.0.0
+   */
+  id: string;
+  /**
+   * 是否显示文本
+   * @version 1.0.0
+   */
+  showLabel: boolean;
+  /**
+   * 类型
+   * @version 1.0.0
+   */
+  compType: string;
+  /**
+   * 宽度
+   */
+  labelWidth: number;
+  /**
+   * 按钮文字
+   */
+  text: string;
+  /**
+   * 文本
+   * @version 1.0.0
+   */
+  label: string;
+  /**
+   * 是否显示span
+   * @version 1.0.0
+   */
+  span: number;
+  /**
+   * 按钮类型
+   * @version 1.0.0
+   */
+  type: ButtonType;
+  /**
+   * 按钮大小
+   * @version 1.0.0
+   */
+  size: ButtonSize;
+  /**
+   * 是否禁用
+   * @version 1.0.0
+   */
+  disabled: boolean;
+  // TODO 补充类型
+  /**
+   * 简单样式
+   * @version 1.0.0
+   */
+  plain: object;
+  // TODO 补充类型
+  /**
+   * 圆角
+   * @version 1.0.0
+   */
+  round: object;
+  // TODO 补充类型
+  /**
+   * 圆形
+   * @version 1.0.0
+   */
+  circle: object;
+}
+
+/**
+ * 按钮类型
+ * @author chen yu
+ * @version 1.0.0
+ */
+export type ButtonType = "primary" | "success" | "warning" | "danger" | "info" | "text";
+/**
+ * 按钮大小的类型
+ * @author chen yu
+ * @version 1.0.0
+ */
+export type ButtonSize = "large" | "default" | "small";
 </script>
