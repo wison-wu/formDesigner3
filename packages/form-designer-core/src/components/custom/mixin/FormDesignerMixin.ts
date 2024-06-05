@@ -17,5 +17,6 @@ export const changeId = {
   }
 };
 export interface FormDesignerMixin {
+  // TODO 补齐作用
   handlerChangeId?: Function;
 }
