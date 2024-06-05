@@ -36,16 +36,6 @@
 <script lang="ts">
 import { changeId, type FormDesignerMixin } from '../mixin/FormDesignerMixin';
 import { Component, Prop } from 'web-decorator-vue';
-// export default {
-//   name: 'dynamicTableConfig',
-//   props: ['props', 'getFormId'],
-//   mixins: [changeId],
-//   data() {
-//     return {};
-//   },
-//   methods: {}
-// };
-
 @Component({
   name: 'date-config',
   mixins: [changeId]
