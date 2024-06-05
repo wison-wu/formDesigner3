@@ -22,19 +22,17 @@
     </el-form-item>
   </div>
 </template>
-<script>
+<script lang="ts">
+import { Component, Prop } from 'web-decorator-vue';
+
 /**
  * input的配置项
+ * @author chenyu
  */
-export default {
-  name: 'dividerConfig',
-  props: {
-    props: {}
-  },
-  data() {
-    return {};
-  },
-  methods: {},
-  mounted() {}
-};
+@Component({
+  name: 'divider-config'
+})
+export default class Divider {
+  @Prop() props: any;
+}
 </script>

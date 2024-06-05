@@ -4,10 +4,10 @@
       <el-collapse-item title="基础设置" name="1">
         <el-form-item label="ID">
           <el-tooltip
-              class="item"
-              effect="dark"
-              content="请注意,ID的修改可能会导致该组件相关事件失效！"
-              placement="left"
+            class="item"
+            effect="dark"
+            content="请注意,ID的修改可能会导致该组件相关事件失效！"
+            placement="left"
           >
             <el-input class="input" v-model="props.id"></el-input>
           </el-tooltip>
@@ -16,7 +16,7 @@
           <el-input class="input" v-model="props.label"></el-input>
         </el-form-item>
         <el-form-item label="栅格">
-          <el-input-number v-model="props.span" :min="1" :max="24"/>
+          <el-input-number v-model="props.span" :min="1" :max="24" />
         </el-form-item>
         <el-form-item label="标签宽度">
           <el-input-number v-model="props.labelWidth" :min="1" :max="200"></el-input-number>
@@ -47,10 +47,10 @@
         </el-form-item>
         <el-form-item label="表格高度">
           <el-input-number
-              v-model="props.height"
-              :step="10"
-              :max="1500"
-              :min="100"
+            v-model="props.height"
+            :step="10"
+            :max="1500"
+            :min="100"
           ></el-input-number>
         </el-form-item>
         <el-form-item label="字段值">
@@ -62,43 +62,43 @@
       </el-collapse-item>
       <el-collapse-item title="字段配置" name="2">
         <el-table :data="colOptions" @row-dblclick="handlerDeleteRow">
-          <el-table-column property="label" label="字段" align="center"/>
-          <el-table-column property="property" label="属性" align="center"/>
-          <el-table-column property="width" label="宽度" align="center" width="70"/>
+          <el-table-column property="label" label="字段" align="center" />
+          <el-table-column property="property" label="属性" align="center" />
+          <el-table-column property="width" label="宽度" align="center" width="70" />
           <el-table-column label="显示"></el-table-column>
         </el-table>
-        <br/>
+        <br />
         <el-alert
-            title="字段和属性不能为空,请检查"
-            v-show="alertShow"
-            type="error"
-            :closable="false"
+          title="字段和属性不能为空,请检查"
+          v-show="alertShow"
+          type="error"
+          :closable="false"
         />
         <el-alert
-            title="属性已存在请检查"
-            v-show="propertyExistShow"
-            type="error"
-            :closable="false"
+          title="属性已存在请检查"
+          v-show="propertyExistShow"
+          type="error"
+          :closable="false"
         />
-        <br/>
+        <br />
         <el-form-item label="字段" label-width="60px">
-          <el-input v-model="dLabel"/>
+          <el-input v-model="dLabel" />
         </el-form-item>
         <el-form-item label="属性" label-width="60px">
-          <el-input v-model="dProperty"/>
+          <el-input v-model="dProperty" />
         </el-form-item>
         <el-form-item label="宽度" label-width="60px">
-          <el-input-number v-model="dWidth"/>
+          <el-input-number v-model="dWidth" />
         </el-form-item>
         <el-form-item label="显示" label-width="60px">
-          <el-switch v-model="dShow"/>
+          <el-switch v-model="dShow" />
         </el-form-item>
         <div style="margin-left: 20px">
           <el-button
-              style="padding-bottom: 0"
-              icon="el-icon-circle-plus-outline"
-              link
-              @click="addColItem"
+            style="padding-bottom: 0"
+            icon="el-icon-circle-plus-outline"
+            link
+            @click="addColItem"
           >
             添加选项
           </el-button>
@@ -109,16 +109,14 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, VueHook, Watch } from "web-decorator-vue";
+import { Component, Prop, VueHook, Watch } from 'web-decorator-vue';
 /**
  * text的配置项
  * @author Chen yu
  */
-@Component(
-    {
-      name: "text-config"
-    }
-)
+@Component({
+  name: 'text-config'
+})
 export default class DialogList {
   //TODO 补齐作用
   @Prop() props!: any;
@@ -145,7 +143,7 @@ export default class DialogList {
       if (typeof existOptions === 'undefined') {
         this.alertShow = false;
         this.propertyExistShow = false;
-        const obj:any = {};
+        const obj: any = {};
         obj.index = this.colOptions.length;
         obj.show = this.dShow;
         obj.label = this.dLabel;
@@ -168,8 +166,8 @@ export default class DialogList {
     this.dShow = true;
   }
   //TODO 补齐作用
-  handlerDeleteRow(row:any) {
-    let index = this.colOptions.findIndex((item:any) => item.property == row.property);
+  handlerDeleteRow(row: any) {
+    let index = this.colOptions.findIndex((item: any) => item.property == row.property);
     this.colOptions.splice(index, 1);
   }
   //TODO 补齐作用
@@ -181,8 +179,8 @@ export default class DialogList {
     });
   }
   //TODO 补齐作用
-  @Watch("colOptions")
-  WatchColOptions(newVal:any) {
+  @Watch('colOptions')
+  WatchColOptions(newVal: any) {
     this.props.colConf = JSON.stringify(newVal);
   }
 }
