@@ -65,7 +65,7 @@
           <el-table-column property="label" label="字段" align="center" />
           <el-table-column property="property" label="属性" align="center" />
           <el-table-column property="width" label="宽度" align="center" width="70" />
-          <el-table-column label="显示"> </el-table-column>
+          <el-table-column label="显示"></el-table-column>
         </el-table>
         <br />
         <el-alert
@@ -104,81 +104,93 @@
           </el-button>
         </div>
       </el-collapse-item>
-      <el-collapse-item title="数值联动" name="3"> </el-collapse-item>
+      <el-collapse-item title="数值联动" name="3"></el-collapse-item>
     </el-collapse>
   </div>
 </template>
-<script>
+<script lang="ts">
+import { Component, Prop, VueHook, Watch } from 'web-decorator-vue';
 /**
  * text的配置项
+ * @author Chen yu
  */
-export default {
-  name: 'textConfig',
-  props: {
-    props: {}
-  },
-  data() {
-    return {
-      activePanel: '1',
-      colOptions: [],
-      dLabel: '',
-      dProperty: '',
-      dWidth: 150,
-      dShow: true,
-      alertShow: false,
-      propertyExistShow: false
-    };
-  },
-  methods: {
-    addColItem() {
-      if (this.dLabel !== '' && this.dProperty !== '') {
-        const existOptions = this.colOptions.find((item) => item.property === this.dProperty);
-        if (typeof existOptions === 'undefined') {
-          this.alertShow = false;
-          this.propertyExistShow = false;
-          const obj = {};
-          obj.index = this.colOptions.length;
-          obj.show = this.dShow;
-          obj.label = this.dLabel;
-          obj.property = this.dProperty;
-          obj.width = this.dWidth;
-          this.colOptions.push(obj);
-          this.resetFields();
-        } else {
-          this.propertyExistShow = true;
-        }
+@Component({
+  name: 'text-config'
+})
+export default class DialogList {
+  //TODO 补齐作用
+  @Prop() props!: any;
+  //TODO 补齐作用
+  activePanel: string = '1';
+  //TODO 补齐作用
+  colOptions: any[] = [];
+  //TODO 补齐作用
+  dLabel: string = '';
+  //TODO 补齐作用
+  dProperty: string = '';
+  //TODO 补齐作用
+  dWidth: number = 150;
+  //TODO 补齐作用
+  dShow: boolean = true;
+  //TODO 补齐作用
+  alertShow: boolean = false;
+  //TODO 补齐作用
+  propertyExistShow: boolean = false;
+  //TODO 补齐作用
+  addColItem() {
+    if (this.dLabel !== '' && this.dProperty !== '') {
+      const existOptions = this.colOptions.find((item) => item.property === this.dProperty);
+      if (typeof existOptions === 'undefined') {
+        this.alertShow = false;
+        this.propertyExistShow = false;
+        const obj: any = {};
+        obj.index = this.colOptions.length;
+        obj.show = this.dShow;
+        obj.label = this.dLabel;
+        obj.property = this.dProperty;
+        obj.width = this.dWidth;
+        this.colOptions.push(obj);
+        this.resetFields();
       } else {
-        this.alertShow = true;
+        this.propertyExistShow = true;
       }
-    },
-    resetFields() {
-      this.dLabel = '';
-      this.dProperty = '';
-      this.dWidth = 150;
-      this.dShow = true;
-    },
-    handlerDeleteRow(row) {
-      let index = this.colOptions.findIndex((item) => item.property == row.property);
-      this.colOptions.splice(index, 1);
+    } else {
+      this.alertShow = true;
     }
-  },
+  }
+  //TODO 补齐作用
+  resetFields() {
+    this.dLabel = '';
+    this.dProperty = '';
+    this.dWidth = 150;
+    this.dShow = true;
+  }
+  //TODO 补齐作用
+  handlerDeleteRow(row: any) {
+    let index = this.colOptions.findIndex((item: any) => item.property == row.property);
+    this.colOptions.splice(index, 1);
+  }
+  //TODO 补齐作用
+  @VueHook()
   mounted() {
+    // @ts-ignore
     this.$nextTick(() => {
       this.colOptions = this.colOptions.concat(JSON.parse(this.props.colConf));
     });
-  },
-  watch: {
-    colOptions(newVal) {
-      this.props.colConf = JSON.stringify(newVal);
-    }
   }
-};
+  //TODO 补齐作用
+  @Watch('colOptions')
+  WatchColOptions(newVal: any) {
+    this.props.colConf = JSON.stringify(newVal);
+  }
+}
 </script>
 <style scoped>
 .dialogList :deep(.el-collapse-item__header) {
   background-color: #f4f6fc;
   padding-left: 10px;
 }
+
 .dialogList :deep(.el-collapse-item__header) {
   height: 35px;
 }

@@ -1,5 +1,4 @@
-import type { ButtonType } from 'element-plus';
-import type { ButtonSize } from '@/components/model/FDType';
+import type { ButtonSize, ButtonType } from '@/components/model/FDType';
 import type { ConfigOption } from '@/components/model/ConfigOption';
 
 export interface ButtonOption extends ConfigOption {

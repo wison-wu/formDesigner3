@@ -2,10 +2,10 @@
   <div v-show="props.compType === 'editor'">
     <el-form-item label="ID">
       <el-tooltip
-        class="item"
-        effect="dark"
-        content="请注意,ID的修改可能会导致该组件相关事件失效！"
-        placement="left"
+          class="item"
+          effect="dark"
+          content="请注意,ID的修改可能会导致该组件相关事件失效！"
+          placement="left"
       >
         <el-input class="input" v-model="props.id" @change="handlerChangeId"></el-input>
       </el-tooltip>
@@ -30,22 +30,29 @@
     </el-form-item>
   </div>
 </template>
-<script>
-import { changeId } from '../mixin';
-export default {
-  name: 'editorConfig',
-  props: {
-    props: {}
-  },
-  mixins: [changeId],
-  methods: {
-    handlerShowLabel(val) {
-      if (val) {
-        this.props.labelWidth = 80;
-      } else {
-        this.props.labelWidth = 0;
-      }
+<script lang="ts">
+import { changeId, type FormDesignerMixin } from '../mixin/FormDesignerMixin';
+import { Component, Prop } from 'web-decorator-vue';
+
+@Component({
+  name: 'editor-config',
+  mixins: [changeId]
+})
+export default class Editor implements FormDesignerMixin {
+  // TODO 补齐注释
+  @Prop() props: any;
+  // TODO 补齐注释
+  @Prop() getFormId!: string;
+  // TODO 补齐注释
+  handlerChangeId?: Function;
+
+  // TODO 补齐注释
+  handlerShowLabel(val: any) {
+    if (val) {
+      this.props.labelWidth = 80;
+    } else {
+      this.props.labelWidth = 0;
     }
   }
-};
+}
 </script>

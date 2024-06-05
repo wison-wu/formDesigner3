@@ -1,8 +1,5 @@
 <template>
   <div v-show="props.compType === 'alert'">
-    <!-- <el-form-item label="字段名">
-      <el-input class="input" v-model="props"></el-input>
-    </el-form-item> -->
     <el-form-item label="ID">
       <el-tooltip
         class="item"

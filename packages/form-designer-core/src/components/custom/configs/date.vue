@@ -70,10 +70,9 @@
     </el-form-item>
   </div>
 </template>
-<script>
-// https://day.js.org/docs/en/display/format#list-of-all-available-formats
-
-import { changeId } from '../mixin';
+<script lang="ts">
+import { changeId, type FormDesignerMixin } from '../mixin/FormDesignerMixin';
+import { Component, Prop } from 'web-decorator-vue';
 const dateType = [
   {
     label: '日(date)',
@@ -118,34 +117,68 @@ const dateTimeFormat = {
   monthrange: 'YYYY-MM',
   datetimerange: 'YYYY-MM-DD HH:mm:ss'
 };
-
-export default {
-  name: 'dateConfig',
-  props: ['props', 'getFormId'],
-  components: {},
-  mixins: [changeId],
-  data() {
-    return {
-      dateTypeOptions: dateType,
-      date: ''
-    };
-  },
-  methods: {
-    handlerFormatChange(val) {
-      if (val === 'monthrange' || val === 'daterange' || val === 'datetimerange') {
-        this.props.modelValue = [];
-      } else {
-        this.props.modelValue = '';
-      }
-      this.props.format = dateTimeFormat[val];
-    },
-    handlerChangeValueFormat(val) {
-      this.props.format = val;
-    },
-    handlerSelectDate(val) {}
-  },
-  mounted() {}
-};
+/**
+ * 时间组件
+ * @author Chen Yu
+ */
+@Component({
+  name: 'date-config',
+  mixins: [changeId]
+})
+export default class Date implements FormDesignerMixin {
+  //TODO 补齐作用
+  /**
+   *
+   */
+  @Prop() props: any;
+  //TODO 补齐作用
+  /**
+   *
+   */
+  @Prop() getFormId!: string;
+  //TODO 补齐作用
+  /**
+   *
+   */
+  dateTypeOptions = dateType;
+  //TODO 补齐作用
+  /**
+   *
+   */
+  date: string = '';
+  /**
+   *
+   */
+  handlerChangeId?: Function;
+  //TODO 补齐作用
+  /**
+   *
+   * @param val
+   */
+  handlerFormatChange(val: any) {
+    if (val === 'monthrange' || val === 'daterange' || val === 'datetimerange') {
+      this.props.modelValue = [];
+    } else {
+      this.props.modelValue = '';
+    }
+    //@ts-ignore
+    this.props.format = dateTimeFormat[val];
+  }
+  //TODO 补齐作用
+  /**
+   *
+   * @param val
+   */
+  handlerChangeValueFormat(val: any) {
+    this.props.format = val;
+  }
+  //TODO 补齐作用
+  /**
+   *
+   * @param val
+   */
+  handlerSelectDate(val: any) {}
+}
 </script>
 <style scoped>
 .input {

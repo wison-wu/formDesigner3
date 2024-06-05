@@ -1,8 +1,5 @@
 <template>
   <div v-show="props.compType === 'barCode'">
-    <!-- <el-form-item label="字段名">
-      <el-input class="input" v-model="props"></el-input>
-    </el-form-item> -->
     <el-form-item label="ID">
       <el-tooltip
         class="item"
@@ -31,10 +28,6 @@
     <el-form-item label="背景颜色" v-show="props.background">
       <el-color-picker v-model="props.background" @change="handlerChangeBackground" />
     </el-form-item>
-    <!--暂不启用-->
-    <!-- <el-form-item label="条码宽度">
-      <el-input-number v-model="props.width"  :min="1" :max="10" :step="1"></el-input-number>
-    </el-form-item> -->
     <el-form-item label="条码高度">
       <el-input-number v-model="props.height" :min="10" :max="100" :step="1"></el-input-number>
     </el-form-item>
