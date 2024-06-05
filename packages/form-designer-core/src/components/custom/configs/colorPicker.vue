@@ -47,38 +47,58 @@
     </el-form-item>
   </div>
 </template>
-<script>
-import { changeId } from '../mixin';
-export default {
-  name: 'buttonConfig',
-  props: {
-    props: {}
-  },
-  mixins: [changeId],
-  data() {
-    return {
-      color: '#409EFF'
-    };
-  },
-  methods: {
-    handlerShowLabel(val) {
-      if (val) {
-        this.props.labelWidth = 80;
-      } else {
-        this.props.labelWidth = 0;
-      }
-    },
-    handlerAddPreColor(val) {
-      console.log(val);
-      this.props.predefine.push(val);
-      console.log(this.props.predefine);
-    },
-    handlerRemoveColor(index) {
-      this.props.predefine.splice(index, 1);
-    }
-  },
-  mounted() {}
-};
+<script lang="ts">
+import { Component, Prop } from 'web-decorator-vue';
+import { changeId, type FormDesignerMixin } from '@/components/custom/mixin/FormDesignerMixin';
+
+/**
+ *
+ */
+@Component({
+  name: 'color-picker-config',
+  mixins: [changeId]
+})
+export default class ColorPicker implements FormDesignerMixin {
+  /**
+   * 参数
+   */
+  @Prop() props!: any;
+  /**
+   * 颜色
+   */
+  color: string = '#409EFF';
+  /**
+   * mixins 会自动注入函数
+   */
+  handlerChangeId?: Function;
+
+  // TODO 补齐作用
+  /**
+   *
+   * @param val
+   */
+  handlerShowLabel(val: any) {
+    this.props.labelWidth = val ? 80 : 0;
+  }
+
+  // TODO 补齐作用
+  /**
+   *
+   * @param val
+   */
+  handlerAddPreColor(val: any) {
+    console.log(val);
+    this.props.predefine.push(val);
+    console.log(this.props.predefine);
+  }
+  // TODO 补齐作用
+  /**
+   * @param index
+   */
+  handlerRemoveColor(index: any) {
+    this.props.predefine.splice(index, 1);
+  }
+}
 </script>
 <style scoped>
 .el-color-picker__color {
