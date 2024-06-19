@@ -126,33 +126,31 @@ const dateTimeFormat = {
   mixins: [changeId]
 })
 export default class Date implements FormDesignerMixin {
-  //TODO 补齐作用
   /**
-   *
+   *  文件编辑器的属性,对应date.js文件中的属性
    */
   @Prop() props: any;
-  //TODO 补齐作用
   /**
-   *
+   *  更换id控件
    */
   @Prop() getFormId!: string;
-  //TODO 补齐作用
+
   /**
-   *
+   *  时间类型,日,周,月,年等
    */
   dateTypeOptions = dateType;
-  //TODO 补齐作用
+
   /**
-   *
+   *  无用,暂时保留
    */
   date: string = '';
   /**
    *
    */
   handlerChangeId?: Function;
-  //TODO 补齐作用
+
   /**
-   *
+   *  改变时间格式,value格式为月份范围,日期范围,日期时间范围时,modelValue为数组,其他情况为字符
    * @param val
    */
   handlerFormatChange(val: any) {
@@ -164,17 +162,16 @@ export default class Date implements FormDesignerMixin {
     //@ts-ignore
     this.props.format = dateTimeFormat[val];
   }
-  //TODO 补齐作用
   /**
-   *
+   *  输入时间格式,例如 yyyy-MM-dd
    * @param val
    */
   handlerChangeValueFormat(val: any) {
     this.props.format = val;
   }
-  //TODO 补齐作用
+
   /**
-   *
+   *  配置面板中选择控件的默认值
    * @param val
    */
   handlerSelectDate(val: any) {}
