@@ -120,11 +120,12 @@ import { isNumberStr } from '../../utils/index';
 export default class CheckboxConfig {
   /**
    * CheckboxConfig
+   * 文件编辑器的属性,对应checkboxjs文件中的属性
    * @version 1.0.0
    */
   @Prop() props!: CheckboxOption;
   /**
-   *
+   *  文件编辑器的属性,对应js文件中的属性
    */
   @Prop() getFormId: any;
   /**
@@ -132,26 +133,23 @@ export default class CheckboxConfig {
    * @version 1.0.0
    */
   defaultValue: string = '';
-  // TODO 补全说明
   /**
-   *
+   * 是否显示组件标签
    * @param val
    */
   handlerChangeLabel(val: any) {
     this.props.labelWidth = val ? 80 : 1;
   }
 
-  // TODO 补全说明
   /**
-   *
+   * 是否禁用组件标签
    * @param val
    */
   handlerChangeDisStatus(val: any) {
     this.props.readOnly = !val;
   }
-  // TODO 补全说明
   /**
-   *
+   *  输入默认值,提交到表单form属性当中
    * @param str
    */
   onDefaultValueInput(str: any) {
@@ -159,7 +157,6 @@ export default class CheckboxConfig {
       this.props.modelValue = str.split(',').map((val: any) => (isNumberStr(val) ? +val : val));
     }
   }
-  // TODO 补全说明
   /**
    *
    */
@@ -169,26 +166,27 @@ export default class CheckboxConfig {
       value: ''
     });
   }
-  // TODO 补全说明
   /**
-   *
+   *  切换数据类型,静态数据/动态数据(远程数据)
    * @param value
    */
   handlerChangeDataType(value: any) {
     if (value === 'static') {
       this.props.options = [];
+      // 切换checkbox的option选项
       // TODO 错误待处理
       // @ts-ignore
       this.props.options = this.tempOptions;
     } else {
+      // 切换checkbox的option选项
       // TODO 错误待处理
       // @ts-ignore
       this.tempOptions = this.props.options;
       this.props.options = [];
     }
   }
-  // TODO 补全说明
   /**
+   * configPanel中获取formid列表,判断是否id已经存在,避免表单组件的id重复,后续为事件扩展做准备
    * @param val
    */
   handlerChangeId(val: any) {

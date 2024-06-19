@@ -2,10 +2,10 @@
   <div v-show="props.compType === 'editor'">
     <el-form-item label="ID">
       <el-tooltip
-          class="item"
-          effect="dark"
-          content="请注意,ID的修改可能会导致该组件相关事件失效！"
-          placement="left"
+        class="item"
+        effect="dark"
+        content="请注意,ID的修改可能会导致该组件相关事件失效！"
+        placement="left"
       >
         <el-input class="input" v-model="props.id" @change="handlerChangeId"></el-input>
       </el-tooltip>
@@ -39,14 +39,14 @@ import { Component, Prop } from 'web-decorator-vue';
   mixins: [changeId]
 })
 export default class Editor implements FormDesignerMixin {
-  // TODO 补齐注释
+  // 文件编辑器的属性,对应js文件中的属性
   @Prop() props: any;
-  // TODO 补齐注释
+  // configPanel中获取formid列表,判断是否id已经存在,避免表单组件的id重复,后续为事件扩展做准备
   @Prop() getFormId!: string;
-  // TODO 补齐注释
+  // 更换id控件
   handlerChangeId?: Function;
 
-  // TODO 补齐注释
+  //是否显示组件标签
   handlerShowLabel(val: any) {
     if (val) {
       this.props.labelWidth = 80;
