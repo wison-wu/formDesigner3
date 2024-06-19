@@ -118,25 +118,44 @@ import { Component, Prop, VueHook, Watch } from 'web-decorator-vue';
   name: 'text-config'
 })
 export default class DialogList {
-  //TODO 补齐作用
+  /* *
+   * 文件编辑器的属性,对应dialogList.js文件中的属性
+   * */
   @Prop() props!: any;
-  //TODO 补齐作用
+  /**
+   * 当前激活的面板,默认第一个,基础设置
+   **/
   activePanel: string = '1';
-  //TODO 补齐作用
+  /**
+   * 字段组件配置列表
+   **/
   colOptions: any[] = [];
-  //TODO 补齐作用
+
+  /**
+   *  dialogList文字显示,防止接口和默认的值冲突,增加一个中转
+   **/
   dLabel: string = '';
-  //TODO 补齐作用
+  /**
+   *  同dLabel
+   **/
   dProperty: string = '';
-  //TODO 补齐作用
+  /**
+   * dialogList宽度
+   **/
   dWidth: number = 150;
-  //TODO 补齐作用
+  /**
+   * dialogList字段是否显示的参数
+   **/
   dShow: boolean = true;
-  //TODO 补齐作用
+  /**
+   * 字段属性存在的提示属性
+   **/
   alertShow: boolean = false;
-  //TODO 补齐作用
+  /**
+   * 属性存在的提示属性
+   **/
   propertyExistShow: boolean = false;
-  //TODO 补齐作用
+  // dialogList右侧配置面板,增加dialogList的表格字段
   addColItem() {
     if (this.dLabel !== '' && this.dProperty !== '') {
       const existOptions = this.colOptions.find((item) => item.property === this.dProperty);
@@ -158,19 +177,25 @@ export default class DialogList {
       this.alertShow = true;
     }
   }
-  //TODO 补齐作用
+  /**
+   * 右侧面板,配置dialogList属性时,增加完一列之后,重置成原始的字段配置
+   **/
   resetFields() {
     this.dLabel = '';
     this.dProperty = '';
     this.dWidth = 150;
     this.dShow = true;
   }
-  //TODO 补齐作用
+  /**
+   * 删除dialogList配置项
+   **/
   handlerDeleteRow(row: any) {
     let index = this.colOptions.findIndex((item: any) => item.property == row.property);
     this.colOptions.splice(index, 1);
   }
-  //TODO 补齐作用
+  /**
+   * 页面渲染时,自动加载字段配置列表,方便可视化配置dialogList组件字段
+   **/
   @VueHook()
   mounted() {
     // @ts-ignore
@@ -178,7 +203,9 @@ export default class DialogList {
       this.colOptions = this.colOptions.concat(JSON.parse(this.props.colConf));
     });
   }
-  //TODO 补齐作用
+  /**
+   * 监听,根据newVal实时渲染配置dialogList组件字段
+   **/
   @Watch('colOptions')
   WatchColOptions(newVal: any) {
     this.props.colConf = JSON.stringify(newVal);
