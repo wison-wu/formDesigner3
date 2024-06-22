@@ -54,16 +54,9 @@
 <script lang="ts">
 import {changeId, type FormDesignerMixin} from '../mixin/FormDesignerMixin';
 import {Component, Prop} from 'web-decorator-vue';
-import iconDialog from '../../iconDialog.vue';
-import {Remove} from "@element-plus/icons-vue";
-
 @Component({
   name: 'input-number',
   mixins: [changeId],
-  components: {
-    Remove,
-    iconDialog
-  }
 })
 export default class InputNumber implements FormDesignerMixin  {
   // TODO 补齐作用
@@ -80,10 +73,6 @@ export default class InputNumber implements FormDesignerMixin  {
   }
   // TODO 补齐注释
   handlerChangeId?: Function;
-  // TODO 补齐作用
-  handlerChangeReadStatus(val:any) {
-    this.props.disabled = val ? false : true;
-  }
 }
 </script>
 <style scoped>
