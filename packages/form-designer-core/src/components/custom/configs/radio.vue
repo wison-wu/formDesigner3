@@ -61,7 +61,6 @@
     <el-form-item label="数据类型">
       <el-radio-group v-model="props.dataType" @change="handlerChangeDataType">
         <el-radio-button value="static">静态数据</el-radio-button>
-        <!--        <el-radio-button value="dynamic">动态数据</el-radio-button>-->
       </el-radio-group>
     </el-form-item>
     <div v-show="props.dataType === 'static'">
@@ -93,32 +92,6 @@
   </div>
 </template>
 <script lang="ts">
-// import { changeId } from '../mixin';
-// import draggable from 'vuedraggable';
-// import { isNumberStr } from '../../utils/index';
-/**
- * input的配置项
- */
-// let vm = {
-//   name: 'inputConfig',
-//   props: ['props', 'getFormId'],
-//   components: {
-//     draggable
-//   },
-//   mixins: [changeId],
-//   data() {
-//     return {
-//       val: 123
-//     };
-//   },
-//   methods: {
-
-//   },
-//   mounted() {},
-//   watch: {}
-// };
-// export default vm;
-
 import {changeId, type FormDesignerMixin} from '../mixin/FormDesignerMixin';
 import {Component, Prop} from 'web-decorator-vue';
 import draggable from 'vuedraggable';
@@ -137,15 +110,15 @@ export default class FDRadio implements FormDesignerMixin{
   @Prop() getFormId: any;
   // TODO 补齐注释
   handlerChangeId?: Function;
-
+  // TODO 补齐注释
   handlerChangeLabel(val:any) {
     this.props.labelWidth = val ? 80 : 1;
   }
-
+  // TODO 补齐注释
   handlerChangeDisStatus(val:any) {
     this.props.readOnly = !val;
   }
-
+  // TODO 补齐注释
   setDefaultValue(val:any) {
     if (Array.isArray(val)) {
       return val.join(',');
@@ -158,7 +131,7 @@ export default class FDRadio implements FormDesignerMixin{
     }
     return val;
   }
-
+  // TODO 补齐注释
   onDefaultValueInput(str:any) {
     if (Array.isArray(this.props.value)) {
       // 数组
@@ -171,14 +144,14 @@ export default class FDRadio implements FormDesignerMixin{
       this.props.value = str;
     }
   }
-  
+  // TODO 补齐注释
   addSelectItem() {
     this.props.options.push({
       label: '',
       value: ''
     });
   }
-
+  // TODO 补齐注释
   handlerChangeDataType(value:any) {
     if (value === 'static') {
       this.props.options = [];

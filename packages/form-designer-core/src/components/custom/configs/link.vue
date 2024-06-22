@@ -62,7 +62,6 @@ export default class FDLink implements FormDesignerMixin {
       this.props.target = '_self';
     }
   }
-
   // TODO 补齐注释
   handlerChangeId?: Function;
 }
