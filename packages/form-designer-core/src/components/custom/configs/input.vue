@@ -115,7 +115,7 @@ const defaultRules = {
 /**
  * input的配置项
  */
-import {changeId} from '../mixin/FormDesignerMixin';
+import {changeId, type FormDesignerMixin} from '../mixin/FormDesignerMixin';
 import {Component, Prop} from 'web-decorator-vue';
 import iconDialog from '../../iconDialog.vue';
 import {Remove} from "@element-plus/icons-vue";
@@ -128,7 +128,7 @@ import {Remove} from "@element-plus/icons-vue";
     iconDialog
   }
 })
-export default class FDInput {
+export default class FDInput implements FormDesignerMixin  {
   // TODO 补齐作用
   @Prop() props: any;
   // TODO 补齐作用
@@ -167,6 +167,8 @@ export default class FDInput {
       msg: obj.msg
     });
   }
+  // TODO 补齐注释
+  handlerChangeId?: Function;
 }
 </script>
 <style scoped>

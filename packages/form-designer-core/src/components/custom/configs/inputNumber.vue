@@ -2,10 +2,10 @@
   <div v-show="props.compType === 'inputNumber'">
     <el-form-item label="ID">
       <el-tooltip
-        class="item"
-        effect="dark"
-        content="请注意,ID的修改可能会导致该组件相关事件失效！"
-        placement="left"
+          class="item"
+          effect="dark"
+          content="请注意,ID的修改可能会导致该组件相关事件失效！"
+          placement="left"
       >
         <el-input class="input" v-model="props.id" @change="handlerChangeId"></el-input>
       </el-tooltip>
@@ -51,29 +51,40 @@
     </el-form-item>
   </div>
 </template>
-<script>
-import { changeId } from '../mixin';
-export default {
-  name: 'inputConfig',
-  props: ['props', 'getFormId'],
-  components: {},
+<script lang="ts">
+import {changeId, type FormDesignerMixin} from '../mixin/FormDesignerMixin';
+import {Component, Prop} from 'web-decorator-vue';
+import iconDialog from '../../iconDialog.vue';
+import {Remove} from "@element-plus/icons-vue";
+
+@Component({
+  name: 'input-number',
   mixins: [changeId],
-  data() {
-    return {};
-  },
-  methods: {
-    handlerChangeLabel(val) {
-      this.props.labelWidth = val ? 80 : 1;
-    },
-    handlerChangeDisStatus(val) {
-      this.props.readOnly = val ? false : true;
-    },
-    handlerChangeReadStatus(val) {
-      this.props.disabled = val ? false : true;
-    }
-  },
-  mounted() {}
-};
+  components: {
+    Remove,
+    iconDialog
+  }
+})
+export default class InputNumber implements FormDesignerMixin  {
+  // TODO 补齐作用
+  @Prop() props: any;
+  // TODO 补齐作用
+  @Prop() getFormId: any;
+  // TODO 补齐作用
+  handlerChangeLabel(val:any) {
+    this.props.labelWidth = val ? 80 : 1;
+  }
+  // TODO 补齐作用
+  handlerChangeDisStatus(val:any) {
+    this.props.readOnly = val ? false : true;
+  }
+  // TODO 补齐注释
+  handlerChangeId?: Function;
+  // TODO 补齐作用
+  handlerChangeReadStatus(val:any) {
+    this.props.disabled = val ? false : true;
+  }
+}
 </script>
 <style scoped>
 .input {
