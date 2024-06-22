@@ -1,8 +1,5 @@
 <template>
   <div v-show="props.compType === 'radio'">
-    <!-- <el-form-item label="字段名">
-      <el-input class="input" v-model="props"></el-input>
-    </el-form-item> -->
     <el-form-item label="ID">
       <el-tooltip
         class="item"
@@ -19,9 +16,6 @@
     <el-form-item label="提示符">
       <el-input class="input" v-model="props.placeholder" placeholder="请输入提示符" />
     </el-form-item>
-    <!-- <el-form-item label="表单栅格">
-      <el-slider class="input" v-model="props.span" :max="24" :min="1" :marks="{12:''}"></el-slider>
-    </el-form-item> -->
     <el-form-item label="栅格间隔">
       <el-input-number v-model="props.gutter" :min="0"></el-input-number>
     </el-form-item>
@@ -98,82 +92,105 @@
     </div>
   </div>
 </template>
-<script>
-import { changeId } from '../mixin';
-import draggable from 'vuedraggable';
-import { isNumberStr } from '../../utils/index';
+<script lang="ts">
+// import { changeId } from '../mixin';
+// import draggable from 'vuedraggable';
+// import { isNumberStr } from '../../utils/index';
 /**
  * input的配置项
  */
-let vm = {
-  name: 'inputConfig',
-  props: ['props', 'getFormId'],
-  components: {
-    draggable
-  },
+// let vm = {
+//   name: 'inputConfig',
+//   props: ['props', 'getFormId'],
+//   components: {
+//     draggable
+//   },
+//   mixins: [changeId],
+//   data() {
+//     return {
+//       val: 123
+//     };
+//   },
+//   methods: {
+
+//   },
+//   mounted() {},
+//   watch: {}
+// };
+// export default vm;
+
+import {changeId, type FormDesignerMixin} from '../mixin/FormDesignerMixin';
+import {Component, Prop} from 'web-decorator-vue';
+import draggable from 'vuedraggable';
+import { isNumberStr } from '../../utils/index';
+@Component({
+  name: 'fd-radio',
   mixins: [changeId],
-  data() {
-    return {
-      val: 123
-    };
-  },
-  methods: {
-    handlerChangeLabel(val) {
-      this.props.labelWidth = val ? 80 : 1;
-    },
-    handlerChangeDisStatus(val) {
-      this.props.readOnly = !val;
-    },
-    handlerChangeReadStatus(val) {
-      this.props.disabled = !val;
-    },
-    setDefaultValue(val) {
-      if (Array.isArray(val)) {
-        return val.join(',');
-      }
-      if (['string', 'number'].indexOf(val) > -1) {
-        return val;
-      }
-      if (typeof val === 'boolean') {
-        return `${val}`;
-      }
-      return val;
-    },
-    onDefaultValueInput(str) {
-      if (Array.isArray(this.props.value)) {
-        // 数组
-        this.props.value = str.split(',').map((val) => (isNumberStr(val) ? +val : val));
-      } else if (['true', 'false'].indexOf(str) > -1) {
-        this.props.value = JSON.parse(str);
-        // 布尔
-      } else {
-        // 字符串和数字
-        this.props.value = str;
-      }
-    },
-    addSelectItem() {
-      this.props.options.push({
-        label: '',
-        value: ''
-      });
-    },
-    multipleChange(val) {
-      //   this.$set(this.props, 'value', val ? [] : '')
-    },
-    handlerChangeDataType(value) {
-      if (value === 'static') {
-        this.props.options = [];
-        this.props.options = this.tempOptions;
-      } else {
-        this.tempOptions = this.props.options;
-        this.props.options = [];
-      }
+  components:{
+    draggable
+  }
+})
+export default class FDRadio implements FormDesignerMixin{
+  // TODO 补齐作用
+  @Prop() props: any;
+  // TODO 补齐作用
+  @Prop() getFormId: any;
+  // TODO 补齐注释
+  handlerChangeId?: Function;
+
+  handlerChangeLabel(val:any) {
+    this.props.labelWidth = val ? 80 : 1;
+  }
+
+  handlerChangeDisStatus(val:any) {
+    this.props.readOnly = !val;
+  }
+
+  setDefaultValue(val:any) {
+    if (Array.isArray(val)) {
+      return val.join(',');
     }
-  },
-  mounted() {},
-  watch: {}
-};
-export default vm;
+    if (['string', 'number'].indexOf(val) > -1) {
+      return val;
+    }
+    if (typeof val === 'boolean') {
+      return `${val}`;
+    }
+    return val;
+  }
+
+  onDefaultValueInput(str:any) {
+    if (Array.isArray(this.props.value)) {
+      // 数组
+      this.props.value = str.split(',').map((val:any) => (isNumberStr(val) ? +val : val));
+    } else if (['true', 'false'].indexOf(str) > -1) {
+      this.props.value = JSON.parse(str);
+      // 布尔
+    } else {
+      // 字符串和数字
+      this.props.value = str;
+    }
+  }
+  
+  addSelectItem() {
+    this.props.options.push({
+      label: '',
+      value: ''
+    });
+  }
+
+  handlerChangeDataType(value:any) {
+    if (value === 'static') {
+      this.props.options = [];
+      //@ts-ignore
+      this.props.options = this.tempOptions;
+    } else {
+      //@ts-ignore
+      this.tempOptions = this.props.options;
+      this.props.options = [];
+    }
+  }
+}
 </script>
 <style scoped>
 .input {

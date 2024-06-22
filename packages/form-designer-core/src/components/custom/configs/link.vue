@@ -34,38 +34,6 @@
   </div>
 </template>
 <script lang="ts">
-// import { changeId } from '../mixin';
-// export default {
-//   name: 'buttonConfig',
-//   props: {
-//     props: {}
-//   },
-//   components: {},
-//   mixins: [changeId],
-//   data() {
-//     return {
-//       isNewWindow: true
-//     };
-//   },
-//   methods: {
-//     handlerShowLabel(val) {
-//       if (val) {
-//         this.props.labelWidth = 80;
-//       } else {
-//         this.props.labelWidth = 0;
-//       }
-//     },
-//     handlerChangeTargetValue(val) {
-//       if (val) {
-//         this.props.target = '_blank';
-//       } else {
-//         this.props.target = '_self';
-//       }
-//     }
-//   },
-//   mounted() {}
-// };
-
 import {changeId, type FormDesignerMixin} from '../mixin/FormDesignerMixin';
 import {Component, Prop} from 'web-decorator-vue';
 
