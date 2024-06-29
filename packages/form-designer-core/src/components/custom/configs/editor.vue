@@ -42,10 +42,7 @@ export default class Editor implements FormDesignerMixin {
   // TODO 补齐注释
   @Prop() props: any;
   // TODO 补齐注释
-  @Prop() getFormId!: string;
-  // TODO 补齐注释
   handlerChangeId?: Function;
-
   // TODO 补齐注释
   handlerShowLabel(val: any) {
     if (val) {
