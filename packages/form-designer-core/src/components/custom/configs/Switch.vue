@@ -13,9 +13,6 @@
     <el-form-item label="标题">
       <el-input class="input" v-model="props.label"></el-input>
     </el-form-item>
-    <!-- <el-form-item label="表单栅格">
-      <el-slider class="input" v-model="props.span" :max="24" :min="1" :marks="{12:''}"></el-slider>
-    </el-form-item> -->
     <el-form-item label="栅格间隔">
       <el-input-number v-model="props.gutter" :min="0"></el-input-number>
     </el-form-item>
