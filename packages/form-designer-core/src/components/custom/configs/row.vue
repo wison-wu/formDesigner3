@@ -25,23 +25,28 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  name: 'rowConfig',
-  props: ['props', 'getFormId'],
-  data() {
-    return {};
-  },
-  methods: {
-    handlerAddCol() {
-      const colIndex = this.props.columns + 1;
-      this.props.columns.push({
-        index: colIndex,
-        span: 12,
-        list: []
-      });
-    }
-  },
-  mounted() {}
-};
+<script lang="ts">
+import { Component, Prop } from "web-decorator-vue";
+@Component({
+  name: 'row-config',
+})
+export default class RowConfig{
+  // TODO 补齐作用
+  @Prop() props: any;
+  // TODO 补齐作用
+  @Prop() getFormId: any;
+
+  /**
+   *
+   *
+   */
+  handlerAddCol() {
+    const colIndex = this.props.columns + 1;
+    this.props.columns.push({
+      index: colIndex,
+      span: 12,
+      list: []
+    });
+  }
+}
 </script>
