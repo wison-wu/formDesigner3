@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'form-designer-core';
+  title: string = 'form-designer-core';
 }
