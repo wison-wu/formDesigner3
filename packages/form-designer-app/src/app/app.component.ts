@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     registerMicroApps([
       {
-        name: 'ant-design-vue', // app name registered
+        name: 'form-designer-vue-ant',
         entry: '//localhost:7100',
         container: '#yourContainer',
         activeRule: '/yourActiveRule',
