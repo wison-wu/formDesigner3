@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { registerMicroApps, start } from 'qiankun';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -7,6 +7,19 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'form-designer-app';
+export class AppComponent implements OnInit{
+  /**
+   * 生命周期狗子
+   */
+  ngOnInit(){
+    registerMicroApps([
+      {
+        name: 'ant-design-vue', // app name registered
+        entry: '//localhost:7100',
+        container: '#yourContainer',
+        activeRule: '/yourActiveRule',
+      },
+    ]);
+    start();
+  }
 }
