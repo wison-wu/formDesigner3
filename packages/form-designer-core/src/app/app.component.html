@@ -1,10 +1,53 @@
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
-
-<button type="button" class="btn btn-link">Link</button>
+<!--<button type="button" class="btn btn-primary">Primary</button>-->
+<!--<button type="button" class="btn btn-secondary">Secondary</button>-->
+<!--<button type="button" class="btn btn-success">Success</button>-->
+<!--<button type="button" class="btn btn-danger">Danger</button>-->
+<!--<button type="button" class="btn btn-warning">Warning</button>-->
+<!--<button type="button" class="btn btn-info">Info</button>-->
+<!--<button type="button" class="btn btn-light">Light</button>-->
+<!--<button type="button" class="btn btn-dark">Dark</button>-->
+<!--<button type="button" class="btn btn-link">Link</button>-->
+<div class="from-designer">
+  <header class="from-header">
+    <div class="from-logo">
+      <img src="https://img.alicdn.com/imgextra/i2/O1CN01Kq3OHU1fph6LGqjIz_!!6000000004056-55-tps-1141-150.svg">
+    </div>
+    <div class="header-button-bar">
+      <button>1233</button>
+      <button>1233</button>
+      <button>1233</button>
+      <button>1233</button>
+      <img class="composite-tabs-item-img" src="../public/static/zujian.svg" />
+    </div>
+  </header>
+  <main class="from-main">
+<!-- 组件栏 -->
+    <div class="main-composite">
+<!-- 组件目录     -->
+      <div class="composite-tabs">
+        @for (composite of compositeList;track $index){
+          <div class="composite-tabs-item" [ngClass]="$index == listClick ? 'click-item' : ''" (click)=" listClick = $index">
+            <img class="composite-tabs-item-img" [src]="composite.img" />
+          </div>
+        }
+      </div>
+<!-- 组件列表     -->
+      <div class="composite-tabs-content" [style]="isFiexd ? {'position': 'fixed'} :''">
+        <div class="tabs-content-header">
+          <div class="tabs-content-header-text"> {{ compositeList[listClick].name }} </div>
+          <div class="tabs-content-header-button">
+            <i class="bi bi-pin-angle" (click)="isFiexd = !isFiexd"></i>
+            <i class="bi bi-x-lg"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-workspace">
+      <div class="workspace-button-lise"></div>
+      <div class="workspace-content">
+        <i class="bi bi-x" ></i>
+      </div>
+    </div>
+    <div class="main-setting"></div>
+  </main>
+</div>
