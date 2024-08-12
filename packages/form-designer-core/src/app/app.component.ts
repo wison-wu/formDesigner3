@@ -19,24 +19,41 @@ export class AppComponent {
     {
       name:"组件",
       img:"./static/zujian.svg",
-      Chides:[
-        {"Name":"输入框","Image":""},
-        {"Name":"多行输入框","Image":""},
-        {"Name":"密码输入","Image":""},
-        {"Name":"数字输入","Image":""},
-        {"Name":"评分器","Image":""},
+      type:"compositeList",
+      chides:[
+        {"name":"输入控件",
+          chides:[
+            {"name":"输入框","Image":""},
+            {"name":"多行输入框","Image":""},
+            {"name":"密码输入","Image":""},
+            {"name":"数字输入","Image":""},
+            {"name":"评分器","Image":""},
+          ]
+        },
+        {
+          "name":"布局组件",
+          chides:[
+            {"name":"输入框","Image":""},
+            {"name":"多行输入框","Image":""},
+            {"name":"密码输入","Image":""},
+            {"name":"数字输入","Image":""},
+            {"name":"评分器","Image":""},
+          ]
+        }
+
       ]
     },
     {
       name:"大纲树",
+      type:"domList",
       img:"./static/list-outline.svg"
     },
     {
       name:"历史记录",
+      type: "timeList",
       img:"./static/history.svg"
     }
   ]
   //TODO 组件栏是否浮动
   isFiexd:boolean = false
-
 }
