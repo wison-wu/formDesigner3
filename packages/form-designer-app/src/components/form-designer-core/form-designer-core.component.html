@@ -1,0 +1,69 @@
+<div class="from-designer">
+  <header class="from-header">
+    <div class="from-logo">
+      <img src="https://img.alicdn.com/imgextra/i2/O1CN01Kq3OHU1fph6LGqjIz_!!6000000004056-55-tps-1141-150.svg">
+    </div>
+    <div class="header-button-bar">
+      <button>1234</button>
+      <button>1233</button>
+      <button>1233</button>
+      <button>1233</button>
+      <img class="composite-tabs-item-img" src="/static/zujian.svg" />
+    </div>
+  </header>
+  <main class="from-main">
+    <!-- 组件栏 -->
+    <div class="main-composite">
+      <!-- 组件目录-->
+      <div class="composite-tabs">
+        @for (composite of compositeList;track $index){
+          <div class="composite-tabs-item" [ngClass]="$index == listClick ? 'click-item' : ''" (click)=" listClick = $index">
+            <img class="composite-tabs-item-img" [src]="composite.img" />
+          </div>
+        }
+      </div>
+      <!-- 组件列表-->
+      <div class="composite-tabs-content" [style.position]="isFiexd?'fixed':'static'">
+        <div class="tabs-content-header">
+          <div class="tabs-content-header-text"> {{ compositeList[listClick].name }} </div>
+          <div class="tabs-content-header-button">
+            <i class="bi bi-pin-angle" (click)="isFiexd = !isFiexd"></i>
+            <i class="bi bi-x-lg"></i>
+          </div>
+        </div>
+        <div class="tabs-content-content">
+          @if (compositeList[listClick].type == "compositeList"){
+            @for (compositeItem of compositeList[listClick].chides;track $index){
+              <div class="tabs-content-item-list-header">
+                <i class="bi bi-chevron-down"></i>
+                <span>{{ compositeItem.name }}</span>
+              </div>
+              <div class="tabs-content-item-list-content">
+                @for (contentItem of compositeItem.chides;track $index){
+                  <div class="tabs-content-item-list-content-box">
+                    <div class="tabs-content-item-list-content-box-img"> 图片 </div>
+                    <div class="tabs-content-item-list-content-box-text">
+                      {{ contentItem.name }}
+                    </div>
+                  </div>
+                }
+              </div>
+            }
+          }
+          @if (compositeList[listClick].type == "domList"){
+
+          }
+          @if (compositeList[listClick].type == "timeList"){
+          }
+        </div>
+      </div>
+    </div>
+    <!-- 操作窗口   -->
+    <div class="main-workspace">
+      <div class="workspace-button-lise"></div>
+      <div class="workspace-content">
+      </div>
+    </div>
+    <div class="main-setting"></div>
+  </main>
+</div>
