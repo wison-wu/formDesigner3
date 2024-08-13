@@ -17,7 +17,7 @@ export default defineConfig({
   server: {
     port: 3002,
     cors: true,
-    origin: 'form-designer-vue-ant'
+    origin: 'http://localhost:3002'
   },
   resolve: {
     alias: {
