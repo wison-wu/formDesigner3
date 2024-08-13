@@ -1,12 +1,3 @@
-<!--<button type="button" class="btn btn-primary">Primary</button>-->
-<!--<button type="button" class="btn btn-secondary">Secondary</button>-->
-<!--<button type="button" class="btn btn-success">Success</button>-->
-<!--<button type="button" class="btn btn-danger">Danger</button>-->
-<!--<button type="button" class="btn btn-warning">Warning</button>-->
-<!--<button type="button" class="btn btn-info">Info</button>-->
-<!--<button type="button" class="btn btn-light">Light</button>-->
-<!--<button type="button" class="btn btn-dark">Dark</button>-->
-<!--<button type="button" class="btn btn-link">Link</button>-->
 <div class="from-designer">
   <header class="from-header">
     <div class="from-logo">
@@ -17,13 +8,13 @@
       <button>1233</button>
       <button>1233</button>
       <button>1233</button>
-      <img class="composite-tabs-item-img" src="../public/static/zujian.svg" />
+      <img class="composite-tabs-item-img" src="/static/zujian.svg" />
     </div>
   </header>
   <main class="from-main">
-<!-- 组件栏 -->
+    <!-- 组件栏 -->
     <div class="main-composite">
-<!-- 组件目录     -->
+      <!-- 组件目录-->
       <div class="composite-tabs">
         @for (composite of compositeList;track $index){
           <div class="composite-tabs-item" [ngClass]="$index == listClick ? 'click-item' : ''" (click)=" listClick = $index">
@@ -31,7 +22,7 @@
           </div>
         }
       </div>
-<!-- 组件列表     -->
+      <!-- 组件列表-->
       <div class="composite-tabs-content" [style.position]="isFiexd?'fixed':'static'">
         <div class="tabs-content-header">
           <div class="tabs-content-header-text"> {{ compositeList[listClick].name }} </div>
@@ -68,11 +59,10 @@
         </div>
       </div>
     </div>
-<!-- 操作窗口   -->
+    <!-- 操作窗口   -->
     <div class="main-workspace">
       <div class="workspace-button-lise"></div>
       <div class="workspace-content">
-
       </div>
     </div>
     <div class="main-setting"></div>
