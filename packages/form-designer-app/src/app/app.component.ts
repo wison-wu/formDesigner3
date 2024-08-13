@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { registerMicroApps, start } from 'qiankun';
 import { RouterLink, RouterOutlet } from "@angular/router";
+import { FormDesignerCoreComponent } from "../components/form-designer-core/form-designer-core.component";
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    RouterLink
+    RouterLink,
+    FormDesignerCoreComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
