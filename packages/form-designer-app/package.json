@@ -19,11 +19,11 @@
     "@angular/platform-browser-dynamic": "^18.1.0",
     "@angular/router": "^18.1.0",
     "bootstrap": "^5.3.3",
-    "form-designer-core": "workspace: *",
     "qiankun": "^2.10.16",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.3"
+    "zone.js": "~0.14.3",
+    "bootstrap-icons": "^1.11.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.1.2",
