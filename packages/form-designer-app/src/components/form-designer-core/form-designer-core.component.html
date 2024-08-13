@@ -12,11 +12,11 @@
         }
       </div>
       <!-- 组件列表-->
-      <div class="composite-tabs-content" [style.position]="isFiexd?'fixed':'static'">
+      <div class="composite-tabs-content" [style.position]="isFixed?'fixed':'static'">
         <div class="tabs-content-header">
           <div class="tabs-content-header-text"> {{ compositeList[listClick].name }} </div>
           <div class="tabs-content-header-button">
-            <i class="bi bi-pin-angle" (click)="isFiexd = !isFiexd"></i>
+            <i class="bi bi-pin-angle" (click)="isFixed = !isFixed"></i>
             <i class="bi bi-x-lg"></i>
           </div>
         </div>
