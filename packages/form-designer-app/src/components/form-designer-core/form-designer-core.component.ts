@@ -1,11 +1,13 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgClass } from "@angular/common";
+import {HeaderComponent} from "../header/header.component";
 
 @Component({
   selector: 'app-form-designer-core',
   standalone: true,
   imports: [
-    NgClass
+    NgClass,
+    HeaderComponent
   ],
   templateUrl: './form-designer-core.component.html',
   styleUrl: './form-designer-core.component.scss',
