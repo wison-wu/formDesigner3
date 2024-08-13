@@ -1,0 +1,16 @@
+.from-header{
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
+  border-bottom: 1px solid #d9d9d9;
+  .from-logo{
+    height: 100%;
+    img{
+      height: 100%;
+    }
+  }
+  .header-button-bar{
+
+  }
+}
