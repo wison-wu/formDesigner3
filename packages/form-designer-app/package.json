@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^18.1.0",
     "@angular/platform-browser-dynamic": "^18.1.0",
     "@angular/router": "^18.1.0",
+    "bootstrap": "^5.3.3",
+    "form-designer-core": "workspace: *",
     "qiankun": "^2.10.16",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -34,6 +36,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.5.2"
+    "typescript": "~5.5.2",
+    "@types/bootstrap": "^5.2.10"
   }
 }
