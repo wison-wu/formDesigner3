@@ -1,0 +1,34 @@
+{
+  "hash": "a8f0531f",
+  "configHash": "7c8aa8ae",
+  "lockfileHash": "eff04853",
+  "browserHash": "8f525515",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../../node_modules/.pnpm/@angular+common@18.1.2_@angular+core@18.1.2_rxjs@7.8.1_zone.js@0.14.8__rxjs@7.8.1/node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "5d78b93b",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../../node_modules/.pnpm/@angular+core@18.1.2_rxjs@7.8.1_zone.js@0.14.8/node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "29fbadf6",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../../node_modules/.pnpm/@angular+platform-browser@18.1.2_@angular+animations@18.1.2_@angular+core@18.1.2_rxjs@7.8.1_z_isd6p26m6yfugixvsmteen7zga/node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "679fd054",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-KEWAOYNT": {
+      "file": "chunk-KEWAOYNT.js"
+    },
+    "chunk-4LWQVNMP": {
+      "file": "chunk-4LWQVNMP.js"
+    }
+  }
+}

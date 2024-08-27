@@ -76,6 +76,7 @@
         width: 100%;
         height: 100%;
         overflow-y: scroll;
+        //组件列表
         .tabs-content-item-list-header{
           font-size: 13px;
           background-color: #eee;
@@ -86,7 +87,11 @@
           >i{
             font-size: 10px;
             margin-right: 5px;
+            transition: 0.3s;
           }
+        }
+        .open-svg{
+          transform: rotate(-90deg);
         }
         .tabs-content-item-list-content{
           border-bottom: 1px solid #d9d9d9;
@@ -94,6 +99,9 @@
           display: grid;
           grid-template-columns:1fr 1fr 1fr ;
           grid-gap: 1px;
+          overflow-y: hidden;
+          height: 0px;
+          transition: height 0.5s;
           .tabs-content-item-list-content-box{
             position: relative;
             background-color: white;
@@ -104,13 +112,60 @@
             .tabs-content-item-list-content-box-img{
               height: 40px;
               width: 100%;
-
+              margin: 10px 10px;
             }
             .tabs-content-item-list-content-box-text{
               font-size: 12px;
               margin-bottom: 12px;
             }
           }
+          .tabs-content-item-list-content-box:hover{
+            box-shadow: 0px 0px 3px #828282;
+          }
+        }
+        .open-content{
+          height: auto;
+        }
+        //大纲树
+        .tabs-content-item-domList-content{
+          width: 100%;
+          height: 100%;
+          overflow-x: scroll;
+          font-size: 12px;
+
+          .domList-content{
+            height: 30px;
+            display: flex;
+            align-items: center;
+            i{
+              font-size: 12px;
+              line-height: 30px;
+              margin: 0 5px;
+              transition: 0.3s;
+            }
+          }
+          .domList-content-chides{
+            margin-left: 22px;
+            overflow-y: hidden;
+          }
+          .domList-content-chides-down{
+            height: 0px;
+          }
+          .domList-content:hover{
+            color: aqua;
+          }
+        }
+        //时间表
+        .tabs-content-item-timeliest-content{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .tabs-content-item-timeliest-content:hover{
+          background-color: #eeeeee;
+        }
+        .timeliest-select{
+          background-color: #eeeeee;
         }
       }
     }
